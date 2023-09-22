@@ -40,7 +40,8 @@ class F90
 		class savePlayer 	{file = "Persistent\Core\savePlayer.sqf";};
 
 		//	UTILS
-		class generateUnitData {file = "Persistent\Utils\generateUnitData.sqf";};
+		class generateSaveTime	{file = "Persistent\Utils\generateSaveTime.sqf";};
+		class generateUnitData	{file = "Persistent\Utils\generateUnitData.sqf";};
 	};
 
 };
