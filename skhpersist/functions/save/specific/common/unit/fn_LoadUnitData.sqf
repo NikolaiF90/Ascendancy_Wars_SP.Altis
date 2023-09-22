@@ -80,7 +80,7 @@ private _AddUnitToAssignedVehicleIfNecessary =
 {
     params ["_unit", "_vehicleArray"];
 
-    if (isNil _vehicleArray) exitWith {};
+    if (isNil { _vehicleArray }) exitWith { 0 };
 
     private _FindAssignedVehicleInArray =
     {
@@ -176,7 +176,7 @@ private _stamina = [_unitData, "stamina"] call skhpersist_fnc_GetByKey;
 private _fatigue = [_unitData, "fatigue"] call skhpersist_fnc_GetByKey;
 private _formationDir = [_unitData, "formationDir"] call skhpersist_fnc_GetByKey;
 private _variables = [_unitData, "variables"] call skhpersist_fnc_GetByKey;
-//private _vehicle = [_unitData, "vehicle"] call skhpersist_fnc_GetByKey;
+private _vehicle = [_unitData, "vehicle"] call skhpersist_fnc_GetByKey;
 private _assignedTeam = [_unitData, "assignedTeam"] call skhpersist_fnc_GetByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
