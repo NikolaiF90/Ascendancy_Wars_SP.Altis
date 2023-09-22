@@ -4,7 +4,7 @@ StartMenuList_SelectedList = [StartMenu_ListBox] call F90_fnc_getSelectedList;
 if (isNil "StartMenuList_SelectedList")then{StartMenuList_SelectedList=0};
 
 doneSaving = false;
-AWSP_SaveTime = systemTime;
+[] call F90_fnc_generateSaveTime;
 [StartMenuList_SelectedList] call F90_fnc_saveGame;
 
 waitUntil {doneSaving};
