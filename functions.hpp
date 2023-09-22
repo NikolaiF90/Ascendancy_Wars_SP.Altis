@@ -37,6 +37,10 @@ class F90
 		class saveData		{file = "Persistent\Core\saveData.sqf";};
 		class saveGame		{file = "Persistent\Core\saveGame.sqf";};
 		class saveMetadata	{file = "Persistent\Core\saveMetadata.sqf";};
+		class savePlayer 	{file = "Persistent\Core\savePlayer.sqf";};
+
+		//	UTILS
+		class generateUnitData {file = "Persistent\Utils\generateUnitData.sqf";};
 	};
 
 };
