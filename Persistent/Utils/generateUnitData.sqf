@@ -111,7 +111,7 @@ private _unitData = [];
 _unitData pushBack ["class", typeOf _unit];
 _unitData pushBack ["generalDamage", damage _unit];
 _unitData pushBack ["damages", getAllHitPointsDamage _unit];
-_unitData pushBack ["posRotation", [_unit] call skhpersist_fnc_GeneratePositionAndRotationArray];
+_unitData pushBack ["posRotation", [_unit] call F90_fnc_generatePositioningData];
 _unitData pushBack ["loadout", getUnitLoadout _unit];
 _unitData pushBack ["side", side _unit];
 _unitData pushBack ["skills", [_unit] call _GenerateSkillsArray];
@@ -135,7 +135,7 @@ if (vehicle _unit != _unit) then
 
 if (_isLeader) then
 {
-    _unitData pushBack ["group", [_unit] call skhpersist_fnc_GenerateGroupArray];
+    _unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
     _unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
 };
 

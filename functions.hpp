@@ -34,14 +34,27 @@ class F90
 	class Persistent
 	{
 		//	CORE
-		class saveData		{file = "Persistent\Core\saveData.sqf";};
-		class saveGame		{file = "Persistent\Core\saveGame.sqf";};
-		class saveMetadata	{file = "Persistent\Core\saveMetadata.sqf";};
-		class savePlayer 	{file = "Persistent\Core\savePlayer.sqf";};
+		class clearSave				{file = "Persistent\Core\clearSave.sqf";};
+		class listExistingVariables	{file = "Persistent\Core\listExistingVariables.sqf";};
+		class loadVarFromNamespace	{file = "Persistent\Core\loadVarFromNamespace.sqf";};
+		class saveCustomContainers	{file = "Persistent\Core\saveCustomContainers.sqf";};
+		class saveCustomUnits		{file = "Persistent\Core\saveCustomUnits.sqf";};
+		class saveCustomVariables	{file = "Persistent\Core\saveCustomVariables.sqf";};
+		class saveCustomVehicles	{file = "Persistent\Core\saveCustomVehicles.sqf";};
+		class saveData				{file = "Persistent\Core\saveData.sqf";};
+		class saveEnvironment		{file = "Persistent\Core\saveEnvironment.sqf";};
+		class saveGame				{file = "Persistent\Core\saveGame.sqf";};
+		class saveMapMarkers		{file = "Persistent\Core\saveMapMarkers.sqf";};
+		class saveMetadata			{file = "Persistent\Core\saveMetadata.sqf";};
+		class savePlayer 			{file = "Persistent\Core\savePlayer.sqf";};
 
 		//	UTILS
-		class generateSaveTime	{file = "Persistent\Utils\generateSaveTime.sqf";};
-		class generateUnitData	{file = "Persistent\Utils\generateUnitData.sqf";};
+		class compileCode				{file = "Persistent\Utils\compileCode.sqf";};
+		class generateCargoData 		{file = "Persistent\Utils\generateCargoData.sqf";};
+		class generateGroupData			{file = "Persistent\Utils\generateGroupData.sqf";};
+		class generatePositioningData	{file = "Persistent\Utils\generatePositioningData.sqf";};
+		class generateSaveTime			{file = "Persistent\Utils\generateSaveTime.sqf";};
+		class generateUnitData			{file = "Persistent\Utils\generateUnitData.sqf";};
 	};
 
 };
