@@ -5,14 +5,12 @@ If element for given _key doesn't exist, nil is returned.
 
 params ["_array", "_key"];
 
-private ["_value"];
-
+_value = "";
 {
-    if (_key == (_x # 0)) exitWith { _value = _x # 1 };
-    if (_key != (_x # 0)) then 
+    if (_key == (_x # 0) && !(isNil {_x # 1})) exitWith
     {
-        diag_log format ["KEY:%1", _key];
-        diag_log format ["VALUE:%1", _value];
+        _value = _x # 1;
     };
 } forEach _array;
+
 _value;

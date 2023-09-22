@@ -8,4 +8,4 @@ params ["_slot"];
 [format ["Loading player data from save slot %1.", _slot]] call skhpersist_fnc_LogToRPT;
 
 private _unitData = ["player", _slot] call skhpersist_fnc_LoadData;
-[player, _unitData, nil] call skhpersist_fnc_LoadUnitData;
+[player, _unitData, objNull] call skhpersist_fnc_LoadUnitData;

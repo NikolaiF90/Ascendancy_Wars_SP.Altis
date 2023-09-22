@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=14;
+		nextID=18;
 	};
 	class MarkerIDProvider
 	{
@@ -20,21 +20,21 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={12576.553,39.225166,14323.226};
-		dir[]={0.02779147,-0.18252423,0.98280853};
-		up[]={0.0051592859,0.98320132,0.18245131};
-		aside[]={0.99960041,0,-0.028266307};
+		pos[]={12562.41,39.225166,14359.621};
+		dir[]={0.68206328,-0.68764913,0.24885416};
+		up[]={0.64599496,0.72604322,0.23569447};
+		aside[]={0.34275398,0,-0.93942529};
 	};
 };
 binarizationWanted=0;
 sourceName="Ascendancy%20Wars%201%2e2%20SP";
 addons[]=
 {
-	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
 	"A3_Modules_F",
-	"A3_Soft_F_MRAP_01"
+	"A3_Soft_F_MRAP_01",
+	"A3_Characters_F"
 };
 class AddonsMetaData
 {
@@ -43,36 +43,36 @@ class AddonsMetaData
 		items=5;
 		class Item0
 		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item1
-		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item1
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -107,67 +107,6 @@ class Mission
 	{
 		items=10;
 		class Item0
-		{
-			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={12583.946,15.460929,14369.293};
-						angles[]={0,1.8558313,-0};
-					};
-					side="Independent";
-					flags=7;
-					class Attributes
-					{
-						name="commanderX";
-						isPlayer=1;
-					};
-					id=1;
-					type="I_G_Soldier_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.02;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
-			class Attributes
-			{
-			};
-			id=0;
-		};
-		class Item1
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -233,7 +172,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Marker";
 			position[]={12690.188,30.237,14750.453};
@@ -246,7 +185,7 @@ class Mission
 			id=3;
 			atlOffset=2.8610229e-005;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Marker";
 			position[]={12473.074,74.329002,15200.53};
@@ -259,7 +198,7 @@ class Mission
 			id=4;
 			atlOffset=-0.00048828125;
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -272,7 +211,7 @@ class Mission
 			type="Logic";
 			atlOffset=-9.5367432e-007;
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -284,7 +223,7 @@ class Mission
 			id=7;
 			type="Logic";
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -296,7 +235,7 @@ class Mission
 			id=8;
 			type="Logic";
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -308,7 +247,7 @@ class Mission
 			id=9;
 			type="Logic";
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
@@ -325,7 +264,7 @@ class Mission
 			type="B_MRAP_01_F";
 			atlOffset=-0.0023117065;
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Marker";
 			position[]={12768.628,4.0809999,14293.214};
@@ -337,6 +276,69 @@ class Mission
 			b=50;
 			id=13;
 			atlOffset=-0.00020360947;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12582.571,15.708197,14371.31};
+						angles[]={0,2.7048938,0};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						name="commanderX";
+						isPlayer=1;
+					};
+					id=17;
+					type="I_G_Soldier_F";
+					atlOffset=0.00045490265;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male04GRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=16;
+			atlOffset=0.00045490265;
 		};
 	};
 };

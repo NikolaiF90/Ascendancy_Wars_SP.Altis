@@ -131,12 +131,12 @@ _unitData pushBack ["assignedTeam", assignedTeam _unit];
 if (vehicle _unit != _unit) then
 {
     _unitData pushBack ["vehicle", [_unit] call _GenerateVehicleArray];
+}else
+{
+    _unitData pushBack ["vehicle", []];
 };
 
-if (_isLeader) then
-{
-    _unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
-    _unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
-};
+_unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
+_unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
 
 _unitData;
