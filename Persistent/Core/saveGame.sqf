@@ -16,7 +16,7 @@ PSave_SaveInProgress = true;
 ["saveGame", "Done clearing save"] call F90_fnc_debug;
 
 [_slot] call F90_fnc_saveMetadata;
-[_slot] call skhpersist_fnc_SavePlayer;
+[_slot] call F90_fnc_savePlayer;
 [_slot] call skhpersist_fnc_SaveCustomContainers;
 [_slot] call skhpersist_fnc_SaveCustomUnits;
 [_slot] call skhpersist_fnc_SaveCustomVariables;
