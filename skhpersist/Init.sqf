@@ -1,0 +1,1 @@
+[] call skhpersist_fnc_InitializeSaveSystem;
