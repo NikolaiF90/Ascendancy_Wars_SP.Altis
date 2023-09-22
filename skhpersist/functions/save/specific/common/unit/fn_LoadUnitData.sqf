@@ -32,7 +32,7 @@ private _JoinUnitToLeaderIfSpecified =
 {
     params ["_unit", "_leader"];
     
-    if (!isNil { _leader }) then
+    if (!isNil "_leader") then
     {
         [_unit] joinSilent _leader;
     };
@@ -143,7 +143,13 @@ private _LoadVariables =
         private _key = _x # 0;
         private _value = _x # 1;
 
-        _unit setVariable [_key, _value];
+        if(isNil "_value") then 
+        {
+            _unit setVariable [_key, nil];
+        }else
+        {
+            _unit setVariable [_key, _value];
+        };
     } forEach _variablesArray;
 };
 
