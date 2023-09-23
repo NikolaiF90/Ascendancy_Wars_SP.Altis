@@ -99,7 +99,7 @@ private _AddUnitToAssignedVehicleIfNecessary =
 
     private _vehicleInstance = [_vehicleAssignmentId] call _FindAssignedVehicleInArray;
          
-    if (!isNull _vehicleInstance) then
+    if (!isNull _vehicleInstance && (_roleArray != "")) then
     {
         private _role = _roleArray # 0;
 
