@@ -6,6 +6,8 @@
 	[idc] call F90_fnc_getSelectedList;
 
 	0	idc = idc of the listbox to get the data from 
+
+	return the index of the clicked item from the listboxs
 */
 
 _listID = _this # 0;

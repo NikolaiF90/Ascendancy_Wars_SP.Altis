@@ -165,3 +165,70 @@ class persistentMenu
 
 	};
 };
+
+class recruitMenu
+{
+	idd = 1003;
+
+	class controls 
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Givabo)
+		////////////////////////////////////////////////////////
+
+		class recruit_background: RscText
+		{
+			idc = 3000;
+			x = 0.309219 * safezoneW + safezoneX;
+			y = 0.324 * safezoneH + safezoneY;
+			w = 0.381563 * safezoneW;
+			h = 0.374 * safezoneH;
+			colorBackground[] = {0.25,0.25,0.2,1};
+		};
+		class recruit_listbox: RscListbox
+		{
+			idc = 3500;
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.39 * safezoneH + safezoneY;
+			w = 0.226875 * safezoneW;
+			h = 0.22 * safezoneH;
+			colorBackground[] = {0.25,0.25,0.2,0};
+		};
+		class recruit_button: RscButton
+		{
+			idc = 3600;
+			text = "Recruit"; //--- ToDo: Localize;
+			x = 0.572187 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.108281 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {0.5,0.45,0.1,1};
+			action = "[AWSPRecruit_SelectedRecruit] call F90_fnc_spawnRecruit";
+		};
+		class recruitprice_text: RscText
+		{
+			idc = 3001;
+			text = "10000"; //--- ToDo: Localize;
+			x = 0.603125 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.0515625 * safezoneW;
+			h = 0.044 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+		class pricetext_text: RscText
+		{
+			idc = 3002;
+			text = "Price: "; //--- ToDo: Localize;
+			x = 0.572187 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.04125 * safezoneW;
+			h = 0.066 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};

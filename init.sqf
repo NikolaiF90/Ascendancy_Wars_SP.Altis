@@ -21,4 +21,5 @@ waitUntil {initVarDone};
 player addAction ["Persistent", {[] call F90_fnc_openPersistentTab;}];
 #include "L_ambiCivs\init.sqf"
 
+flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];
 
