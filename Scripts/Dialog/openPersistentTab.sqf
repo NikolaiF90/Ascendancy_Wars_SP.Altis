@@ -3,7 +3,7 @@ if(F90_Debug)then
 	diag_log "[F90 openPersistentTab] Player opened PersistentTab";
 };
 
-createDialog "startMenu";
+createDialog "persistentMenu";
 
 StartMenuList_SelectedList = [StartMenu_ListBox] call F90_fnc_getSelectedList;
 if (isNil "StartMenuList_SelectedList")then{StartMenuList_SelectedList=0};

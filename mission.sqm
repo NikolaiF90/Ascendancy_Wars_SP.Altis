@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=18;
+		nextID=21;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={12562.41,39.225166,14359.621};
-		dir[]={0.68206328,-0.68764913,0.24885416};
-		up[]={0.64599496,0.72604322,0.23569447};
-		aside[]={0.34275398,0,-0.93942529};
+		pos[]={12582.874,39.101788,14332.239};
+		dir[]={0.069897458,-0.59759033,0.79874915};
+		up[]={0.052095238,0.80180156,0.59531528};
+		aside[]={0.99619293,-3.7252903e-009,-0.087175503};
 	};
 };
 binarizationWanted=0;
@@ -34,13 +34,14 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Soft_F_MRAP_01",
-	"A3_Characters_F"
+	"A3_Characters_F",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -76,6 +77,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item5
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=15399035;
@@ -105,7 +113,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
 			dataType="Logic";
@@ -313,7 +321,7 @@ class Mission
 								class data
 								{
 									singleType="STRING";
-									value="Male04GRE";
+									value="Male02ENGB";
 								};
 							};
 						};
@@ -330,7 +338,20 @@ class Mission
 								};
 							};
 						};
-						nAttributes=2;
+						class Attribute2
+						{
+							property="unitInsignia";
+							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Spetsnaz223rdDetachment";
+								};
+							};
+						};
+						nAttributes=3;
 					};
 				};
 			};
@@ -339,6 +360,23 @@ class Mission
 			};
 			id=16;
 			atlOffset=0.00045490265;
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12572.251,19.428829,14370.554};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="flagfia_0";
+			};
+			id=18;
+			type="Flag_FIA_F";
+			atlOffset=9.5367432e-007;
 		};
 	};
 };

@@ -31,7 +31,7 @@ private _vehicles = [];
     _vehicleArray pushBack ["generalDamage", damage _vehicle];
     _vehicleArray pushBack ["damages", getAllHitPointsDamage _vehicle];
     _vehicleArray pushBack ["cargo", [_vehicle] call F90_fnc_generateCargoData];
-    _vehicleArray pushBack ["posRotation", [_vehicle] call F90_generatePositioningData];
+    _vehicleArray pushBack ["posRotation", [_vehicle] call F90_fnc_generatePositioningData];
     _vehicleArray pushBack ["turrets", [_vehicle] call _GenerateTurretArray];
     _vehicleArray pushBack ["materials", getObjectMaterials _vehicle];
     _vehicleArray pushBack ["textures", getObjectTextures _vehicle];

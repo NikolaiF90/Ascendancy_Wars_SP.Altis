@@ -57,4 +57,9 @@ class F90
 		class generateUnitData			{file = "Persistent\Utils\generateUnitData.sqf";};
 	};
 
+	class Scripts
+	{
+		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
+		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
+	};
 };
