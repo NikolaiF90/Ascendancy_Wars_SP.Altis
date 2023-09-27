@@ -27,7 +27,7 @@ What is the difference?
 
 ### Dependencies
 
-* Currently this mission has other mod dependencies either than CBA.
+* Currently this mission has no other mod dependencies either than CBA.
 * But note that this mission is Single-Player only. Multiplayer needs to be reconsidered if ones requested. But for now, it is all about you yourself.
 
 ## Help and FAQ
