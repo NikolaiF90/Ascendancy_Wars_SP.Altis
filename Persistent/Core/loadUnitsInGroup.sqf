@@ -1,8 +1,18 @@
 /*
-Loads and applies given _unitData to _unit and assigns it to given _leader (if specified).
+	Function to load units in specified group
+	Modified version of fn_loadUnitsData of skhpersist's script
+	This version is modified to make it able to load units under the leader as the original unable to load units under the leader properly
+	Not sure why, but the script can't pass something nil as it will return as any. So the old script won't work
+
+	SYNTAX:
+	[_unitData, _leader] call F90_fnc_laodUnitsInGroup;
+
+	PARAMETERS:
+	0	_unitData	the data like class,skills,damage,loadouts, etc of the unit itself
+	1	_leader		The script will assign the unit to its leader
 */
 
-params ["_unit", "_unitData", "_leader"];
+params ["_unitData", "_leader"];
 
 private _CreateUnitIfDoesntExist =
 {
@@ -16,6 +26,7 @@ private _CreateUnitIfDoesntExist =
     _unit;
 };
 
+/*
 private _RemoveOtherUnitsFromGroup =
 {
     params ["_unit"];
@@ -27,16 +38,7 @@ private _RemoveOtherUnitsFromGroup =
         };
     } forEach (units _unit);
 };
-
-private _JoinUnitToLeaderIfSpecified =
-{
-    params ["_unit", "_leader"];
-    
-    if (!isNil "_leader") then
-    {
-        [_unit] joinSilent _leader;
-    };
-};
+*/
 
 private _LoadUnitsInGroup =
 {
@@ -162,7 +164,7 @@ private _LoadSkills =
     } forEach _skillsArray;
 };
 
-[format ["Loading unit data for unit %1.", _unit]] call skhpersist_fnc_LogToRPT;
+["loadUnitsInGroup", format["Loading unit data for unit under command of %1", _leader]] call F90_fnc_debug;
 
 private _class = [_unitData, "class"] call skhpersist_fnc_GetByKey;
 private _side = [_unitData, "side"] call skhpersist_fnc_GetByKey;
@@ -185,12 +187,12 @@ private _variables = [_unitData, "variables"] call skhpersist_fnc_GetByKey;
 private _vehicle = [_unitData, "vehicle"] call skhpersist_fnc_GetByKey;
 private _assignedTeam = [_unitData, "assignedTeam"] call skhpersist_fnc_GetByKey;
         
-_unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
+private _unit = (createGroup _side) createUnit [_class, [0,0,0],[],0,"FORM"];
 _unit setVariable ["BIS_enableRandomization", false];
 
-[_unit] call _RemoveOtherUnitsFromGroup;
-[_unit, _leader] call _JoinUnitToLeaderIfSpecified;
-[_unit, _group] call _LoadUnitsInGroup;
+//	[_unit] call _RemoveOtherUnitsFromGroup;
+[_unit] joinSilent _leader;
+//	[_unit, _group] call _LoadUnitsInGroup;
 [_unit, _orders] call _LoadOrders;
 [_unit, _groupOrders] call _LoadGroupOrders;
 [_unit, _variables] call _LoadVariables;

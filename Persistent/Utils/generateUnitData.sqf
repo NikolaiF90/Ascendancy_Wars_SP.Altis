@@ -136,7 +136,9 @@ if (vehicle _unit != _unit) then
     _unitData pushBack ["vehicle", []];
 };
 
-_unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
-_unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
-
+if (_isLeader) then
+{
+    _unitData pushBack ["group", [_unit] call F90_fnc_generateGroupData];
+    _unitData pushBack ["groupOrders", [_unit] call _GenerateGroupOrdersArray];
+};
 _unitData;

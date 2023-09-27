@@ -10,7 +10,7 @@ params ["_leader"];
 private _groupArray = units group _leader;
 private _unitsData = [];
 
-["generateGroupData",format ["Generating group array for leader %1.", _leader]] call F90_fnc_debug;
+["generateGroupData",format ["Generating group data for leader %1.", _leader]] call F90_fnc_debug;
 
 {
     if (_x != _leader && alive _x) then

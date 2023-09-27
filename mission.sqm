@@ -21,9 +21,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={12582.874,39.101788,14332.239};
-		dir[]={0.069897458,-0.59759033,0.79874915};
-		up[]={0.052095238,0.80180156,0.59531528};
-		aside[]={0.99619293,-3.7252903e-009,-0.087175503};
+		dir[]={-0.39130911,-0.48903933,0.77956253};
+		up[]={-0.21939003,0.8722617,0.43706688};
+		aside[]={0.89372545,0,0.4486143};
 	};
 };
 binarizationWanted=0;
@@ -33,7 +33,6 @@ addons[]=
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
 	"A3_Modules_F",
-	"A3_Soft_F_MRAP_01",
 	"A3_Characters_F",
 	"A3_Structures_F_Mil_Flags"
 };
@@ -41,7 +40,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -65,19 +64,12 @@ class AddonsMetaData
 		};
 		class Item3
 		{
-			className="A3_Soft_F";
-			name="Arma 3 Alpha - Unarmored Land Vehicles";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item4
-		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
@@ -113,7 +105,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=11;
+		items=10;
 		class Item0
 		{
 			dataType="Logic";
@@ -257,23 +249,6 @@ class Mission
 		};
 		class Item7
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={12591.684,17.674362,14365.669};
-				angles[]={6.2152901,5.0609727,0.038647637};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=11;
-			type="B_MRAP_01_F";
-			atlOffset=-0.0023117065;
-		};
-		class Item8
-		{
 			dataType="Marker";
 			position[]={12768.628,4.0809999,14293.214};
 			name="outpost_2";
@@ -285,7 +260,7 @@ class Mission
 			id=13;
 			atlOffset=-0.00020360947;
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Group";
 			side="Independent";
@@ -361,7 +336,7 @@ class Mission
 			id=16;
 			atlOffset=0.00045490265;
 		};
-		class Item10
+		class Item9
 		{
 			dataType="Object";
 			class PositionInfo
