@@ -36,6 +36,7 @@ class F90
 		//	CORE
 		class clearSave				{file = "Persistent\Core\clearSave.sqf";};
 		class listExistingVariables	{file = "Persistent\Core\listExistingVariables.sqf";};
+		class loadUnitsInGroup		{file = "Persistent\Core\loadUnitsInGroup.sqf";};
 		class loadVarFromNamespace	{file = "Persistent\Core\loadVarFromNamespace.sqf";};
 		class saveCustomContainers	{file = "Persistent\Core\saveCustomContainers.sqf";};
 		class saveCustomUnits		{file = "Persistent\Core\saveCustomUnits.sqf";};
