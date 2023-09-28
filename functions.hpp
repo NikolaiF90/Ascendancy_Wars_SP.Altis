@@ -2,7 +2,7 @@ class F90
 {
 	class Base
 	{
-		class debug {file = "DebugController.sqf"};
+		class debug {file = "DebugController.sqf";};
 	};
 
 	class Dialog 
@@ -17,8 +17,6 @@ class F90
 
 	class EOS
 	{
-		class eosInit 	{file = "EOS\eosInit.sqf";};
-		//--CORE--//
 		class eosCore	{file = "EOS\core\eosCore.sqf";};
 		class bLaunch	{file = "EOS\core\bLaunch.sqf";};
 		class eosLaunch {file = "EOS\core\eosLaunch.sqf";};
@@ -27,8 +25,10 @@ class F90
 	class Init
 	{
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
+		class initGarrison			{file = "Init\initGarrison.sqf";};
 		class initPersistent		{file = "Init\initpersistent.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
+//		class initZone				{file = "Init\initZone.sqf";};
 	};
 
 	class Persistent
@@ -36,6 +36,9 @@ class F90
 		//	CORE
 		class clearSave				{file = "Persistent\Core\clearSave.sqf";};
 		class listExistingVariables	{file = "Persistent\Core\listExistingVariables.sqf";};
+		class loadData 				{file = "Persistent\Core\loadData.sqf";};
+		class loadGame 				{file = "Persistent\Core\loadGame.sqf";};
+		class loadGarrison 			{file = "Persistent\Core\loadGarrison.sqf";};
 		class loadUnitsInGroup		{file = "Persistent\Core\loadUnitsInGroup.sqf";};
 		class loadVarFromNamespace	{file = "Persistent\Core\loadVarFromNamespace.sqf";};
 		class saveCustomContainers	{file = "Persistent\Core\saveCustomContainers.sqf";};
@@ -45,6 +48,7 @@ class F90
 		class saveData				{file = "Persistent\Core\saveData.sqf";};
 		class saveEnvironment		{file = "Persistent\Core\saveEnvironment.sqf";};
 		class saveGame				{file = "Persistent\Core\saveGame.sqf";};
+		class saveGarrison			{file = "Persistent\Core\saveGarrison.sqf";};
 		class saveMapMarkers		{file = "Persistent\Core\saveMapMarkers.sqf";};
 		class saveMetadata			{file = "Persistent\Core\saveMetadata.sqf";};
 		class savePlayer 			{file = "Persistent\Core\savePlayer.sqf";};
@@ -60,6 +64,17 @@ class F90
 
 	class Scripts
 	{
+		//	Base
+		class patrolArea {file = "Scripts\UPS.sqf";};
+
+		//	Garrison
+		class generateGarrison 	{file = "Scripts\Garrison\generateGarrison.sqf";};
+		class spawnGarrison		{file = "Scripts\Garrison\spawnGarrison.sqf";};
+		class spawnGroup		{file = "Scripts\Garrison\spawnGroup.sqf";};
+		class spawnStatic		{file = "Scripts\Garrison\spawnStatic.sqf";};
+		class spawnVehicle		{file = "Scripts\Garrison\spawnVehicle.sqf";};
+
+		//	SHOP
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
 	};

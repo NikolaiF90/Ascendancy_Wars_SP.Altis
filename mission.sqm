@@ -12,18 +12,18 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=21;
+		nextID=137;
 	};
 	class MarkerIDProvider
 	{
-		nextID=3;
+		nextID=28;
 	};
 	class Camera
 	{
-		pos[]={12582.874,39.101788,14332.239};
-		dir[]={-0.39130911,-0.48903933,0.77956253};
-		up[]={-0.21939003,0.8722617,0.43706688};
-		aside[]={0.89372545,0,0.4486143};
+		pos[]={12405.36,129.52855,15369.58};
+		dir[]={0.82964259,-0.53919101,0.14479792};
+		up[]={0.5311619,0.84218353,0.092703946};
+		aside[]={0.17193156,7.4505806e-009,-0.98510909};
 	};
 };
 binarizationWanted=0;
@@ -105,7 +105,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=41;
 		class Item0
 		{
 			dataType="Logic";
@@ -175,61 +175,62 @@ class Mission
 		class Item1
 		{
 			dataType="Marker";
-			position[]={12690.188,30.237,14750.453};
+			position[]={12299.342,92.972878,8895.5371};
 			name="outpost_1";
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			a=50;
-			b=50;
+			a=100.06445;
+			b=106.80078;
 			id=3;
-			atlOffset=2.8610229e-005;
+			atlOffset=-31.030357;
 		};
 		class Item2
 		{
 			dataType="Marker";
-			position[]={12473.074,74.329002,15200.53};
-			name="outpost_0";
+			position[]={12465.116,74.330002,15203.006};
+			name="outpost_2";
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			a=50;
-			b=50;
+			a=79.878998;
+			b=75.459;
 			id=4;
-			atlOffset=-0.00048828125;
+			atlOffset=-0.00035858154;
 		};
 		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={12817.162,9.785121,14379.025};
-				angles[]={6.2033553,0,6.2445378};
+				position[]={14408.223,23.398125,6203.0049};
+				angles[]={0.45184579,0,0.059927464};
 			};
 			name="F90_MISSION_MARKERS";
 			id=6;
 			type="Logic";
-			atlOffset=-9.5367432e-007;
+			atlOffset=1.9073486e-006;
 		};
 		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={12820.839,9.6509819,14378.736};
-				angles[]={6.2033553,0,6.253859};
+				position[]={14411.899,23.759138,6202.7158};
+				angles[]={0.45184579,0,0.059927464};
 			};
 			name="F90_MISSION_TRIGGERS";
 			id=7;
 			type="Logic";
+			atlOffset=1.9073486e-006;
 		};
 		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={12826.137,9.3465919,14377.837};
-				angles[]={6.1848369,0,6.1808772};
+				position[]={14417.197,24.305103,6201.8164};
+				angles[]={0.32295012,0,0.011995304};
 			};
 			name="F90_MISSION_SKILLS";
 			id=8;
@@ -240,8 +241,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={12831.328,9.0482044,14380.377};
-				angles[]={6.1940885,0,6.1716504};
+				position[]={14422.389,23.341236,6204.3564};
+				angles[]={0.40553525,0,0.014664836};
 			};
 			name="F90_MISSION_SETTINGS";
 			id=9;
@@ -250,15 +251,15 @@ class Mission
 		class Item7
 		{
 			dataType="Marker";
-			position[]={12768.628,4.0809999,14293.214};
-			name="outpost_2";
+			position[]={19352.533,196.12801,9689.2344};
+			name="outpost_7";
 			markerType="RECTANGLE";
 			type="";
-			colorName="ColorGUER";
-			a=50;
-			b=50;
+			colorName="ColorRed";
+			a=108.639;
+			b=105.595;
 			id=13;
-			atlOffset=-0.00020360947;
+			atlOffset=-0.065368652;
 		};
 		class Item8
 		{
@@ -352,6 +353,407 @@ class Mission
 			id=18;
 			type="Flag_FIA_F";
 			atlOffset=9.5367432e-007;
+		};
+		class Item10
+		{
+			dataType="Marker";
+			position[]={9731.208,2.7720001,22322.986};
+			name="control_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorYellow";
+			a=46.957001;
+			b=37.716;
+			id=21;
+			atlOffset=1.3975823;
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={9099.8252,17.1376,21516.279};
+			name="airport_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorBlue";
+			a=95.922455;
+			b=186.76686;
+			angle=53.680771;
+			id=22;
+			atlOffset=1.2643461;
+		};
+		class Item12
+		{
+			dataType="Marker";
+			position[]={5890.1313,218.849,20209.201};
+			name="resource_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=128.82867;
+			b=114.08629;
+			angle=203.13568;
+			id=23;
+			atlOffset=1.5515289;
+		};
+		class Item13
+		{
+			dataType="Marker";
+			position[]={12078.724,94.803001,20532.537};
+			name="resource_1";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=50;
+			b=50;
+			angle=217.65381;
+			id=24;
+			atlOffset=0.00039672852;
+		};
+		class Item14
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={5571.731,-0.25799999,25624.484};
+			};
+			title="Area 1 (Complete)";
+			id=25;
+			atlOffset=180.15277;
+		};
+		class Item15
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={15310.481,0.048,25341.518};
+			};
+			title="Area 2 (Complete)";
+			id=26;
+			atlOffset=186.01801;
+		};
+		class Item16
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={5364.1538,0.068999998,5152.8418};
+			};
+			title="Area 7 (Complete)";
+			id=27;
+			atlOffset=166.01608;
+		};
+		class Item17
+		{
+			dataType="Marker";
+			position[]={11246.58,178.74001,8679.0215};
+			name="resource_2";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=193.87199;
+			b=155.33501;
+			id=28;
+			atlOffset=1.1377563;
+		};
+		class Item18
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={15177.569,0.133,5484.459};
+			};
+			title="Area 8 (Complete)";
+			id=29;
+			atlOffset=149.42406;
+		};
+		class Item19
+		{
+			dataType="Marker";
+			position[]={19599.045,65.533997,6631.4258};
+			name="resource_3";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=50;
+			b=50;
+			id=30;
+			atlOffset=3.0517578e-005;
+		};
+		class Item20
+		{
+			dataType="Marker";
+			position[]={18806.561,207.29401,10163.981};
+			name="outpost_3";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorRed";
+			a=186.785;
+			b=110.179;
+			angle=359.76895;
+			id=31;
+			atlOffset=5.34021;
+		};
+		class Item21
+		{
+			dataType="Marker";
+			position[]={22018.984,4.6009998,4874.2769};
+			name="resource_4";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=67.875999;
+			b=59.416;
+			id=32;
+			atlOffset=-0.60395622;
+		};
+		class Item22
+		{
+			dataType="Marker";
+			position[]={21802.801,5.1700001,6242.8281};
+			name="resource_5";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=58.341999;
+			b=116.93;
+			angle=19.52;
+			id=33;
+			atlOffset=-0.44775248;
+		};
+		class Item23
+		{
+			dataType="Marker";
+			position[]={20372.451,66.887001,6099.2759};
+			name="resource_6";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=81.239998;
+			b=57.158001;
+			angle=44.721001;
+			id=34;
+			atlOffset=-0.29505157;
+		};
+		class Item24
+		{
+			dataType="Marker";
+			position[]={20848.137,29.254822,7227.6465};
+			name="airport_1";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorBlue";
+			a=103.18928;
+			b=134.74419;
+			angle=247.98222;
+			id=35;
+			atlOffset=0.58326721;
+		};
+		class Item25
+		{
+			dataType="Marker";
+			position[]={23073.561,49.161999,7288};
+			name="outpost_4";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorRed";
+			a=98.925003;
+			b=74.683998;
+			angle=329.04581;
+			id=36;
+			atlOffset=0.90599442;
+		};
+		class Item26
+		{
+			dataType="Marker";
+			position[]={21936.801,41.193001,8631.4961};
+			name="resource_7";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=50;
+			b=50;
+			id=37;
+			atlOffset=-5.3405762e-005;
+		};
+		class Item27
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={23664.402,-0.097999997,4639.4199};
+			};
+			title="Area 9 (Complete)";
+			id=38;
+			atlOffset=191.39577;
+		};
+		class Item28
+		{
+			dataType="Marker";
+			position[]={28319.811,14.646,25772.504};
+			name="outpost_5";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorRed";
+			a=103.45;
+			b=88.036003;
+			id=39;
+			atlOffset=0.030950546;
+		};
+		class Item29
+		{
+			dataType="Marker";
+			position[]={26804.635,20.565001,24611.979};
+			name="airport_2";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorBlue";
+			a=128.42799;
+			b=145.992;
+			angle=219.80576;
+			id=40;
+			atlOffset=-2.1018925;
+		};
+		class Item30
+		{
+			dataType="Marker";
+			position[]={27638.475,-0.0050001144,24534.57};
+			name="seaport_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorPink";
+			a=87.983856;
+			b=95.956062;
+			angle=307.87482;
+			id=41;
+			atlOffset=6.5845265;
+		};
+		class Item31
+		{
+			dataType="Marker";
+			position[]={27003.391,23.387939,21537.582};
+			name="factory_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorGreen";
+			a=97.510345;
+			b=93.145233;
+			angle=141.57707;
+			id=42;
+			atlOffset=1.3480072;
+		};
+		class Item32
+		{
+			dataType="Marker";
+			position[]={27711.313,11.294,21088.82};
+			name="resource_8";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorOrange";
+			a=30.659;
+			b=35.856998;
+			angle=131.70297;
+			id=43;
+			atlOffset=-0.28546238;
+		};
+		class Item33
+		{
+			dataType="Marker";
+			position[]={25385.238,10.983093,20413.486};
+			name="factory_1";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorGreen";
+			a=314.88354;
+			b=322.31317;
+			angle=331.30832;
+			id=44;
+			atlOffset=0.70592499;
+		};
+		class Item34
+		{
+			dataType="Marker";
+			position[]={20601.465,51.437,20105.35};
+			name="outpost_6";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorRed";
+			a=55.327;
+			b=56.801998;
+			angle=47.358997;
+			id=45;
+			atlOffset=-0.10383606;
+		};
+		class Item35
+		{
+			dataType="Marker";
+			position[]={23578.385,91.361,21102.613};
+			name="milbase_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorBlack";
+			a=190.086;
+			b=113.48;
+			angle=35.50098;
+			id=46;
+			atlOffset=-1.4536285;
+		};
+		class Item36
+		{
+			dataType="Marker";
+			position[]={25292.369,84.134453,21828.664};
+			name="milbase_1";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorBlack";
+			a=190.086;
+			b=113.48;
+			angle=11.188026;
+			id=47;
+		};
+		class Item37
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={25683.408,0.064999998,25515.916};
+			};
+			title="Area 3 (Complete)";
+			id=48;
+			atlOffset=126.88559;
+		};
+		class Item38
+		{
+			dataType="Marker";
+			position[]={16908.918,8.0810003,21878.818};
+			name="outpost_0";
+			markerType="RECTANGLE";
+			type="";
+			colorName="ColorGreen";
+			a=230.797;
+			b=177.47458;
+			angle=48.970936;
+			id=49;
+			atlOffset=-1.4564924;
+		};
+		class Item39
+		{
+			dataType="Marker";
+			position[]={16909.434,6.3150001,21921.293};
+			name="respawn_guerrila";
+			type="respawn_unknown";
+			id=50;
+			atlOffset=-0.00035381317;
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14479.868,25.039675,6192.5039};
+			};
+			name="AWSP_GARRISON";
+			id=51;
+			type="Logic";
 		};
 	};
 };

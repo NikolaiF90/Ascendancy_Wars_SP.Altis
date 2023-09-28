@@ -8,22 +8,18 @@
 	Parameters:
 	0[0]	zoneMarker 			String 		The variable name of the zone marker 
 	0[1]	zoneOwner 			Side 		The side of the zone owner e.g independent 	
-	1[0]	houseGarrison		Number 		Amount of group to garrison houses 
-	1[1]	garrisonSize 		Array		Array of min to max count of garrisons to spawn 
-	2[0] 	footPatrols 		Number 		Amount of foot patrol groups to spawn 
-	2[1] 	patrolSize 			Array 		Array of min to max count of patrols to spawn 
-	3[0] 	lightVehicles 		Number 		Amount of light vehicles to spawn 
-	3[1] 	vehicleSize 		Array 		Array of min to max count of vehicle cargo 
-	4[0] 	armoured 			Number 		Amount of armoured vehicles to spawn 
-	4[1] 	statics 			Number 		Amount of statics to spawn 
-	4[2]	choppers 			Number 		Amount of choppers to spawn
-	4[3]	chopperSize 		Array 		Array of min to max count of chopper cargo
-	5[0]	faction 
-	5[1]	markerType 
-	5[2]	distance 
-	5[3]	side 	
-	5[4]	heightLimit 
-	6		cache 	
+	1[0] 	footPatrols 		Number 		Amount of foot patrol groups to spawn 
+	1[1] 	patrolSize 			Array 		Array of min to max count of patrols to spawn 
+	2[0] 	lightVehicles 		Number 		Amount of light vehicles to spawn 
+	2[1] 	vehicleSize 		Array 		Array of min to max count of vehicle cargo 
+	3[0] 	armoured 			Number 		Amount of armoured vehicles to spawn 
+	3[1] 	statics 			Number 		Amount of statics to spawn 
+	4[0]	faction 			
+	4[1]	markerType 
+	4[2]	distance 
+	4[3]	side 	
+	4[4]	heightLimit 
+	5		cache 	
 
 */
 private [
@@ -75,7 +71,7 @@ private [
 	"_markerY"
 ];
 
-_debug = true;
+_debug = false;
 
 _zone = _this # 0;
 _zoneMarker = _zone # 0;
