@@ -69,6 +69,7 @@ class F90
 
 		//	Garrison
 		class generateGarrison 	{file = "Scripts\Garrison\generateGarrison.sqf";};
+		class spawnGarrison		{file = "Scripts\Garrison\spawnGarrison.sqf";};
 		class spawnGroup		{file = "Scripts\Garrison\spawnGroup.sqf";};
 		class spawnStatic		{file = "Scripts\Garrison\spawnStatic.sqf";};
 		class spawnVehicle		{file = "Scripts\Garrison\spawnVehicle.sqf";};

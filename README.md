@@ -36,16 +36,7 @@ For now there is no issue (not that I know of). IF there is one, just let me kno
 
 ## Version History
 
-* 1.2.0a
-    * Reworked soldier spawning system
-    * Known Issue: 
-      - Static MGs not being spawned properly
-* 1.1.0a
-    * Various bug fixes and optimizations
-    * Fix not being able to properly load player group
-    * See [commit change]() or See [release history]()
-* 1.0.0a
-    * Initial Release
+See [CHANGELOG](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/CHANGELOG.md)
 
 ## License
 

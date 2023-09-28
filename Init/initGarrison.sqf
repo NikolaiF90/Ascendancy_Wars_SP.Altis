@@ -61,22 +61,22 @@ AWSP_Airports =
 ];
 
 {
-	[_x, false] execVM "Init\initZone.sqf";
+	null = [_x, false] execVM "Init\initZone.sqf";
 	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
 } forEach AWSP_Outposts;
 
 {
-	[_x, false] execVM "Init\initZone.sqf";	
+	null = [_x, false] execVM "Init\initZone.sqf";	
 	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
 } forEach AWSP_Resources;
 
 {
-	[_x, false] execVM "Init\initZone.sqf";	
+	null = [_x, false] execVM "Init\initZone.sqf";	
 	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
 } forEach AWSP_Factories;
 
 {
-	[_x, false] execVM "Init\initZone.sqf";	
+	null = [_x, false] execVM "Init\initZone.sqf";	
 	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
 } forEach AWSP_Airports;
 

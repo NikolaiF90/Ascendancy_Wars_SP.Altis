@@ -1,90 +1,77 @@
-/*
-	Script to create zone at given marker position with given data
-*/
-params ["_zone", "_cache"];
+params ["_zoneData","_cache"];
+private ["_newpos", "_cargoType", "_vehType", "_markerDir","_zoneType","_pref", "_side", "_spawnedGroup", "_minUnitCount", "_units", "_groupSize", "_groupCount", "_groupArray", "_triggerKey", "_actCondition", "_distance", "_markerType", "_taken", "_clear", "_zoneOwner", "_faction", "_index", "_isActive", "_zoneTrigger", "_debug", "_marker", "_markerPosition", "_markerX", "_markerY"];
 
-["initZone", "Initializing zones"] call F90_fnc_debug;
+_marker = _zoneData # 0;
+_markerPosition = markerPos _marker;
+_markerX = getMarkerSize _marker select 0;
+_markerY = getMarkerSize _marker select 1;
+_markerDir = markerDir _marker;
 
-private _marker = _zone # 0; 
-private _markerSize = getMarkerSize _marker;
-private _markerX = _markerSize # 0;
-private _markerY = _markerSize # 1;
-private _zonePos = markerPos _marker;
-private _markerDir = markerDir _marker;
+_pref = _zoneData # 1;
+_zoneType = _pref # 0;
+_side = _pref # 1;
 
-private _data = _zone # 1;
-private _type = _data # 0;
-private _side = _data # 1;
+_groupCount = _pref # 2;
+_groupSize = _pref # 3;
+_minUnitCount = _groupSize # 0;
 
-private _infantry = _data # 2;
-private _infantryGroup = _infantry # 0;
-private _infantryMax = _infantry # 1;
-private _infantryCount = floor (random _infantryMax + 1);
+_distance = AWSP_GarrisonSpawnDistance;
+_heightLimit = AWSP_HeightLimit;
 
-private _car = _data # 3;
-private _carGroup = _car # 0;
-private _carMax = _car # 1;
-private _carCount = floor (random _carMax + 1);
+_debug = F90_debug;
 
-private _tank = _data # 4;
-private _tankGroup = _tank # 0;
-private _tankMax = _tank # 1;
-private _tankCount = floor (random _tankMax + 1);
-
-private _static = _data # 5;
-private _staticGroup = _static # 0;
-private _staticMax = _static # 1;
-private _staticCount = floor (random _staticMax + 1);
-
-private _carPools = [];
-private _tankPools = [];
-
-private _garrisonSkill = 0;
-private _zoneActivated = false;
-
-//	Empty Variables
-private 
-[
-	"_activationCondition",
-	"_zoneTrigger",
-	"_infantryCacheGroup",
-	"_carGrp",
-	"_tankGrp",
-	"_staticGrp"
-];
-
-_trig = format ["F90Trigger%1", _marker];
-
-if (!_cache) then
+private _zoneLost = false;
+switch (_side) do 
 {
-	if (AWSP_HeightLimit) then 
+	case east: 
 	{
-		_activationCondition = "{vehicle _x in thisList && isplayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0";
-	}else
+		_zoneOwner = "east";
+	};
+	case west:
 	{
-		_activationCondition = "{vehicle _x in thisList && isplayer _x} count allUnits > 0";
+		_zoneOwner = "west";
+	};
+	case independent:
+	{
+		_zoneOwner = "GUER";
+	};
+};
+
+// INITIATE ZONE
+_triggerKey = format ["AWSP_%1Trigger", _marker];
+
+if (!_cache) then 
+{
+	if (_heightLimit) then 
+	{
+		_actCondition = "{vehicle _x in thisList && isPlayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0";
+	} else 
+	{
+		_actCondition = "{vehicle _x in thisList && isPlayer _x} count allUnits > 0";
 	};
 
-	["initZone", format ["Creating trigger for %1", _marker]] call F90_fnc_debug;
-	_zoneTrigger = createTrigger ["EmptyDetector",_zonePos]; 
-	_zoneTrigger setTriggerArea [(AWSP_GarrisonSpawnDistance + _markerX), (AWSP_GarrisonSpawnDistance + _markerY), _markerDir, true]; 
-	_zoneTrigger setTriggerActivation ["ANY","PRESENT",true];
+	_zoneTrigger = createTrigger ["EmptyDetector", _markerPosition];
+	_zoneTrigger setTriggerArea [(_distance+_markerX), (_distance+_markerY), _markerDir, false];
+	_zoneTrigger setTriggerActivation ["ANY", "PRESENT", true];
 	_zoneTrigger setTriggerTimeout [1, 1, 1, true];
-	_zoneTrigger setTriggerStatements [_activationCondition,"",""];
-	["initZone", "Trigger created"] call F90_fnc_debug;
+	_zoneTrigger setTriggerStatements [_actCondition, "", ""];
 
-	AWSP_GARRISON setvariable [_trig,_zoneTrigger];
-} else 
+	AWSP_GARRISON setVariable [_triggerKey, _zoneTrigger];
+} else {
+	_zoneTrigger = AWSP_GARRISON getVariable _triggerKey;
+};
+
+if (!(_side == independent)) then // if MARKER IS GREEN do not CHANGE COLOUR
 {
-	_zoneTrigger = AWSP_GARRISON getVariable _trig;	
+	_side = _side;
 };
 
 _marker setMarkerAlpha 0;
 private _iconName = format ["%1_icon", _marker];
-private _iconPos = _zonePos;
+private _iconPos = _markerPosition;
 private _zoneIcon = createMarker [_iconName, _iconPos];
 
-switch (_type) do 
+switch (_zoneType) do 
 {
 	case "Outpost":
 	{
@@ -113,325 +100,141 @@ switch (_side) do {
 	case west: 
 	{
 		_zoneIcon setMarkerColor "colorBLUFOR";
-		_zoneIcon setMarkerText format["NATO %1", _type];
+		_zoneIcon setMarkerText format["NATO %1", _zoneType];
 	};
 	case east:
 	{
 		_zoneIcon setMarkerColor "colorOPFOR";
-		_zoneIcon setMarkerText format["CSAT %1", _type];
-		_carPools = AWSP_OPFORCars;
-		_tankPools = AWSP_OPFORTanks;
+		_zoneIcon setMarkerText format["CSAT %1", _zoneType];
 		_garrisonSkill = AWSP_OPFORSkill;
 	};
 	case independent:
 	{
 		_zoneIcon setMarkerColor "colorGUER";
-		_zoneIcon setMarkerText format["Ally %1", _type];
-		_carPools = AWSP_GUERCars;
-		_tankPools = AWSP_GUERTanks;
+		_zoneIcon setMarkerText format["Ally %1", _zoneType];
 		_garrisonSkill = AWSP_GUERSkill;
 	};
 	case civilian: 
 	{
 		_zoneIcon setMarkerColor "colorCIV";
-		_zoneIcon setMarkerText format["Civilian %1", _type];
+		_zoneIcon setMarkerText format["Civilian %1", _zoneType];
 	};
 };
 
-waituntil {triggeractivated _zoneTrigger};
-
-//	Spawn Infantry 
-for "_i" from 1 to _infantryGroup do 
+waitUntil {triggerActivated _zoneTrigger};// WAIT UNTIL PLAYERS in ZONE
+if (!_zoneLost) then 
 {
-	if (isNil "_infantryCacheGroup") then {_infantryCacheGroup = []};
-	if (_cache) then
+	// spawn PATROLS
+	for "_i" from 1 to _groupCount do 
 	{
-		private _key = format ["%1Infantry%2",_type, _i];
-		private _unitCount = _zoneTrigger getvariable _key;
-		_infantryCount = _unitCount;
-		["initZone", format ["ID: %1 restored: %2 units", _key, _infantryCount]] call F90_fnc_debug;
-	};
-
-	if (_infantryCount > 0) then 
-	{
-		["initZone", format["Creating %1Infantry%2", _type, _i]] call F90_fnc_debug;
-		private _spawnedGroup =[_zonePos,_infantryCount,_side] call F90_fnc_spawnGroup;
-		private _group = _spawnedGroup # 0;
-		private _groupUnits = _spawnedGroup # 1;
-		private _leader = _groupUnits # 0;
+		if (isnil "_groupArray") then 
 		{
-			_x setSkill _garrisonSkill;
-		} forEach _groupUnits;
-
-		[_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;
-		_infantryCacheGroup pushback _group;
-
-		["initZone", format["Infantry%1 spawned", _i]] call F90_fnc_debug;
-	};
-};
-
-if (_carGroup > 0) then 
-{
-	for "_i" from 1 to _carGroup do 
-	{
-		if(isNil "_carGrp") then {_carGrp = []};
-
-		private _spawnedGroup = [_carPools, _zonePos, _markerDir, _side, _carCount] call F90_fnc_spawnVehicle;
-		private _group = _spawnedGroup # 0;
-		private _groupUnits = _spawnedGroup # 1;
-		private _leader = _groupUnits # 0;
-		{
-			_x setSkill _garrisonSkill;
-		} forEach _groupUnits;
-
-		[_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;
-		_carGrp pushBack _group;
-		["initZone", format["_carGrp = %1", _carGrp]] call F90_fnc_debug;
-		["initZone", format["Car%1 spawned", _i]] call F90_fnc_debug;
-	};
-}else
-{
-	_carGrp = [];
-	["initZone", "No cars to spawned"] call F90_fnc_debug;
-};
-
-if (_tankGroup > 0) then 
-{
-	for "_i" from 1 to _tankGroup do 
-	{
-		if(isNil "_tankGrp") then {_tankGrp = []};
-
-		private _spawnedGroup = [_tankPools, _zonePos, _markerDir, _side, _tankCount] call F90_fnc_spawnVehicle;
-		private _group = _spawnedGroup # 0;
-		private _groupUnits = _spawnedGroup # 1;
-		private _leader = _groupUnits # 0;
-
-		{
-			_x setSkill _garrisonSkill;
-		} forEach _groupUnits;
-
-		[_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;
-		_tankGrp pushBack _group;
-
-		["initZone", format["Armour%1 spawned", _i]] call F90_fnc_debug;
-	};
-}else
-{
-	_tankGrp = [];
-	["initZone", "No armour to spawn"] call F90_fnc_debug;
-};
-
-if (_staticGroup > 0) then 
-{
-	if(isNil "_staticGrp") then {_staticGrp = []};
-	private _spawnedGroup = [_marker, _staticGroup, _side, _garrisonSkill, _staticGrp] call F90_fnc_spawnStatic;
-	_staticGrp pushBack _spawnedGroup;
-}else 
-{
-	_staticGrp = [];
-	["initZone", "No static to spawned"] call F90_fnc_debug;
-};
-
-//	Alt Trigger
-private _clear = createTrigger ["EmptyDetector",_zonePos];
-_clear setTriggerArea [_markerX,_markerY,_markerDir,true];
-_clear setTriggerActivation [_side,"NOT PRESENT",true]; 
-_clear setTriggerStatements ["this","",""];
-
-private _taken = createTrigger ["EmptyDetector",_zonePos]; 
-_taken setTriggerArea [_markerX,_markerY,_markerDir,true];
-_taken setTriggerActivation ["ANY","PRESENT",true]; 
-_taken setTriggerStatements ["{vehicle _x in thisList && isplayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0","",""];
-
-_zoneActivated = true;
-
-while {_zoneActivated} do 
-{
-	if (!triggerActivated _zoneTrigger) exitWith 
-	{
-
-		//	Cache function 
-		if (!isNil "_cacheGroup") then 
-		{
-			private _i = 0;
-
-			{
-				_i = _i + 1;
-				private _group = _x # 0;
-				private _groupUnits = _x # 1;
-				private _groupVehicle = _x # 2;
-				private _groupType = _x # 3;
-
-				private _key = format ["%1%2%3", _type, _groupType, _i];
-
-				private _aliveUnits = {alive _x} count _groupUnits;
-				private _aliveVehicle = count _groupVehicle;
-				
-				{
-					if (!alive _x) then 
-					{
-						_aliveVehicle = _aliveVehicle - 1;
-					};
-				} forEach _groupVehicle;
-
-				//	delete units 
-				{
-					deleteVehicle _x;
-				} forEach units _groupUnits;
-				//	delete vehicles 
-				{
-					deleteVehicle _x;
-				} forEach _groupVehicles;
-				deleteGroup _group;
-
-				_zoneTrigger setVariable [_key, _aliveUnits, _aliveVehicle];
-				["initZone", format ["ID: %1 cached: %2 units, %3 vehicles", _key, _aliveUnits, _aliveVehicles]] call F90_fnc_debug;
-			} forEach _cacheGroup;
+			_groupArray=[];
 		};
-
-		//	Cache infantry
-		if (!isNil "_infantryCacheGroup") then 
+		
+		if (_cache) then 
 		{
-			private _i = 0;
-
-			{
-				_i = _i + 1;
-				private _aliveUnits = {alive _x} count units _x;
-				private _key = format ["%1Infantry%2", _type, _i];
-
-				["initZone", format ["ID: %1 cached: %2 units", _key, _infantryCount]] call F90_fnc_debug;
-				_zoneTrigger setVariable [_key, _aliveUnits];
-
-				{
-					deleteVehicle _x;
-				} forEach units _x;
-				deleteGroup _x;
-
-			} forEach _infantryCacheGroup;
-		};
-
-		//	Cache cars 
-		if (!isNil "_carGrp") then
-		{
-			{
-				private _vehicle = _x # 0;
-				private _crew = _x # 1;
-				private _group = _x # 2;
-
-				if (!alive _vehicle || {!alive _x} forEach _crew) then 
-				{
-					_carGroup = _carGroup - 1;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach _crew;
-
-				if (!(vehicle player == _vehicle)) then 
-				{
-					{
-						deleteVehicle _x;
-					} forEach _vehicle;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach units _group;
-				deleteGroup _group;
-			} forEach _carGrp;
-		};
-
-		//	Cache tanks
-		if (!isNil "_tankGrp") then
-		{
-			{
-				private _vehicle = _x # 0;
-				private _crew = _x # 1;
-				private _group = _x # 2;
-
-				if (!alive _vehicle || {!alive _x} forEach _crew) then 
-				{
-					_tankGroup = _tankGroup - 1;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach _crew;
-
-				if (!(vehicle player == _vehicle)) then 
-				{
-					{
-						deleteVehicle _x;
-					} forEach _vehicle;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach units _group;
-				deleteGroup _group;
-			} forEach _tankGrp;
-		};
-
-		//	Cache statics
-		if (!isNil "_staticGrp") then
-		{
-			{
-				private _vehicle = _x # 0;
-				private _crew = _x # 1;
-				private _group = _x # 2;
-
-				if (!alive _vehicle || {!alive _x} forEach _crew) then 
-				{
-					_staticGroup = _staticGroup - 1;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach _crew;
-
-				if (!(vehicle player == _vehicle)) then 
-				{
-					{
-						deleteVehicle _x;
-					} forEach _vehicle;
-				};
-
-				{
-					deleteVehicle _x;
-				} forEach units _group;
-				deleteGroup _group;
-			} forEach _staticGrp;
-		};
-
-		_zoneActivated = false;
-		["initZone", "Zone Cached"] call F90_fnc_debug;
-	};
-
-	if (triggerActivated _clear && triggerActivated _taken) exitWith 
-	{
-		_infantryGroup = 0;
-		_carGroup = 0;
-		_tankGroup = 0;
-		_staticGroup = 0;
-
-		while {triggerActivated _zoneTrigger} do 
-		{
-			if (!triggerActivated _clear) then 
-			{
-				_marker setMarkerColor "colorOPFOR";
-				hint format ["CSAT has captured your %1", _type];
-				
-			} else 
-			{
-				_marker setMarkerColor "colorGUER";
-				hint format ["You have captured CSAT's %1", _type];
+			_cacheGrp = format ["Infantry%1", _i];
+			_units = _zoneTrigger getVariable _cacheGrp;
+			_groupSize = [_units, _units];
+			_minUnitCount = _groupSize select 0;
+			if (_debug) then {
+				player sidechat format ["ID:%1, restore - %2", _cacheGrp, _units];
 			};
-			sleep 1;
 		};
-		_zoneActivated = false;
+		if (_minUnitCount > 0) then {
+			private _pos = [_markerPosition, 5, 20] call BIS_fnc_findSafePos;
+			_spawnedGroup = createGroup _side;
+			private _tempGroup = [_pos, _side, _minUnitCount] call BIS_fnc_spawnGroup;
+			{
+				[_x] joinSilent _spawnedGroup;
+			} forEach units _tempGroup;
+			_groupArray set [count _groupArray, _spawnedGroup];
+
+			0=[_spawnedGroup, "INFskill"] call eos_fnc_grouphandlers;
+			if (_debug) then {
+				PLAYER SIDECHAT (format ["Spawned Patrol: %1", _i]);
+				0= [_marker, _i, "patrol", getPos (leader _spawnedGroup)] call EOS_debug
+			};
+		};
 	};
-	sleep 0.5;
+
+	// spawn ALT TRIGGERS
+	_clear = createTrigger ["EmptyDetector", _markerPosition];
+	_clear setTriggerArea [_markerX, _markerY, _markerDir, false];
+	_clear setTriggerActivation [_zoneOwner, "NOT PRESENT", true];
+	_clear setTriggerStatements ["this", "", ""];
+	_taken = createTrigger ["EmptyDetector", _markerPosition];
+	_taken setTriggerArea [_markerX, _markerY, _markerDir, false];
+	_taken setTriggerActivation ["ANY", "PRESENT", true];
+	_taken setTriggerStatements ["{vehicle _x in thisList && isPlayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0", "", ""];
+	_isActive=true;
+
+	while { _isActive } do {
+		// if player LEAVES THE AREA or ZONE DEACTIVATED
+		if (!triggeractivated _zoneTrigger || _zoneLost) exitWith {
+			if (_debug) then {
+				if (!_zoneLost) then {
+					hint "Restarting Zone AND deleting units";
+				} else {
+					hint "EOS zone deactivated";
+				};
+			};
+
+			// CACHE PATROL INFANTRY
+			if (!isnil "_groupArray") then {
+				_index=0;
+				{
+					_index = _index + 1;
+					_units = {
+						alive _x
+					} count units _x;
+					_cacheGrp = format ["Infantry%1", _index];
+					if (_debug) then {
+						player sidechat format ["ID:%1, cache - %2", _cacheGrp, _units];
+					};
+					_zoneTrigger setVariable [_cacheGrp, _units];
+					{
+						deleteVehicle _x;
+					} forEach units _x;
+					deleteGroup _x;
+				}forEach _groupArray;
+			};
+
+			_isActive=false;
+			if (_debug) then {
+				hint "Zone Cached";
+			};
+		};
+		if (triggerActivated _clear and triggerActivated _taken) exitWith {
+			// if ZONE CAPTURED BEGIN CHECKING for ENEMIES
+			_groupCount=0;
+			while { triggeractivated _zoneTrigger AND !(_zoneLost) } do {
+				if (!triggerActivated _clear) then {
+					_marker setMarkerColor "colorOPFOR";
+					_marker setMarkerText format ["CSAT%1", _zoneType];
+					if (_debug) then {
+						hint "Zone Lost";
+					};
+				} else {
+					_marker setMarkerColor "ColorGUER";
+					_marker setMarkerText format ["FIA%1", _zoneType];
+					if (_debug) then {
+						hint "Zone Captured";
+					};
+				};
+				sleep 1;
+			};
+			// player LEFT ZONE
+			_isActive=false;
+		};
+		sleep 0.5;
+	};
+
+	deleteVehicle _clear;
+	deleteVehicle _taken;
+
+	if (!(_zoneLost)) then {
+		null = [[_marker, _pref], true] execVM "Init\initZone.sqf";
+	};
 };
-
-deletevehicle _clear;deletevehicle _taken;
-
