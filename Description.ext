@@ -3,7 +3,7 @@
 
 author = "Nikolai";
 onLoadName = "Ascendancy Wars SP";
-onLoadMission = "Take over the island, take back whats yours";
+onLoadMission = "If you work in a profession where people die young, make sure you don't die young";
 
 saving = 0;
 

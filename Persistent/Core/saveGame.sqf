@@ -23,6 +23,7 @@ PSave_SaveInProgress = true;
 [_slot] call F90_fnc_saveCustomVehicles;
 [_slot] call F90_fnc_saveEnvironment;
 [_slot] call F90_fnc_saveMapMarkers;
+[_slot] call F90_fnc_saveGarrison;
 
 {
 	[_x, [_slot]] call F90_fnc_compileCode;

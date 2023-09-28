@@ -4,8 +4,8 @@ If you work in a profession where people die young, make sure you don't die youn
 
 ## Description
 
-The citizens of Altis complaining about its goverment(NATO) not being able to fulfill their wishes and needs, not even a basic one.
-So your country(Malden) trying to take over Altis. Comparing the army size of NATO and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
+The citizens of Altis complaining about its goverment(CSAT) not being able to fulfill their wishes and needs, not even a basic one.
+So your country(Malden) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
 Entering Altis disguising as their citizen, act faster and you will posses Altis in no time. Work you way up, win the hearts of the citizen and they might willing to sacrifice for their freedom.
 
 ## Getting Started
@@ -34,17 +34,17 @@ What is the difference?
 
 For now there is no issue (not that I know of). IF there is one, just let me know
 
-## Authors
-
-Nikolai (Prince F90)
-
 ## Version History
 
-* 1.1a
+* 1.2.0a
+    * Reworked soldier spawning system
+    * Known Issue: 
+      - Static MGs not being spawned properly
+* 1.1.0a
     * Various bug fixes and optimizations
     * Fix not being able to properly load player group
     * See [commit change]() or See [release history]()
-* 1.0a
+* 1.0.0a
     * Initial Release
 
 ## License
@@ -57,3 +57,13 @@ Inspiration, code snippets, etc.
 * [A3 Antistasi](https://github.com/official-antistasi-community)
 * [Vindicta](https://github.com/Sparker95/Vindicta)
 * [Overthrow](https://github.com/ArmaOverthrow/Overthrow)
+
+## Authors And Contributors
+Nikolai (Prince F90)
+
+### Script and Mod Contributors
+
+* [Persistent Save System by Sukhoi191](https://gitlab.com/sukhoi191_a3/arma-3-persistent-save-system)
+* [L_ambiCivs by LAxemann](https://github.com/LAxemann/L_ambiCivs)
+* [EOS by Bangabob](https://forums.bohemia.net/forums/topic/144150-enemy-occupation-system-eos/)
+* [UPS by Kronzky](https://www.kronzky.info/ups)

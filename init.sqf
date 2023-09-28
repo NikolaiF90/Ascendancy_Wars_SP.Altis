@@ -16,7 +16,7 @@ initVarDone = false;
 
 waitUntil {initVarDone};
 
-[] call F90_fnc_eosInit;
+[] call F90_fnc_initGarrison;
 [] call F90_fnc_initPersistent;
 player addAction ["Persistent", {[] call F90_fnc_openPersistentTab;}];
 #include "L_ambiCivs\init.sqf"
