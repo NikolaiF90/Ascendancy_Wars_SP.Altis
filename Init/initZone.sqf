@@ -1,5 +1,5 @@
 params ["_zoneData","_cache","_zoneIndex"];
-private ["_newpos", "_cargoType", "_sideAttacker", "_vehType", "_garrisonData", "_colorOwner", "_colorAttacker", "_zoneTextOwner", "_zoneTextAttacker", "_markerDir", "_garrisonSkill", "_zoneType","_attacker","_pref", "_side", "_spawnedGroup", "_minUnitCount", "_units", "_groupSize", "_groupCount", "_groupArray", "_triggerKey", "_actCondition", "_distance", "_markerType", "_taken", "_clear", "_zoneOwner", "_faction", "_index", "_playerInZone", "_zoneTrigger", "_debug", "_marker", "_markerPosition", "_markerX", "_markerY"];
+private ["_newpos", "_cargoType", "_sideAttacker", "_vehType", "_garrisonData", "_colorOwner", "_colorAttacker", "_zoneTextOwner", "_zoneTextAttacker", "_markerDir", "_garrisonSkill", "_zoneType","_attacker","_pref", "_side", "_spawnedGroup", "_minUnitCount", "_units", "_groupSize", "_groupCount", "_groupArray", "_triggerKey", "_actCondition", "_distance", "_markerType", "_taken", "_clear", "_zoneOwner", "_faction", "_playerInZone", "_zoneTrigger", "_debug", "_marker", "_markerPosition", "_markerX", "_markerY"];
 
 _marker = _zoneData # 0;
 _markerPosition = markerPos _marker;
@@ -148,11 +148,9 @@ if (!_zoneLost) then
 		{
 			_cacheGrp = format ["Infantry%1", _i];
 			_units = _zoneTrigger getVariable _cacheGrp;
-			_groupSize = [_units, _units];
-			_minUnitCount = _groupSize select 0;
-			if (_debug) then {
-				player sidechat format ["ID:%1, restore - %2", _cacheGrp, _units];
-			};
+			_groupSize = _units;
+			_minUnitCount = _groupSize;
+			player sidechat format ["ID:%1, restored %2 units", _cacheGrp, _units];
 		};
 		if (_minUnitCount > 0) then {
 
@@ -184,16 +182,15 @@ if (!_zoneLost) then
 		if (!triggeractivated _zoneTrigger) exitWith {
 			// CACHE PATROL INFANTRY
 			if (!isnil "_groupArray") then {
-				_index=0;
+				private _index = 0;
 				{
 					_index = _index + 1;
 					_units = {
-						alive _x
+						alive _x;
 					} count units _x;
+
 					_cacheGrp = format ["Infantry%1", _index];
-					if (_debug) then {
-						player sidechat format ["ID:%1, cache - %2", _cacheGrp, _units];
-					};
+					player sidechat format ["%1 cached %2 units", _cacheGrp, _units];
 					_zoneTrigger setVariable [_cacheGrp, _units];
 					{
 						deleteVehicle _x;

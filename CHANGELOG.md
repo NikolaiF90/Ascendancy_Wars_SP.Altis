@@ -2,6 +2,8 @@
 * Saving mission doesn't save captured zones. Not even remaining the garrison count
 
 # Version History
+* 1.2.3a
+    * Fixed amount of garrison keep on decreasing everytime player enter the zone
 * 1.2.2a
     * Fixed a bug where if a player enter a zone twice, the zone info doesn't shown properly
     * Added a new notification if a player captured or loss a zone
