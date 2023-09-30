@@ -2,25 +2,28 @@
 	Function to spawn groups with x number of units where x should be provided
 */
 
-params ["_pos", "_count", "_side"];
+params ["_marker", "_side", "_groupSize", "_skill"];
 
+private _returnArray= [];
+private _unitsInGroup = [];
+private _markerPos = markerPos _marker;
+private _spawnPos = [_markerPos, 5, 20] call BIS_fnc_findSafePos;
+private _spawnedGroup = createGroup _side;
+private _spawnSize = floor random [1, _groupSize # 0, _groupSize # 1];
+private _tempGroup = [_spawnPos, _side, _spawnSize] call BIS_fnc_spawnGroup;
 
-private _group = createGroup _side;
-private _groupUnits = [];
-private _returnData = [];
-private _spawnPos = [_pos, 5, 20] call BIS_fnc_findSafePos;
-
-private _spawnedGroup = [_spawnPos, _side, _count] call BIS_fnc_spawnGroup;
+_groupSize = [_spawnSize,_spawnSize];
+{
+	[_x] joinSilent _spawnedGroup;
+} forEach units _tempGroup;
 
 {
-	[_x] joinSilent _group;
+	_x setSkill _skill;	
+	_unitsInGroup pushBack _x;
 } forEach units _spawnedGroup;
+private _leader = _unitsInGroup # 0;
 
-{
-	_groupUnits pushBack _x;
-} forEach units _group;
+[_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;
 
-_returnData = [_group, _groupUnits];
-["spawnGroup", format["returnData = %1", _returnData]] call F90_fnc_debug;
-
-_returnData;
+_returnArray = [_spawnedGroup, _groupSize];
+_returnArray;

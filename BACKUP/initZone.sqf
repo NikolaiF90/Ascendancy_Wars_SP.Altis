@@ -78,7 +78,6 @@ if (!_cache) then
 };
 
 _marker setMarkerAlpha 0;
-player sideChat "Creating zone icon";
 private _iconName = format ["%1_icon", _marker];
 private _iconPos = _markerPosition;
 private _zoneIcon = createMarker [_iconName, _iconPos];
@@ -168,7 +167,6 @@ if (!_zoneLost) then
 	};
 
 	// spawn ALT TRIGGERS
-	player sideChat "Creating trigger _clear and _taken";
 	_clear = createTrigger ["EmptyDetector", _markerPosition];
 	_clear setTriggerArea [_markerX, _markerY, _markerDir, false];
 	_clear setTriggerActivation [_zoneOwner, "NOT PRESENT", true];
@@ -180,8 +178,8 @@ if (!_zoneLost) then
 	_playerInZone = true;
 
 	while { _playerInZone } do {
-		// if player LEAVES THE AREA
-		if (!triggeractivated _zoneTrigger) exitWith {
+		// if player LEAVES THE AREA or ZONE DEACTIVATED
+		if (!triggeractivated _zoneTrigger || _zoneLost) exitWith {
 			// CACHE PATROL INFANTRY
 			if (!isnil "_groupArray") then {
 				_index=0;
@@ -209,43 +207,44 @@ if (!_zoneLost) then
 		};
 		if (triggerActivated _clear and triggerActivated _taken) exitWith 
 		{
-			// if ZONE CAPTURED, BEGIN CHANGING OWNER
+			// if ZONE CAPTURED BEGIN CHANGING OWNER
 			_groupCount = 0;
-			["initZone", format ["%1 owner changed from %2 to %3",_zoneType, _side, _sideAttacker]] call F90_fnc_debug;
-			if (_sideAttacker == independent) then 
-			{
-				["CAPTURED", _zoneType] call F90_fnc_showNotification;
-			} else 
-			{
-				["LOSS", _zoneType] call F90_fnc_showNotification;
-			};
-			
+			player sideChat format ["Zone owner changed from %1 to %2", _side, _sideAttacker];
+			["initZone", format ["Zone owner changed from %1 to %2", _side, _sideAttacker]] call F90_fnc_debug;
 			_zoneIcon setMarkerColor _colorAttacker;
 			_zoneIcon setMarkerText _zoneTextAttacker;
-			_side = _sideAttacker;
-			_groupCount = 1;
-			_groupSize = [4,4];
-			_garrisonData = [_zoneType,_side,_groupCount,_groupSize];
-			AWSP_Zones set [_zoneIndex, [_marker,_garrisonData]];
-			_zoneLost = true;
+
+			while { triggeractivated _zoneTrigger AND !(_zoneLost) } do {
+				if (!triggerActivated _clear) then {
+					_zoneIcon setMarkerColor _colorOwner;
+					_zoneIcon setMarkerText _zoneTextOwner;
+				} else {
+					/*
+					
+					
+					
+					
+					_side = _sideAttacker;
+					_groupCount = 1;
+					_groupSize = [4,4];
+					_garrisonData = [_zoneType,_side,_groupCount,_groupSize];
+					AWSP_Zones set [_zoneIndex, [_marker,_garrisonData]];
+					*/
+				};
+				sleep 1;
+			};
+			// player LEFT ZONE
+			_playerInZone = false;
 		};
-		sleep 1;
+		sleep 0.5;
 	};
 
-	player sideChat "Deleted trigger _clear and _taken and zone icon";
 	deleteVehicle _clear;
 	deleteVehicle _taken;
-	deleteMarker _zoneIcon;
 
-	//	If player exit the zone
-	if (!(_zoneLost)) exitWith {
+	if (!(_zoneLost)) then {
 		player sideChat "Re-init zone";
 		["initZone", "Re-init zone"] call F90_fnc_debug;
-		null = [[_marker, _pref], true, _zoneIndex] execVM "Init\initZone.sqf";
-	};
-	if (_zoneLost) exitWith {
-		player sideChat "Zone captured. Initiliazing new pref";
-		["initZone", "Zone captured. Initiliazing new pref"] call F90_fnc_debug;
-		null = [[_marker, [_zoneType, _side, _groupCount, _groupSize]], false, _zoneIndex] execVM "Init\initZone.sqf";
+		null = [[_marker, [_zoneType,_side,_groupCount,_groupSize]], true, _zoneIndex] execVM "Init\initZone.sqf";
 	};
 };

@@ -22,8 +22,9 @@ private _eastFactoryData = [east,"Factory"] call F90_fnc_generateGarrison;
 private _eastAirportData = [east,"Airport"] call F90_fnc_generateGarrison;
 
 
-AWSP_Outposts = 
+AWSP_Zones = 
 [
+//	OUTPOSTS
 	["outpost_0", _allyOutpostData],
 	["outpost_1", _eastOutpostData],
 	["outpost_2", _eastOutpostData],
@@ -31,11 +32,9 @@ AWSP_Outposts =
 	["outpost_4", _eastOutpostData],
 	["outpost_5", _eastOutpostData],
 	["outpost_6", _eastOutpostData],
-	["outpost_7", _eastOutpostData]
-];
+	["outpost_7", _eastOutpostData],
 
-AWSP_Resources = 
-[
+//	RESOURCES
 	["resource_0", _eastResourceData],
 	["resource_1", _eastResourceData],
 	["resource_2", _eastResourceData],
@@ -44,40 +43,23 @@ AWSP_Resources =
 	["resource_5", _eastResourceData],
 	["resource_6", _eastResourceData],
 	["resource_7", _eastResourceData],
-	["resource_8", _eastResourceData]
-];
+	["resource_8", _eastResourceData],
 
-AWSP_Factories = 
-[
+//	FACTORIES
 	["factory_0", _eastFactoryData],
-	["factory_1", _eastFactoryData]
-];
+	["factory_1", _eastFactoryData],
 
-AWSP_Airports = 
-[
+//	AIRPORTS 
 	["airport_0", _eastAirportData],
 	["airport_1", _eastAirportData],
 	["airport_2", _eastAirportData]
 ];
 
+private _zoneIndex = -1;
 {
-	null = [_x, false] execVM "Init\initZone.sqf";
+	_zoneIndex = _zoneIndex + 1;
 	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
-} forEach AWSP_Outposts;
-
-{
-	null = [_x, false] execVM "Init\initZone.sqf";	
-	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
-} forEach AWSP_Resources;
-
-{
-	null = [_x, false] execVM "Init\initZone.sqf";	
-	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
-} forEach AWSP_Factories;
-
-{
-	null = [_x, false] execVM "Init\initZone.sqf";	
-	["initGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
-} forEach AWSP_Airports;
+	null = [_x, false, _zoneIndex] execVM "Init\initZone.sqf";
+} forEach AWSP_Zones;
 
 ["initGarrison", "Done initializing garrison data."] call F90_fnc_debug;

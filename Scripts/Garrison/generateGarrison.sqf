@@ -25,16 +25,16 @@ switch (_type) do
 	case "Outpost":
 	{
 		_groupCount = 3;
-		_groupSize = [4,5];
+		_groupSize = [5,8];
 	};
 	case "Resource":
 	{
 		_groupCount = 2;
-		_groupSize = [2,4];
+		_groupSize = [4,7];
 	};
 	case "Factory":
 	{
-		_groupCount = 2;
+		_groupCount = 3;
 		_groupSize = [4,7];
 	};
 	case "Airport":

@@ -12,18 +12,18 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=137;
+		nextID=138;
 	};
 	class MarkerIDProvider
 	{
-		nextID=28;
+		nextID=29;
 	};
 	class Camera
 	{
-		pos[]={12405.36,129.52855,15369.58};
-		dir[]={0.82964259,-0.53919101,0.14479792};
-		up[]={0.5311619,0.84218353,0.092703946};
-		aside[]={0.17193156,7.4505806e-009,-0.98510909};
+		pos[]={16953.947,111.96093,21791.424};
+		dir[]={-0.24031392,-0.61934191,0.74743885};
+		up[]={-0.18957131,0.78512144,0.58961612};
+		aside[]={0.95200419,-1.4901161e-008,0.30608505};
 	};
 };
 binarizationWanted=0;
@@ -34,13 +34,14 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Characters_F",
-	"A3_Structures_F_Mil_Flags"
+	"A3_Structures_F_Mil_Flags",
+	"A3_Ui_F_Enoch"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -73,6 +74,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Ui_F_Enoch";
+			name="Arma 3 Enoch - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -273,7 +281,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={12582.571,15.708197,14371.31};
+						position[]={16912.012,9.5779867,21878.91};
 						angles[]={0,2.7048938,0};
 					};
 					side="Independent";
@@ -285,7 +293,6 @@ class Mission
 					};
 					id=17;
 					type="I_G_Soldier_F";
-					atlOffset=0.00045490265;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -335,14 +342,13 @@ class Mission
 			{
 			};
 			id=16;
-			atlOffset=0.00045490265;
 		};
 		class Item9
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={12572.251,19.428829,14370.554};
+				position[]={16917.129,13.752728,21875.992};
 			};
 			side="Empty";
 			flags=5;
@@ -737,15 +743,6 @@ class Mission
 		};
 		class Item39
 		{
-			dataType="Marker";
-			position[]={16909.434,6.3150001,21921.293};
-			name="respawn_guerrila";
-			type="respawn_unknown";
-			id=50;
-			atlOffset=-0.00035381317;
-		};
-		class Item40
-		{
 			dataType="Logic";
 			class PositionInfo
 			{
@@ -754,6 +751,16 @@ class Mission
 			name="AWSP_GARRISON";
 			id=51;
 			type="Logic";
+		};
+		class Item40
+		{
+			dataType="Marker";
+			position[]={16911.65,9.2360001,21884.49};
+			name="respawn_guerrila";
+			text="LDF  Base";
+			type="flag_EAF";
+			id=137;
+			atlOffset=-7.3432922e-005;
 		};
 	};
 };

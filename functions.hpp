@@ -65,7 +65,8 @@ class F90
 	class Scripts
 	{
 		//	Base
-		class patrolArea {file = "Scripts\UPS.sqf";};
+		class showNotification 	{file = "Scripts\showNotification.sqf";};
+		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
 		//	Garrison
 		class generateGarrison 	{file = "Scripts\Garrison\generateGarrison.sqf";};
