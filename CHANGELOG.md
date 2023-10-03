@@ -1,7 +1,10 @@
 # Known Issue
-* Saving mission doesn't save captured zones. Not even remaining the garrison count
+* No known issues currently
 
 # Version History
+* 1.3.0a
+    * Now captured zones(outposts,resources,factories and etc) will be persistent across saves
+    * A lot of bugs has been fixed
 * 1.2.3a
     * Fixed amount of garrison keep on decreasing everytime player enter the zone
 * 1.2.2a

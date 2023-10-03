@@ -21,9 +21,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={16947.299,85.022766,21807.309};
-		dir[]={-0.15112908,-0.76921713,0.62085831};
-		up[]={-0.18193014,0.63898742,0.74739313};
-		aside[]={0.97162825,0,0.23651336};
+		dir[]={-0.42120859,-0.71098286,0.56310451};
+		up[]={-0.42586479,0.70320934,0.56932926};
+		aside[]={0.80076373,1.4901161e-008,0.59898037};
 	};
 };
 binarizationWanted=0;
@@ -113,7 +113,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=40;
 		class Item0
 		{
 			dataType="Logic";
@@ -743,24 +743,13 @@ class Mission
 		};
 		class Item39
 		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={14479.868,25.039675,6192.5039};
-			};
-			name="AWSP_GARRISON";
-			id=51;
-			type="Logic";
-		};
-		class Item40
-		{
 			dataType="Marker";
-			position[]={16911.65,9.2360001,21884.49};
+			position[]={16293.503,-6.3310547,23868.313};
 			name="respawn_guerrila";
 			text="LDF  Base";
 			type="flag_EAF";
 			id=137;
-			atlOffset=-7.3432922e-005;
+			atlOffset=131.8112;
 		};
 	};
 };

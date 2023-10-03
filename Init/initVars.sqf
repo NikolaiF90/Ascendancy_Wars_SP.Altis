@@ -1,6 +1,7 @@
-diag_log "[F90 initVars] Initializing game variables";
 F90_Debug = true;
+F90_MISSIONID = "AWSP" + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str random 9);
 
+["initVars", format ["Initializing variables for game id: %1", F90_MISSIONID]] call F90_fnc_debug;
 MILCASH_Player = 10000;
 
 MILCASH_OPFOR = 10000;

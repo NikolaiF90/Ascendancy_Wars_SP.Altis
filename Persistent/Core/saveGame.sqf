@@ -15,6 +15,7 @@ PSave_SaveInProgress = true;
 [_slot] call F90_fnc_clearSave;
 ["saveGame", "Done clearing save"] call F90_fnc_debug;
 
+[_slot] call F90_fnc_saveMissionID;
 [_slot] call F90_fnc_saveMetadata;
 [_slot] call F90_fnc_savePlayer;
 [_slot] call F90_fnc_saveCustomContainers;

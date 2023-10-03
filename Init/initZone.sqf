@@ -1,5 +1,5 @@
-params ["_zoneData","_cache","_zoneIndex"];
-private ["_newpos", "_cargoType", "_sideAttacker", "_vehType", "_garrisonData", "_colorOwner", "_colorAttacker", "_zoneTextOwner", "_zoneTextAttacker", "_markerDir", "_garrisonSkill", "_zoneType","_attacker","_pref", "_side", "_spawnedGroup", "_minUnitCount", "_units", "_groupSize", "_groupCount", "_groupArray", "_triggerKey", "_actCondition", "_distance", "_markerType", "_taken", "_clear", "_zoneOwner", "_faction", "_playerInZone", "_zoneTrigger", "_debug", "_marker", "_markerPosition", "_markerX", "_markerY"];
+params ["_zoneData","_loadCache","_zoneIndex"];
+private ["_zoneIcon", "_zoneTriggerArray", "_newpos", "_seized", "_sideAttacker", "_vehType", "_garrisonData", "_colorOwner", "_colorAttacker", "_zoneTextOwner", "_zoneTextAttacker", "_markerDir", "_garrisonSkill", "_zoneType","_attacker","_pref", "_side", "_spawnedGroup", "_minUnitCount", "_units", "_groupSize", "_groupCount", "_groupArray", "_actCondition", "_distance", "_markerType", "_clear", "_zoneOwner", "_playerInZone", "_zoneTrigger", "_debug", "_marker", "_markerPosition", "_markerX", "_markerY"];
 
 _marker = _zoneData # 0;
 _markerPosition = markerPos _marker;
@@ -20,9 +20,8 @@ _heightLimit = AWSP_HeightLimit;
 
 _debug = F90_debug;
 
-["initZone", format["Creating %1", _marker]] call F90_fnc_debug;
-
 private _zoneLost = false;
+
 switch (_side) do 
 {
 	case east: 
@@ -30,6 +29,7 @@ switch (_side) do
 		_zoneOwner = "east";
 		_colorOwner = "colorOPFOR";
 		_zoneTextOwner = format["CSAT %1", _zoneType];
+		_seized = "GUER SEIZED";
 		_attacker = "GUER";
 		_sideAttacker = independent;
 		_colorAttacker = "colorGUER";
@@ -46,7 +46,8 @@ switch (_side) do
 		_zoneOwner = "GUER";
 		_colorOwner = "colorGUER";
 		_zoneTextOwner = format["LDF %1", _zoneType];
-		_attacker = "east";
+		_seized = "EAST SEIZED";
+		_attacker = "EAST";
 		_sideAttacker = east;
 		_colorAttacker = "colorOPFOR";
 		_zoneTextAttacker = format["CSAT %1", _zoneType];
@@ -54,9 +55,8 @@ switch (_side) do
 };
 
 // INITIATE ZONE
-_triggerKey = format ["AWSP_%1Trigger", _marker];
 
-if (!_cache) then 
+if (!_loadCache) then 
 {
 	if (_heightLimit) then 
 	{
@@ -66,70 +66,42 @@ if (!_cache) then
 		_actCondition = "{vehicle _x in thisList && isPlayer _x} count allUnits > 0";
 	};
 
+//	CREATE TRIGGER
+	["initZone", format["Creating trigger for zone %1", _zoneIndex]] call F90_fnc_debug;
 	_zoneTrigger = createTrigger ["EmptyDetector", _markerPosition];
 	_zoneTrigger setTriggerArea [(_distance+_markerX), (_distance+_markerY), _markerDir, false];
 	_zoneTrigger setTriggerActivation ["ANY", "PRESENT", true];
 	_zoneTrigger setTriggerTimeout [1, 1, 1, true];
 	_zoneTrigger setTriggerStatements [_actCondition, "", ""];
+	["initZone", format["Created trigger %1", _zoneTrigger]] call F90_fnc_debug;
 
-	AWSP_GARRISON setVariable [_triggerKey, _zoneTrigger];
+//	CREATE ICON 
+	["initZone", format["Creating icon for zone %1", _zoneIndex]] call F90_fnc_debug;
+	_zoneIcon = [_marker, _zoneType, _side] call F90_fnc_createIcon;
+	["initZone", format ["Zone icon created for zone %1", _zoneIndex]] call F90_fnc_debug;
+
+//	ASSIGN TRIGGER AND ICON FOR CACHING
+	AWSP_ZoneTrigger set [_zoneIndex, _zoneTrigger];
+	AWSP_ZoneIcons set [_zoneIndex, _zoneIcon];
 } else {
-	_zoneTrigger = AWSP_GARRISON getVariable _triggerKey;
+	["initZone", format["Fetching trigger for zone %1 from AWSP_ZoneTrigger", _zoneIndex]] call F90_fnc_debug;
+	_zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
+	["initZone", format["Fetched trigger %1", _zoneTrigger]] call F90_fnc_debug;
+	["initZone", format["Fetching icon for zone %1 from AWSP_ZoneIcons", _zoneIndex]] call F90_fnc_debug;
+	_zoneIcon = AWSP_ZoneIcons # _zoneIndex;
+	["initZone", format["Fetched icon for zone %1", _zoneIndex]] call F90_fnc_debug;
 };
 
 _marker setMarkerAlpha 0;
-player sideChat "Creating zone icon";
-private _iconName = format ["%1_icon", _marker];
-private _iconPos = _markerPosition;
-private _zoneIcon = createMarker [_iconName, _iconPos];
-
-switch (_zoneType) do 
-{
-	case "Outpost":
-	{
-		_zoneIcon setMarkerType "loc_Ruin";
-		_zoneIcon setMarkerSize [1.5,1.5];
-	};
-	case "Resource":
-	{
-		_zoneIcon setMarkerType "loc_Rock";
-		_zoneIcon setMarkerSize [1.5,1.5];
-	};
-	case "Factory":
-	{
-		_zoneIcon setMarkerType "loc_Power";
-		_zoneIcon setMarkerSize [1,1];
-	};
-	case "Airport":
-	{
-		_zoneIcon setMarkerType "b_plane";
-		_zoneIcon setMarkerSize [1,1];
-	};
-};
-
 
 switch (_side) do {
-	case west: 
-	{
-		_zoneIcon setMarkerColor "colorBLUFOR";
-		_zoneIcon setMarkerText format["NATO %1", _zoneType];
-	};
 	case east:
 	{
-		_zoneIcon setMarkerColor "colorOPFOR";
-		_zoneIcon setMarkerText format["CSAT %1", _zoneType];
 		_garrisonSkill = AWSP_OPFORSkill;
 	};
 	case independent:
 	{
-		_zoneIcon setMarkerColor "colorGUER";
-		_zoneIcon setMarkerText format["LDF %1", _zoneType];
 		_garrisonSkill = AWSP_GUERSkill;
-	};
-	case civilian: 
-	{
-		_zoneIcon setMarkerColor "colorCIV";
-		_zoneIcon setMarkerText format["Civilian %1", _zoneType];
 	};
 };
 
@@ -144,13 +116,13 @@ if (!_zoneLost) then
 			_groupArray=[];
 		};
 		
-		if (_cache) then 
+		if (_loadCache) then 
 		{
 			_cacheGrp = format ["Infantry%1", _i];
 			_units = _zoneTrigger getVariable _cacheGrp;
 			_groupSize = _units;
 			_minUnitCount = _groupSize;
-			player sidechat format ["ID:%1, restored %2 units", _cacheGrp, _units];
+			["initZone", format ["ID:%1, restored %2 units", _cacheGrp, _units]] call F90_fnc_debug;
 		};
 		if (_minUnitCount > 0) then {
 
@@ -158,26 +130,18 @@ if (!_zoneLost) then
 
 			_groupArray set [count _groupArray, _spawnedGroup # 0];
 			_groupSize = _spawnedGroup # 1;
-			if (_debug) then 
-			{
-				PLAYER SIDECHAT (format ["Spawned Patrol: %1", _i]);
-			};
 		};
 	};
 
 	// spawn ALT TRIGGERS
-	player sideChat "Creating trigger _clear and _taken";
 	_clear = createTrigger ["EmptyDetector", _markerPosition];
 	_clear setTriggerArea [_markerX, _markerY, _markerDir, false];
-	_clear setTriggerActivation [_zoneOwner, "NOT PRESENT", true];
+	_clear setTriggerActivation [_seized, "PRESENT", true];
 	_clear setTriggerStatements ["this", "", ""];
-	_taken = createTrigger ["EmptyDetector", _markerPosition];
-	_taken setTriggerArea [_markerX, _markerY, _markerDir, false];
-	_taken setTriggerActivation [_attacker, "PRESENT", true];
-	_taken setTriggerStatements ["{vehicle _x in thisList && isPlayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0", "", ""];
 	_playerInZone = true;
 
-	while { _playerInZone } do {
+	while { _playerInZone } do 
+	{
 		// if player LEAVES THE AREA
 		if (!triggeractivated _zoneTrigger) exitWith {
 			// CACHE PATROL INFANTRY
@@ -190,7 +154,7 @@ if (!_zoneLost) then
 					} count units _x;
 
 					_cacheGrp = format ["Infantry%1", _index];
-					player sidechat format ["%1 cached %2 units", _cacheGrp, _units];
+					["initZone", format ["%1 cached %2 units", _cacheGrp, _units]] call F90_fnc_debug;
 					_zoneTrigger setVariable [_cacheGrp, _units];
 					{
 						deleteVehicle _x;
@@ -204,7 +168,7 @@ if (!_zoneLost) then
 				hint "Zone Cached";
 			};
 		};
-		if (triggerActivated _clear and triggerActivated _taken) exitWith 
+		if (triggerActivated _clear) exitWith 
 		{
 			// if ZONE CAPTURED, BEGIN CHANGING OWNER
 			_groupCount = 0;
@@ -214,7 +178,10 @@ if (!_zoneLost) then
 				["CAPTURED", _zoneType] call F90_fnc_showNotification;
 			} else 
 			{
-				["LOSS", _zoneType] call F90_fnc_showNotification;
+				if (_sideAttacker == east) then 
+				{
+					["LOSS", _zoneType] call F90_fnc_showNotification;
+				};
 			};
 			
 			_zoneIcon setMarkerColor _colorAttacker;
@@ -228,21 +195,16 @@ if (!_zoneLost) then
 		};
 		sleep 1;
 	};
-
-	player sideChat "Deleted trigger _clear and _taken and zone icon";
 	deleteVehicle _clear;
-	deleteVehicle _taken;
-	deleteMarker _zoneIcon;
 
 	//	If player exit the zone
 	if (!(_zoneLost)) exitWith {
-		player sideChat "Re-init zone";
-		["initZone", "Re-init zone"] call F90_fnc_debug;
+		["initZone", format ["Re-init zone %1", _marker]] call F90_fnc_debug;
 		null = [[_marker, _pref], true, _zoneIndex] execVM "Init\initZone.sqf";
 	};
 	if (_zoneLost) exitWith {
-		player sideChat "Zone captured. Initiliazing new pref";
-		["initZone", "Zone captured. Initiliazing new pref"] call F90_fnc_debug;
+		["initZone", format ["%1 captured. Initiliazing new pref", _marker]] call F90_fnc_debug;
+		[_zoneIndex] execVM "Scripts\Garrison\clearZones.sqf";
 		null = [[_marker, [_zoneType, _side, _groupCount, _groupSize]], false, _zoneIndex] execVM "Init\initZone.sqf";
 	};
 };

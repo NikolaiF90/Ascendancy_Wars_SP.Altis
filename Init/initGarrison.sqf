@@ -21,7 +21,8 @@ private _eastResourceData = [east,"Resource"] call F90_fnc_generateGarrison;
 private _eastFactoryData = [east,"Factory"] call F90_fnc_generateGarrison;
 private _eastAirportData = [east,"Airport"] call F90_fnc_generateGarrison;
 
-
+AWSP_ZoneTrigger = [];
+AWSP_ZoneIcons = [];
 AWSP_Zones = 
 [
 //	OUTPOSTS
