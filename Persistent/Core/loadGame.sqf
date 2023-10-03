@@ -15,6 +15,7 @@ PSave_NextVehicleId = 1;
 
 [_slot] call skhpersist_fnc_LoadCustomVehicles; // has to be called before loading units and player
 
+[_slot] call F90_fnc_loadMissionID;
 [_slot] call skhpersist_fnc_LoadCustomUnits;
 [_slot] call skhpersist_fnc_LoadPlayer;
 [_slot] call skhpersist_fnc_LoadCustomContainers;

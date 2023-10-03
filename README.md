@@ -5,7 +5,7 @@ If you work in a profession where people die young, make sure you don't die youn
 ## Description
 
 The citizens of Altis complaining about its goverment(CSAT) not being able to fulfill their wishes and needs, not even a basic one.
-So your country(Malden) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
+So your country(Livonia) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
 Entering Altis disguising as their citizen, act faster and you will posses Altis in no time. Work you way up, win the hearts of the citizen and they might willing to sacrifice for their freedom.
 
 ## Getting Started
@@ -27,16 +27,17 @@ What is the difference?
 
 ### Dependencies
 
-* Currently this mission has no other mod dependencies either than CBA.
+* CBA
+* Real Engine (Optional)
 * But note that this mission is Single-Player only. Multiplayer needs to be reconsidered if ones requested. But for now, it is all about you yourself.
 
 ## Help and FAQ
 
-For now there is no issue (not that I know of). IF there is one, just let me know
+For now there is no issue (not that I know of). If there is one, just let me know
 
 ## Version History
 
-See [CHANGELOG](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/CHANGELOG.md)
+See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
 
 ## License
 

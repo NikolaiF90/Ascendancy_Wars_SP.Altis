@@ -39,6 +39,7 @@ class F90
 		class loadData 				{file = "Persistent\Core\loadData.sqf";};
 		class loadGame 				{file = "Persistent\Core\loadGame.sqf";};
 		class loadGarrison 			{file = "Persistent\Core\loadGarrison.sqf";};
+		class loadMissionID			{file = "Persistent\Core\loadMissionID.sqf";};
 		class loadUnitsInGroup		{file = "Persistent\Core\loadUnitsInGroup.sqf";};
 		class loadVarFromNamespace	{file = "Persistent\Core\loadVarFromNamespace.sqf";};
 		class saveCustomContainers	{file = "Persistent\Core\saveCustomContainers.sqf";};
@@ -51,6 +52,7 @@ class F90
 		class saveGarrison			{file = "Persistent\Core\saveGarrison.sqf";};
 		class saveMapMarkers		{file = "Persistent\Core\saveMapMarkers.sqf";};
 		class saveMetadata			{file = "Persistent\Core\saveMetadata.sqf";};
+		class saveMissionID 		{file = "Persistent\Core\saveMissionID.sqf";};
 		class savePlayer 			{file = "Persistent\Core\savePlayer.sqf";};
 
 		//	UTILS
@@ -60,14 +62,18 @@ class F90
 		class generatePositioningData	{file = "Persistent\Utils\generatePositioningData.sqf";};
 		class generateSaveTime			{file = "Persistent\Utils\generateSaveTime.sqf";};
 		class generateUnitData			{file = "Persistent\Utils\generateUnitData.sqf";};
+		class getByKey 					{file = "Persistent\Utils\getByKey.sqf";};
 	};
 
 	class Scripts
 	{
 		//	Base
-		class patrolArea {file = "Scripts\UPS.sqf";};
+		class showNotification 	{file = "Scripts\showNotification.sqf";};
+		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
 		//	Garrison
+		class clearZones		{file = "Scripts\Garrison\clearZones.sqf";};
+		class createIcon 		{file = "Scripts\Garrison\createIcon.sqf";};
 		class generateGarrison 	{file = "Scripts\Garrison\generateGarrison.sqf";};
 		class spawnGarrison		{file = "Scripts\Garrison\spawnGarrison.sqf";};
 		class spawnGroup		{file = "Scripts\Garrison\spawnGroup.sqf";};
