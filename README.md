@@ -36,8 +36,8 @@ What is the difference?
 For now there is no issue (not that I know of). If there is one, just let me know
 
 ## Version
-Ascendancy Wars SP v1.3.0a
-See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
+* Ascendancy Wars SP v1.3.0a
+* See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
 
 ## License
 
