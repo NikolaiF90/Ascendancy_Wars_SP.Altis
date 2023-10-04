@@ -18,11 +18,12 @@ PSave_NextVehicleId = 1;
 [_slot] call F90_fnc_loadMissionID;
 [_slot] call skhpersist_fnc_LoadCustomUnits;
 [_slot] call skhpersist_fnc_LoadPlayer;
+[_slot] call F90_fnc_loadPlayerInfo;
+[_slot] call F90_fnc_loadGarrison;
 [_slot] call skhpersist_fnc_LoadCustomContainers;
 [_slot] call skhpersist_fnc_LoadCustomVariables;
 [_slot] call skhpersist_fnc_LoadEnvironmentInfo;
 [_slot] call skhpersist_fnc_LoadMapMarkers;
-[_slot] call F90_fnc_loadGarrison;
 
 {
 	[_x, [_slot]] call skhpersist_fnc_CallFunctionFromFileOrCode;

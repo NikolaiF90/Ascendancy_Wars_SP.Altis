@@ -1,16 +1,24 @@
-F90_Debug = true;
-F90_MISSIONID = "AWSP" + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str floor random 9) + (str random 9);
+F90_MISSIONID = ["AWSP", 5] call F90_fnc_generateRandomID;
 
 ["initVars", format ["Initializing variables for game id: %1", F90_MISSIONID]] call F90_fnc_debug;
-MILCASH_Player = 10000;
+MILCASH_PLAYER = 10000;
+RANK_PLAYER = "PRIVATE";
 
 MILCASH_OPFOR = 10000;
 MILCASH_BLUFOR = 10000;
 MILCASH_GUER = 10000;
 
+
 AWSP_OPFORSkill = 0.25;
 AWSP_GUERSkill = 0.3;
 
+//	GAME SETTINGS
+AWSP_GarrisonSpawnDistance = 350;
+AWSP_HeightLimit = true;
+
+AWSP_Zones = [];
+AWSP_ZoneTrigger = [];
+AWSP_ZoneIcons = [];
 AWSP_GUERCars = 
 [
 	"I_MRAP_03_F",
@@ -76,22 +84,15 @@ AWSP_MGBuilding =
 // Recruit FIA
 AWSP_FIARecruits = 
 [
-	["Rifleman","I_G_Soldier_F",10],
-	["Machine Gunner", "I_G_Soldier_AR_F",20],
-	["Medic", "I_G_medic_F",30],
-	["AT Soldier", "I_G_Soldier_LAT_F",40],
-	["Grenadier","I_G_Soldier_GL_F",50],
-	["Engineer","I_G_engineer_F",60]
+	["Rifleman","I_G_Soldier_F",1000],
+	["Machine Gunner", "I_G_Soldier_AR_F",1500],
+	["Medic", "I_G_medic_F",1500],
+	["AT Soldier", "I_G_Soldier_LAT_F",2000],
+	["Grenadier","I_G_Soldier_GL_F",1600],
+	["Engineer","I_G_engineer_F",1500]
 ];
 
 AWSPRecruit_SelectedRecruit = [["Rifleman","I_G_Soldier_F",10]];
 
-//--Dialog ID variables--
-StartMenu_Main = 1002;
-StartMenu_ListBox = 2200;
-RecruitMenu_ListBox = 3500;
-RecruitMenu_PriceText = 3001;
-
-
-initVarDone = true;
-diag_log "[F90 initVars] Finished creating game variables";
+initVarsDone = true;
+["initVars", "Finished creating game variables"] call F90_fnc_debug;

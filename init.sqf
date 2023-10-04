@@ -10,16 +10,28 @@
 
 */
 diag_log "[F90 Init] Starting Ascendancy Wars SP";
-
-initVarDone = false;
-[] call F90_fnc_initVars;
-
-waitUntil {initVarDone};
-
-[] call F90_fnc_initGarrison;
-[] call F90_fnc_initPersistent;
-player addAction ["Persistent", {[] call F90_fnc_openPersistentTab;}];
+F90_Debug = true;
+F90_MissionStarted = false;
 #include "L_ambiCivs\init.sqf"
 
-flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];
+initDialogVarsDone = false;
+[] call F90_fnc_initDialogVars;
 
+waitUntil {initDialogVarsDone};
+initVarsDone = false;
+[] call F90_fnc_initVars;
+waitUntil {initVarsDone};
+[] call F90_fnc_initGarrison;
+
+[] call F90_fnc_initPersistent;
+flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];
+player addAction ["Info Tab", {[] call F90_fnc_openInfoTab;}];
+
+while {!F90_MissionStarted} do 
+{
+	closeDialog 2;
+	[] call F90_fnc_openInfoTab;
+	hint "Use the scroll menu and select 'InfoTab' to start a new game or load saves";
+	sleep 5;
+	hint "";
+};

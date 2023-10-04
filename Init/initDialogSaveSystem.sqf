@@ -11,12 +11,11 @@ TriggerSaveSystem_NextSaveSlot = 1;
 
 // Create empty slot array as reference for fn_createSaveSlot
 AWSP_SaveSlots = [];
-//[] call skhpersist_fnc_UpdateRadioTriggers;
 
 // Save game slots.
 [] call F90_fnc_createSaveSlot;
 
-PSave_AfterSaveEH pushBack { params ["_slot"]; [StartMenuList_SelectedList,2] call F90_fnc_updateSlotList; };
+PSave_AfterSaveEH pushBack { params ["_slot"]; [StartMenuList_SelectedList] call F90_fnc_updateSlotList; };
 
 if(F90_Debug)then
 {

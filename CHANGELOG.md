@@ -1,7 +1,12 @@
 # Known Issue
-* No known issues currently
+* No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
 
 # Version History
+* 1.3.1a
+    * Fixed bugs related to loading and saving
+    * Now player can delete unused saves
+    * Restrict players from playing the mission. Not until choice(start new game or load) has been made. This is to avoid unnecessary persistent related bugs.
+    * Optimized scripts
 * 1.3.0a
     * Now captured zones(outposts,resources,factories and etc) will be persistent across saves
     * A lot of bugs has been fixed

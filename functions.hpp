@@ -8,10 +8,12 @@ class F90
 	class Dialog 
 	{
 		class createSaveSlot 	{file = "Scripts\Dialog\createSaveSlot.sqf";};
+		class deleteSaveSlot 	{file = "Scripts\Dialog\deleteSaveSlot.sqf";};
+		class dialogLoad	 	{file = "Scripts\Dialog\dialogLoad.sqf";};
+		class dialogSave 		{file = "Scripts\Dialog\dialogSave.sqf";};
 		class getSelectedList 	{file = "Scripts\Dialog\getSelectedList.sqf";};
-		class openPersistentTab {file = "Scripts\Dialog\openPersistentTab.sqf";};
-		class startLoadGame 	{file = "Scripts\Dialog\startLoadGame.sqf";};
-		class startNewGame 		{file = "Scripts\Dialog\startNewGame.sqf";};
+		class openInfoTab 		{file = "Scripts\Dialog\openInfoTab.sqf";};
+		class updatePlayerInfo 	{file = "Scripts\Dialog\updatePlayerInfo.sqf";};
 		class updateSlotList	{file = "Scripts\Dialog\updateSlotList.sqf";};
 	};
 
@@ -25,10 +27,10 @@ class F90
 	class Init
 	{
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
+		class initDialogVars		{file = "Init\initDialogVars.sqf";};
 		class initGarrison			{file = "Init\initGarrison.sqf";};
 		class initPersistent		{file = "Init\initpersistent.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
-//		class initZone				{file = "Init\initZone.sqf";};
 	};
 
 	class Persistent
@@ -37,23 +39,32 @@ class F90
 		class clearSave				{file = "Persistent\Core\clearSave.sqf";};
 		class listExistingVariables	{file = "Persistent\Core\listExistingVariables.sqf";};
 		class loadData 				{file = "Persistent\Core\loadData.sqf";};
-		class loadGame 				{file = "Persistent\Core\loadGame.sqf";};
-		class loadGarrison 			{file = "Persistent\Core\loadGarrison.sqf";};
-		class loadMissionID			{file = "Persistent\Core\loadMissionID.sqf";};
-		class loadUnitsInGroup		{file = "Persistent\Core\loadUnitsInGroup.sqf";};
-		class loadVarFromNamespace	{file = "Persistent\Core\loadVarFromNamespace.sqf";};
-		class saveCustomContainers	{file = "Persistent\Core\saveCustomContainers.sqf";};
-		class saveCustomUnits		{file = "Persistent\Core\saveCustomUnits.sqf";};
-		class saveCustomVariables	{file = "Persistent\Core\saveCustomVariables.sqf";};
-		class saveCustomVehicles	{file = "Persistent\Core\saveCustomVehicles.sqf";};
 		class saveData				{file = "Persistent\Core\saveData.sqf";};
-		class saveEnvironment		{file = "Persistent\Core\saveEnvironment.sqf";};
-		class saveGame				{file = "Persistent\Core\saveGame.sqf";};
-		class saveGarrison			{file = "Persistent\Core\saveGarrison.sqf";};
-		class saveMapMarkers		{file = "Persistent\Core\saveMapMarkers.sqf";};
-		class saveMetadata			{file = "Persistent\Core\saveMetadata.sqf";};
-		class saveMissionID 		{file = "Persistent\Core\saveMissionID.sqf";};
-		class savePlayer 			{file = "Persistent\Core\savePlayer.sqf";};
+		class startNewGame 			{file = "Persistent\Core\startNewGame.sqf";};
+
+		//	LOAD
+		class loadGame 				{file = "Persistent\Load\loadGame.sqf";};
+		class loadGarrison 			{file = "Persistent\Load\loadGarrison.sqf";};
+		class loadMissionID			{file = "Persistent\Load\loadMissionID.sqf";};
+		class loadPlayer			{file = "Persistent\Load\loadPlayer.sqf";};
+		class loadPlayerInfo		{file = "Persistent\Load\loadPlayerInfo.sqf";};
+		class loadUnitData 			{file = "Persistent\Load\loadUnitData.sqf";};
+		class loadUnitsInGroup		{file = "Persistent\Load\loadUnitsInGroup.sqf";};
+		class loadVarFromNamespace	{file = "Persistent\Load\loadVarFromNamespace.sqf";};
+
+		//	SAVE
+		class saveCustomContainers	{file = "Persistent\Save\saveCustomContainers.sqf";};
+		class saveCustomUnits		{file = "Persistent\Save\saveCustomUnits.sqf";};
+		class saveCustomVariables	{file = "Persistent\Save\saveCustomVariables.sqf";};
+		class saveCustomVehicles	{file = "Persistent\Save\saveCustomVehicles.sqf";};
+		class saveEnvironment		{file = "Persistent\Save\saveEnvironment.sqf";};
+		class saveGame				{file = "Persistent\Save\saveGame.sqf";};
+		class saveGarrison			{file = "Persistent\Save\saveGarrison.sqf";};
+		class saveMapMarkers		{file = "Persistent\Save\saveMapMarkers.sqf";};
+		class saveMetadata			{file = "Persistent\Save\saveMetadata.sqf";};
+		class saveMissionID 		{file = "Persistent\Save\saveMissionID.sqf";};
+		class savePlayer 			{file = "Persistent\Save\savePlayer.sqf";};
+		class savePlayerInfo 		{file = "Persistent\Save\savePlayerInfo.sqf";};
 
 		//	UTILS
 		class compileCode				{file = "Persistent\Utils\compileCode.sqf";};
@@ -68,6 +79,7 @@ class F90
 	class Scripts
 	{
 		//	Base
+		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 

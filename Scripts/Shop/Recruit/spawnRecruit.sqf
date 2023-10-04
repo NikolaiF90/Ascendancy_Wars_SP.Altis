@@ -21,9 +21,9 @@ if (count _recruit == 1) then
 	private _class = _soldier # 1;
 	private _price = _soldier # 2;
 
-	if (MILCASH_Player >= _price) then 
+	if (MILCASH_PLAYER >= _price) then 
 	{
-		MILCASH_Player = MILCASH_Player - _price;
+		MILCASH_PLAYER = MILCASH_PLAYER - _price;
 		//	Spawn recruit
 		private _pos = [player, 1, 50] call BIS_fnc_findSafePos;
 		private _group = createGroup [independent, true];
@@ -31,7 +31,7 @@ if (count _recruit == 1) then
 		[_soldier] join player;
 	} else 
 	{
-		hint "You do not have enough money to recruit this soldier";
+		hint "You do not have enough milcash to recruit this soldier";
 	};
 } else 
 {
