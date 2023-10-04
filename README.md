@@ -25,6 +25,10 @@ What is the difference?
   But in the end, its all about revolution.
 * more.. I will add in the future
 
+### Features
+* Choose whether to recruit local population, or recruit army from your HQ
+* More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/ROADMAP.md)
+
 ### Dependencies
 
 * CBA
