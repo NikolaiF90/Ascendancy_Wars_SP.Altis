@@ -19,6 +19,36 @@ AWSP_HeightLimit = true;
 AWSP_Zones = [];
 AWSP_ZoneTrigger = [];
 AWSP_ZoneIcons = [];
+AWSP_MilitaryZones = 
+[
+//	OUTPOSTS
+	"outpost_0",
+	"outpost_1",
+	"outpost_2",
+	"outpost_3",
+	"outpost_4",
+	"outpost_5",
+	"outpost_6",
+	"outpost_7",
+//	RESOURCES
+	"resource_0",
+	"resource_1",
+	"resource_2",
+	"resource_3",
+	"resource_4",
+	"resource_5",
+	"resource_6",
+	"resource_7",
+	"resource_8",
+//	FACTORIES
+	"factory_0",
+	"factory_1",
+//	AIRPORTS 
+	"airport_0",
+	"airport_1",
+	"airport_2"
+];
+
 AWSP_GUERCars = 
 [
 	"I_MRAP_03_F",

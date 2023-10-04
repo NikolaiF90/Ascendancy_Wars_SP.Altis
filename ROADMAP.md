@@ -9,6 +9,6 @@
 * Side missions
 * Air supply
 * Revive system
-* Civilian Disguise System
+* Civilian Disguise System [Done version 1.4.0a]
 * Arsenal
 * Vehicle garage

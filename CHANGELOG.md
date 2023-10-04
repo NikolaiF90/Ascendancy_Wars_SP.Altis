@@ -2,6 +2,11 @@
 * No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
 
 # Version History
+* 1.4.0a
+    * Added civilian disguise system
+        - Now player can disguise as civilian and enemies
+        - Entering enemy bases is now possible as long as you disguise as enemy, but be careful not to do anything suspicious
+    * Added civilian recruitment
 * 1.3.1a
     * Fixed bugs related to loading and saving
     * Now player can delete unused saves

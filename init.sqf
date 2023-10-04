@@ -32,6 +32,6 @@ while {!F90_MissionStarted} do
 	closeDialog 2;
 	[] call F90_fnc_openInfoTab;
 	hint "Use the scroll menu and select 'InfoTab' to start a new game or load saves";
-	sleep 5;
+	sleep 8;
 	hint "";
 };
