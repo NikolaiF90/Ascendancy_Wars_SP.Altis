@@ -26,9 +26,7 @@ waitUntil {initVarsDone};
 [] call F90_fnc_initPersistent;
 flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];
 player addAction ["Info Tab", {[] call F90_fnc_openInfoTab;}];
-[player] apply {
-	_x call F90_fnc_addRevive;
-};
+player call F90_fnc_addRevive;
 
 while {!F90_MissionStarted} do 
 {

@@ -12,3 +12,5 @@
 * Civilian Disguise System [Done version 1.4.0a]
 * Arsenal
 * Vehicle garage
+* Enemy surrendering
+* Incapacitated bleedout

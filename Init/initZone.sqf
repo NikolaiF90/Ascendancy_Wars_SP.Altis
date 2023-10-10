@@ -26,7 +26,7 @@ switch (_side) do
 {
 	case east: 
 	{
-		_zoneOwner = "east";
+		_zoneOwner = "EAST";
 		_colorOwner = "colorOPFOR";
 		_zoneTextOwner = format["CSAT %1", _zoneType];
 		_seized = "GUER SEIZED";
@@ -37,7 +37,7 @@ switch (_side) do
 	};
 	case west:
 	{
-		_zoneOwner = "west";
+		_zoneOwner = "WEST";
 		_colorOwner = "colorBLUFOR";
 		_zoneTextOwner = format["NATO %1", _zoneType];
 	};
@@ -136,7 +136,7 @@ if (!_zoneLost) then
 	// spawn ALT TRIGGERS
 	_clear = createTrigger ["EmptyDetector", _markerPosition];
 	_clear setTriggerArea [_markerX, _markerY, _markerDir, false];
-	_clear setTriggerActivation [_seized, "PRESENT", true];
+	_clear setTriggerActivation [_zoneOwner, "NOT PRESENT", true];
 	_clear setTriggerStatements ["this", "", ""];
 	_playerInZone = true;
 

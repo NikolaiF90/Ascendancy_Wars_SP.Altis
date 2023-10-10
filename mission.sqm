@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=145;
+		nextID=149;
 	};
 	class MarkerIDProvider
 	{
