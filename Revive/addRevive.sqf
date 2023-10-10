@@ -1,0 +1,1 @@
+_this addEventHandler ["HandleDamage", F90_fnc_handleDamageEH];

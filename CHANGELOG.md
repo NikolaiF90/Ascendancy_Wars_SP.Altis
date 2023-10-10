@@ -2,6 +2,8 @@
 * No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
 
 # Version History
+* 1.5.0a
+    * Added revive system
 * 1.4.0a
     * Added civilian disguise system
         - Now player can disguise as civilian and enemies

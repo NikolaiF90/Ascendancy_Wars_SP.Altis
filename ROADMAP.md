@@ -8,7 +8,7 @@
 * Enemy may attack player zone
 * Side missions
 * Air supply
-* Revive system
+* Revive system [Done version 1.5.0a]
 * Civilian Disguise System [Done version 1.4.0a]
 * Arsenal
 * Vehicle garage

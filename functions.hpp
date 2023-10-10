@@ -76,6 +76,15 @@ class F90
 		class getByKey 					{file = "Persistent\Utils\getByKey.sqf";};
 	};
 
+	class Revive 
+	{
+		class addPlayerHoldRevive		{file = "Revive\addPlayerHoldRevive.sqf";};
+		class addRevive 				{file = "Revive\addRevive.sqf";};
+		class handleDamageEH			{file = "Revive\handleDamageEH.sqf";};
+		class setUnitReviveState		{file = "Revive\setUnitReviveState.sqf";};
+		class unitReviveBody			{file = "Revive\unitReviveBody.sqf";};
+	};
+
 	class Scripts
 	{
 		//	Base

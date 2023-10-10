@@ -25,10 +25,11 @@ if (count _recruit == 1) then
 	{
 		MILCASH_PLAYER = MILCASH_PLAYER - _price;
 		//	Spawn recruit
-		private _pos = [player, 1, 50] call BIS_fnc_findSafePos;
+		private _pos = [player, 1, 25] call BIS_fnc_findSafePos;
 		private _group = createGroup [independent, true];
 		private _soldier = _group createUnit [_class, _pos, [], 0, "FORM"];
-		[_soldier] join player;
+		[_soldier] join group player;
+		_soldier call F90_fnc_addRevive;
 	} else 
 	{
 		hint "You do not have enough milcash to recruit this soldier";

@@ -25,6 +25,7 @@ private _tempGroup = [_spawnPos, _side, _spawnSize] call BIS_fnc_spawnGroup;
 _groupSize = _spawnSize;
 {
 	[_x] joinSilent _spawnedGroup;
+	_x call F90_fnc_addRevive;
 } forEach units _tempGroup;
 
 {

@@ -14,7 +14,10 @@ AWSP_GUERSkill = 0.3;
 
 //	GAME SETTINGS
 AWSP_GarrisonSpawnDistance = 350;
-AWSP_HeightLimit = true;
+AWSP_HeightLimit = true; 
+AWSP_GroupAliveCheck = 5;	// Time in seconds to check for the lifeState of all units in player group
+AWSP_AIReviveTime = 11.765; // Time in seconds for ai units to revive another unit(player included)
+AWSP_PlayerReviveTime = 10; // Time in seconds for player to revive another unit
 
 AWSP_Zones = [];
 AWSP_ZoneTrigger = [];
