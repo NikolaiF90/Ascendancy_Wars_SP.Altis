@@ -8,4 +8,5 @@ _vehicle setFuel random 1;
 if (_role == "driver") then 
 {
 	_vehicle setVariable ["hasOwner", true];
+	Persistent_VehiclesToSave pushBack _vehicle;
 };

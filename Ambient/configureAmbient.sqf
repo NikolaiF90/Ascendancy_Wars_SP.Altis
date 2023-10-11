@@ -1,3 +1,7 @@
+/*
+	Configuration for Ambient System
+*/
+
 Ambient_CheckInterval = 5; // Time in seconds to run ambient check
 Ambient_HouseScannerRadius = 300; // The radius (in meters) to scan for houses from player
 

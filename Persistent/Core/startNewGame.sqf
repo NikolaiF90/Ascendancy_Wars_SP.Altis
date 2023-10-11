@@ -8,6 +8,17 @@ waitUntil {initVarsDone};
 
 commanderX setPos [0,0,0];
 
+// Delete all created vehicles
+if (count Persistent_VehiclesToSave > 0) then
+{
+    {
+        deleteVehicle _x;
+    } forEach Persistent_VehiclesToSave;
+
+    [Persistent_VehiclesToSave] call F90_fnc_clearArray;
+	Persistent_VehiclesToSave = [];
+};
+
 //	Delete all units under player command
 if (count units group player > 1) then 
 {

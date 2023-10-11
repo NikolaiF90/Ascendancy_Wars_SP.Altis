@@ -1,7 +1,18 @@
-if(F90_Debug)then
-{
-	diag_log "[F90 initPersistent] Initializing persistent save system";
-};
+["initPersistent", "Initiliazing AWSP Persistent Save System"] call F90_fnc_debug;
+
+configurePersistentDone = false;
+[] call F90_fnc_configurePersistent;
+waitUntil {configurePersistentDone};
+
+
+//	DO NOT EDIT
+//	AWSP PERSISTENT SAVE SYSTEM VARIABLES
+//	-----------------------------------------------------------------------------------
+Persistent_VehiclesToSave = [];	// Array of persistent vehicles
+
+
+
+
 
 // ------------------------------------------------------------------------------------
 // PREFIX FOR SAVE-RELATED VARIABLES
@@ -42,12 +53,6 @@ PSave_AfterSaveEH = [];
 // You can create and use your own save system if you want, instead of the default one.
 [] call F90_fnc_initDialogSaveSystem;
 
-// ------------------------------------------------------------------------------------
-// ADDITIONAL SCRIPTS
-// ------------------------------------------------------------------------------------
-// Looks for cars near the player in a loop.
-// Each car will get an action, which will allow to mark it for save.
-[1000, "Car", "PSave_CustomVehiclesToSave", { PSave_CustomVehiclesToSave }] spawn skhpersist_fnc_FindObjectsToAddActions;
 
 // ------------------------------------------------------------------------------------
 // DON'T CHANGE THESE VARIABLES VALUES MANUALLY IN THIS FILE!

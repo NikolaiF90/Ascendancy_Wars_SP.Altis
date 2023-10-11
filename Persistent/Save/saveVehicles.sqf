@@ -1,8 +1,6 @@
 /*
-	Stores data for marked vehicles.
-	Data is saved to given save _slot.
+	Saves all vehicles in Persistent_VehiclesToSave
 */
-
 params ["_slot"];
 
 private _GenerateTurretArray =
@@ -18,7 +16,6 @@ private _GenerateTurretArray =
     _turretsArray;
 };  
 
-["saveCustomVehicles", format ["Saving custom vehicles to save slot %1.", _slot]] call F90_fnc_debug;
 
 private _vehicles = [];
 
@@ -36,9 +33,11 @@ private _vehicles = [];
     _vehicleArray pushBack ["materials", getObjectMaterials _vehicle];
     _vehicleArray pushBack ["textures", getObjectTextures _vehicle];
     _vehicleArray pushBack ["id", _vehicle getVariable "PSave_ID"];
+    _vehicleArray pushBack ["hasOwner", _vehicle getVariable "hasOwner"];
 
     _vehicles pushBack _vehicleArray;
 
-} forEach PSave_CustomVehiclesToSave;
+} forEach Persistent_VehiclesToSave;
 
 ["vehicles", _vehicles, _slot] call F90_fnc_saveData;
+["saveCustomVehicles", format ["%1 saved to slot %2.",_vehicles, _slot]] call F90_fnc_debug;

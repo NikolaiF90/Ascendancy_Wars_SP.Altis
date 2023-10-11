@@ -50,6 +50,9 @@ class F90
 
 	class Persistent
 	{
+		//	BASE
+		class configurePersistent	{file = "Persistent\configurePersistent.sqf";};
+
 		//	CORE
 		class clearSave				{file = "Persistent\Core\clearSave.sqf";};
 		class listExistingVariables	{file = "Persistent\Core\listExistingVariables.sqf";};
@@ -58,6 +61,7 @@ class F90
 		class startNewGame 			{file = "Persistent\Core\startNewGame.sqf";};
 
 		//	LOAD
+		class loadVehicles			{file = "Persistent\Load\loadVehicles.sqf";};
 		class loadGame 				{file = "Persistent\Load\loadGame.sqf";};
 		class loadGarrison 			{file = "Persistent\Load\loadGarrison.sqf";};
 		class loadMissionID			{file = "Persistent\Load\loadMissionID.sqf";};
@@ -71,7 +75,7 @@ class F90
 		class saveCustomContainers	{file = "Persistent\Save\saveCustomContainers.sqf";};
 		class saveCustomUnits		{file = "Persistent\Save\saveCustomUnits.sqf";};
 		class saveCustomVariables	{file = "Persistent\Save\saveCustomVariables.sqf";};
-		class saveCustomVehicles	{file = "Persistent\Save\saveCustomVehicles.sqf";};
+		class saveVehicles			{file = "Persistent\Save\saveVehicles.sqf";};
 		class saveEnvironment		{file = "Persistent\Save\saveEnvironment.sqf";};
 		class saveGame				{file = "Persistent\Save\saveGame.sqf";};
 		class saveGarrison			{file = "Persistent\Save\saveGarrison.sqf";};
@@ -82,6 +86,10 @@ class F90
 		class savePlayerInfo 		{file = "Persistent\Save\savePlayerInfo.sqf";};
 
 		//	UTILS
+		class applyCargoData			{file = "Persistent\Utils\applyCargoData.sqf";};
+		class applyDamage				{file = "Persistent\Utils\applyDamage.sqf";};
+		class applyPositioningData		{file = "Persistent\Utils\applyPositioningData.sqf";};
+		class clearArray				{file = "Persistent\Utils\clearArray.sqf";};
 		class compileCode				{file = "Persistent\Utils\compileCode.sqf";};
 		class generateCargoData 		{file = "Persistent\Utils\generateCargoData.sqf";};
 		class generateGroupData			{file = "Persistent\Utils\generateGroupData.sqf";};

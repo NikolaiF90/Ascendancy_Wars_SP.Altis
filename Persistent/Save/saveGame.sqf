@@ -22,7 +22,7 @@ PSave_SaveInProgress = true;
 [_slot] call F90_fnc_saveCustomContainers;
 [_slot] call F90_fnc_saveCustomUnits;
 [_slot] call F90_fnc_saveCustomVariables;
-[_slot] call F90_fnc_saveCustomVehicles;
+[_slot] call F90_fnc_saveVehicles;
 [_slot] call F90_fnc_saveEnvironment;
 [_slot] call F90_fnc_saveMapMarkers;
 [_slot] call F90_fnc_saveGarrison;
