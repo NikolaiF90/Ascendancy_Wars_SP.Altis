@@ -2,6 +2,8 @@
 * No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
 
 # Version History
+* 1.6.0a
+    * Now cars have chance to be spawned in towns
 * 1.5.1a
     * Minor bugfixes
 * 1.5.0a

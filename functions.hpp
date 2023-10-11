@@ -5,6 +5,20 @@ class F90
 		class debug {file = "DebugController.sqf";};
 	};
 
+	class Ambient 
+	{
+		//	BASE
+		class configureAmbient	{file = "Ambient\configureAmbient.sqf";};
+		class scanHouses		{file = "Ambient\scanHouses.sqf";};
+
+		//	PARKINGS
+		class despawnVehicleCheck 	{file = "Ambient\Parkings\despawnVehicleCheck.sqf";};
+		class findParking			{file = "Ambient\Parkings\findParking.sqf";};
+		class parkingResetCheck		{file = "Ambient\Parkings\parkingResetCheck.sqf";};
+		class spawnParkedCars 		{file = "Ambient\Parkings\spawnParkedCars.sqf";};
+		class stealCarEH			{file = "Ambient\Parkings\stealCarEH.sqf";};
+	};
+
 	class Dialog 
 	{
 		class createSaveSlot 	{file = "Scripts\Dialog\createSaveSlot.sqf";};
@@ -26,6 +40,7 @@ class F90
 
 	class Init
 	{
+		class initAmbient			{file = "Init\initAmbient.sqf";};
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
 		class initDialogVars		{file = "Init\initDialogVars.sqf";};
 		class initGarrison			{file = "Init\initGarrison.sqf";};

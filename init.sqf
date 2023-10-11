@@ -36,3 +36,7 @@ while {!F90_MissionStarted} do
 	sleep 8;
 	hint "";
 };
+
+waitUntil {F90_MissionStarted};
+
+[] call F90_fnc_initAmbient;

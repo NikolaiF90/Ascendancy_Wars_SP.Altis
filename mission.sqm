@@ -5,25 +5,25 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	mods[]=
 	{
 		"3denEnhanced"
 	};
 	class ItemIDProvider
 	{
-		nextID=149;
+		nextID=150;
 	};
 	class MarkerIDProvider
 	{
-		nextID=29;
+		nextID=30;
 	};
 	class Camera
 	{
-		pos[]={16628.447,42.004128,20458.223};
-		dir[]={0.67495573,-0.4299033,0.59968162};
-		up[]={0.32137972,0.90287501,0.28553802};
-		aside[]={0.66419131,1.4901161e-008,-0.74756283};
+		pos[]={17046.436,85.406532,21851.875};
+		dir[]={-0.91935641,-0.39293075,-0.019728782};
+		up[]={-0.3928403,0.91956806,-0.0084300935};
+		aside[]={-0.021454399,0,0.99976981};
 	};
 };
 binarizationWanted=0;
@@ -113,7 +113,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=40;
+		items=41;
 		class Item0
 		{
 			dataType="Logic";
@@ -762,6 +762,17 @@ class Mission
 			text="LDF  Base";
 			type="flag_EAF";
 			id=137;
+		};
+		class Item40
+		{
+			dataType="Marker";
+			position[]={14650.604,49.375416,20788.193};
+			name="marker_29";
+			markerType="ELLIPSE";
+			type="";
+			a=249.61084;
+			b=248.90332;
+			id=149;
 		};
 	};
 };

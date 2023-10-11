@@ -1,6 +1,6 @@
 # ROADMAP
 * Ability to buy vehicle
-* Vehicles spawns in towns and bases
+* Vehicles spawns in towns and bases [Done version 1.6.0a]
 * Buy weapon from HQ
 * Weapon dealer
 * Player wide-range ranking system

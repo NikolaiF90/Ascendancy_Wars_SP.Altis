@@ -1,5 +1,6 @@
 ["openPersistentTab", "Player opened PersistentTab"] call F90_fnc_debug;
 
+waitUntil {time > 0};
 createDialog "persistentMenu";
 
 StartMenuList_SelectedList = [StartMenu_ListBox] call F90_fnc_getSelectedList;
