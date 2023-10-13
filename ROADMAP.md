@@ -13,4 +13,4 @@
 * Arsenal
 * Vehicle garage
 * Enemy surrendering
-* Incapacitated bleedout
+* Incapacitated bleedout [Done version 1.6.2a]

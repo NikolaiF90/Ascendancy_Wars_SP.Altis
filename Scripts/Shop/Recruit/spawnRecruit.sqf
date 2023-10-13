@@ -29,7 +29,10 @@ if (count _recruit == 1) then
 		private _group = createGroup [independent, true];
 		private _soldier = _group createUnit [_class, _pos, [], 0, "FORM"];
 		[_soldier] join group player;
-		_soldier call F90_fnc_addRevive;
+		if (Revive_Enabled) then 
+		{
+			_soldier call F90_fnc_addRevive;
+		};
 	} else 
 	{
 		hint "You do not have enough milcash to recruit this soldier";

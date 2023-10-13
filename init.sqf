@@ -1,6 +1,3 @@
-//_mainDialog = createDialog "startMenu";
-//if(!_mainDialog) then {diag_log "[F90 init] Couldn't open dialog"} else {diag_log "[F90 init] Dialog should visible"};
-
 /*
 	Use debug controller to debug the scripts.
 	Just set debug = true in initVars.sqf and the Debug Controller will automatically
@@ -25,8 +22,8 @@ waitUntil {initVarsDone};
 
 [] call F90_fnc_initPersistent;
 flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];
-player addAction ["Info Tab", {[] call F90_fnc_openInfoTab;}];
-player call F90_fnc_addRevive;
+player addAction ["Info Tab", {[] call F90_fnc_openInfoTab;}, nil, 6, false];
+[] call F90_fnc_initRevive;
 
 while {!F90_MissionStarted} do 
 {

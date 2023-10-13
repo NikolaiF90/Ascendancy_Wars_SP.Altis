@@ -8,8 +8,14 @@ if (_damage >= 0.99) then
 	if !(lifeState _unit == "INCAPACITATED") then 
 	{
 		[_unit, true] call F90_fnc_setUnitReviveState;
-		_unit call F90_fnc_addPlayerHoldRevive;
+		[_unit] spawn F90_fnc_bleedOut;
+
+		if (!(incapacitatedState player == "UNCONSCIOUS")&&(!captive player)) then 
+		{
+			player call F90_fnc_takePrisoner;
+		};
 	};
 	_damage = 0;
 };
+
 _damage;

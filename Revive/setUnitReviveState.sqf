@@ -1,15 +1,15 @@
 /*
-	Function to set unit revival state, if true, then the unit is  reviveable
+	Function to set unit revival state, if true, then the unit is conscious
 */
-params ["_unit", "_revive"];
+params ["_unit", "_conscious"];
 
-if (_revive) then 
+if (_conscious) then 
 {
 	_unit setUnconscious true;
 	_unit setCaptive true;
-//	_unit allowDamage false;
+	_unit allowDamage true;
 } else {
 	_unit setUnconscious false;
 	_unit setCaptive false;
-//	_unit allowDamage true;
+	_unit allowDamage true;
 };

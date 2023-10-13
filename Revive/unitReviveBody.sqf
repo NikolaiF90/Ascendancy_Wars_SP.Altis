@@ -23,7 +23,7 @@ _medic lookAt _body;
 _body setVariable ["BeingRevived", true, true];
 _medic playMove "AinvPknlMstpSnonWnonDnon_medic1";
 _medic playMove "AinvPknlMstpSnonWnonDnon_medic2";
-sleep AWSP_AIReviveTime;
+sleep Revive_Duration;
 
 _medic playMoveNow "AinvPknlMstpSnonWnonDnon_medicEnd";
 _body setVariable ["BeingRevived", nil, true];

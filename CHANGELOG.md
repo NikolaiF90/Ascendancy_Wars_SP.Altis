@@ -2,6 +2,9 @@
 * No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
 
 # Version History
+* 1.6.2.a
+    * Incapacitated units will now bleedout and die if not being revived after certain time
+    * Bugfixes and code optimization
 * 1.6.1a
     * Stolen cars will now persistent across saves
     * Code optimization

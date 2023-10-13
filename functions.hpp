@@ -44,7 +44,8 @@ class F90
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
 		class initDialogVars		{file = "Init\initDialogVars.sqf";};
 		class initGarrison			{file = "Init\initGarrison.sqf";};
-		class initPersistent		{file = "Init\initpersistent.sqf";};
+		class initPersistent		{file = "Init\initPersistent.sqf";};
+		class initRevive			{file = "Init\initRevive.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
 	};
 
@@ -103,8 +104,11 @@ class F90
 	{
 		class addPlayerHoldRevive		{file = "Revive\addPlayerHoldRevive.sqf";};
 		class addRevive 				{file = "Revive\addRevive.sqf";};
+		class bleedOut					{file = "Revive\bleedOut.sqf";};
+		class configureRevive			{file = "Revive\configureRevive.sqf";};
 		class handleDamageEH			{file = "Revive\handleDamageEH.sqf";};
 		class setUnitReviveState		{file = "Revive\setUnitReviveState.sqf";};
+		class takePrisoner				{file = "Revive\takePrisoner.sqf";};
 		class unitReviveBody			{file = "Revive\unitReviveBody.sqf";};
 	};
 

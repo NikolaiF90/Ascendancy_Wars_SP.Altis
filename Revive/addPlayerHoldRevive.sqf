@@ -37,7 +37,7 @@ private _unitName = (name _this splitString " ") # ((count (name _this splitStri
 //		[_this # 1, "AinvPknlMstpSnonWnonDnon_medicEnd"] remoteExec ["playMoveNow", _this # 1];
 	},
 	nil,
-	AWSP_PlayerReviveTime,
+	Revive_Duration,
 	1000,
 	true,
 	true,
