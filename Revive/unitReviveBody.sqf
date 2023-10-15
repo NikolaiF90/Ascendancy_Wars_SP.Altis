@@ -20,13 +20,13 @@ sleep 0.5;
 doStop _medic; //stop here prevents unit from making radio messages after doMove
 _medic setPos (position _body);
 _medic lookAt _body;
-_body setVariable ["BeingRevived", true, true];
+_body setVariable ["Revive_IsBeingRevived", true, true];
 _medic playMove "AinvPknlMstpSnonWnonDnon_medic1";
 _medic playMove "AinvPknlMstpSnonWnonDnon_medic2";
 sleep Revive_Duration;
 
 _medic playMoveNow "AinvPknlMstpSnonWnonDnon_medicEnd";
-_body setVariable ["BeingRevived", nil, true];
+_body setVariable ["Revive_IsBeingRevived", nil, true];
 [_body, false] call F90_fnc_setUnitReviveState;
 //[_body, false] remoteExec ["F90_fnc_setUnitReviveState", _body];
 _body setDamage 0;

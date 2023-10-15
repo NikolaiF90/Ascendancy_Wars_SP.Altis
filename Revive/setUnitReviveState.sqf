@@ -7,7 +7,6 @@ if (_conscious) then
 {
 	_unit setUnconscious true;
 	_unit setCaptive true;
-	_unit allowDamage true;
 } else {
 	_unit setUnconscious false;
 	_unit setCaptive false;

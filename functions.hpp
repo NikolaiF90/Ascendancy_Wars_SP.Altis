@@ -106,9 +106,11 @@ class F90
 		class addRevive 				{file = "Revive\addRevive.sqf";};
 		class bleedOut					{file = "Revive\bleedOut.sqf";};
 		class configureRevive			{file = "Revive\configureRevive.sqf";};
+		class debugRevive				{file = "Revive\debugRevive.sqf";};
+		class dropInventory				{file = "Revive\dropInventory.sqf";};
 		class handleDamageEH			{file = "Revive\handleDamageEH.sqf";};
+		class revivePrisoner			{file = "Revive\revivePrisoner.sqf";};
 		class setUnitReviveState		{file = "Revive\setUnitReviveState.sqf";};
-		class takePrisoner				{file = "Revive\takePrisoner.sqf";};
 		class unitReviveBody			{file = "Revive\unitReviveBody.sqf";};
 	};
 
@@ -116,6 +118,7 @@ class F90
 	{
 		//	Base
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
+		class getInventory		{file = "Scripts\getInventory.sqf";};
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
