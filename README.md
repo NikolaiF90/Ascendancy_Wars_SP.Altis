@@ -54,7 +54,7 @@ What is the difference?
 
 ### Features
 * Choose whether to recruit local population, or recruit army from your HQ
-* More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/ROADMAP.md)
+* More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Main/ROADMAP.md)
 
 ### Dependencies
 
@@ -68,12 +68,12 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## Version
 * Ascendancy Wars SP v1.6.3a
-* See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
+* See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Main/CHANGELOG.md)
 
 ## License
 
-[APL-SA](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/LICENSE.md)
-[Terms Of USe](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/TERMS.md)
+[APL-SA](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Main/LICENSE.md)
+[Terms Of USe](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Main/TERMS.md)
 
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
