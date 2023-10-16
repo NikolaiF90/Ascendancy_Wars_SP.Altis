@@ -15,12 +15,14 @@ PSave_SaveInProgress = true;
 [_slot] call F90_fnc_clearSave;
 ["saveGame", "Done clearing save"] call F90_fnc_debug;
 
+[_slot] call F90_fnc_saveMissionID;
 [_slot] call F90_fnc_saveMetadata;
 [_slot] call F90_fnc_savePlayer;
+[_slot] call F90_fnc_savePlayerInfo;
 [_slot] call F90_fnc_saveCustomContainers;
 [_slot] call F90_fnc_saveCustomUnits;
 [_slot] call F90_fnc_saveCustomVariables;
-[_slot] call F90_fnc_saveCustomVehicles;
+[_slot] call F90_fnc_saveVehicles;
 [_slot] call F90_fnc_saveEnvironment;
 [_slot] call F90_fnc_saveMapMarkers;
 [_slot] call F90_fnc_saveGarrison;

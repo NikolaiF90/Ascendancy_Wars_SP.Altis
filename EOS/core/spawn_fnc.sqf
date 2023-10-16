@@ -1,5 +1,4 @@
 
-IF (isnil "server")then{hint "YOU MUST PLACE A GAME LOGIC NAMED SERVER!";};
 eos_fnc_spawnvehicle=compile preprocessfilelinenumbers "eos\functions\eos_SpawnVehicle.sqf";
 eos_fnc_grouphandlers=compile preprocessfilelinenumbers "eos\functions\setSkill.sqf";
 eos_fnc_findsafepos=compile preprocessfilelinenumbers "eos\functions\findSafePos.sqf";
