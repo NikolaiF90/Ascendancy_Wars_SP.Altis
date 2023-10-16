@@ -72,15 +72,15 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## License
 
-[APL-SA](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/LICENSE.md)
-[Terms Of USe](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/TERMS.md)
-
+### [APL-SA](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/LICENSE.md)
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
 * Noncommercial - You may not use this material for any commercial purposes.
 * Arma Only - You may not convert or adapt this material to be used in other games than Arma.
 * Share Alike - If you adapt, or build upon this material, you may distribute the resulting material only under the same license.
+
+### [Terms Of Use](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/TERMS.md)
 
 ## Acknowledgments
 
@@ -99,4 +99,3 @@ Nikolai (Prince F90)
 * [EOS by Bangabob](https://forums.bohemia.net/forums/topic/144150-enemy-occupation-system-eos/)
 * [UPS by Kronzky](https://www.kronzky.info/ups)
 * [INC_undercover by Incontinentia](https://github.com/1ncontinentia/Incon-Undercover)
-* [De_Revive by DreadedEntity](https://github.com/DreadedEntity/DE_Revive)
