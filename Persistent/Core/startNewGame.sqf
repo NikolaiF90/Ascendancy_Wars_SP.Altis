@@ -32,10 +32,8 @@ if (count units group player > 1) then
 
 if (!isNil "AWSP_Zones") then 
 {
-	private _zoneIndex = -1;
 	{
-		_zoneIndex = _zoneIndex + 1;
-		[_zoneIndex] call F90_fnc_clearZones;
+		[_forEachIndex] call F90_fnc_clearZones;
 	} forEach AWSP_Zones;
 
 	for "_i" from 0 to (count AWSP_Zones) -1 do 
@@ -45,7 +43,8 @@ if (!isNil "AWSP_Zones") then
 };
 [] call F90_fnc_initGarrison;
 
-commanderX setPos [16914.2,21877.8,0];
+commanderX setPos (getMarkerPos "respawn_guerrila");
+commanderX setDamage 0;
 /*
 	TODO: 
 	delete objects/units spawned by player

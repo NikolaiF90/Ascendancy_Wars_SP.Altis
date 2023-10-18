@@ -9,17 +9,9 @@ MILCASH_OPFOR = 10000;
 MILCASH_BLUFOR = 10000;
 MILCASH_GUER = 10000;
 
-
 AWSP_OPFORSkill = 0.25;
 AWSP_GUERSkill = 0.3;
 
-//	GAME SETTINGS
-AWSP_GarrisonSpawnDistance = 350;
-AWSP_HeightLimit = true; 
-
-AWSP_Zones = [];
-AWSP_ZoneTrigger = [];
-AWSP_ZoneIcons = [];
 AWSP_MilitaryZones = 
 [
 //	OUTPOSTS

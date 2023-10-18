@@ -100,25 +100,26 @@ _unitData pushBack ["assignedTeam", assignedTeam _unit];
 //	If unit is on vehicle
 if (vehicle _unit != _unit) then
 {
+    private _vehicle = vehicle _unit;
     private _vehicleData = [];
     private _roleData = [];
-    private _unitVehicle = vehicle _unit;
+    private _vehicleCrew = fullCrew vehicle _unit;
     {
-        private _unitInVehicle = _x # 0;
-
-        if (_unit == _unitInVehicle) exitWith
+        private _selectedUnit = _x # 0;
+        if (_unit == _selectedUnit) exitWith
         {
-            _roleData = [_x # 1, _x # 2, _x # 3, _x # 4];
+            private _role = _x # 1;
+            private _cargoIndex = _x # 2;
+            private _turretPath = _x # 3;
+            private _personTurret = _x # 4;
+            _roleData = [_role, _cargoIndex, _turretPath, _personTurret];
+            ["generateUnitData", format ["Role data for %1 generated : %2", _unit, _roleData]] call F90_fnc_debug;
         };
-    } forEach (fullCrew _unitVehicle);
-
-    _vehicleData pushBack ["id", [vehicle _unit] call skhpersist_fnc_AddCustomVehicleToSave];
+    } forEach _vehicleCrew;
+    _vehicleData pushBack ["id", [_vehicle] call F90_fnc_addVehiclesToSave];
     _vehicleData pushBack ["role", _roleData];
 
     _unitData pushBack ["vehicle", _vehicleData];
-}else
-{
-    _unitData pushBack ["vehicle", nil];
 };
 
 if (_isLeader) then

@@ -67,7 +67,7 @@ What is the difference?
 For now there is no issue (not that I know of). If there is one, just let me know
 
 ## Version
-* Ascendancy Wars SP v1.6.3a
+* Ascendancy Wars SP v1.7.0a
 * See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
 
 ## License
@@ -96,6 +96,5 @@ Nikolai (Prince F90)
 
 * [Persistent Save System by Sukhoi191](https://gitlab.com/sukhoi191_a3/arma-3-persistent-save-system)
 * [L_ambiCivs by LAxemann](https://github.com/LAxemann/L_ambiCivs)
-* [EOS by Bangabob](https://forums.bohemia.net/forums/topic/144150-enemy-occupation-system-eos/)
 * [UPS by Kronzky](https://www.kronzky.info/ups)
 * [INC_undercover by Incontinentia](https://github.com/1ncontinentia/Incon-Undercover)

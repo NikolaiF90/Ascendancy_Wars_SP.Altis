@@ -1,6 +1,6 @@
 /*
 	Use debug controller to debug the scripts.
-	Just set debug = true in initVars.sqf and the Debug Controller will automatically
+	Just set debug = true and the Debug Controller will automatically
 	output any debug results into .rpt file 
 
 	["myScriptName", format ["%1 goes here", _text]] call F90_fnc_debug;
@@ -18,7 +18,6 @@ waitUntil {initDialogVarsDone};
 initVarsDone = false;
 [] call F90_fnc_initVars;
 waitUntil {initVarsDone};
-[] call F90_fnc_initGarrison;
 
 [] call F90_fnc_initPersistent;
 flagfia_0 addAction ["Recruit", "Scripts\Shop\recruitFia.sqf"];

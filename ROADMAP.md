@@ -15,7 +15,4 @@
 * Air supply
 * Arsenal
 * Vehicle garage
-
-# ToDO
-* Rework zoning system
-    * If zone captured, garrison will despawn if they're inside zone, and stay if they're outside
+* Base building

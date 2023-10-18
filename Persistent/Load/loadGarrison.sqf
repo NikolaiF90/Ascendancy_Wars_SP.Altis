@@ -1,69 +1,76 @@
 /*
-Restores zones data.
-Data is loaded from given save _slot.
+	Code Description: 
+	This script restores zone data from a saved slot. 
+	It loads the garrisons, zone triggers, and zone icons from the specified slot. 
+	It then updates the corresponding global variables with the loaded data. 
+	Next, it clears the existing zones and recreates them using the updated data.
+	
+	Syntax: 
+	[parameters] call F90_fnc_loadGarrison 
+	
+	Parameters: 
+	- _slot (Any): The slot from which to load the zone data. 
+	
+	Return: 
+	None 
 */
 
 params ["_slot"];
-private ["_tempZones"];
+private ["_tempZones", "_tempZoneTrigger", "_tempZoneIcons", "_zoneTriggers"];
+
+configureGarrisonDone = false;
+[] call F90_fnc_configureGarrison;
+waitUntil {configureGarrisonDone};
+
+AWSP_Zones = [];
+AWSP_ZoneTrigger = [];
+AWSP_ZoneIcons = [];
+
+AWSP_ZoneMarkers = 
+[
+	"respawn_guerrila",
+
+	"outpost_0",
+	"outpost_1",
+	"outpost_2",
+	"outpost_3",
+	"outpost_4",
+	"outpost_5",
+	"outpost_6", 
+	"outpost_7",
+
+	"resource_0",
+	"resource_1",
+	"resource_2",
+	"resource_3",
+	"resource_4",
+	"resource_5",
+	"resource_6",
+	"resource_7",
+	"resource_8",
+
+	"factory_0",
+	"factory_1",
+
+	"airport_0",
+	"airport_1",
+	"airport_2"
+];
 
 ["loadGarrison", format["Loading garrisons data from slot %1",_slot]] call F90_fnc_debug;
 
 _tempZones = ["AWSPZones", _slot] call F90_fnc_loadData;
-if (isNil "_tempZones") then 
-{
-	["loadGarrison","Couldn't load garrisons. A new one will be generated instead"] call F90_fnc_debug;
-	private _allyOutpostData = [independent,"Outpost"] call F90_fnc_generateGarrison;
-	private _eastOutpostData = [east,"Outpost"] call F90_fnc_generateGarrison;
-	private _eastResourceData = [east,"Resource"] call F90_fnc_generateGarrison;
-	private _eastFactoryData = [east,"Factory"] call F90_fnc_generateGarrison;
-	private _eastAirportData = [east,"Airport"] call F90_fnc_generateGarrison;
-	_tempZones = 
-	[
-		//	OUTPOSTS
-		["outpost_0", _allyOutpostData],
-		["outpost_1", _eastOutpostData],
-		["outpost_2", _eastOutpostData],
-		["outpost_3", _eastOutpostData],
-		["outpost_4", _eastOutpostData],
-		["outpost_5", _eastOutpostData],
-		["outpost_6", _eastOutpostData],
-		["outpost_7", _eastOutpostData],
-
-		//	RESOURCES
-		["resource_0", _eastResourceData],
-		["resource_1", _eastResourceData],
-		["resource_2", _eastResourceData],
-		["resource_3", _eastResourceData],
-		["resource_4", _eastResourceData],
-		["resource_5", _eastResourceData],
-		["resource_6", _eastResourceData],
-		["resource_7", _eastResourceData],
-		["resource_8", _eastResourceData],
-
-		//	FACTORIES
-		["factory_0", _eastFactoryData],
-		["factory_1", _eastFactoryData],
-
-		//	AIRPORTS 
-		["airport_0", _eastAirportData],
-		["airport_1", _eastAirportData],
-		["airport_2", _eastAirportData]
-	];
-};
-
-for "_i" from 0 to (count AWSP_Zones) -1 do 
-{
-	AWSP_Zones deleteAt 0;
-};
 AWSP_Zones = _tempZones;
 
-["loadGarrison", format ["AWSP_ZoneTrigger = %1", AWSP_ZoneTrigger]] call F90_fnc_debug;
-private _zoneIndex = -1;
+_zoneTriggers = ["ZoneTriggers", _slot] call f90_fnc_loadData;
+for "_i" from 0 to (count _zoneTriggers)-1 do 
 {
-	_zoneIndex = _zoneIndex + 1;
-	["loadGarrison", format ["Initializing zone: %1", _x]] call F90_fnc_debug;
-	[_zoneIndex] call F90_fnc_clearZones;
-	null = [_x, false, _zoneIndex] execVM "Init\initZone.sqf";
-} forEach AWSP_Zones;
+	private _data = _zoneTriggers # _i;
+	private _trigger = [_data] call F90_fnc_loadTriggerData;
+	AWSP_ZoneTrigger set [_i, _trigger];
+};
+
+_tempZoneIcons = ["AWSPZoneIcons", _slot] call F90_fnc_loadData;
+AWSP_ZoneIcons = _tempZoneIcons;
 
 ["loadGarrison", "Done loading garrison data from file."] call F90_fnc_debug;

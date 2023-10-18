@@ -65,9 +65,11 @@ class F90
 		class loadVehicles			{file = "Persistent\Load\loadVehicles.sqf";};
 		class loadGame 				{file = "Persistent\Load\loadGame.sqf";};
 		class loadGarrison 			{file = "Persistent\Load\loadGarrison.sqf";};
+		class loadMapMarkers		{file = "Persistent\Load\loadMapMarkers.sqf";};
 		class loadMissionID			{file = "Persistent\Load\loadMissionID.sqf";};
 		class loadPlayer			{file = "Persistent\Load\loadPlayer.sqf";};
 		class loadPlayerInfo		{file = "Persistent\Load\loadPlayerInfo.sqf";};
+		class loadTriggerData 		{file = "Persistent\Load\loadTriggerData.sqf";};
 		class loadUnitData 			{file = "Persistent\Load\loadUnitData.sqf";};
 		class loadUnitsInGroup		{file = "Persistent\Load\loadUnitsInGroup.sqf";};
 		class loadVarFromNamespace	{file = "Persistent\Load\loadVarFromNamespace.sqf";};
@@ -87,6 +89,8 @@ class F90
 		class savePlayerInfo 		{file = "Persistent\Save\savePlayerInfo.sqf";};
 
 		//	UTILS
+		class addUnitToVehicle	 		{file = "Persistent\Utils\addUnitToVehicle.sqf";};
+		class addVehiclesToSave 		{file = "Persistent\Utils\addVehiclesToSave.sqf";};
 		class applyCargoData			{file = "Persistent\Utils\applyCargoData.sqf";};
 		class applyDamage				{file = "Persistent\Utils\applyDamage.sqf";};
 		class applyPositioningData		{file = "Persistent\Utils\applyPositioningData.sqf";};
@@ -96,6 +100,7 @@ class F90
 		class generateGroupData			{file = "Persistent\Utils\generateGroupData.sqf";};
 		class generatePositioningData	{file = "Persistent\Utils\generatePositioningData.sqf";};
 		class generateSaveTime			{file = "Persistent\Utils\generateSaveTime.sqf";};
+		class generateTriggerData		{file = "Persistent\Utils\generateTriggerData.sqf";};
 		class generateUnitData			{file = "Persistent\Utils\generateUnitData.sqf";};
 		class getByKey 					{file = "Persistent\Utils\getByKey.sqf";};
 	};
@@ -123,13 +128,14 @@ class F90
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
 		//	Garrison
-		class clearZones		{file = "Scripts\Garrison\clearZones.sqf";};
-		class createIcon 		{file = "Scripts\Garrison\createIcon.sqf";};
-		class generateGarrison 	{file = "Scripts\Garrison\generateGarrison.sqf";};
-		class spawnGarrison		{file = "Scripts\Garrison\spawnGarrison.sqf";};
-		class spawnGroup		{file = "Scripts\Garrison\spawnGroup.sqf";};
-		class spawnStatic		{file = "Scripts\Garrison\spawnStatic.sqf";};
-		class spawnVehicle		{file = "Scripts\Garrison\spawnVehicle.sqf";};
+		class clearZones			{file = "Scripts\Garrison\clearZones.sqf";};
+		class configureGarrison		{file = "Scripts\Garrison\configureGarrison.sqf";};
+		class createIcon 			{file = "Scripts\Garrison\createIcon.sqf";};
+		class createZone 			{file = "Scripts\Garrison\createZone.sqf";};
+		class generateZone  		{file = "Scripts\Garrison\generateZone.sqf";};
+		class getPreference  		{file = "Scripts\Garrison\getPreference.sqf";};
+		class getZoneOwnerData 		{file = "Scripts\Garrison\getZoneOwnerData.sqf";};
+		class spawnGroup			{file = "Scripts\Garrison\spawnGroup.sqf";};
 
 		//	SHOP
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};

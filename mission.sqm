@@ -12,18 +12,18 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=154;
+		nextID=155;
 	};
 	class MarkerIDProvider
 	{
-		nextID=30;
+		nextID=31;
 	};
 	class Camera
 	{
-		pos[]={14484.16,33.85997,6188.4614};
-		dir[]={-0.88903606,-0.45658803,-0.033799775};
-		up[]={-0.45625842,0.88967818,-0.017346239};
-		aside[]={-0.037991006,0,0.99927807};
+		pos[]={14508.487,53.59539,6216.7134};
+		dir[]={-0.41397142,-0.35912794,-0.83645368};
+		up[]={-0.15929559,0.9332884,-0.32186612};
+		aside[]={-0.89624363,0,0.44356221};
 	};
 };
 binarizationWanted=0;
@@ -34,14 +34,13 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Characters_F",
-	"A3_Structures_F_Mil_Flags",
-	"A3_Ui_F_Enoch"
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -77,13 +76,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
-		{
-			className="A3_Ui_F_Enoch";
-			name="Arma 3 Enoch - User Interface";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
 	};
 };
 randomSeed=15399035;
@@ -113,7 +105,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=40;
 		class Item0
 		{
 			dataType="Logic";
@@ -804,22 +796,15 @@ class Mission
 		class Item39
 		{
 			dataType="Marker";
-			position[]={16919.527,9.7993116,21876.285};
+			position[]={16909.443,10.018,21884.695};
 			name="respawn_guerrila";
-			text="LDF  Base";
-			type="flag_EAF";
-			id=137;
-		};
-		class Item40
-		{
-			dataType="Marker";
-			position[]={14650.604,49.375416,20788.193};
-			name="marker_29";
-			markerType="ELLIPSE";
+			markerType="RECTANGLE";
 			type="";
-			a=249.61084;
-			b=248.90332;
-			id=149;
+			a=139.31;
+			b=120.405;
+			angle=312.24496;
+			id=154;
+			atlOffset=0.85573673;
 		};
 	};
 };

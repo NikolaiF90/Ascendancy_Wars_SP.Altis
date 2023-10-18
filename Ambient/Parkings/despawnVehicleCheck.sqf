@@ -9,7 +9,6 @@ if(_hasOwner) exitWith {};
 
 if (player distance _vehicle > Ambient_ParkingDespawnDistance) then 
 {
-	player sideChat "DEBUG: Vehicle deleted";
 	deleteVehicle _vehicle;
 	Ambient_SpawnedCars = Ambient_SpawnedCars - [_vehicle];
 };

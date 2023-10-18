@@ -76,61 +76,6 @@ private _LoadGroupOrders =
     };
 };
 
-private _AddUnitToAssignedVehicleIfNecessary =
-{
-    params ["_unit", "_vehicleData"];
-
-    if (isNil "_vehicleData") exitWith { ["loadUnitData", format ["%1 has no vehicle", _unit]]call F90_fnc_debug; };
-
-    private _FindAssignedVehicleInArray =
-    {
-        params ["_id"];
-        private _instance = objNull;
-
-        {
-            if (_x getVariable "PSave_UnitAssignmentID" == _id) exitWith { _instance = _x };
-        } forEach Persistent_VehiclesToSave;
-
-        _instance;
-    };
-
-    private _vehicleAssignmentId = [_vehicleData, "id"] call F90_fnc_getByKey;
-    private _roleArray = [_vehicleData, "role"] call F90_fnc_getByKey;
-
-    private _vehicleInstance = [_vehicleAssignmentId] call _FindAssignedVehicleInArray;
-         
-    if ((!isNil "_vehicleInstance") && (!isNil "_roleArray")) then
-    {
-        private _role = _roleArray # 0;
-
-        switch (_role) do
-        {
-            case "driver":
-            {
-                _unit moveInDriver _vehicleInstance;
-            };
-            case "gunner":
-            {
-                _unit moveInGunner _vehicleInstance;
-            };
-            case "cargo":
-            {
-                private _cargoIndex = _roleArray # 1;
-                _unit moveInCargo [_vehicleInstance, _cargoIndex];
-            };
-            case "commander":
-            {
-                _unit moveInCommander _vehicleInstance;
-            };
-            case "turret":
-            {
-                private _turretPath = _roleArray # 2;
-                _unit moveInTurret [_vehicleInstance, _turretPath];
-            };
-        };
-    };
-};
-
 private _LoadVariables =
 {
     params ["_unit", "_variablesArray"];
@@ -162,7 +107,7 @@ private _LoadSkills =
     } forEach _skillsArray;
 };
 
-[format ["Loading unit data for unit %1.", _unit]] call skhpersist_fnc_LogToRPT;
+["loadUnitData", format ["Loading unit data for unit %1.", _unit]] call F90_fnc_debug;
 
 private _class = [_unitData, "class"] call F90_fnc_getByKey;
 private _side = [_unitData, "side"] call F90_fnc_getByKey;
@@ -214,7 +159,7 @@ else
     _unit addRating (_rating - rating _unit);
 };
 
-[_unit, _vehicle] spawn _AddUnitToAssignedVehicleIfNecessary;
+[_unit, _vehicle] spawn F90_fnc_addUnitToVehicle;
 
 [_unit, _unitData] spawn {
     params ["_unit", "_unitData"];

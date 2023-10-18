@@ -6,6 +6,16 @@
 params ["_array", "_key"];
 
 _value = "";
+
+if !(_array isEqualType []) then 
+{
+    if (_array == " " || _array == "") then 
+    {
+        _array = [];
+    };
+};
+
+
 {
     if (_key == (_x # 0) && !(isNil {_x # 1})) exitWith
     {
