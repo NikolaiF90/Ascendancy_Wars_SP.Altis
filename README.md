@@ -11,7 +11,7 @@ The citizens of Altis complaining about its goverment(CSAT) not being able to fu
 So your country(Livonia) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
 Entering Altis disguising as their citizen, act faster and you will posses Altis in no time. Work you way up, win the hearts of the citizen and they might willing to sacrifice for their freedom.
 
-## Description
+## Getting Started
 * Welcome to an exciting and immersive Arma 3 mission! Prepare yourself for a dynamic and challenging experience that will test your tactical skills and decision-making abilities.
 
 * In this mission, you will engage in intense combat scenarios and strategic challenges. The objective is to capture and control key zones, utilizing your team's abilities to gain an advantage over the enemy forces.
@@ -37,10 +37,6 @@ Entering Altis disguising as their citizen, act faster and you will posses Altis
 * Manage your vehicles efficiently with the vehicle garage. Repair, refuel, and customize your vehicles to ensure they are in optimal condition for your missions.
 
 * Prepare yourself for an immersive and challenging mission that combines intense combat, strategic decision-making, and a range of features designed to enhance your gameplay experience. Are you ready to lead your team to victory and accomplish your mission objectives?
-
-## Getting Started
-
-Not yet implemented
 
 ### Why Ascendancy Wars?
 
