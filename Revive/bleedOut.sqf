@@ -1,7 +1,7 @@
 /*
 	Code Explanation: 
  
-	This code is a function in Arma 3 that applies a bleedout effect to a specified unit and eventually causes the unit to die after a given time. Here is a breakdown of the code: 
+	This code is a function in Arma 3 that applies a bleedout effect to a specified unit and eventually causes the unit to die after a given time
 	
 	SYNTAX: 
 	[unit] spawn F90_fnc_bleedOut; 
@@ -15,11 +15,12 @@
 params ["_unit"];
 
 private _health = 100;
+private _timeInSec = Revive_BleedoutTime * 60;
 
-for "_i" from 0 to Revive_BleedoutTime do 
+for "_i" from 0 to _timeInSec do 
 {
 	if !(lifeState _unit == "INCAPACITATED") exitWith {};
-	if (_i == (Revive_BleedoutTime / 2)) then 
+	if (_i == (_timeInSec / 2)) then 
 	{
 		if (damage _unit < 0.5) then
 		{
@@ -28,7 +29,7 @@ for "_i" from 0 to Revive_BleedoutTime do
 		};
 	};
 
-	if (_i == Revive_BleedoutTime) then 
+	if (_i == _timeInSec) then 
 	{
 		_unit allowDamage true;
 		_unit setDamage 1;

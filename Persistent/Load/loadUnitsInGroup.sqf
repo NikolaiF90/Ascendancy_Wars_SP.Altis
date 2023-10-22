@@ -53,8 +53,8 @@ private _LoadOrders =
 {
     params ["_unit", "_ordersArray"];
 
-    private _behaviour = [_ordersArray, "behaviour"] call skhpersist_fnc_GetByKey;
-    private _unitPos = [_ordersArray, "unitPos"] call skhpersist_fnc_GetByKey;
+    private _behaviour = [_ordersArray, "behaviour"] call F90_fnc_getByKey;
+    private _unitPos = [_ordersArray, "unitPos"] call F90_fnc_getByKey;
 
     _unit setBehaviour _behaviour;
     _unit setUnitPos _unitPos;
@@ -68,68 +68,13 @@ private _LoadGroupOrders =
 
     if (leader _group == _unit) then 
     {
-        private _combatMode = [_groupOrdersArray, "combatMode"] call skhpersist_fnc_GetByKey;
-        private _formation = [_groupOrdersArray, "formation"] call skhpersist_fnc_GetByKey;
-        private _speedMode = [_groupOrdersArray, "speedMode"] call skhpersist_fnc_GetByKey;
+        private _combatMode = [_groupOrdersArray, "combatMode"] call F90_fnc_getByKey;
+        private _formation = [_groupOrdersArray, "formation"] call F90_fnc_getByKey;
+        private _speedMode = [_groupOrdersArray, "speedMode"] call F90_fnc_getByKey;
 
         _group setCombatMode _combatMode;
         _group setFormation _formation;
         _group setSpeedMode _speedMode;
-    };
-};
-
-private _AddUnitToAssignedVehicleIfNecessary =
-{
-    params ["_unit", "_vehicleArray"];
-
-    if (isNil { _vehicleArray }) exitWith { 0 };
-
-    private _FindAssignedVehicleInArray =
-    {
-        params ["_id"];
-        private _instance = objNull;
-
-        {
-            if (_x getVariable "PSave_UnitAssignmentID" == _id) exitWith { _instance = _x };
-        } forEach PSave_CustomVehiclesToSave;
-
-        _instance;
-    };
-
-    private _vehicleAssignmentId = [_vehicleArray, "id"] call skhpersist_fnc_GetByKey;
-    private _roleArray = [_vehicleArray, "role"] call skhpersist_fnc_GetByKey;
-
-    private _vehicleInstance = [_vehicleAssignmentId] call _FindAssignedVehicleInArray;
-         
-    if (!isNull _vehicleInstance && (_roleArray != "")) then
-    {
-        private _role = _roleArray # 0;
-
-        switch (_role) do
-        {
-            case "driver":
-            {
-                _unit moveInDriver _vehicleInstance;
-            };
-            case "gunner":
-            {
-                _unit moveInGunner _vehicleInstance;
-            };
-            case "cargo":
-            {
-                private _cargoIndex = _roleArray # 1;
-                _unit moveInCargo [_vehicleInstance, _cargoIndex];
-            };
-            case "commander":
-            {
-                _unit moveInCommander _vehicleInstance;
-            };
-            case "turret":
-            {
-                private _turretPath = _roleArray # 2;
-                _unit moveInTurret [_vehicleInstance, _turretPath];
-            };
-        };
     };
 };
 
@@ -166,26 +111,26 @@ private _LoadSkills =
 
 ["loadUnitsInGroup", format["Loading unit data for unit under command of %1", _leader]] call F90_fnc_debug;
 
-private _class = [_unitData, "class"] call skhpersist_fnc_GetByKey;
-private _side = [_unitData, "side"] call skhpersist_fnc_GetByKey;
-private _group = [_unitData, "group"] call skhpersist_fnc_GetByKey;
-private _orders = [_unitData, "orders"] call skhpersist_fnc_GetByKey;
-private _groupOrders = [_unitData, "groupOrders"] call skhpersist_fnc_GetByKey;
-private _generalDamage = [_unitData, "generalDamage"] call skhpersist_fnc_GetByKey;
-private _damages = [_unitData, "damages"] call skhpersist_fnc_GetByKey;
-private _posRotation = [_unitData, "posRotation"] call skhpersist_fnc_GetByKey;
-private _skills = [_unitData, "skills"] call skhpersist_fnc_GetByKey;
-private _name = [_unitData, "name"] call skhpersist_fnc_GetByKey;
-private _face = [_unitData, "face"] call skhpersist_fnc_GetByKey;
-private _speaker = [_unitData, "speaker"] call skhpersist_fnc_GetByKey;
-private _pitch = [_unitData, "pitch"] call skhpersist_fnc_GetByKey;
-private _rating = [_unitData, "rating"] call skhpersist_fnc_GetByKey;
-private _stamina = [_unitData, "stamina"] call skhpersist_fnc_GetByKey;
-private _fatigue = [_unitData, "fatigue"] call skhpersist_fnc_GetByKey;
-private _formationDir = [_unitData, "formationDir"] call skhpersist_fnc_GetByKey;
-private _variables = [_unitData, "variables"] call skhpersist_fnc_GetByKey;
-private _vehicle = [_unitData, "vehicle"] call skhpersist_fnc_GetByKey;
-private _assignedTeam = [_unitData, "assignedTeam"] call skhpersist_fnc_GetByKey;
+private _class = [_unitData, "class"] call F90_fnc_getByKey;
+private _side = [_unitData, "side"] call F90_fnc_getByKey;
+private _group = [_unitData, "group"] call F90_fnc_getByKey;
+private _orders = [_unitData, "orders"] call F90_fnc_getByKey;
+private _groupOrders = [_unitData, "groupOrders"] call F90_fnc_getByKey;
+private _generalDamage = [_unitData, "generalDamage"] call F90_fnc_getByKey;
+private _damages = [_unitData, "damages"] call F90_fnc_getByKey;
+private _posRotation = [_unitData, "posRotation"] call F90_fnc_getByKey;
+private _skills = [_unitData, "skills"] call F90_fnc_getByKey;
+private _name = [_unitData, "name"] call F90_fnc_getByKey;
+private _face = [_unitData, "face"] call F90_fnc_getByKey;
+private _speaker = [_unitData, "speaker"] call F90_fnc_getByKey;
+private _pitch = [_unitData, "pitch"] call F90_fnc_getByKey;
+private _rating = [_unitData, "rating"] call F90_fnc_getByKey;
+private _stamina = [_unitData, "stamina"] call F90_fnc_getByKey;
+private _fatigue = [_unitData, "fatigue"] call F90_fnc_getByKey;
+private _formationDir = [_unitData, "formationDir"] call F90_fnc_getByKey;
+private _variables = [_unitData, "variables"] call F90_fnc_getByKey;
+private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
+private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
         
 private _unit = (createGroup _side) createUnit [_class, [0,0,0],[],0,"FORM"];
 _unit setVariable ["BIS_enableRandomization", false];
@@ -216,7 +161,7 @@ else
     _unit addRating (_rating - rating _unit);
 };
 
-[_unit, _vehicle] spawn _AddUnitToAssignedVehicleIfNecessary;
+[_unit, _vehicle] spawn F90_fnc_addUnitToVehicle;
 
 [_unit, _unitData] spawn {
     params ["_unit", "_unitData"];
@@ -244,11 +189,11 @@ else
         _unit setName [_joinedNames, _firstName, _surname];
     };
     
-    private _name = [_unitData, "name"] call skhpersist_fnc_GetByKey;
-    private _face = [_unitData, "face"] call skhpersist_fnc_GetByKey;
-    private _speaker = [_unitData, "speaker"] call skhpersist_fnc_GetByKey;
-    private _pitch = [_unitData, "pitch"] call skhpersist_fnc_GetByKey;
-    private _loadout = [_unitData, "loadout"] call skhpersist_fnc_GetByKey;
+    private _name = [_unitData, "name"] call F90_fnc_getByKey;
+    private _face = [_unitData, "face"] call F90_fnc_getByKey;
+    private _speaker = [_unitData, "speaker"] call F90_fnc_getByKey;
+    private _pitch = [_unitData, "pitch"] call F90_fnc_getByKey;
+    private _loadout = [_unitData, "loadout"] call F90_fnc_getByKey;
     
     [_unit, _name] call _RestoreUnitsName;
     

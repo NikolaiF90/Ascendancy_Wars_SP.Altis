@@ -57,7 +57,6 @@ if (!_spawnCheck) then
 	
 	_parkingPosition = [_posX -1, _posY -1, 0];
 
-	player sideChat "DEBUG: Parking created";
 	_house setVariable ["Ambient_HasParking", true];
 	_house setVariable ["parkingPosition", _parkingPosition];
 	_house setVariable ["parkingDirection", _parkingDirection];
@@ -70,7 +69,6 @@ if (!_spawnCheck) then
 
 if ((_hasParking)&&(!_hasCar)) then 
 {
-	player sideChat "DEBUG: Spawning Cars";
 	[_house] spawn F90_fnc_spawnParkedCars;
 	_house setVariable ["Ambient_HasCar", true];
 	

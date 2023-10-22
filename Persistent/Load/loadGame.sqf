@@ -18,11 +18,11 @@ PSave_NextVehicleId = 1;
 [_slot] call skhpersist_fnc_LoadCustomUnits;
 [_slot] call F90_fnc_loadPlayer;
 [_slot] call F90_fnc_loadPlayerInfo;
-[_slot] call F90_fnc_loadGarrison;
 [_slot] call skhpersist_fnc_LoadCustomContainers;
 [_slot] call skhpersist_fnc_LoadCustomVariables;
 [_slot] call skhpersist_fnc_LoadEnvironmentInfo;
-[_slot] call skhpersist_fnc_LoadMapMarkers;
+[_slot] call F90_fnc_loadMapMarkers;
+[_slot] call F90_fnc_loadGarrison;
 
 {
 	[_x, [_slot]] call skhpersist_fnc_CallFunctionFromFileOrCode;
@@ -31,4 +31,8 @@ PSave_NextVehicleId = 1;
 PSave_LoadInProgress = false;
 
 hint format ["Persistent load done from slot %1", _slot];
-[format ["Loading data from slot %1 done.", _slot]] call skhpersist_fnc_LogToRPT;
+["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
+{
+	[_forEachIndex] call F90_fnc_clearZones;
+	[_x, false] spawn F90_fnc_createZone;
+} forEach AWSP_Zones;

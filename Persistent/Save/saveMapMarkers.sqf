@@ -9,6 +9,7 @@ params ["_slot"];
 
 private _markersArray = [];
 private _userMarkersCounter = 1;
+private _allMarkers = allMapMarkers;
 
 {
     private _marker = [];
@@ -34,6 +35,6 @@ private _userMarkersCounter = 1;
     _marker pushBack ["type", markerType _x];
     
     _markersArray pushBack _marker;
-} forEach allMapMarkers;
+} forEach _allMarkers;
 
 ["markers", _markersArray, _slot] call F90_fnc_saveData;

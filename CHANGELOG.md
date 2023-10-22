@@ -1,7 +1,32 @@
 # Known Issue
-* No known issues currently. But note that the mission is not tested at its fullest. Which means some rare bugs may occurs
+* No known issues currently
 
 # Version History
+* 1.7.1a
+    * New Feature: Reinforcement System
+        - Implemented a dynamic reinforcement system to enhance gameplay. 
+        - When the enemy calls for reinforcements, nearby zones capable of providing backup are identified. 
+        - Zones with only one group of garrisons will not provide backup. 
+        - The zone under attack will request reinforcements from other zones until a suitable provider is found. 
+        - Garrisons are deducted from the backup provider, determining the size of the spawned reinforcement team. 
+        - This new feature adds a realistic aspect to the gameplay, ensuring that units do not magically appear. 
+    * Added skill for BLUFOR
+    * Time multiplier can now be adjusted from inside initVars.sqf
+    * Code optimization and bugfix
+        - From now on, a captive unit can't capture a zone
+* 1.7.0a
+    * Reworked whole zoning and garrison system
+        - Garrison System now works perfectly with Revive System.
+        - Incapacitated units doesn't count as garrison, therefore they won't despawn.
+        - Dead units no more disappeared after capturing zone, allowing player to loot them.
+        - Enemy no more disappearing after capturing zone.
+        - Zone capturing is no more limited to players. Now AI can also capture zones.
+    * Code optimization and bugfixes
+        - Fixed a bug where surrendering enemy is still giving orders
+        - Removed old unused codes
+        - Fixed unable to save stolen vehicle
+        - Fixed the game unable to load properly if unit is not in a vehicle
+        - The game will not tring to save a vehicle if unit not in one
 * 1.6.3a
     * Revived enemy units will now surrender. They will drop all of their weapons, items and gear. 
     * Bugfixes and code optimization icluding addition of script explaination

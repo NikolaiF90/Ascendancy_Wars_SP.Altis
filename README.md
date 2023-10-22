@@ -1,6 +1,11 @@
-# Ascendancy Wars SP (Altis)
+# Ascendancy Wars SP (Altis) 
+[![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)
 
-If you work in a profession where people die young, make sure you don't die young
+[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)
+
+![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
+
+> _"If you work in a profession where people die young, make sure you don't die young"_
 
 ## Story
 
@@ -8,7 +13,7 @@ The citizens of Altis complaining about its goverment(CSAT) not being able to fu
 So your country(Livonia) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
 Entering Altis disguising as their citizen, act faster and you will posses Altis in no time. Work you way up, win the hearts of the citizen and they might willing to sacrifice for their freedom.
 
-## Description
+## Getting Started
 * Welcome to an exciting and immersive Arma 3 mission! Prepare yourself for a dynamic and challenging experience that will test your tactical skills and decision-making abilities.
 
 * In this mission, you will engage in intense combat scenarios and strategic challenges. The objective is to capture and control key zones, utilizing your team's abilities to gain an advantage over the enemy forces.
@@ -35,10 +40,6 @@ Entering Altis disguising as their citizen, act faster and you will posses Altis
 
 * Prepare yourself for an immersive and challenging mission that combines intense combat, strategic decision-making, and a range of features designed to enhance your gameplay experience. Are you ready to lead your team to victory and accomplish your mission objectives?
 
-## Getting Started
-
-Not yet implemented
-
 ### Why Ascendancy Wars?
 
 Ascendancy Wars was created hugely inspired by popular mods like Antistasi, Overthow and Vindicta.
@@ -53,8 +54,11 @@ What is the difference?
 * more.. I will add in the future
 
 ### Features
+[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](ROADMAP.md)
+
 * Choose whether to recruit local population, or recruit army from your HQ
-* More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/ROADMAP.md)
+
+* When the enemy calls for reinforcements, the game will search for nearby zones that are capable of providing support. If a zone contains only one group of garrisons, it will not be able to provide any backup. In such cases, the zone under attack will attempt to request reinforcements from other zones until it finds one that is capable of providing support. Once a suitable backup provider is identified, the game will reduce the number of garrisons in that zone, and the deducted amount will determine the size of the spawned reinforcement team. This means that the number of reinforcements spawned is directly linked to the number of garrisons remaining in the provider zone, replicating a realistic scenario where units cannot appear out of thin air.
 
 ### Dependencies
 
@@ -66,13 +70,10 @@ What is the difference?
 
 For now there is no issue (not that I know of). If there is one, just let me know
 
-## Version
-* Ascendancy Wars SP v1.6.3a
-* See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/CHANGELOG.md)
-
 ## License
 
-### [APL-SA](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/LICENSE.md)
+[![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic)](http://www.bohemia.net/community/licenses/arma-public-license-share-alike) [![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic)](TERMS.md)
+
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
@@ -96,6 +97,5 @@ Nikolai (Prince F90)
 
 * [Persistent Save System by Sukhoi191](https://gitlab.com/sukhoi191_a3/arma-3-persistent-save-system)
 * [L_ambiCivs by LAxemann](https://github.com/LAxemann/L_ambiCivs)
-* [EOS by Bangabob](https://forums.bohemia.net/forums/topic/144150-enemy-occupation-system-eos/)
 * [UPS by Kronzky](https://www.kronzky.info/ups)
 * [INC_undercover by Incontinentia](https://github.com/1ncontinentia/Incon-Undercover)

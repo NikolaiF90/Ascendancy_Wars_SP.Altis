@@ -9,17 +9,12 @@ MILCASH_OPFOR = 10000;
 MILCASH_BLUFOR = 10000;
 MILCASH_GUER = 10000;
 
-
 AWSP_OPFORSkill = 0.25;
-AWSP_GUERSkill = 0.3;
+AWSP_GUERSkill = 0.35;
+AWSP_BLUFORSkill = 0.27;
 
-//	GAME SETTINGS
-AWSP_GarrisonSpawnDistance = 350;
-AWSP_HeightLimit = true; 
+AWSP_DaysPerHour = 2; // The speed at which time passes in the game
 
-AWSP_Zones = [];
-AWSP_ZoneTrigger = [];
-AWSP_ZoneIcons = [];
 AWSP_MilitaryZones = 
 [
 //	OUTPOSTS
@@ -124,6 +119,10 @@ AWSP_FIARecruits =
 ];
 
 AWSPRecruit_SelectedRecruit = [["Rifleman","I_G_Soldier_F",10]];
+
+AWSP_DaysPerHour = AWSP_DaysPerHour * 24;
+// Set the time multiplier to x (1 hour of real time = x hours in-game)
+setTimeMultiplier AWSP_DaysPerHour;
 
 initVarsDone = true;
 ["initVars", "Finished creating game variables"] call F90_fnc_debug;

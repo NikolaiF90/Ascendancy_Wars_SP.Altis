@@ -42,6 +42,7 @@ doStop _target;
 _target doWatch nil;
 _target disableAI "TARGET";
 _target disableAI "AUTOCOMBAT";
+_target disableAI "RADIOPROTOCOL";
 
 _target setDamage 0;
 _target removeAction (_target getVariable "Revive_PrisonerActionID");
