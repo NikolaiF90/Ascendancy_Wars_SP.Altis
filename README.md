@@ -1,7 +1,7 @@
 # Ascendancy Wars SP (Altis) 
 ![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black&link=https%3A%2F%2Fgithub.com%2FNikolaiF90%2FAscendancy_Wars_SP.Altis%2Fblob%2FAlpha%2FCHANGELOG.md)  
-[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in) 
-
+[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)   
+![Ascendancy Wars Cover Photo] (https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/AscendancyWarsSP.jpeg)
 
 If you work in a profession where people die young, make sure you don't die young
 
