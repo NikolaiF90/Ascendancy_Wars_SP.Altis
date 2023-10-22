@@ -1,6 +1,8 @@
 # Ascendancy Wars SP (Altis) 
-[![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
-[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)   
+[![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)
+
+[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)
+
 ![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
 
 > _"If you work in a profession where people die young, make sure you don't die young"_
@@ -69,7 +71,8 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## License
 
-[![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic)](http://www.bohemia.net/community/licenses/arma-public-license-share-alike) [![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic)](TERMS.md)  
+[![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic)](http://www.bohemia.net/community/licenses/arma-public-license-share-alike) [![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic)](TERMS.md)
+
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
