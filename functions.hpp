@@ -31,13 +31,6 @@ class F90
 		class updateSlotList	{file = "Scripts\Dialog\updateSlotList.sqf";};
 	};
 
-	class EOS
-	{
-		class eosCore	{file = "EOS\core\eosCore.sqf";};
-		class bLaunch	{file = "EOS\core\bLaunch.sqf";};
-		class eosLaunch {file = "EOS\core\eosLaunch.sqf";};
-	};
-
 	class Init
 	{
 		class initAmbient			{file = "Init\initAmbient.sqf";};
@@ -136,6 +129,12 @@ class F90
 		class getPreference  		{file = "Scripts\Garrison\getPreference.sqf";};
 		class getZoneOwnerData 		{file = "Scripts\Garrison\getZoneOwnerData.sqf";};
 		class spawnGroup			{file = "Scripts\Garrison\spawnGroup.sqf";};
+
+		//	Reinforcement 
+		class assignAsReinforcement	{file = "Scripts\Reinforcement\assignAsReinforcement.sqf";};
+		class createReinforcement	{file = "Scripts\Reinforcement\createReinforcement.sqf";};
+		class findNearestGarrisons	{file = "Scripts\Reinforcement\findNearestGarrisons.sqf";};
+		class sendReinforcement		{file = "Scripts\Reinforcement\sendReinforcement.sqf";};
 
 		//	SHOP
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};

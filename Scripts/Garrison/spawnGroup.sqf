@@ -42,6 +42,7 @@ switch (_side) do
 {
 	case east: {_groupSkill = AWSP_OPFORSkill;};
 	case independent: {_groupSkill = AWSP_GUERSkill;};
+	case west : {_groupSkill = AWSP_BLUFORSkill;};
 };
 
 {

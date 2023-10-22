@@ -1,6 +1,6 @@
 # ROADMAP
 * Zone capturing system [Done Initial release]
-* Enemy sends reinforcement
+* Enemy sends reinforcement [Done version 1.7.1a]
 * Enemy may attack player zone
 * Revive system [Done version 1.5.0a]
 * Incapacitated bleedout [Done version 1.6.2a]

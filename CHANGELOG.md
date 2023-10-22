@@ -1,6 +1,19 @@
 # Known Issue
+* No known issues currently
 
 # Version History
+* 1.7.1a
+    * New Feature: Reinforcement System
+        - Implemented a dynamic reinforcement system to enhance gameplay. 
+        - When the enemy calls for reinforcements, nearby zones capable of providing backup are identified. 
+        - Zones with only one group of garrisons will not provide backup. 
+        - The zone under attack will request reinforcements from other zones until a suitable provider is found. 
+        - Garrisons are deducted from the backup provider, determining the size of the spawned reinforcement team. 
+        - This new feature adds a realistic aspect to the gameplay, ensuring that units do not magically appear. 
+    * Added skill for BLUFOR
+    * Time multiplier can now be adjusted from inside initVars.sqf
+    * Code optimization and bugfix
+        - From now on, a captive unit can't capture a zone
 * 1.7.0a
     * Reworked whole zoning and garrison system
         - Garrison System now works perfectly with Revive System.

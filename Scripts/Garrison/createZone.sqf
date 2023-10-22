@@ -1,26 +1,26 @@
 /*
 	Code Description: 
-	This script creates a zone based on the provided data. 
-	It handles the creation of zone triggers, icons, and garrisons. 
-	The script continuously checks if players are present in the zone and spawns garrisons accordingly.
-	It also handles despawning garrisons when players leave the zone. 
-	If the zone becomes empty, it triggers a capture event and creates a capture trigger. 
-	The script runs in an infinite loop to continuously manage the zone. 
+	A script that manages zones. It handles the spawning and despawning of groups within zones based on player presence, captures, and reinforcements. 
+	The script also includes functionality for creating triggers, setting variables, and generating zones. 
 	
 	Syntax: 
-	[parameters] spawm F90_fnc_createZone 
+	As this is a script rather than a function, it does not have a specific syntax for calling it.
+	Instead, the script needs to be executed within the game scenario or called from another script using the  execVM  command.
+	Just in case you still wanted to use it as a function, you should use spawn instead.
+	[parameters] spawn F90_fnc_createZone 
 	
 	Parameters: 
-	- _zoneData (Array): An array containing the zone data, including the zone index, marker, position, type, and side. 
+	- _zoneData (Array): An array containing the zone data, including the zone index, marker, position, type, side and size. 
 	- _isCapturedZone (Boolean): A boolean value indicating if the zone is captured by a specific attacker group. 
-	- _attackerGroup (Group): The attacker group that has captured the zone. 
+	- _attackerGroup (Group): The attacker group that has captured the zone. It could be an AI group or a player-controlled group. 
+	- _respawnGroup (Boolean): Optional. A boolean value determining whether the group associated with the zone should respawn(at start) or not.
 	
 	Return: 
-	None 
+	None  
 */
 params ["_zoneData", "_isCapturedZone", "_attackerGroup"];
 
-private ["_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_actCondition", "_zoneTrigger", "_captureTrigger", "_zoneIcon", "_zonePref", "_groupCount", "_groupSize", "_spawned", "_playerInZone", "_cachedGroup", "_garrisons", "_zoneEmpty", "_inCaptureEvent"];
+private ["_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_actCondition", "_zoneTrigger", "_captureTrigger", "_captureChecker", "_zoneIcon", "_zonePref", "_groupCount", "_groupSize", "_spawned", "_playerInZone", "_cachedGroup", "_garrisons", "_zoneEmpty", "_inCaptureEvent", "_reinforcementSent"];
 
 _zoneIndex = _zoneData # 0;
 _zoneMarker = _zoneData # 1;
@@ -30,6 +30,8 @@ _zoneSide = _zoneData # 4;
 
 _zoneSize = getMarkerSize _zoneMarker;
 _zoneDirection = markerDir _zoneMarker;
+
+_safeToCapture = false;
 
 if (Garrison_HeightLimit) then 
 {
@@ -116,6 +118,7 @@ if (_isCapturedZone) then
 _spawned = false;
 _zoneEmpty = false;
 _inCaptureEvent = false;
+_reinforcementSent = -1;
 
 while {true} do 
 {
@@ -140,11 +143,15 @@ while {true} do
 			{
 				private _unitCount = _cachedGroup # _i;
 
+				// Temporary bugfix
+				if (_unitCount == 0) then 
+				{
+					_unitCount = 1;
+				};
 				["createZone", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount]] call F90_fnc_debug;
 				private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
 				_garrisons set [_i,_spawnedGroup];
 			};
-			["createZone", format["_garrisons = %1",_garrisons]] call F90_fnc_debug;
 		};
 	};
 
@@ -183,7 +190,6 @@ while {true} do
 			_cachedGroup = _cachedGroup - [0];
 			_garrisons = [];
 			_groupCount = count _activeGroups;
-			["createZone", format["_cachedGroup = %1", _cachedGroup]] call F90_fnc_debug; 
 			_zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
 			_zoneTrigger setVariable ["Zone_GroupCount", _groupCount];
 		};
@@ -211,14 +217,32 @@ while {true} do
 		} forEach _garrisons;
 		_garrisons - _inactiveGroups;
 		_groupCount = count _activeGroups;
-		["createZone", format["Currently there are %1 active groups for %2",_groupCount, _zoneMarker]] call F90_fnc_debug;
 	};
 
 	if (_groupCount == 0 && (!_inCaptureEvent)) then 
 	{
 		_inCaptureEvent = true;
-		['DEBUG', 'Creating capture trigger'] call F90_fnc_debug;
-		player sideChat 'DEBUG: Creating capture trigger';
+
+		_captureChecker = createTrigger ["EmptyDetector", _zonePos];
+		_captureChecker setTriggerArea [(Garrison_SpawnDistance + (_zoneSize # 0)), (Garrison_SpawnDistance + (_zoneSize # 1)), _zoneDirection, true];
+		switch (_zoneSide) do 
+		{
+			case west: 
+			{
+				_captureChecker setTriggerActivation ["WEST", "NOT PRESENT", true];
+			};
+			case east: 
+			{
+				_captureChecker setTriggerActivation ["EAST", "NOT PRESENT", true];
+			};
+			case independent: 
+			{
+				_captureChecker setTriggerActivation ["GUER", "NOT PRESENT", true];
+			};
+		};
+		_captureChecker setTriggerTimeout [1, 1, 1, true];
+		_captureTrigger setTriggerStatements ["this", "", ""];
+
 		_captureTrigger = createTrigger ["EmptyDetector", _zonePos];
 		_captureTrigger setTriggerArea [_zoneSize # 0,_zoneSize # 1, _zoneDirection, true];
 		_captureTrigger setTriggerActivation ["ANY", "PRESENT", true];
@@ -228,18 +252,25 @@ while {true} do
 		_captureTrigger setVariable ["Zone_Index", _zoneIndex];
 		_captureTrigger setVariable ["Zone_Marker", _zoneMarker];
 
-		_captureTrigger setTriggerStatements ["this", 
-		"thisTrigger setVariable ['Capture_DetectedUnits', thisList];", ""];
+		_captureTrigger setTriggerStatements ["this", "thisTrigger setVariable ['Capture_DetectedUnits', thisList];", ""];
+
+		if (_reinforcementSent == -1) then 
+		{
+			_reinforcementSent = 1;
+		};
 		sleep 1;
+	};
+
+	if (_reinforcementSent == 1) then 
+	{
+		_reinforcementSent = 0;
+		[_zoneIndex] call F90_fnc_sendReinforcement;
 	};
 
 	if (_inCaptureEvent && !(isNil {_captureTrigger})) then 
 	{
-		if (triggerActivated _captureTrigger) then 
+		if (triggerActivated _captureTrigger && triggerActivated _captureChecker) then 
 		{
-			['DEBUG', 'TRIGGER EXECUTED'] call F90_fnc_debug;
-			player sideChat 'DEBUG: TRIGGER EXECUTED';
-
 			private _oldSide = _zoneSide;
 			private _oldTrigger = _zoneTrigger;
 			private _index = _zoneIndex;
@@ -249,7 +280,7 @@ while {true} do
 			private _attacker = objNull;
 			
 			{
-				if ((side _x != civilian)&&(side _x != _oldSide)&&(_x != player)) then 
+				if ((side _x != civilian)&&(_x != player)&&!(captive _x)) then 
 				{
 					_attackers pushBack _x;
 				};
@@ -258,7 +289,6 @@ while {true} do
 			if (count _attackers > 0) then
 			{
 				_attacker = _attackers # 0;
-				['DEBUG', format ['attacker found = %1', _attacker]] call F90_fnc_debug;
 				private _attackerGroup = group _attacker;
 
 				if (side _attacker == independent) then 
@@ -266,7 +296,7 @@ while {true} do
 					['CAPTURED', _zoneType] call F90_fnc_showNotification;
 				} else 
 				{
-					if (side _attacker == east) then 
+					if (_zoneSide == independent && side _attacker == east) then 
 					{
 						['LOSS', _zoneType] call F90_fnc_showNotification;
 					};
@@ -276,6 +306,7 @@ while {true} do
 				private _zone = [_zoneMarker, side _attacker, _index] call F90_fnc_generateZone;
 				AWSP_Zones set [_index, _zone];
 				[AWSP_Zones # _index, true, _attackerGroup] spawn F90_fnc_createZone;
+				deleteVehicle _captureChecker;
 				deleteVehicle _captureTrigger;
 			};
 		};

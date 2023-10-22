@@ -54,6 +54,7 @@ What is the difference?
 
 ### Features
 * Choose whether to recruit local population, or recruit army from your HQ
+* When the enemy calls for reinforcements, the game will search for nearby zones that are capable of providing support. If a zone contains only one group of garrisons, it will not be able to provide any backup. In such cases, the zone under attack will attempt to request reinforcements from other zones until it finds one that is capable of providing support. Once a suitable backup provider is identified, the game will reduce the number of garrisons in that zone, and the deducted amount will determine the size of the spawned reinforcement team. This means that the number of reinforcements spawned is directly linked to the number of garrisons remaining in the provider zone, replicating a realistic scenario where units cannot appear out of thin air.
 * More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/ROADMAP.md)
 
 ### Dependencies
@@ -67,7 +68,7 @@ What is the difference?
 For now there is no issue (not that I know of). If there is one, just let me know
 
 ## Version
-* Ascendancy Wars SP v1.7.0a
+* Ascendancy Wars SP v1.7.1a
 * See [Change Log](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/CHANGELOG.md)
 
 ## License
