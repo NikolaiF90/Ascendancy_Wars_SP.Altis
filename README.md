@@ -68,15 +68,13 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## License
 
-![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic&link=https%3A%2F%2Fwww.bohemia.net%2Fcommunity%2Flicenses%2Farma-public-license-share-alike)
+![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic&link=https%3A%2F%2Fwww.bohemia.net%2Fcommunity%2Flicenses%2Farma-public-license-share-alike) ![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic&link=https%3A%2F%2Fgithub.com%2FNikolaiF90%2FAscendancy_Wars_SP.Altis%2Fblob%2FAlpha%2FTERMS.md)  
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
 * Noncommercial - You may not use this material for any commercial purposes.
 * Arma Only - You may not convert or adapt this material to be used in other games than Arma.
 * Share Alike - If you adapt, or build upon this material, you may distribute the resulting material only under the same license.
-
-### [Terms Of Use](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/TERMS.md)
 
 ## Acknowledgments
 
