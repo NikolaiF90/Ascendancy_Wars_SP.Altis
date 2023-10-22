@@ -1,5 +1,6 @@
 # Ascendancy Wars SP (Altis) 
 [![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
+
 [![](https://visitcount.itsvg.in/api?id=AscendancyWarsSPMain&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)
 
 ![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
