@@ -6,13 +6,13 @@
 - [x] Enemy surrendering [1.6.3a]
 - [x] Civilian Disguise System [1.4.0a]
 - [x] Vehicles spawns in towns and bases [1.6.0a]
-- [] Enemy may attack player zone
-- [] Ability to buy vehicle
-- [] Buy weapon from HQ
-- [] Weapon dealer
-- [] Player wide-range ranking system
-- [] Side missions
-- [] Air supply
-- [] Arsenal
-- [] Vehicle garage
-- [] Base building
+- [ ] Enemy may attack player zone
+- [ ] Ability to buy vehicle
+- [ ] Buy weapon from HQ
+- [ ] Weapon dealer
+- [ ] Player wide-range ranking system
+- [ ] Side missions
+- [ ] Air supply
+- [ ] Arsenal
+- [ ] Vehicle garage
+- [ ] Base building
