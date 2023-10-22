@@ -68,7 +68,7 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## License
 
-### ![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic&link=https%3A%2F%2Fwww.bohemia.net%2Fcommunity%2Flicenses%2Farma-public-license-share-alike)
+![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic&link=https%3A%2F%2Fwww.bohemia.net%2Fcommunity%2Flicenses%2Farma-public-license-share-alike)
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
