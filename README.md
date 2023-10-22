@@ -5,9 +5,9 @@
 
 ![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
 
-> _"If you work in a profession where people die young, make sure you don't die young"_
-
 ## Story
+
+> _"If you work in a profession where people die young, make sure you don't die young"_
 
 _"In the war-torn land of Altis, the citizens have long suffered under the oppressive rule of CSAT, a government that has failed to meet even their most basic needs. As the proud nation of Livonia, renowned for its strength and resilience, you have decided to take matters into your own hands.  
 Realizing that a direct assault against the might of CSAT's army would be futile, a daring plan emerges. You will infiltrate Altis, not as an enemy, but as one of its own citizens. Disguised and hidden amidst the turmoil, you will seize the opportunity to ignite a revolution from within.  
