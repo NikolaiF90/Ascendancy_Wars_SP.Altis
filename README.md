@@ -1,5 +1,5 @@
 # Ascendancy Wars SP (Altis)
-[![](https://visitcount.itsvg.in/api?id=NikolaiF90&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)
 
 If you work in a profession where people die young, make sure you don't die young
 
