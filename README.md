@@ -1,7 +1,7 @@
 # Ascendancy Wars SP (Altis) 
 [![Static Badge](https://img.shields.io/badge/version-1.7.1a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
 [![](https://visitcount.itsvg.in/api?id=AscendancyWarsSP&label=Repository%20Visits&color=8&icon=6&pretty=true)](https://visitcount.itsvg.in)   
-![Ascendancy Wars Cover Photo](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/AscendancyWarsSP.jpeg)
+![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
 
 > _"If you work in a profession where people die young, make sure you don't die young"_
 
@@ -54,7 +54,7 @@ What is the difference?
 ### Features
 * Choose whether to recruit local population, or recruit army from your HQ
 * When the enemy calls for reinforcements, the game will search for nearby zones that are capable of providing support. If a zone contains only one group of garrisons, it will not be able to provide any backup. In such cases, the zone under attack will attempt to request reinforcements from other zones until it finds one that is capable of providing support. Once a suitable backup provider is identified, the game will reduce the number of garrisons in that zone, and the deducted amount will determine the size of the spawned reinforcement team. This means that the number of reinforcements spawned is directly linked to the number of garrisons remaining in the provider zone, replicating a realistic scenario where units cannot appear out of thin air.
-* More features to be added in the future. See [Roadmap](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/ROADMAP.md)
+* More features to be added in the future. See [Roadmap](ROADMAP.md)
 
 ### Dependencies
 
@@ -68,7 +68,7 @@ For now there is no issue (not that I know of). If there is one, just let me kno
 
 ## License
 
-[![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic)](http://www.bohemia.net/community/licenses/arma-public-license-share-alike) [![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic)](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/Alpha/TERMS.md)  
+[![License Badge](https://img.shields.io/badge/APL--SA-black?style=plastic)](http://www.bohemia.net/community/licenses/arma-public-license-share-alike) [![Static Badge](https://img.shields.io/badge/Terms_Of_Use-teal?style=plastic)](TERMS.md)  
 With this licence you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
 
 * Attribution - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
