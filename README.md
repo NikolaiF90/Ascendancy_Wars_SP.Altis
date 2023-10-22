@@ -81,8 +81,6 @@ With this licence you are free to adapt (i.e. modify, rework or update) and shar
 * Arma Only - You may not convert or adapt this material to be used in other games than Arma.
 * Share Alike - If you adapt, or build upon this material, you may distribute the resulting material only under the same license.
 
-### [Terms Of Use](https://github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/blob/main/TERMS.md)
-
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
