@@ -9,9 +9,12 @@
 
 ## Story
 
-The citizens of Altis complaining about its goverment(CSAT) not being able to fulfill their wishes and needs, not even a basic one.
-So your country(Livonia) trying to take over Altis. Comparing the army size of CSAT and the technology, there is no way for you to survive a direct launch.The best way is to attack from inside Altis itself.
-Entering Altis disguising as their citizen, act faster and you will posses Altis in no time. Work you way up, win the hearts of the citizen and they might willing to sacrifice for their freedom.
+In the war-torn land of Altis, the citizens have long suffered under the oppressive rule of CSAT, a government that has failed to meet even their most basic needs. As the proud nation of Livonia, renowned for its strength and resilience, you have decided to take matters into your own hands.  
+Realizing that a direct assault against the might of CSAT's army would be futile, a daring plan emerges. You will infiltrate Altis, not as an enemy, but as one of its own citizens. Disguised and hidden amidst the turmoil, you will seize the opportunity to ignite a revolution from within.  
+The stakes are high, and the odds seem insurmountable. But armed with your wits, determination, and the support of fellow Livonian operatives, you embark on a treacherous journey. Every step taken brings you closer to the heart of Altis, where the fate of an entire nation hangs in the balance.  
+As you navigate the bustling streets and shadowy alleys, you must not only evade the watchful eyes of CSAT but also win the trust and loyalty of Altis' weary citizens. Show them a glimmer of hope, offer them a chance at a brighter future, and they may rise up alongside you, ready to make the ultimate sacrifice for their freedom.  
+The path to victory will be fraught with danger, requiring strategic thinking, precise execution, and a deep understanding of the human spirit. Your actions will shape the destiny of Altis and leave an indelible mark on its history.  
+Will you be the hero that Altis needs? Will you lead a nation towards liberation, defying the odds and inspiring others to join your cause? The stage is set, the mission awaits. Experience the intensity, the drama, and the thrill of this cinematic journey in Arma 3. Step into the shoes of a true warrior and become the catalyst for change in Altis.
 
 ## Getting Started
 * Welcome to an exciting and immersive Arma 3 mission! Prepare yourself for a dynamic and challenging experience that will test your tactical skills and decision-making abilities.
