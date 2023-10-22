@@ -52,9 +52,10 @@ What is the difference?
 * more.. I will add in the future
 
 ### Features
+[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](ROADMAP.md)
+
 * Choose whether to recruit local population, or recruit army from your HQ
 * When the enemy calls for reinforcements, the game will search for nearby zones that are capable of providing support. If a zone contains only one group of garrisons, it will not be able to provide any backup. In such cases, the zone under attack will attempt to request reinforcements from other zones until it finds one that is capable of providing support. Once a suitable backup provider is identified, the game will reduce the number of garrisons in that zone, and the deducted amount will determine the size of the spawned reinforcement team. This means that the number of reinforcements spawned is directly linked to the number of garrisons remaining in the provider zone, replicating a realistic scenario where units cannot appear out of thin air.
-* More features to be added in the future. See [Roadmap](ROADMAP.md)
 
 ### Dependencies
 
