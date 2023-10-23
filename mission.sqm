@@ -5,25 +5,25 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	mods[]=
 	{
 		"3denEnhanced"
 	};
 	class ItemIDProvider
 	{
-		nextID=140;
+		nextID=223;
 	};
 	class MarkerIDProvider
 	{
-		nextID=29;
+		nextID=31;
 	};
 	class Camera
 	{
-		pos[]={16947.299,85.022766,21807.309};
-		dir[]={-0.42120859,-0.71098286,0.56310451};
-		up[]={-0.42586479,0.70320934,0.56932926};
-		aside[]={0.80076373,1.4901161e-008,0.59898037};
+		pos[]={17082.365,81.617493,21914.23};
+		dir[]={-0.84890628,-0.52049303,-0.091905914};
+		up[]={-0.51746935,0.85386592,-0.056023236};
+		aside[]={-0.10763475,4.4703484e-008,0.99419135};
 	};
 };
 binarizationWanted=0;
@@ -34,14 +34,13 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Characters_F",
-	"A3_Structures_F_Mil_Flags",
-	"A3_Ui_F_Enoch"
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -74,13 +73,6 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item5
-		{
-			className="A3_Ui_F_Enoch";
-			name="Arma 3 Enoch - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -281,13 +273,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16912.012,9.5779867,21878.91};
+						position[]={14472.208,25.059883,6186.3687};
 						angles[]={0,2.7048938,0};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
+						init="this setVariable [""isSneaky"",true,true];";
 						name="commanderX";
 						isPlayer=1;
 					};
@@ -296,6 +289,53 @@ class Mission
 					class CustomAttributes
 					{
 						class Attribute0
+						{
+							property="ENH_AmbientAnimations";
+							expression="      if !(_value # 0 isEqualTo '') then      {        _value params ['_animSet', '_anims', '_canExit', '_attach'];                _this setVariable ['ENH_ambientAnimations_anims', _anims];        _this disableAI 'ANIM';        if (_attach && !is3DEN) then        {          private _logic = group _this createUnit ['Logic', getPosATL _this, [], 0, 'NONE'];          _this setVariable ['ENH_ambientAnimations_logic', _logic];          [_this, _logic] call BIS_fnc_attachToRelative;        };                ENH_fnc_ambientAnimations_play =        {          params ['_unit'];          private _anim = selectRandom (_unit getVariable ['ENH_ambientAnimations_anims', []]);          [_unit, _anim] remoteExec ['switchMove', 0];        };                ENH_fnc_ambientAnimations_exit =        {          params ['_unit'];          if !(_unit getVariable ['ENH_ambientAnimations_exit', true]) exitWith {false};          _unit setVariable ['ENH_ambientAnimations_exit', true];          detach _unit;          deleteVehicle (_unit getVariable ['ENH_ambientAnimations_logic', objNull]);          if (alive _unit) then          {            [_unit, ''] remoteExec ['switchMove', 0];            _unit enableAI 'ANIM';          };          _unit removeEventHandler ['Killed', _unit getVariable ['ENH_EHKilled',-1]];          _unit removeEventHandler ['Dammaged', _unit getVariable ['ENH_EHDammaged',-1]];          _unit removeEventHandler ['AnimDone', _unit getVariable ['ENH_EHAnimDone',-1]];        };                private _EHAnimDone = _this addEventHandler ['AnimDone',          {            params ['_unit'];            if (alive _unit) then            {              _unit call ENH_fnc_ambientAnimations_play;            }            else            {              _unit call ENH_fnc_ambientAnimations_exit;            };          }        ];        _this setVariable ['ENH_EHAnimDone', _EHAnimDone];                if (_canExit && !is3DEN) then        {          private _EHKilled = _this addEventHandler ['Killed',          {            (_this select 0) call ENH_fnc_ambientAnimations_exit;          }];          _this setVariable ['ENH_EHKilled', _EHKilled];          private _EHDammaged = _this addEventHandler ['Dammaged',          {            (_this select 0) call ENH_fnc_ambientAnimations_exit;          }];          _this setVariable ['ENH_EHDammaged', _EHDammaged];          _this spawn          {            scriptName 'ENH_Attribute_AmbientAnimations';            params ['_unit'];            waitUntil            {              sleep 1; (_unit getVariable ['ENH_ambientAnimations_exit', false]) || {behaviour _unit == 'COMBAT'}            };            _unit call ENH_fnc_ambientAnimations_exit;          };        };        _this call ENH_fnc_ambientAnimations_play;      };";
+							class Value
+							{
+								class data
+								{
+									singleType="ARRAY";
+									class value
+									{
+										items=4;
+										class Item0
+										{
+											class data
+											{
+												singleType="STRING";
+												value="";
+											};
+										};
+										class Item1
+										{
+											class data
+											{
+												singleType="ARRAY";
+											};
+										};
+										class Item2
+										{
+											class data
+											{
+												singleType="BOOL";
+												value=0;
+											};
+										};
+										class Item3
+										{
+											class data
+											{
+												singleType="BOOL";
+												value=0;
+											};
+										};
+									};
+								};
+							};
+						};
+						class Attribute1
 						{
 							property="speaker";
 							expression="_this setspeaker _value;";
@@ -308,7 +348,7 @@ class Mission
 								};
 							};
 						};
-						class Attribute1
+						class Attribute2
 						{
 							property="pitch";
 							expression="_this setpitch _value;";
@@ -321,7 +361,20 @@ class Mission
 								};
 							};
 						};
-						class Attribute2
+						class Attribute3
+						{
+							property="ENH_SPR_Tickets";
+							expression="if (!is3DEN && !isMultiplayer) then {_this setVariable ['ENH_SPR_Tickets', _value]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=99;
+								};
+							};
+						};
+						class Attribute4
 						{
 							property="unitInsignia";
 							expression="[_this,_value] call BIS_fnc_setUnitInsignia;";
@@ -334,7 +387,7 @@ class Mission
 								};
 							};
 						};
-						nAttributes=3;
+						nAttributes=5;
 					};
 				};
 			};
@@ -730,7 +783,7 @@ class Mission
 		class Item38
 		{
 			dataType="Marker";
-			position[]={16908.918,8.0810003,21878.818};
+			position[]={16369.82,22.960686,21211.244};
 			name="outpost_0";
 			markerType="RECTANGLE";
 			type="";
@@ -739,17 +792,19 @@ class Mission
 			b=177.47458;
 			angle=48.970936;
 			id=49;
-			atlOffset=-1.4564924;
 		};
 		class Item39
 		{
 			dataType="Marker";
-			position[]={16293.503,-6.3310547,23868.313};
+			position[]={16909.443,10.018,21884.695};
 			name="respawn_guerrila";
-			text="LDF  Base";
-			type="flag_EAF";
-			id=137;
-			atlOffset=131.8112;
+			markerType="RECTANGLE";
+			type="";
+			a=139.31;
+			b=120.405;
+			angle=312.24496;
+			id=154;
+			atlOffset=0.85573673;
 		};
 	};
 };

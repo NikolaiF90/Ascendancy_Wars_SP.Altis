@@ -31,4 +31,6 @@ if (typeName _key == "ARRAY") then
 	_returnData = profileNamespace getVariable [_keyToFind, _default];
 };
 
+["loadData", format ["Key %1 loaded.", _key, _slot]] call F90_fnc_debug;
+
 _returnData;

@@ -60,8 +60,9 @@ class persistentMenu
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0.5,0.45,0.1,1};
 			colorActive[] = {0.38,0.36,0.18,1};
-			tooltip = "Start a new game"; //--- ToDo: Localize;
+			tooltip = "Start a new game"; 
 			action = "[] call F90_fnc_startNewGame";
+			
 		};
 		class save_button: RscButton
 		{
@@ -75,7 +76,7 @@ class persistentMenu
 			colorBackground[] = {0.5,0.45,0.1,1};
 			colorActive[] = {0.38,0.36,0.18,1};
 			tooltip = "Save current game into selected slot"; //--- ToDo: Localize;
-			
+			action = "[] call F90_fnc_dialogSave";
 		};
 		class load_button: RscButton
 		{
@@ -89,7 +90,7 @@ class persistentMenu
 			colorBackground[] = {0.5,0.45,0.1,1};
 			colorActive[] = {0.38,0.36,0.18,1};
 			tooltip = "Load game from selected slot"; //--- ToDo: Localize;
-			action = "[] call F90_fnc_startLoadGame";
+			action = "[] call F90_fnc_dialogLoad";
 		};
 		class delete_button: RscButton
 		{
@@ -103,6 +104,7 @@ class persistentMenu
 			colorBackground[] = {0.5,0.45,0.1,1};
 			colorActive[] = {0.38,0.36,0.18,1};
 			tooltip = "Delete saves on selected slot"; //--- ToDo: Localize;
+			action = "[] call F90_fnc_deleteSaveSlot";
 		};
 		class money_text: RscText
 		{
@@ -125,7 +127,7 @@ class persistentMenu
 			colorText[] = {1,1,1,1};
 			sizeEx = 0.02 * safezoneH;
 		};
-		class RscText_1005: RscText
+		class resource_text: RscText
 		{
 			idc = 2207;
 			text = "Team Resource : 10000"; //--- ToDo: Localize;

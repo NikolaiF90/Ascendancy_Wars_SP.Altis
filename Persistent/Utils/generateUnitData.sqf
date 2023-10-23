@@ -35,36 +35,6 @@ private _GenerateGroupOrdersArray =
     _groupOrdersArray;
 };
 
-private _GenerateVehicleArray =
-{
-    params ["_unit"];
-
-    private _GenerateVehicleRoleArray =
-    {
-        params ["_unit", "_vehicle"];
-
-        private _vehicleRoleArray = [];
-
-        {
-            private _unitInVehicle = _x # 0;
-
-            if (_unit == _unitInVehicle) exitWith
-            {
-                _vehicleRoleArray = [_x # 1, _x # 2, _x # 3, _x # 4];
-            };
-        } forEach (fullCrew _vehicle);
-
-        _vehicleRoleArray;
-    };
-
-    private _vehicleArray = [];
-
-    _vehicleArray pushBack ["id", [vehicle _unit] call skhpersist_fnc_AddCustomVehicleToSave];
-    _vehicleArray pushBack ["role", [_unit, vehicle _unit] call _GenerateVehicleRoleArray];
-
-    _vehicleArray;
-};
-
 private _GenerateVariablesArray =
 {
     params ["_unit"];
@@ -130,10 +100,26 @@ _unitData pushBack ["assignedTeam", assignedTeam _unit];
 //	If unit is on vehicle
 if (vehicle _unit != _unit) then
 {
-    _unitData pushBack ["vehicle", [_unit] call _GenerateVehicleArray];
-}else
-{
-    _unitData pushBack ["vehicle", []];
+    private _vehicle = vehicle _unit;
+    private _vehicleData = [];
+    private _roleData = [];
+    private _vehicleCrew = fullCrew vehicle _unit;
+    {
+        private _selectedUnit = _x # 0;
+        if (_unit == _selectedUnit) exitWith
+        {
+            private _role = _x # 1;
+            private _cargoIndex = _x # 2;
+            private _turretPath = _x # 3;
+            private _personTurret = _x # 4;
+            _roleData = [_role, _cargoIndex, _turretPath, _personTurret];
+            ["generateUnitData", format ["Role data for %1 generated : %2", _unit, _roleData]] call F90_fnc_debug;
+        };
+    } forEach _vehicleCrew;
+    _vehicleData pushBack ["id", [_vehicle] call F90_fnc_addVehiclesToSave];
+    _vehicleData pushBack ["role", _roleData];
+
+    _unitData pushBack ["vehicle", _vehicleData];
 };
 
 if (_isLeader) then
