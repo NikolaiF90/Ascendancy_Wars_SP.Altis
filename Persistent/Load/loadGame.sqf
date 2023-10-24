@@ -32,6 +32,11 @@ PSave_LoadInProgress = false;
 
 hint format ["Persistent load done from slot %1", _slot];
 ["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
+
+// Start the game 
+
+[] call F90_fnc_initCDARS;
+
 {
 	[_forEachIndex] call F90_fnc_clearZones;
 	[_x, false] spawn F90_fnc_createZone;

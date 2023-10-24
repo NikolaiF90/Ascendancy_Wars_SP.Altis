@@ -120,6 +120,15 @@ class F90
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
+		//	CDARS
+		class assignAsReinforcement	{file = "Scripts\CDARS\assignAsReinforcement.sqf";};
+		class configureCDARS		{file = "Scripts\CDARS\configureCDARS.sqf";};
+		class createReinforcement	{file = "Scripts\CDARS\createReinforcement.sqf";};
+		class eastCommanderHandler	{file = "Scripts\CDARS\eastCommanderHandler.sqf";};
+		class findNearestGarrisons	{file = "Scripts\CDARS\findNearestGarrisons.sqf";};
+		class initCDARS				{file = "Scripts\CDARS\initCDARS.sqf";};
+		class sendReinforcement		{file = "Scripts\CDARS\sendReinforcement.sqf";};
+
 		//	Garrison
 		class clearZones			{file = "Scripts\Garrison\clearZones.sqf";};
 		class configureGarrison		{file = "Scripts\Garrison\configureGarrison.sqf";};
@@ -129,12 +138,6 @@ class F90
 		class getPreference  		{file = "Scripts\Garrison\getPreference.sqf";};
 		class getZoneOwnerData 		{file = "Scripts\Garrison\getZoneOwnerData.sqf";};
 		class spawnGroup			{file = "Scripts\Garrison\spawnGroup.sqf";};
-
-		//	Reinforcement 
-		class assignAsReinforcement	{file = "Scripts\Reinforcement\assignAsReinforcement.sqf";};
-		class createReinforcement	{file = "Scripts\Reinforcement\createReinforcement.sqf";};
-		class findNearestGarrisons	{file = "Scripts\Reinforcement\findNearestGarrisons.sqf";};
-		class sendReinforcement		{file = "Scripts\Reinforcement\sendReinforcement.sqf";};
 
 		//	SHOP
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};

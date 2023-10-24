@@ -20,7 +20,7 @@
 */
 params ["_zoneData", "_isCapturedZone", "_attackerGroup"];
 
-private ["_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_actCondition", "_zoneTrigger", "_captureTrigger", "_captureChecker", "_zoneIcon", "_zonePref", "_groupCount", "_groupSize", "_spawned", "_playerInZone", "_cachedGroup", "_garrisons", "_zoneEmpty", "_inCaptureEvent", "_reinforcementSent"];
+private ["_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_zoneTrigger", "_captureTrigger", "_captureChecker", "_zoneIcon", "_zonePref", "_groupCount", "_groupSize", "_spawned", "_playerInZone", "_zoneUnderAttack", "_shouldSpawn", "_cachedGroup", "_garrisons", "_zoneEmpty", "_inCaptureEvent", "_reinforcementSent"];
 
 _zoneIndex = _zoneData # 0;
 _zoneMarker = _zoneData # 1;
@@ -33,14 +33,6 @@ _zoneDirection = markerDir _zoneMarker;
 
 _safeToCapture = false;
 
-if (Garrison_HeightLimit) then 
-{
-	_actCondition = "{vehicle _x in thisList && isPlayer _x && ((getPosATL _x) select 2) < 5} count allUnits > 0";
-} else 
-{
-	_actCondition = "{vehicle _x in thisList && isPlayer _x} count allUnits > 0";
-};
-
 if (count AWSP_ZoneTrigger > _zoneIndex) then 
 {
 	_zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
@@ -49,10 +41,10 @@ if (count AWSP_ZoneTrigger > _zoneIndex) then
 if (isNil {_zoneTrigger}) then 
 {
 	_zoneTrigger = createTrigger ["EmptyDetector", _zonePos];
-	_zoneTrigger setTriggerArea [(Garrison_SpawnDistance + (_zoneSize # 0)), (Garrison_SpawnDistance + (_zoneSize # 1)), _zoneDirection, true];
+	_zoneTrigger setTriggerArea [(Garrison_SpawnDistance + (_zoneSize # 0)), (Garrison_SpawnDistance + (_zoneSize # 1)), _zoneDirection, true, 500];
 	_zoneTrigger setTriggerActivation ["ANY", "PRESENT", true];
 	_zoneTrigger setTriggerTimeout [1, 1, 1, true];
-	_zoneTrigger setTriggerStatements [_actCondition, "", ""];
+	_zoneTrigger setTriggerStatements ["{vehicle _x in thisList && isPlayer _x} count allUnits > 0", "", ""];
 	AWSP_ZoneTrigger set [_zoneIndex, _zoneTrigger];
 };
 
@@ -124,6 +116,7 @@ while {true} do
 {
 	if (isNil "_zoneTrigger") exitWith {["createZone","Player in zone checking has been stopped from being executed as the zone doesn't exist anymore"] call F90_fnc_debug;};
 
+	_zoneUnderAttack = _zoneTrigger getVariable ["Zone_UnderAttack", false];
 	if (triggerActivated _zoneTrigger) then
 	{
 		_playerInZone = true;
@@ -131,31 +124,39 @@ while {true} do
 	{
 		_playerInZone = false;
 	};
+
+	if (_playerInZone == true || _zoneUnderAttack == true) then 
+	{
+		_shouldSpawn = true;
+		["DEBUG", format ["%1 _playerInXone = %2, _zoneUnderAttack = %3", _zoneMarker, _playerInZone, _zoneUnderAttack]] call F90_fnc_debug;
+	} else 
+	{
+		_shouldSpawn = false;
+	};
 	
-	if (!_spawned && _playerInZone) then 
+	if (!_spawned && _shouldSpawn) then 
 	{
 		_spawned = true;
 
 		if (_groupCount > 0) then 
 		{
 			_cachedGroup = _zoneTrigger getVariable "Zone_CachedGroup";
-			for "_i" from 0 to (count _cachedGroup)-1 do 
-			{
-				private _unitCount = _cachedGroup # _i;
 
-				// Temporary bugfix
-				if (_unitCount == 0) then 
+			if (count _cachedGroup > 0) then 
+			{
+				for "_i" from 0 to (count _cachedGroup)-1 do 
 				{
-					_unitCount = 1;
+					private _unitCount = _cachedGroup # _i;
+
+					["createZone", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount]] call F90_fnc_debug;
+					private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
+					_garrisons set [_i,_spawnedGroup];
 				};
-				["createZone", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount]] call F90_fnc_debug;
-				private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
-				_garrisons set [_i,_spawnedGroup];
-			};
+			}
 		};
 	};
 
-	if (!_playerInZone&&_spawned) then 
+	if (!_shouldSpawn&&_spawned) then 
 	{
 		// Despawn
 		_spawned = false;
@@ -195,7 +196,7 @@ while {true} do
 		};
 	};
 
-	if (_playerInZone && _spawned) then 
+	if (_shouldSpawn && _spawned) then 
 	{
 		private _activeGroups = [];
 		private _inactiveGroups = [];
@@ -222,6 +223,7 @@ while {true} do
 	if (_groupCount == 0 && (!_inCaptureEvent)) then 
 	{
 		_inCaptureEvent = true;
+		_spawned = false;
 
 		_captureChecker = createTrigger ["EmptyDetector", _zonePos];
 		_captureChecker setTriggerArea [(Garrison_SpawnDistance + (_zoneSize # 0)), (Garrison_SpawnDistance + (_zoneSize # 1)), _zoneDirection, true];
@@ -244,7 +246,7 @@ while {true} do
 		_captureTrigger setTriggerStatements ["this", "", ""];
 
 		_captureTrigger = createTrigger ["EmptyDetector", _zonePos];
-		_captureTrigger setTriggerArea [_zoneSize # 0,_zoneSize # 1, _zoneDirection, true];
+		_captureTrigger setTriggerArea [_zoneSize # 0,_zoneSize # 1, _zoneDirection, true, 5];
 		_captureTrigger setTriggerActivation ["ANY", "PRESENT", true];
 		_captureTrigger setTriggerTimeout [1, 1, 1, true];
 		_captureTrigger setVariable ["Zone_PreviousSide", _zoneSide];
@@ -253,18 +255,22 @@ while {true} do
 		_captureTrigger setVariable ["Zone_Marker", _zoneMarker];
 
 		_captureTrigger setTriggerStatements ["this", "thisTrigger setVariable ['Capture_DetectedUnits', thisList];", ""];
-
+		
 		if (_reinforcementSent == -1) then 
 		{
 			_reinforcementSent = 1;
 		};
+		
 		sleep 1;
 	};
 
 	if (_reinforcementSent == 1) then 
 	{
 		_reinforcementSent = 0;
-		[_zoneIndex] call F90_fnc_sendReinforcement;
+		if (_zoneSide == east) then 
+		{
+			["SEND_REINFORCEMENT", _zoneIndex] spawn F90_fnc_eastCommanderHandler;
+		};
 	};
 
 	if (_inCaptureEvent && !(isNil {_captureTrigger})) then 
@@ -280,7 +286,7 @@ while {true} do
 			private _attacker = objNull;
 			
 			{
-				if ((side _x != civilian)&&(_x != player)&&!(captive _x)) then 
+				if ((side _x != civilian)&&!(isPlayer _x)&&!(captive _x)) then 
 				{
 					_attackers pushBack _x;
 				};
@@ -294,6 +300,8 @@ while {true} do
 				if (side _attacker == independent) then 
 				{
 					['CAPTURED', _zoneType] call F90_fnc_showNotification;
+					CDARS_GUERActivity = CDARS_GUERActivity + 15;
+					CDARS_PlayerLastKnownLocation = _zonePos;
 				} else 
 				{
 					if (_zoneSide == independent && side _attacker == east) then 
@@ -311,5 +319,5 @@ while {true} do
 			};
 		};
 	};
-	sleep Garrison_CheckInterval -1;
+	sleep Garrison_CheckInterval;
 };

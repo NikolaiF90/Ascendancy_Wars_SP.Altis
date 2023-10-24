@@ -1,11 +1,11 @@
 # ROADMAP
 - [x] Zone capturing system [Initial release]
-- [x] Enemy sends reinforcement [1.7.1a]
+- [x] Civilian Disguise System [1.4.0a]
 - [x] Revive system [1.5.0a]
+- [x] Vehicles spawns in towns and bases [1.6.0a]
 - [x] Incapacitated bleedout [1.6.2a]
 - [x] Enemy surrendering [1.6.3a]
-- [x] Civilian Disguise System [1.4.0a]
-- [x] Vehicles spawns in towns and bases [1.6.0a]
+- [x] Enemy sends reinforcement [1.7.1a]
 - [ ] Enemy may attack player zone
 - [ ] Ability to buy vehicle
 - [ ] Buy weapon from HQ
