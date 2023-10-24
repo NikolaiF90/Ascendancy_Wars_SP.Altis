@@ -4,6 +4,7 @@
 author = "Nikolai";
 onLoadName = "Ascendancy Wars SP";
 onLoadMission = "If you work in a profession where people die young, make sure you don't die young";
+loadScreen = "AwspCover.jpg";
 
 saving = 0;
 

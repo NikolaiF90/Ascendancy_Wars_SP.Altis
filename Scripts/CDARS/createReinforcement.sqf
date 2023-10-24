@@ -78,7 +78,7 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 	if (_transportation != 0) then 
 	{
 		private _spawnPos = [_providerPos, 0, 100] call BIS_fnc_findSafePos;
-		private _spawnedVehicle = _vehicle createVehicle _spawnPos;
+		private _spawnedVehicle = _vehicle createVehicle [_spawnPos # 0, _spawnPos # 1, 200];
 		_selectedGroup addVehicle _spawnedVehicle;
 
 		{
@@ -105,3 +105,5 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 	};
 	
 };
+
+_reinforcementGroups;

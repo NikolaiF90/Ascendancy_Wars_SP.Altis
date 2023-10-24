@@ -1,7 +1,14 @@
 # Known Issue
-* No known issues currently
+* Remaining reinforcement doesn't replenish captured zone
 
 # Version History
+* 1.7.2a
+    * New System : Conflict Dynamics and Adversarial Response System (CDARS)
+        - Ability to dynamically track and manage player bounties based on their actions.
+        - Enemy's reaction and actions are intricately tied to the player's choices and achievements.
+        - CDARS not only quantifies the player's impact on the enemy's perception but also ensures that even passive actions or inactions are taken into account.
+        - Reinforcement system also counted as CDARS
+    
 * 1.7.1a
     * New Feature: Reinforcement System
         - Implemented a dynamic reinforcement system to enhance gameplay. 
