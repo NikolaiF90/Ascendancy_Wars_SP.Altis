@@ -41,6 +41,7 @@ if (_handlerAction == "DEFAULT") then
 if (_handlerAction == "REPLENISH") then 
 {
 	if (isNil {_args}) exitWith {["eastCommanderHandler", "(ERROR) Handler 'REPLENISH' prevented from running because _args is not provided"] call F90_fnc_debug};
+
 	private _zoneIndex = _args # 0;
 	private _group = nil;
 	if (count _args > 1) then {_group = _args # 1;};
@@ -67,6 +68,7 @@ if (_handlerAction == "REPLENISH") then
 			private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
 			private _zone = AWSP_Zones # _zoneIndex;
 			private _zonePos = _zone # 2;
+			private _replenished = false;
 
 			private _groupArray = [];
 			{
@@ -77,37 +79,39 @@ if (_handlerAction == "REPLENISH") then
 			while {true} do
 			{
 				if (isNil {_group}) exitWith {};
-				private _distance = (position _leader) distance _zonePos;
 
-				if (_distance <= 50) then 
+				private _activeUnits = [];
+				if ((position _leader) distance _zonePos <= 50) then 
 				{
 					private _cachedGroup = _zoneTrigger getVariable "Zone_CachedGroup";
 					{
-						private _activeUnits = [];
 						if (!captive _x && alive _x) then 
 						{
 							_activeUnits pushBack _x;
 						};
 					} forEach units _group;
 
-					if (count _activeUnits > 0) then 
+					if (count _activeUnits > 0 && !_replenished) then 
 					{
-						_cachedGroup pushBack (count _activeUnits);
-						{
-							deleteVehicle _x;
-						} forEach _activeUnits;
 						["eastCommanderHandler", format["OPFOR replenished %1 units to %2",count _activeUnits, _zone # 1]] call F90_fnc_debug;
-					};
 
-					if (count units _group == 0) then 
-					{
-						deleteGroup _group;
+						_replenished = true;
+						_cachedGroup pushBack (count _activeUnits);
+
+						_groupCount = count _cachedGroup;
+						_zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
+						_zoneTrigger setVariable ["Zone_GroupCount", _groupCount];
 					};
-					_groupCount = count _cachedGroup;
-					_zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
-					_zoneTrigger setVariable ["Zone_GroupCount", _groupCount];
 				};
-				sleep CDARS_OPFORReinforcementStatusCheck;
+
+				if (_replenished && !(triggerActivated _zoneTrigger)) exitWith 
+				{
+					{
+						deleteVehicle _x;
+					} forEach _activeUnits;
+					deleteGroup _group;
+				};
+				sleep CDARS_OPFORReplenishStatusInterval;
 			};
 		};
 	};
@@ -133,17 +137,24 @@ if (_handlerAction == "SEND_REINFORCEMENT") then
 				private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
 				private _zone = AWSP_Zones # _zoneIndex;
 				private _zoneSide = _zone # 4;
+				private _cachedGroup = _zoneTrigger getVariable "Zone_CachedGroup";
 
 				if (count _reinforcementGroups == 0) exitWith {_zoneTrigger setVariable ["Zone_UnderAttack", false];}; 
-				_returnCountdown = _returnCountDown - 1;
-				player sideChat format ["_returnCountdown = %1", _returnCountdown];
+				_returnCountdown = _returnCountdown - 1;
+				
 				if (_returnCountdown == 0) exitWith
 				{
 					if (_zoneSide == east) then 
 					{
+						if (count _cachedGroup > 0) then 
 						{
-							["REPLENISH", [_zoneIndex, _x]] spawn F90_fnc_eastCommanderHandler;
-						} forEach _reinforcementGroups;
+							{
+								["REPLENISH", [_zoneIndex, _x]] spawn F90_fnc_eastCommanderHandler;
+							} forEach _reinforcementGroups;	
+						} else 
+						{
+							// Capture the zone
+						};
 					} else 
 					{
 						// Go back
