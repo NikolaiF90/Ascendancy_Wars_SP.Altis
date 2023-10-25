@@ -78,7 +78,7 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 	if (_transportation != 0) then 
 	{
 		private _spawnPos = [_providerPos, 0, 100] call BIS_fnc_findSafePos;
-		private _spawnedVehicle = _vehicle createVehicle [_spawnPos # 0, _spawnPos # 1, 200];
+		private _spawnedVehicle = _vehicle createVehicle _spawnPos;
 		_selectedGroup addVehicle _spawnedVehicle;
 
 		{
@@ -100,7 +100,7 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 100, 3];
 			_wpGetOut setWaypointType "GETOUT";
 		};
-		private _wpAttack = _selectedGroup addWaypoint [_callerPos, 100];
+		private _wpAttack = _selectedGroup addWaypoint [_callerPos, 10];
 		_wpAttack setWaypointType "SAD";
 	};
 	

@@ -1,5 +1,5 @@
 # Ascendancy Wars SP (Altis) 
-[![Static Badge](https://img.shields.io/badge/version-1.7.2a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
+[![Static Badge](https://img.shields.io/badge/version-1.7.3a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
 
 [![Hits](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/main.svg?style=plastic&label=Repository%20Visits&extraCount=1&color=3f8676&labelColor=000000&logo=github)](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/main/)
 
@@ -61,6 +61,13 @@ What is the difference?
 
 * Choose whether to recruit local population, or recruit army from your HQ
 
+* Zoning And Garrisoning System (ZAGS)  
+  ZAGS is the core feature of Ascendancy Wars, creating dynamic zones across the map for players to capture and conquer.
+  By default, these zones are under the control of the enemy commander, adding an element of challenge and strategy. 
+  Prepare for a fierce counter-attack from the enemy commander upon capturing their zone, as they won't remain idle. 
+  Each zone will be garrisoned with varying numbers of troops, which depend on available resources rather than a uniform distribution. 
+  To optimize game performance and memory usage, garrisoned troops will only spawn when players or opposing enemies approach the zone, ensuring a seamless and immersive experience.
+  
 * Conflict Dynamics and Adversarial Response System  
   CDARS is an innovative system that revolutionizes the way player actions impact the enemy's perception and behavior.  
   This dynamic system tracks and manages player bounties, reflecting the level of animosity the enemy holds towards  
