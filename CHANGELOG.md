@@ -1,7 +1,21 @@
 # Known Issue
-* No known issues currently
+* Allied unit surrendering when revived by player
 
 # Version History
+* 1.7.3a
+    * CDARS improved
+        - If enemy reinforcement group count is more than 1, only 1 group will be counted as the garrison (if succesfully recaptured) and the other will be counted as replenish.
+        - Replenishing troops won't despawn if player is near.
+    * Bugfixed and code optimization
+        - Enemy can now replenish their zone properly.
+
+* 1.7.2a
+    * New System : Conflict Dynamics and Adversarial Response System (CDARS)
+        - Ability to dynamically track and manage player bounties based on their actions.
+        - Enemy's reaction and actions are intricately tied to the player's choices and achievements.
+        - CDARS not only quantifies the player's impact on the enemy's perception but also ensures that even passive actions or inactions are taken into account.
+        - Reinforcement system also counted as CDARS
+    
 * 1.7.1a
     * New Feature: Reinforcement System
         - Implemented a dynamic reinforcement system to enhance gameplay. 

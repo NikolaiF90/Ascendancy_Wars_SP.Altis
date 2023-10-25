@@ -100,8 +100,10 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 100, 3];
 			_wpGetOut setWaypointType "GETOUT";
 		};
-		private _wpAttack = _selectedGroup addWaypoint [_callerPos, 100];
+		private _wpAttack = _selectedGroup addWaypoint [_callerPos, 10];
 		_wpAttack setWaypointType "SAD";
 	};
 	
 };
+
+_reinforcementGroups;
