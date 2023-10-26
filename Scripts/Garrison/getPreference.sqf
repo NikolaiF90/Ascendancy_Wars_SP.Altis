@@ -49,7 +49,7 @@ switch (_zoneType) do
 	case "AIRPORT":
 	{
 		_groupCount = 4;
-		_groupSize = [5,7];
+		_groupSize = [6,7];
 	};
 };
 _preference pushback _groupCount;

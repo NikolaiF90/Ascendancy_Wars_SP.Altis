@@ -18,13 +18,14 @@ _unit setVariable ["Revive_Selections", []];
 _unit setVariable ["Revive_GetHit", []];
 _unit addEventHandler ["HandleDamage", 
 {
-	private ["_unit", "_selections", "_getHit", "_selection", "_source", "_projectile", "_oldDmg", "_curDmg", "_newDmg"];
+	private ["_unit", "_selections", "_getHit", "_selection", "_source", "_projectile", "_oldDmg", "_curDmg", "_newDmg", "_unitSide"];
 	_unit = _this select 0;
 	_selections = _unit getVariable ["selections", []];
 	_getHit = _unit getVariable ["gethit", []];
 	_selection = _this select 1;
 	_source = _this select 3;
 	_projectile = _this select 4;
+	_unitSide = side _unit;
 	
 	if !(_selection in _selections) then 
 	{
@@ -40,8 +41,8 @@ _unit addEventHandler ["HandleDamage",
 		_unit allowDamage false;
 		[_unit, true] call F90_fnc_setUnitReviveState;
 		[_unit] spawn F90_fnc_bleedOut;
-
-		if (!(side _unit == side player)) then 
+		player sideChat format ["%1 side is %2", _unit, _unitSide];
+		if (_unitSide == SIDE_ENEMY) then 
 		{
 			private _captureActionID = _unit getVariable ["Revive_CaptureActionID", nil];
 			if (!isNil "_captureActionID") then 

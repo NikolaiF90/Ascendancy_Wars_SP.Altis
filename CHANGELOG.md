@@ -1,7 +1,11 @@
 # Known Issue
-* Allied unit surrendering when revived by player
+* None currently
 
 # Version History
+* 1.7.4a 
+    * Fixed allied unit surrendering when revived by player
+    * Code optimization
+    * Airport garrison preference increased from min 5 units per group to 6 units per group
 * 1.7.3a
     * CDARS improved
         - If enemy reinforcement group count is more than 1, only 1 group will be counted as the garrison (if succesfully recaptured) and the other will be counted as replenish.

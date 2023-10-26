@@ -15,10 +15,6 @@ private _unitName = (name _this splitString " ") # ((count (name _this splitStri
 		(_this # 1) playMove "AinvPknlMstpSnonWnonDnon_medic1";
 		(_this # 1) playMove "AinvPknlMstpSnonWnonDnon_medic2";
 		(_this # 1) playMove "AinvPknlMstpSnonWnonDnon_medic3";
-
-//		[_caller, "AinvPknlMstpSnonWnonDnon_medic1"] remoteExec ["playMove", _caller];
-//		[_caller, "AinvPknlMstpSnonWnonDnon_medic2"] remoteExec ["playMove", _caller];
-//		[_caller, "AinvPknlMstpSnonWnonDnon_medic3"] remoteExec ["playMove", _caller];
 	},
 	nil,
 	{ //action complete
@@ -26,15 +22,10 @@ private _unitName = (name _this splitString " ") # ((count (name _this splitStri
 		[_this # 0, false] call F90_fnc_setUnitReviveState;
 		(_this # 0) setDamage 0;
 		(_this # 1) playMoveNow "AinvPknlMstpSnonWnonDnon_medicEnd";
-
-//		[_this # 0, false] remoteExec ["F90_fnc_setUnitReviveState", _this # 0];
-//		[_this # 1, "AinvPknlMstpSnonWnonDnon_medicEnd"] remoteExec ["playMoveNow", _this # 1];
 	},
 	{ //action interrupted
 		(_this # 0) setVariable ["Revive_IsBeingRevived", false, true];
 		(_this # 1) playMoveNow "AinvPknlMstpSnonWnonDnon_medicEnd";
-		
-//		[_this # 1, "AinvPknlMstpSnonWnonDnon_medicEnd"] remoteExec ["playMoveNow", _this # 1];
 	},
 	nil,
 	Revive_Duration,
