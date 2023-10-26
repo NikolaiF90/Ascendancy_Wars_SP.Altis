@@ -23,20 +23,40 @@
 
 params ["_marker", "_side", "_unitCount"];
 
-private _unitsInGroup = [];
 private _markerPos = markerPos _marker;
 private _spawnPos = [_markerPos, 5, 20] call BIS_fnc_findSafePos;
 private _spawnedGroup = createGroup _side;
 private _groupSkill = 0;
 
-private _tempGroup = [_spawnPos, _side, _unitCount] call BIS_fnc_spawnGroup;
-{
-	[_x] joinSilent _spawnedGroup;
-	if (Revive_Enabled) then 
+private _groupArray = [];
+private _unitList = [];
+private _leader = nil;
+
+switch (_side) do {
+	case west: 
 	{
-		_x call F90_fnc_addRevive;
+		_unitList = AWSP_WestUnits;
 	};
-} forEach units _tempGroup;
+	case east: 
+	{
+		_unitList = AWSP_EastUnits;
+	};
+	case independent: 
+	{
+		_unitList = AWSP_IndependentUnits;
+	};
+};
+
+for "_i" from 1 to _unitCount do 
+{
+	if (isNil {_leader}) then 
+	{
+		_leader = _spawnedGroup createUnit [_unitList # 0, _spawnPos, [], 0, "FORM"];
+	} else
+	{
+		private _unit = _spawnedGroup createUnit [(_unitList # floor random (count _unitList)), _spawnPos, [], 0, "FORM"];
+	};
+};
 
 switch (_side) do 
 {
@@ -46,10 +66,13 @@ switch (_side) do
 };
 
 {
-	_x setSkill _groupSkill;	
-	_unitsInGroup pushBack _x;
+//	[_x] joinSilent _spawnedGroup;
+	if (Revive_Enabled) then 
+	{
+		_x call F90_fnc_addRevive;
+	};
+	_x setSkill _groupSkill;
 } forEach units _spawnedGroup;
-private _leader = _unitsInGroup # 0;
 
 [_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;
 

@@ -65,3 +65,39 @@ AWSP_Zones set [0, _ldfBase];
 	[_forEachIndex] call F90_fnc_clearZones;
 	[_x, false] spawn F90_fnc_createZone;
 } forEach AWSP_Zones;
+
+AWSP_WestUnits = 
+[
+	"B_Soldier_TL_F",
+	"B_soldier_LAT_F",
+	"B_Soldier_F",
+	"B_Soldier_GL_F",
+	"B_engineer_F",
+	"B_medic_F",
+	"B_soldier_AR_F",
+	"B_Soldier_A_F"
+];
+
+AWSP_EastUnits = 
+[
+	"O_Soldier_TL_F",
+	"O_Soldier_LAT_F",
+	"O_Soldier_F",
+	"O_Soldier_GL_F",
+	"O_engineer_F",
+	"O_medic_F",
+	"O_Soldier_AR_F",
+	"O_Soldier_A_F"
+];
+
+AWSP_IndependentUnits = 
+[
+	"I_Soldier_TL_F",
+	"I_soldier_F",
+	"I_Soldier_AA_F",
+	"I_Soldier_GL_F",
+	"I_engineer_F",
+	"I_medic_F",
+	"I_Soldier_AR_F",
+	"I_Soldier_A_F"
+];
