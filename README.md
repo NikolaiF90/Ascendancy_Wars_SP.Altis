@@ -1,10 +1,10 @@
 # Ascendancy Wars SP (Altis) 
-[![Static Badge](https://img.shields.io/badge/version-1.5.0-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
+[![Static Badge](https://img.shields.io/badge/version-1.5.1-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
 
 > [!IMPORTANT]
 > This mission is still in alpha stages and in active development, the final result won't be the same as what you see currently. Main tree is the most stable one. If you wanted to help with the mission, consider take a look at Alpha tree. Ignore Development tree as it is being updated almost everyday. Development tree is only for anyone who is wondering what's being done to the mission everyday.
 
-[![Hits](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/main.svg?style=plastic&label=Repository%20Visits&extraCount=1&color=3f8676&labelColor=000000&logo=github)](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/main/)
+[![Hits](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/Main.svg?style=plastic&label=Repository%20Visits&extraCount=1&color=3f8676&labelColor=000000&logo=github)](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/Main/)
 
 ![Ascendancy Wars Cover Photo](AscendancyWarsSP.jpeg)
 

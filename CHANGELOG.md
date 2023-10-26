@@ -1,7 +1,11 @@
 # Known Issue
-* Allied unit surrendering when revived by player
+* None currently
 
 # Version History
+* 1.5.1 
+    * Fixed allied unit surrendering when revived by player
+    * Code optimization
+    * Airport garrison preference increased from min 5 units per group to 6 units per group
 * 1.5.0
     * New System : Conflict Dynamics and Adversarial Response System (CDARS)
         - Ability to dynamically track and manage player bounties based on their actions.

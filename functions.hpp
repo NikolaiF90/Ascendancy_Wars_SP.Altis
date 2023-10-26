@@ -106,7 +106,6 @@ class F90
 		class configureRevive			{file = "Revive\configureRevive.sqf";};
 		class debugRevive				{file = "Revive\debugRevive.sqf";};
 		class dropInventory				{file = "Revive\dropInventory.sqf";};
-		class handleDamageEH			{file = "Revive\handleDamageEH.sqf";};
 		class revivePrisoner			{file = "Revive\revivePrisoner.sqf";};
 		class setUnitReviveState		{file = "Revive\setUnitReviveState.sqf";};
 		class unitReviveBody			{file = "Revive\unitReviveBody.sqf";};
