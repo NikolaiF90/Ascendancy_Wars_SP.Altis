@@ -41,7 +41,7 @@ _unit addEventHandler ["HandleDamage",
 		_unit allowDamage false;
 		[_unit, true] call F90_fnc_setUnitReviveState;
 		[_unit] spawn F90_fnc_bleedOut;
-		player sideChat format ["%1 side is %2", _unit, _unitSide];
+		
 		if (_unitSide == SIDE_ENEMY) then 
 		{
 			private _captureActionID = _unit getVariable ["Revive_CaptureActionID", nil];

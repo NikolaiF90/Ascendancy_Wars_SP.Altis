@@ -3,7 +3,11 @@
 
 # Version History
 * 1.7.5a
-    * CDARS data is now persistent across saves
+    * CDARS data is now persistent across saves.
+    * Garrison will now call for reinforcement as soon as nearby units is detected as a threat.
+    * East commander now won't react aggressively towards player that attacks their zone, not unless the player capture the said zone.
+    * Code optimization: 
+        - Handler function in create zone script has been separated into a new file, Handler script.
 * 1.7.4a 
     * Fixed allied unit surrendering when revived by player
     * Code optimization

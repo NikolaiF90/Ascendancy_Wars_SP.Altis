@@ -63,7 +63,7 @@ AWSP_Zones set [0, _ldfBase];
 
 {
 	[_forEachIndex] call F90_fnc_clearZones;
-	[_x, false] spawn F90_fnc_createZone;
+	[_x, false] call F90_fnc_createZone;
 } forEach AWSP_Zones;
 
 AWSP_WestUnits = 

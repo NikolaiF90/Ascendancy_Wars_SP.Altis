@@ -139,6 +139,7 @@ class F90
 		class getPreference  		{file = "Scripts\Garrison\getPreference.sqf";};
 		class getZoneOwnerData 		{file = "Scripts\Garrison\getZoneOwnerData.sqf";};
 		class spawnGroup			{file = "Scripts\Garrison\spawnGroup.sqf";};
+		class zoneHandler			{file = "Scripts\Garrison\zoneHandler.sqf";};
 
 		//	SHOP
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};

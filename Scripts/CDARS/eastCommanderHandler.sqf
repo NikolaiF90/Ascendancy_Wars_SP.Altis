@@ -17,25 +17,45 @@ if (isNil {_handlerAction}) then
 
 if (_handlerAction == "DEFAULT") then 
 {
-	private _grp = createGroup east;
-	private _eastBoss = _grp createUnit ["O_Officer_Parade_Veteran_F", [0,0,0], [], 0, "FORM"];
+	private _grp = createGroup independent;
+	private _indBoss = _grp createUnit ["I_Officer_Parade_Veteran_F", [0,0,0], [], 0, "FORM"];
 	if (CDARS_GUERActivity == 0) then 
 	{
-		_eastBoss globalChat "No activities from player yet";
+		_indBoss sideChat "Keep it up. Stay low and you'll be good!";
 	};
-	if (CDARS_GUERActivity > 0 && CDARS_GUERActivity <= 15) then 
+	if (CDARS_GUERActivity > 0 && CDARS_GUERActivity <= 5) then 
 	{
-		_eastBoss globalChat "I should do something to stop him";
+		_indBoss sideChat "If you keep on doing that, the enemy might track you soon.";
+	};
+	if (CDARS_GUERActivity > 5 && CDARS_GUERActivity <= 15) then 
+	{
+		CDARS_PlayerLastKnownLocation = position player;
+		_indBoss sideChat "Recent intel stated that the enemy had known about your location.";
+		_indBoss sideChat "I suggest you to stay low, or move to another location.";
+	};
+	if (CDARS_GUERActivity > 15 && CDARS_GUERActivity <= 30) then 
+	{
+		if (CDARS_BountyHunterSent == -1) then 
+		{
+			CDARS_BountyHunterSent = 1;
+			_indBoss sideChat "They enemy commander might send someone to hunt you down by now.";
+			if (count CDARS_PlayerLastKnownLocation > 0) then 
+			{
+				// send bounty hunter
+			} else 
+			{
+				CDARS_PlayerLastKnownLocation = position player;
+			};
+		};
 	};
 	if (CDARS_GUERActivity > 50) then 
 	{
 		if (CDARS_OPFORLaunchedAttacks == 0) then 
 		{
 			CDARS_OPFORLaunchedAttacks = CDARS_OPFORLaunchedAttacks + 1;
-			
 		};
 	};
-	deleteVehicle _eastBoss;
+	deleteVehicle _indBoss;
 };
 
 if (_handlerAction == "REPLENISH") then 
