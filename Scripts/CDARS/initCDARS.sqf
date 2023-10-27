@@ -1,5 +1,15 @@
 /*
-
+	Description: This function is responsible for configuring the CDARS settings. 
+	It determines side activity, updates intel, and manages various variables related to player and enemy activities. 
+ 
+	Syntax:  
+	[] call F90_fnc_configureCDARS;  
+	
+	Parameters: 
+	None 
+	
+	Return: 
+	None 
 */
 
 configureCDARSDone = false;
@@ -19,6 +29,7 @@ CDARS_OPFORLaunchedAttacks = 0; // Attacks launched by enemy commander
 CDARS_OPFORReinforcementStatusCheck = 60; // Time interval in seconds to check for reinforcement status
 CDARS_OPFORReturnCountdown = 5; // Countdown * CDARS_OPFORReinforcementStatusCheck until OPFOR commander decided to send back their troops
 CDARS_OPFORReplenishStatusInterval = 10; // Time interval in seconds for enemy commander to check for replenishing units
+
 
 [] spawn 
 {

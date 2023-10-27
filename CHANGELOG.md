@@ -1,7 +1,9 @@
 # Known Issues
-* None currently
+* Update currently not tested
 
 # Version History
+* 1.7.5a
+    * CDARS data is now persistent across saves
 * 1.7.4a 
     * Fixed allied unit surrendering when revived by player
     * Code optimization

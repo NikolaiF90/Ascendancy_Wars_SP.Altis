@@ -55,6 +55,7 @@ class F90
 		class startNewGame 			{file = "Persistent\Core\startNewGame.sqf";};
 
 		//	LOAD
+		class loadCDARSData			{file = "Persistent\Load\loadCDARSData.sqf";};
 		class loadVehicles			{file = "Persistent\Load\loadVehicles.sqf";};
 		class loadGame 				{file = "Persistent\Load\loadGame.sqf";};
 		class loadGarrison 			{file = "Persistent\Load\loadGarrison.sqf";};
@@ -68,6 +69,7 @@ class F90
 		class loadVarFromNamespace	{file = "Persistent\Load\loadVarFromNamespace.sqf";};
 
 		//	SAVE
+		class saveCDARSData			{file = "Persistent\Save\saveCDARSData.sqf";};
 		class saveCustomContainers	{file = "Persistent\Save\saveCustomContainers.sqf";};
 		class saveCustomUnits		{file = "Persistent\Save\saveCustomUnits.sqf";};
 		class saveCustomVariables	{file = "Persistent\Save\saveCustomVariables.sqf";};

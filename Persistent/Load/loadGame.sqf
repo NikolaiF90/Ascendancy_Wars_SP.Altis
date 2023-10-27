@@ -23,6 +23,7 @@ PSave_NextVehicleId = 1;
 [_slot] call skhpersist_fnc_LoadEnvironmentInfo;
 [_slot] call F90_fnc_loadMapMarkers;
 [_slot] call F90_fnc_loadGarrison;
+[_slot] call F90_fnc_loadCDARSData;
 
 {
 	[_x, [_slot]] call skhpersist_fnc_CallFunctionFromFileOrCode;
@@ -34,10 +35,27 @@ hint format ["Persistent load done from slot %1", _slot];
 ["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
 
 // Start the game 
-
-[] call F90_fnc_initCDARS;
-
+// ZAGS
 {
 	[_forEachIndex] call F90_fnc_clearZones;
 	[_x, false] spawn F90_fnc_createZone;
 } forEach AWSP_Zones;
+
+// CDARS
+[] spawn 
+{
+	while {true} do 
+	{	
+		// Activity Handler 
+		if (CDARS_GUERActivity > 0) then 
+		{
+			CDARS_GUERActivity = CDARS_GUERActivity - 5;
+			if (CDARS_GUERActivity < 0) then 
+			{
+				CDARS_GUERActivity = 0;
+			};
+		};
+		["DEFAULT"] spawn F90_fnc_eastCommanderHandler;
+		sleep (CDARS_ActivityIntervals * 60);
+	};
+};

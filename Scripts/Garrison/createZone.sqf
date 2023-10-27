@@ -256,7 +256,7 @@ while {true} do
 
 		_captureTrigger setTriggerStatements ["this", "thisTrigger setVariable ['Capture_DetectedUnits', thisList];", ""];
 		
-		if (_reinforcementSent == -1) then 
+		if (_zoneSide == east && _reinforcementSent == -1) then 
 		{
 			_reinforcementSent = 1;
 		};
@@ -264,13 +264,10 @@ while {true} do
 		sleep 1;
 	};
 
-	if (_reinforcementSent == 1) then 
+	if (_reinforcementSent == 1 && _zoneSide == east) then 
 	{
 		_reinforcementSent = 0;
-		if (_zoneSide == east) then 
-		{
-			["SEND_REINFORCEMENT", _zoneIndex] spawn F90_fnc_eastCommanderHandler;
-		};
+		["SEND_REINFORCEMENT", _zoneIndex] spawn F90_fnc_eastCommanderHandler;
 	};
 
 	if (_inCaptureEvent && !(isNil {_captureTrigger})) then 
