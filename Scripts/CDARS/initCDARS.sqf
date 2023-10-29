@@ -39,7 +39,7 @@ CDARS_OPFORReplenishStatusInterval = 10; // Time interval in seconds for enemy c
 		// Activity Handler 
 		if (CDARS_GUERActivity > 0) then 
 		{
-			CDARS_GUERActivity = CDARS_GUERActivity - 5;
+			CDARS_GUERActivity = CDARS_GUERActivity - 2;
 			if (CDARS_GUERActivity < 0) then 
 			{
 				CDARS_GUERActivity = 0;

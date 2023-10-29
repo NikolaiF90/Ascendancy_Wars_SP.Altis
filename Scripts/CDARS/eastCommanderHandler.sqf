@@ -26,12 +26,14 @@ if (_handlerAction == "DEFAULT") then
 	if (CDARS_GUERActivity > 0 && CDARS_GUERActivity <= 5) then 
 	{
 		_indBoss sideChat "If you keep on doing that, the enemy might track you soon.";
+		["RAID", [10]] spawn F90_fnc_eastCommanderHandler;
 	};
 	if (CDARS_GUERActivity > 5 && CDARS_GUERActivity <= 15) then 
 	{
 		CDARS_PlayerLastKnownLocation = position player;
 		_indBoss sideChat "Recent intel stated that the enemy had known about your location.";
 		_indBoss sideChat "I suggest you to stay low, or move to another location.";
+		["RAID", [25]] spawn F90_fnc_eastCommanderHandler;
 	};
 	if (CDARS_GUERActivity > 15 && CDARS_GUERActivity <= 30) then 
 	{
@@ -39,13 +41,12 @@ if (_handlerAction == "DEFAULT") then
 		{
 			CDARS_BountyHunterSent = 1;
 			_indBoss sideChat "They enemy commander might send someone to hunt you down by now.";
-			if (count CDARS_PlayerLastKnownLocation > 0) then 
-			{
-				// send bounty hunter
-			} else 
+			if (count CDARS_PlayerLastKnownLocation == 0) then 
 			{
 				CDARS_PlayerLastKnownLocation = position player;
 			};
+			["RAID", [50]] spawn F90_fnc_eastCommanderHandler;
+			// send bounty hunter
 		};
 	};
 	if (CDARS_GUERActivity > 50) then 
@@ -56,6 +57,55 @@ if (_handlerAction == "DEFAULT") then
 		};
 	};
 	deleteVehicle _indBoss;
+};
+
+if (_handlerAction == "RAID") then 
+{
+	if (isNil {_args}) exitWith {["eastCommanderHandler", "(ERROR) Handler 'RAID' prevented from running because _args is not provided"] call F90_fnc_debug};
+
+	private _attackChance = _args # 0;
+	private _zoneToAttack = [];
+	private _selectedZone = nil;
+
+	if (_attackChance > (floor random 100)) then 
+	{
+		{
+			private _zoneSide = _x # 4;
+
+			if (_zoneSide == independent) then 
+			{
+				_zoneToAttack pushBack _x;
+			};
+		} forEach AWSP_Zones;
+
+		if (count _zoneToAttack > 0) then 
+		{
+			{
+				_zoneMarker = _x # 1;
+
+				if (_zoneMarker != "respawn_guerrila") exitWith 
+				{
+					_selectedZone = _x;
+				};
+			} forEach _zoneToAttack;
+		};
+
+		if !(isNil {_selectedZone}) then 
+		{
+			private _zoneData = _selectedZone;
+			private _zoneIndex = _zoneData # 0;
+			private _zoneMarker = _zoneData # 1;
+			private _zonePos = _zoneData # 2;
+			private _zoneType = _zoneData # 3;
+			private _zoneSide = _zoneData # 4;
+
+			private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
+
+			_zoneTrigger setVariable ["Zone_UnderAttack", true];
+
+			player sideChat "(DEBUG) Enemy is attacking player zone";
+		};
+	};
 };
 
 if (_handlerAction == "REPLENISH") then 

@@ -1,13 +1,16 @@
 # Known Issues
-* Update currently not tested
+* Enemy commander attack chance occurs very rarely
+* Sometimes reinforcement doesn't replenish captured zone
 
 # Version History
 * 1.7.5a
     * CDARS data is now persistent across saves.
     * Garrison will now call for reinforcement as soon as nearby units is detected as a threat.
     * East commander now won't react aggressively towards player that attacks their zone, not unless the player capture the said zone.
-    * Code optimization: 
+    * Code optimization and bugfix: 
         - Handler function in create zone script has been separated into a new file, Handler script.
+        - Enemy commander will no longer calling reforcement from a zone that has 1 garrison group left
+        - Fixed enemy commander calling reinforcement from empty zone
 * 1.7.4a 
     * Fixed allied unit surrendering when revived by player
     * Code optimization

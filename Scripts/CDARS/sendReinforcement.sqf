@@ -49,7 +49,8 @@ while {isNil "_reinforcementGarrison"} do
 		private _selectedGarrison = _nearestGarrisons # 0;
 		private _selectedIndex = _selectedGarrison # 0;
 		private _selectedTrigger = AWSP_ZoneTrigger # _selectedIndex;
-		private _selectedDefenseCount = _selectedTrigger getVariable "Zone_GroupCount";
+		private _cachedGroup = _selectedTrigger getVariable "Zone_CachedGroup";
+		private _selectedDefenseCount = count _cachedGroup;
 
 		if (_selectedDefenseCount > 1) then 
 		{
