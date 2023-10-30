@@ -1,6 +1,5 @@
 # Known Issues
-* Enemy commander attack chance occurs very rarely
-* Sometimes reinforcement doesn't replenish captured zone
+* Unable to recreate a bug - Sometimes reinforcement doesn't replenish captured zone
 
 # Version History
 * 1.7.5a

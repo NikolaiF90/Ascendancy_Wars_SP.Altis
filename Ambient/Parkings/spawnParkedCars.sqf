@@ -32,4 +32,3 @@ _spawnedCar setDir _parkingDirection;
 
 _spawnedCar addEventHandler ["GetIn", F90_fnc_stealCarEH];
 Ambient_SpawnedCars pushBack _spawnedCar;
-player sideChat "DEBUG: Car spawned";

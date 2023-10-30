@@ -26,14 +26,22 @@ if (_handlerAction == "DEFAULT") then
 	if (CDARS_GUERActivity > 0 && CDARS_GUERActivity <= 5) then 
 	{
 		_indBoss sideChat "If you keep on doing that, the enemy might track you soon.";
-		["RAID", [10]] spawn F90_fnc_eastCommanderHandler;
+		if (CDARS_OPFORLaunchedAttacks == 0) then 
+		{
+			["RAID", [10]] spawn F90_fnc_eastCommanderHandler;
+			CDARS_OPFORLaunchedAttacks = CDARS_OPFORLaunchedAttacks + 1;
+		};
 	};
 	if (CDARS_GUERActivity > 5 && CDARS_GUERActivity <= 15) then 
 	{
 		CDARS_PlayerLastKnownLocation = position player;
 		_indBoss sideChat "Recent intel stated that the enemy had known about your location.";
 		_indBoss sideChat "I suggest you to stay low, or move to another location.";
-		["RAID", [25]] spawn F90_fnc_eastCommanderHandler;
+		if (CDARS_OPFORLaunchedAttacks == 0) then 
+		{
+			["RAID", [25]] spawn F90_fnc_eastCommanderHandler;
+			CDARS_OPFORLaunchedAttacks = CDARS_OPFORLaunchedAttacks + 1;
+		};
 	};
 	if (CDARS_GUERActivity > 15 && CDARS_GUERActivity <= 30) then 
 	{
@@ -45,8 +53,12 @@ if (_handlerAction == "DEFAULT") then
 			{
 				CDARS_PlayerLastKnownLocation = position player;
 			};
-			["RAID", [50]] spawn F90_fnc_eastCommanderHandler;
 			// send bounty hunter
+		};
+		if (CDARS_OPFORLaunchedAttacks == 0) then 
+		{
+			["RAID", [50]] spawn F90_fnc_eastCommanderHandler;
+			CDARS_OPFORLaunchedAttacks = CDARS_OPFORLaunchedAttacks + 1;
 		};
 	};
 	if (CDARS_GUERActivity > 50) then 
@@ -98,12 +110,12 @@ if (_handlerAction == "RAID") then
 			private _zonePos = _zoneData # 2;
 			private _zoneType = _zoneData # 3;
 			private _zoneSide = _zoneData # 4;
-
 			private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
 
 			_zoneTrigger setVariable ["Zone_UnderAttack", true];
-
 			player sideChat "(DEBUG) Enemy is attacking player zone";
+
+			["SEND_ATTACKER", _zoneIndex] spawn F90_fnc_eastCommanderHandler;
 		};
 	};
 };
@@ -187,11 +199,99 @@ if (_handlerAction == "REPLENISH") then
 	};
 };
 
+if (_handlerAction == "SEND_ATTACKER") then 
+{
+	if (isNil {_args}) exitWith {["eastCommanderHandler", "(ERROR) Handler 'SEND_ATTACKER' from running because _args is not provided"] call F90_fnc_debug};
+	private _zoneIndex = _args;
+	private _attackerGroups = [];
+	player sideChat "One of your zone is under attack";
+	
+	_attackerGroups = [_zoneIndex, east] call F90_fnc_sendReinforcement;
+
+	if (count _attackerGroups > 0) then
+	{
+		// Create a new thread to check for attacker status; 
+		[_zoneIndex, _attackerGroups] spawn 
+		{
+			params ["_zoneIndex", "_attackerGroups"];
+			private _returnCountdown = CDARS_OPFORReturnCountdown;
+			while {true} do 
+			{
+				private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
+				private _zone = AWSP_Zones # _zoneIndex;
+				private _zoneSide = _zone # 4;
+				private _cachedGroup = _zoneTrigger getVariable "Zone_CachedGroup";
+
+				if (count _attackerGroups == 0) exitWith {_zoneTrigger setVariable ["Zone_UnderAttack", false];}; 
+				_returnCountdown = _returnCountdown - 1;
+				
+				if (_returnCountdown == 0) exitWith
+				{
+					if (_zoneSide == east) then 
+					{
+						if (count _cachedGroup > 0) then 
+						{
+							{
+								["REPLENISH", [_zoneIndex, _x]] spawn F90_fnc_eastCommanderHandler;
+							} forEach _attackerGroups;	
+						} else 
+						{
+							// Capture the zone
+						};
+					} else 
+					{
+						// Go back
+					};
+					_zoneTrigger setVariable ["Zone_UnderAttack", false];
+				};
+
+				if (_zoneSide != east) then 
+				{
+					_zoneTrigger setVariable ["Zone_UnderAttack", true];
+				};
+
+				private _inactiveGroups = [];
+				{
+					if (isNil {_x}) then 
+					{
+						_attackerGroups set [_forEachIndex, 0];
+					} else 
+					{
+						private _group = _x;
+						private _activeUnits = [];
+
+						{
+							if (!captive _x && alive _x) then 
+							{
+								_activeUnits pushBack _x;
+							};
+						} forEach (units _group);
+
+						if (count _activeUnits == 0) then 
+						{
+							_inactiveGroups pushBack _x;
+						};
+
+						if (count _activeUnits != count (units _group)) then 
+						{
+							_returnCountdown = 10;
+						};
+					};
+				} forEach _attackerGroups;
+				_attackerGroups = _attackerGroups - _inactiveGroups;
+				_attackerGroups = _attackerGroups - [0];
+				sleep CDARS_OPFORReinforcementStatusCheck;
+			};
+		};
+	};
+};
+
 if (_handlerAction == "SEND_REINFORCEMENT") then 
 {
 	if (isNil {_args}) exitWith {["eastCommanderHandler", "(ERROR) Handler 'SEND_REINFORCEMENT' from running because _args is not provided"] call F90_fnc_debug};
 	private _zoneIndex = _args;
 	private _reinforcementGroups = [];
+	player sideChat "Enemy is sending reinforcement";
 	
 	_reinforcementGroups = [_zoneIndex, east] call F90_fnc_sendReinforcement;
 
