@@ -4,6 +4,7 @@
 # Version History
 * 1.7.5a
     * CDARS data is now persistent across saves.
+    * Now the enemy commander has the ability to decide to attack zones owned by player if he likes to
     * Garrison will now call for reinforcement as soon as nearby units is detected as a threat.
     * East commander now won't react aggressively towards player that attacks their zone, not unless the player capture the said zone.
     * Code optimization and bugfix: 
