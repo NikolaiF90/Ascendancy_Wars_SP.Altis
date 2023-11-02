@@ -26,7 +26,7 @@ private _remainingDefense = _selectedDefenseCount - _reinforcementCount;
 private _reinforcementGroup = [];
 ["assignAsReinforcement", format["_reinforcementCount = %1", _reinforcementCount]] call F90_fnc_debug;
 
-_selectedTrigger setVariable ["Zone_CachedGroupCount", _remainingDefense];
+_selectedTrigger setVariable ["Zone_GroupCount", _remainingDefense];
 
 for "_i" from 0 to _reinforcementCount -1 do 
 {

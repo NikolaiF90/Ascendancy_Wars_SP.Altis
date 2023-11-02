@@ -26,6 +26,7 @@ PSave_SaveInProgress = true;
 [_slot] call F90_fnc_saveEnvironment;
 [_slot] call F90_fnc_saveMapMarkers;
 [_slot] call F90_fnc_saveGarrison;
+[_slot] call F90_fnc_saveCDARSData;
 
 {
 	[_x, [_slot]] call F90_fnc_compileCode;

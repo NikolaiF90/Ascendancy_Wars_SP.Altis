@@ -6,13 +6,13 @@
 - [x] Incapacitated bleedout [1.6.2a]
 - [x] Enemy surrendering [1.6.3a]
 - [x] Enemy sends reinforcement [1.7.1a]
-- [ ] Enemy may attack player zone
-- [ ] Ability to buy vehicle
-- [ ] Buy weapon from HQ
+- [x] Enemy may attack player zone [1.7.5a]
 - [ ] Weapon dealer
+- [ ] Buy weapon from HQ
+- [ ] Ability to buy vehicle
+- [ ] Vehicle garage
 - [ ] Player wide-range ranking system
 - [ ] Side missions
 - [ ] Air supply
 - [ ] Arsenal
-- [ ] Vehicle garage
 - [ ] Base building
