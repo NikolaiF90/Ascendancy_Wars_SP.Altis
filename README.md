@@ -57,7 +57,7 @@ What is the difference?
 * more.. I will add in the future
 
 ### Features
-[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](ROADMAP.md)
+[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](https://github.com/NikolaiF90/AWSPDocs/blob/main/ROADMAP.md)
 
 * Choose whether to recruit local population, or recruit army from your HQ
 
