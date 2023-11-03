@@ -9,19 +9,19 @@
 
 > _"If you work in a profession where people die young, make sure you don't die young"_
 
-_"Altis, a once prosperous and peaceful island, has fallen into the clutches of ruthless cartel groups, aided by the powerful CSAT forces. The people of Altis have suffered greatly under their oppressive rule, their lives torn apart by violence and fear.  
+_"Altis, a once prosperous and peaceful island, has fallen into the clutches of ruthless cartel groups, aided by the powerful CSAT forces. The people of Altis have suffered greatly under their oppressive rule, their lives torn apart by violence and fear._  
  
-In this desperate time, the Altis Armed Forces (AAF) have joined forces with NATO, signing a historic agreement to liberate the island and restore peace. The AAF and NATO, recognizing the importance of player involvement, have selected a group of skilled operatives to lead the mission.  
+_In this desperate time, the Altis Armed Forces (AAF) have joined forces with NATO, signing a historic agreement to liberate the island and restore peace. The AAF and NATO, recognizing the importance of player involvement, have selected a group of skilled operatives to lead the mission._  
  
-Your team, codenamed Task Force Phoenix, is deployed deep within enemy territory. Your objective is to disrupt the cartel's operations, weaken their forces, and gather vital intelligence. The success of your mission will determine the fate of Altis.  
+_Your team, codenamed Task Force Phoenix, is deployed deep within enemy territory. Your objective is to disrupt the cartel's operations, weaken their forces, and gather vital intelligence. The success of your mission will determine the fate of Altis._  
  
-As you navigate through treacherous terrain and engage in intense firefights, the choices you make will have far-reaching consequences. Will you prioritize stealth and gather intel covertly, or unleash all-out assaults to cripple the cartel's defenses? Each decision you make will shape the course of the mission and impact the lives of the island's inhabitants.  
+_As you navigate through treacherous terrain and engage in intense firefights, the choices you make will have far-reaching consequences. Will you prioritize stealth and gather intel covertly, or unleash all-out assaults to cripple the cartel's defenses? Each decision you make will shape the course of the mission and impact the lives of the island's inhabitants._  
  
-Along the way, you'll encounter civilians caught in the crossfire, resistance fighters eager to join your cause, and enemy informants willing to betray their comrades. How you interact with these individuals and handle delicate situations will influence the loyalty of local factions and shape the future of Altis.  
+_Along the way, you'll encounter civilians caught in the crossfire, resistance fighters eager to join your cause, and enemy informants willing to betray their comrades. How you interact with these individuals and handle delicate situations will influence the loyalty of local factions and shape the future of Altis._  
  
-Be prepared for unexpected challenges and moral dilemmas as you delve deeper into the heart of the cartel's operations. Your actions will not only determine the fate of Altis but also the lives of your fellow soldiers and the trust placed in you by the AAF and NATO.  
+_Be prepared for unexpected challenges and moral dilemmas as you delve deeper into the heart of the cartel's operations. Your actions will not only determine the fate of Altis but also the lives of your fellow soldiers and the trust placed in you by the AAF and NATO._ 
  
-Remember, every choice matters. The outcome of this mission rests in your hands. Will you lead Altis towards a brighter future or succumb to the darkness that has plagued the island for far too long? The fate of Altis is yours to decide."_
+_Remember, every choice matters. The outcome of this mission rests in your hands. Will you lead Altis towards a brighter future or succumb to the darkness that has plagued the island for far too long? The fate of Altis is yours to decide."_
 
 ## Getting Started
 
