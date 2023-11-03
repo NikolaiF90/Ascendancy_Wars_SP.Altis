@@ -59,3 +59,5 @@ hint format ["Persistent load done from slot %1", _slot];
 		sleep (CDARS_ActivityIntervals * 60);
 	};
 };
+
+[] call F90_fnc_initShop;

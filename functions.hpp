@@ -39,6 +39,7 @@ class F90
 		class initGarrison			{file = "Init\initGarrison.sqf";};
 		class initPersistent		{file = "Init\initPersistent.sqf";};
 		class initRevive			{file = "Init\initRevive.sqf";};
+		class initShop 				{file = "Init\initShop.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
 	};
 
@@ -142,6 +143,7 @@ class F90
 		class zoneHandler			{file = "Scripts\Garrison\zoneHandler.sqf";};
 
 		//	SHOP
+		class configureShop 	{file = "Scripts\Shop\configureShop.sqf";};
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
 	};
