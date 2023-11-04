@@ -1,5 +1,5 @@
 # Ascendancy Wars SP Update
-Version 1.6.0a
+Version 1.8.0a
 
 ## New Features
 ### Virtual Arsenal Shop System
