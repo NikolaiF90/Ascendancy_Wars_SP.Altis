@@ -43,6 +43,7 @@ if (!isNil "AWSP_Zones") then
 };
 [] call F90_fnc_initGarrison;
 [] call F90_fnc_initCDARS;
+[] call F90_fnc_initShop;
 
 commanderX setPos (getMarkerPos "respawn_guerrila");
 commanderX setDamage 0;
