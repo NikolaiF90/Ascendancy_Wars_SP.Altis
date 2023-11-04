@@ -1,5 +1,19 @@
 /*
-
+	Handler Description: 
+ 
+	The "eastCommanderHandler" function handles various actions and events related to a game scenario. It takes two parameters: "_handlerAction" and "_args". The function performs different actions based on the value of "_handlerAction". 
+	
+	If "_handlerAction" is not provided or empty, it defaults to "DEFAULT". 
+	
+	Syntax: 
+	[parameters] call F90_fnc_eastCommanderHandler 
+	
+	Parameters: 
+	- _handlerAction (String): The action to be performed. Possible values are "DEFAULT", "RAID", "REPLENISH", "SEND_ATTACKER", and "SEND_REINFORCEMENT". 
+	- _args (Array): Additional arguments specific to each action. Refer to the code to determine the required arguments for each action. 
+	
+	Return: 
+	None 
 */
 
 params ["_handlerAction", "_args"];

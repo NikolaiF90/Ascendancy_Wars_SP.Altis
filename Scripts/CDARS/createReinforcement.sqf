@@ -15,6 +15,7 @@ private _cars = [];
 private _helos = [];
 private _reinforcementGroups = [];
 private _groupSkill = 0;
+private _money = ECONOMY_DefaultOPFORMoney;
 
 if (_distance <= 1000) then 
 {
@@ -51,6 +52,7 @@ for "_i" from 0 to (count _reinforcementData)-1 do
 	{
 		[_x] joinSilent _group;
 		_x setSkill _groupSkill;
+		_x setVariable ["Milcash", _money];
 		if (Revive_Enabled) then 
 		{
 			_x call F90_fnc_addRevive;

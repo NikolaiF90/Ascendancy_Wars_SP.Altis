@@ -206,7 +206,7 @@ class recruitMenu
 			h = 0.033 * safezoneH;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0.5,0.45,0.1,1};
-			action = "[AWSPRecruit_SelectedRecruit] call F90_fnc_spawnRecruit";
+			action = "[AWSPRecruit_SelectedRecruit, AWSPRecruit_Buyer] call F90_fnc_spawnRecruit";
 		};
 		class recruitprice_text: RscText
 		{
