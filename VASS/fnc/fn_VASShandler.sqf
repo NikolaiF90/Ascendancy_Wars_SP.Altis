@@ -40,11 +40,12 @@ switch _mode do {
 	case "getMoney":{
 		_params params ["_unit"];
 		/* EXAMPLE */
-		rating _unit
+		private _money = MILCASH_PLAYER;
+		_money
 	};
 	case "setMoney":{
 		_params params ["_unit", "_change"];
 		/* EXAMPLE */
-		_unit addRating _change;
+		MILCASH_PLAYER = MILCASH_PLAYER + _change;
 	};
 };

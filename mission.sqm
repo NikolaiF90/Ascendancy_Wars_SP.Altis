@@ -20,14 +20,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2;
+		nextID=3;
 	};
 	class Camera
 	{
 		pos[]={16957.439,13.122181,21898.225};
-		dir[]={0.38515979,-0.44003171,0.81118727};
-		up[]={0.188737,0.89798194,0.3975001};
-		aside[]={0.90334463,-1.3504177e-008,-0.42891705};
+		dir[]={0.034403812,-0.25921205,0.96520889};
+		up[]={0.0092334766,0.96582001,0.25904816};
+		aside[]={0.99936622,1.4260877e-008,-0.035621431};
 	};
 };
 binarizationWanted=0;
@@ -873,7 +873,7 @@ class Mission
 			colorName="ColorGreen";
 			a=109.67478;
 			b=134.31419;
-			angle=219.14227;
+			angle=219.14223;
 			id=49;
 			atlOffset=0.64874649;
 		};
@@ -2200,7 +2200,6 @@ class Mission
 					};
 					id=371;
 					type="Land_HBarrier_Big_F";
-					atlOffset=9.5367432e-007;
 				};
 				class Item76
 				{
@@ -2389,7 +2388,7 @@ class Mission
 					};
 					id=395;
 					type="RoadCone_L_F";
-					atlOffset=-2.1934509e-005;
+					atlOffset=-2.0980835e-005;
 				};
 				class Item87
 				{
@@ -2545,6 +2544,7 @@ class Mission
 					};
 					id=405;
 					type="RoadCone_L_F";
+					atlOffset=-9.5367432e-007;
 				};
 				class Item96
 				{
@@ -3154,7 +3154,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16912.779,9.2762537,21937.709};
-				angles[]={0,0.72338039,-0};
+				angles[]={0,0.72338039,0};
 			};
 			side="Empty";
 			flags=5;
