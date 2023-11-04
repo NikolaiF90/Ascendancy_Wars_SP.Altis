@@ -1,5 +1,5 @@
 # Ascendancy Wars SP (Altis) 
-[![Static Badge](https://img.shields.io/badge/version-1.8.0a-teal?style=plastic&logo=github&labelColor=black)](CHANGELOG.md)  
+[![Static Badge](https://img.shields.io/badge/version-1.8.0a-teal?style=plastic&logo=github&labelColor=black)](https://github.com/NikolaiF90/AWSPDocs/blob/main/AlphaChangelog.md)  
 
 [![Hits](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/Main.svg?style=plastic&label=Repository%20Visits&extraCount=1&color=3f8676&labelColor=000000&logo=github)](https://hits.sh/github.com/NikolaiF90/Ascendancy_Wars_SP.Altis/tree/Main/)
 
@@ -37,7 +37,7 @@ So I make Ascendancy Wars combining their features, but different too at the sam
 What is the difference? Let's take a look at features.
 
 ### Features
-[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](ROADMAP.md)
+[![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](https://github.com/NikolaiF90/AWSPDocs/blob/main/ROADMAP.md)
 
 * Zoning And Garrisoning System (ZAGS) 
   - Engage in strategic gameplay by capturing and controlling zones on the map. Gain control over important areas to weaken the enemy's hold and expand your influence.
