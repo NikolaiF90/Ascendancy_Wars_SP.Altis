@@ -4,8 +4,62 @@ AWSP_GUERWeaponShops =
 	WeaponShop_0
 ];
 
+AWSP_CIVWeaponShops = 
+[
+	WeaponShop_1
+];
+
 // Weapon available on Allied shop
-AWSP_BASEWeaponList = 
+AWSP_AAFWeaponList = 
+[
+	"arifle_AK12_F", 800, 0,
+	"arifle_AK12_GL_F", 900, 0,
+	"arifle_AKM_F", 720, 0,
+	"arifle_ARX_blk_F", 820, 0,
+	"arifle_CTAR_blk_F", 870, true, 
+	"arifle_CTAR_GL_blk_F", 900, true, 
+	"arifle_Katiba_F", 500, 0, 
+	"arifle_Katiba_GL_F", 550, 0,
+	"arifle_Mk20_F", 500, true,
+	"arifle_Mk20_GL_F", 550, true,
+	"arifle_MSBS65_F", 500, 0,
+	"arifle_MSBS65_GL_F", 550, 0,
+	"arifle_MX_F", 500, true, 
+	"arifle_MX_Black_F", 500, true, 
+	"arifle_MX_khk_F", 500, true,
+	"arifle_MX_GL_F", 550, true,
+	"arifle_MX_GL_Black_F", 550, true, 
+	"arifle_MX_GL_khk_F", 550, true,
+	"arifle_MX_SW_F", 550, true, 
+	"arifle_MX_SW_Black_F", 550, true,
+	"arifle_MX_SW_khk_F", 550, true, 
+	"arifle_MXC_F", 550, true, 
+	"arifle_MXC_Black_F", 550, true,
+	"arifle_MXC_khk_F", 550, true,
+	"arifle_MXM_F", 550, true,
+	"arifle_MXM_Black_F", 550, true,
+	"arifle_MXM_khk_F", 550, true,
+	"arifle_TRG21_F", 500, true,
+	"hgun_ACPC2_F", 120, true, 
+	"hgun_P07_F", 120, true, 
+	"launch_NLAW_F", 1000, true,
+	"launch_RPG32_F", 800, true,
+	"launch_B_Titan_F", 1600, true,
+	"launch_I_Titan_F", 1600, true,
+	"launch_O_Titan_F", 1600, true,
+	"launch_Titan_F", 1600, true, 
+	"launch_B_Titan_short_F", 1400, true,
+	"launch_I_Titan_short_F", 1400, true,
+	"launch_O_Titan_short_F", 1400, 0,
+	"launch_Titan_short_F", 1400, true,
+	"LMG_Mk200_F", 800, true,
+	"LMG_Zafir_F", 800, 0,
+	"srifle_DMR_01_F", 1500, 0,
+	"srifle_EBR_F", 1500, true,
+	"srifle_GM6_F", 2000, true
+];
+
+AWSP_CSATWeaponList = 
 [
 	"arifle_AK12_F", 800, true,
 	"arifle_AK12_GL_F", 900, true,
@@ -33,16 +87,50 @@ AWSP_BASEWeaponList =
 	"arifle_MXC_khk_F", 550, true,
 	"arifle_MXM_F", 550, true,
 	"arifle_MXM_Black_F", 550, true,
-	"arifle_MXM_khk_F", 550, true
+	"arifle_MXM_khk_F", 550, true,
+	"arifle_TRG21_F", 500, true,
+	"hgun_ACPC2_F", 120, true, 
+	"hgun_P07_F", 120, true, 
+	"launch_NLAW_F", 1000, true,
+	"launch_RPG32_F", 800, true,
+	"launch_B_Titan_F", 1600, true,
+	"launch_I_Titan_F", 1600, true,
+	"launch_O_Titan_F", 1600, true,
+	"launch_Titan_F", 1600, true, 
+	"launch_B_Titan_short_F", 1400, true,
+	"launch_I_Titan_short_F", 1400, true,
+	"launch_O_Titan_short_F", 1400, true,
+	"launch_Titan_short_F", 1400, true,
+	"LMG_Mk200_F", 800, true,
+	"LMG_Zafir_F", 800, true,
+	"srifle_DMR_01_F", 1500, true,
+	"srifle_EBR_F", 1500, true,
+	"srifle_GM6_F", 2000, true
 ];
 
-AWSP_BASEAmmoList = 
+AWSP_AAFAmmoList = 
 [
+	"10Rnd_762x54_Mag", 10, true,
+	"150Rnd_762x51_Box", 150, true,
+	"150Rnd_762x54_Box", 150, true,
+	"150Rnd_762x51_Box_Tracer", 300, true,
+	"150Rnd_762x54_Box_Tracer", 300, true,
+	"20Rnd_762x51_Mag", 20, true,
+	"200Rnd_65x39_cased_Box", 200, true,
+	"200Rnd_65x39_cased_Box_Red", 250, true,
+	"200Rnd_65x39_cased_Box_Tracer", 400, true,
+	"200Rnd_65x39_cased_Box_Tracer_Red", 400, true,
 	"30Rnd_762x39_AK12_Mag_F", 30, true,
 	"30Rnd_762x39_Mag_F", 30, true,
 	"30Rnd_762x39_Mag_Green_F", 35, true,
 	"30Rnd_762x39_Mag_Tracer_F", 60, true, 
-	"30Rnd_762x39_Mag_Tracer_Green_F", 60, true, 
+	"30Rnd_762x39_Mag_Tracer_Green_F", 60, true,
+	"30Rnd_556x45_Stanag", 35, true,
+	"30Rnd_556x45_Stanag_green", 35, true,
+	"30Rnd_556x45_Stanag_red", 35, true, 
+	"30Rnd_556x45_Stanag_Tracer_Red", 60, true,
+	"30Rnd_556x45_Stanag_Tracer_Green", 60, true,
+	"30Rnd_556x45_Stanag_Tracer_Yellow", 60, true, 
 	"30Rnd_65x39_caseless_mag", 30, true,
 	"30Rnd_65x39_caseless_black_mag", 30, true, 
 	"30Rnd_65x39_caseless_khaki_mag", 30, true,
@@ -56,10 +144,20 @@ AWSP_BASEAmmoList =
 	"30Rnd_556x45_Stanag_Tracer_Green", 60, true, 
 	"30Rnd_556x45_Stanag_Tracer_Yellow", 60, true, 
 	"30Rnd_556x45_Stanag_red", 35, true, 
-	"30Rnd_556x45_Stanag_green", 35, true
+	"30Rnd_556x45_Stanag_green", 35, true,
+	"5Rnd_127x108_Mag", 30, true,
+	"5Rnd_127x108_APDS_Mag", 50, true,
+	"9Rnd_45ACP_Mag", 5, true,
+	"16Rnd_9x21_Mag", 10, true,
+	"NLAW_F", 100, true,
+	"RPG32_F", 80, true,
+	"RPG32_HE_F", 100, true,
+	"Titan_AA", 200, true,
+	"Titan_AT", 150, true, 
+	"Titan_AP", 120, true
 ];
 
-AWSP_BASEItemList = 
+AWSP_AAFItemList = 
 [
 	"ItemWatch", 5, true,
 	"ItemCompass", 5, true,

@@ -74,7 +74,7 @@ if (_zoneType != "BASE") then
 		case independent:
 		{
 			_zoneIcon setMarkerColor "colorGUER";
-			_zoneIcon setMarkerText format["LDF %1", _zoneType];
+			_zoneIcon setMarkerText format["AAF %1", _zoneType];
 			_garrisonSkill = AWSP_GUERSkill;
 		};
 		case civilian: 
