@@ -16,7 +16,7 @@ AWSP_OPFORSkill = 0.25;
 AWSP_GUERSkill = 0.35;
 AWSP_BLUFORSkill = 0.27;
 
-AWSP_DaysPerHour = 1; // The speed at which time passes in the game
+AWSP_DaysPerHour = 0.5; // In-game days per real hours
 
 AWSP_MilitaryZones = 
 [
