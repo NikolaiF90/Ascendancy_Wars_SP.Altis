@@ -1,16 +1,18 @@
 # Ascendancy Wars SP Update
-Version 1.8.0a
+Version 1.8.1a
 
 ## New Features
-### Virtual Arsenal Shop System
-Now player can purchase weapons, attachments, items and etc at infostand which spread across the map.
-
-### Economy System 
-Improved currency system.  
-All units now have their own money.  
+Developer not provided any information.
 
 ## Adjustment
 ### Allied Base
-Allied Base now present physically in the game.
+Relocated allied base
 
 ## Bugfix and Optimization
+### Economy System 
+Added more shops. 
+Each shop has specific weapons and items for sale.  
+Added uniform, body armor, and headgears. 
+Improved currency system.  
+All units now have their own money.  
+Shops now have icons. 
