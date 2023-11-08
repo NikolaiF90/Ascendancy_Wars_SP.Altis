@@ -2,7 +2,7 @@ configureShopDone = false;
 [] call F90_fnc_configureShop;
 waitUntil {configureShopDone};
 
-_fn_createIcon = 
+private _fn_createIcon = 
 {
 	params ["_side", "_index", "_pos"];
 
@@ -38,21 +38,36 @@ _fn_createIcon =
 		};
 	};
 };
+private _guerShopArray = AWSP_AAFWeaponList + AWSP_AllAmmoList + AWSP_AllItemList + AWSP_NATOUniformList + AWSP_AAFUniformList + AWSP_AAFVestList + AWSP_NATOVestList + AWSP_AllHeadgearList + AWSP_AllBackpackList + AWSP_AAFBackpackList + AWSP_NATOBackpackList;
+private _opforShopArray = AWSP_CSATWeaponList + AWSP_AllAmmoList + AWSP_AllItemList + AWSP_CSATUniformList + AWSP_CSATVestList + AWSP_AllHeadgearList + AWSP_AllBackpackList + AWSP_CSATBackpackList;
+private _civShopArray = AWSP_CivilianWeaponList + AWSP_AllAmmoList + AWSP_AllItemList + AWSP_CivilianUniformList + AWSP_CivilianVestList + AWSP_AllHeadgearList + AWSP_AllBackpackList;
 
+[_guerShopArray, _fn_createIcon] spawn 
 {
-	[_x] call TER_fnc_addShop;
-	[_x, AWSP_AAFWeaponList + AWSP_AAFAmmoList + AWSP_AAFItemList + AWSP_AAFUniformList + AWSP_AllArmorList + AWSP_AllHeadgearList] call TER_fnc_addShopCargo;
-	[independent, _forEachIndex, position _x] call _fn_createIcon;
-} forEach AWSP_GUERWeaponShops;
+	params ["_guerShopArray", "_fn_createIcon"];
+	{
+		[_x] call TER_fnc_addShop;
+		[_x, _guerShopArray] call TER_fnc_addShopCargo;
+		[independent, _forEachIndex, position _x] call _fn_createIcon;
+	} forEach AWSP_GUERWeaponShops;
+};
 
+[_opforShopArray, _fn_createIcon] spawn 
 {
-	[_x] call TER_fnc_addShop;
-	[_x, AWSP_CSATWeaponList + AWSP_AAFAmmoList + AWSP_AAFItemList + AWSP_CSATUniformList + AWSP_AllArmorList + AWSP_AllHeadgearList] call TER_fnc_addShopCargo;
-	[east, _forEachIndex, position _x] call _fn_createIcon;
-} forEach AWSP_OPFORWeaponShops;
+	params ["_opforShopArray", "_fn_createIcon"];
+	{
+		[_x] call TER_fnc_addShop;
+		[_x, _opforShopArray] call TER_fnc_addShopCargo;
+		[east, _forEachIndex, position _x] call _fn_createIcon;
+	} forEach AWSP_OPFORWeaponShops;
+};
 
+[_civShopArray, _fn_createIcon] spawn 
 {
-	[_x] call TER_fnc_addShop;
-	[_x, AWSP_CivilianWeaponList + AWSP_AAFAmmoList + AWSP_AAFItemList + AWSP_CivilianUniformList + AWSP_AllArmorList + AWSP_AllHeadgearList] call TER_fnc_addShopCargo;
-	[civilian, _forEachIndex, position _x] call _fn_createIcon;
-} forEach AWSP_CIVWeaponShops;
+	params ["_civShopArray", "_fn_createIcon"];
+	{
+		[_x] call TER_fnc_addShop;
+		[_x, _civShopArray] call TER_fnc_addShopCargo;
+		[civilian, _forEachIndex, position _x] call _fn_createIcon;
+	} forEach AWSP_CIVWeaponShops;
+};
