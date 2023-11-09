@@ -120,6 +120,7 @@ class F90
 		//	Base
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class getInventory		{file = "Scripts\getInventory.sqf";};
+		class showLoadingScreen {file = "Scripts\showLoadingScreen.sqf";};
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 

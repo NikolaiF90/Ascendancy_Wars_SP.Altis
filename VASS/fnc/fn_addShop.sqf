@@ -37,9 +37,15 @@ if (isNil {_radius}) then { _radius = 5};
 
 _actionID = _object getVariable ["TER_VASS_actionID",-1];
 
+_object setVariable ["ShopTitle", _title];
+
 if (_actionID > -1) then {_object removeAction _actionID};
 _actionID = _object addAction [_title,{
 	params ["_object", "_caller", "_actionId", "_arguments"];
+
+	private _title = _object getVariable "ShopTitle";
+
+	cutText [format ["Opening %1...", _title], "PLAIN"];
 	TER_VASS_shopObject = _object;
 	uiNamespace setVariable ["TER_VASS_shopObject",_object];
 	//--- Arsenal cargo
@@ -50,6 +56,9 @@ _actionID = _object addAction [_title,{
 		_amount = _iValues#2;
 		if (_amount isEqualType 0) then {_amount > 0} else {_amount}
 	};
+
+	cutText ["Please Wait...", "PLAIN"];
+
 	_vItems = [[/*Weapons*/],[/*Items*/],[/*Mags*/],[/*backpacks*/]];
 	{
 		_category = (_x call BIS_fnc_itemType) select 0;
@@ -68,6 +77,9 @@ _actionID = _object addAction [_title,{
 		};
 		_vItems#_ind pushback _x;
 	} forEach _cargo;
+
+	cutText ["Almost Ready...", "PLAIN"];
+
 	if (isNil {_object getvariable "bis_fnc_arsenal_action"}) then {
 		_object setvariable ["bis_fnc_arsenal_action",-1];// Prevent default arsenal action. for some reason it's still getting added otherwise
 	};
