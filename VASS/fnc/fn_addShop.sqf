@@ -27,8 +27,7 @@
 */
 
 params [ "_object", "_title", "_priority", "_condition", "_radius"];
-player sideChat format ["%1 added as shop", _object];
-["VASS addShop", format ["%1 added as shop", _object]] call F90_fnc_debug;
+["VASS addShop", format ["%1 added as shop", _object], true] call F90_fnc_debug;
 
 if (isNil {_title}) then { _title = "Shop"};
 if (isNil {_priority}) then { _priority = 1.5};

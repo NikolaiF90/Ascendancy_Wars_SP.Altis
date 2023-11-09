@@ -7,7 +7,7 @@
 	Parameters: 
 		0: STRING - The name of the file or source where the debug message originates from. 
 		1: STRING - The debug message to be logged. 
-		2: BOOL (optional) - Determines whether the debug message should be displayed in the in-game chat. Defaults to false if not provided. 
+		2: BOOL  - (optional) Determines whether the debug message should be displayed in the in-game chat. Defaults to false if not provided. 
 	
 	Returns: 
 		None 
