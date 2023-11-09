@@ -38,9 +38,10 @@ private _fn_createIcon =
 		};
 	};
 };
-private _guerShopArray = AWSP_AAFWeaponList + AWSP_NATOUniformList + AWSP_AAFUniformList + AWSP_AAFVestList + AWSP_NATOVestList + AWSP_AAFHeadgearList + AWSP_NATOHeadgearList + AWSP_AAFBackpackList + AWSP_NATOBackpackList;
-private _opforShopArray = AWSP_CSATWeaponList + AWSP_CSATUniformList + AWSP_CSATVestList + AWSP_CSATHeadgearList + AWSP_CSATBackpackList;
-private _civShopArray = AWSP_CivilianWeaponList + AWSP_CivilianUniformList + AWSP_CivilianVestList + AWSP_CivilianHeadgearList + AWSP_AllBackpackList;
+private _bluforShopArray = AWSP_NATOWeaponList + AWSP_NATOAmmoList + AWSP_NATOUniformList + AWSP_NATOVestList + AWSP_NATOHeadgearList + AWSP_NATOBackpackList;
+private _guerShopArray = AWSP_AAFWeaponList + AWSP_AAFAmmoList  + AWSP_AAFUniformList + AWSP_AAFVestList  + AWSP_AAFHeadgearList  + AWSP_AAFBackpackList;
+private _opforShopArray = AWSP_CSATWeaponList + AWSP_NATOAmmoList + AWSP_CSATUniformList + AWSP_CSATVestList + AWSP_CSATHeadgearList + AWSP_CSATBackpackList;
+private _civShopArray = AWSP_CivilianWeaponList + AWSP_CivilianAmmoList + AWSP_CivilianUniformList + AWSP_CivilianVestList + AWSP_CivilianHeadgearList + AWSP_AllBackpackList;
 
 {
 	private _shop = _x;
@@ -51,7 +52,7 @@ private _civShopArray = AWSP_CivilianWeaponList + AWSP_CivilianUniformList + AWS
 		[_x, AWSP_AllExplosiveList] call TER_fnc_addShopCargo;
 		[_x, AWSP_AllGrenadeList] call TER_fnc_addShopCargo;
 	} forEach _shop;
-} forEach [AWSP_GUERWeaponShops, AWSP_OPFORWeaponShops, AWSP_CIVWeaponShops];
+} forEach [AWSP_GUERWeaponShops, AWSP_OPFORWeaponShops, AWSP_CIVWeaponShops, AWSP_BLUFORWeaponShops];
 
 {
 	[_x, _guerShopArray] call TER_fnc_addShopCargo;
@@ -64,7 +65,11 @@ private _civShopArray = AWSP_CivilianWeaponList + AWSP_CivilianUniformList + AWS
 } forEach AWSP_OPFORWeaponShops;
 
 {
-	
 	[_x, _civShopArray] call TER_fnc_addShopCargo;
 	[civilian, _forEachIndex, position _x] call _fn_createIcon;
 } forEach AWSP_CIVWeaponShops;
+
+{
+	[_x, _bluforShopArray] call TER_fnc_addShopCargo;
+	[west, _forEachIndex, position _x] call _fn_createIcon;
+} forEach AWSP_BLUFORWeaponShops;
