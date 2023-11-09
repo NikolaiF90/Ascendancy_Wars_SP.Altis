@@ -10,12 +10,9 @@
 		2: BOOL  - (optional) Determines whether the debug message should be displayed in the in-game chat. Defaults to false if not provided. 
 	
 	Returns: 
-		None 
-	
-	Example:
-		["MyScript", "This is a debug message"] call F90_fnc_debug;
-		["MyScript", format ["This is a debug %1", _message], true] call F90_fnc_debug;
+		0
 */
+//	Example: ["MyScript","This is a debug message", true] call F90_fnc_debug;
 
 params ["_fileName", "_text", "_visibleInGame"];
 
