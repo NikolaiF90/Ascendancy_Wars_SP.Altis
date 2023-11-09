@@ -1,7 +1,6 @@
 F90_MISSIONID = ["AWSP", 5] call F90_fnc_generateRandomID;
 
 ["initVars", format ["Initializing variables for game id: %1", F90_MISSIONID]] call F90_fnc_debug;
-MILCASH_PLAYER = 10000;
 RANK_PLAYER = "PRIVATE";
 HONOR_PLAYER = 0;
 
@@ -17,7 +16,7 @@ AWSP_OPFORSkill = 0.25;
 AWSP_GUERSkill = 0.35;
 AWSP_BLUFORSkill = 0.27;
 
-AWSP_DaysPerHour = 1; // The speed at which time passes in the game
+AWSP_DaysPerHour = 0.5; // In-game days per real hours
 
 AWSP_MilitaryZones = 
 [

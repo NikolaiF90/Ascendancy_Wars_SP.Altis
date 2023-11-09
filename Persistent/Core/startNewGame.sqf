@@ -1,3 +1,4 @@
+[] spawn F90_fnc_showLoadingScreen;
 ["startNewGame", "Starting a new game..."] call F90_fnc_debug;
 F90_MissionStarted = true;
 
@@ -6,7 +7,7 @@ initVarsDone = false;
 
 waitUntil {initVarsDone};
 
-commanderX setPos [0,0,0];
+// commanderX setPos [0,0,0];
 
 // Delete all created vehicles
 if (count Persistent_VehiclesToSave > 0) then
@@ -43,7 +44,7 @@ if (!isNil "AWSP_Zones") then
 };
 [] call F90_fnc_initGarrison;
 [] call F90_fnc_initCDARS;
-[] call F90_fnc_initShop;
+[] spawn F90_fnc_initShop;
 
 commanderX setPos (getMarkerPos "respawn_guerrila");
 commanderX setDamage 0;

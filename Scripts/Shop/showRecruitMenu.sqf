@@ -1,6 +1,8 @@
+params ["_unit"];
 diag_log "Recruiting...";
 createDialog "recruitMenu";
 
+AWSPRecruit_Buyer = _unit;
 // forEach
 {
 	_soldier = _x # 0;

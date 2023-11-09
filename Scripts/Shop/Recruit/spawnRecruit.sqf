@@ -3,7 +3,7 @@
 	Spawn soldier of provided class near player 
 
 	SYNTAX:
-	[recruit] call F90_fnc_spawnRecruit;;
+	[recruit] call F90_fnc_spawnRecruit;
 
 	PARAMETERS:
 	0	recruit		=	AWSPRecruit_SelectedRecruit is preferred; or
@@ -13,17 +13,20 @@
 	NONE
 */
 
-params ["_recruit"];
+params ["_recruit", "_unit"];
+
+private _defaultMoney = ECONOMY_DefaultGUERMoney;
 
 if (count _recruit == 1) then 
 {
 	private _soldier = _recruit # 0;
 	private _class = _soldier # 1;
 	private _price = _soldier # 2;
+	private _money = ["GETMONEY", _unit] call F90_fnc_economyHandler;
 
-	if (MILCASH_PLAYER >= _price) then 
+	if (_money >= _price) then 
 	{
-		MILCASH_PLAYER = MILCASH_PLAYER - _price;
+		["DEDUCTMONEY", [_unit, _price]] call F90_fnc_economyHandler;
 		//	Spawn recruit
 		private _pos = [player, 1, 25] call BIS_fnc_findSafePos;
 		private _group = createGroup [independent, true];
@@ -33,6 +36,7 @@ if (count _recruit == 1) then
 		{
 			_soldier call F90_fnc_addRevive;
 		};
+		_soldier setVariable ["Milcash", _defaultMoney];
 	} else 
 	{
 		hint "You do not have enough milcash to recruit this soldier";

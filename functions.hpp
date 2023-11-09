@@ -36,6 +36,7 @@ class F90
 		class initAmbient			{file = "Init\initAmbient.sqf";};
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
 		class initDialogVars		{file = "Init\initDialogVars.sqf";};
+		class initEconomy			{file = "Init\initEconomy.sqf";};
 		class initGarrison			{file = "Init\initGarrison.sqf";};
 		class initPersistent		{file = "Init\initPersistent.sqf";};
 		class initRevive			{file = "Init\initRevive.sqf";};
@@ -119,6 +120,7 @@ class F90
 		//	Base
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class getInventory		{file = "Scripts\getInventory.sqf";};
+		class showLoadingScreen {file = "Scripts\showLoadingScreen.sqf";};
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
@@ -130,6 +132,10 @@ class F90
 		class findNearestGarrisons	{file = "Scripts\CDARS\findNearestGarrisons.sqf";};
 		class initCDARS				{file = "Scripts\CDARS\initCDARS.sqf";};
 		class sendReinforcement		{file = "Scripts\CDARS\sendReinforcement.sqf";};
+
+		//	Economy
+		class configureEconomy 		{file = "Scripts\Economy\configureEconomy.sqf";};
+		class economyHandler		{file = "Scripts\Economy\economyHandler.sqf";};
 
 		//	Garrison
 		class clearZones			{file = "Scripts\Garrison\clearZones.sqf";};
@@ -144,6 +150,7 @@ class F90
 
 		//	SHOP
 		class configureShop 	{file = "Scripts\Shop\configureShop.sqf";};
+		class showRecruitMenu 	{file = "Scripts\Shop\showRecruitMenu.sqf";};
 		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
 	};

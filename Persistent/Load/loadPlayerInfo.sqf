@@ -7,12 +7,6 @@ params ["_slot"];
 
 ["loadPlayerInfo", format["Loading player informations from slot %1",_slot]] call F90_fnc_debug;
 
-if (!isNil "MILCASH_PLAYER") then 
-{
-	private _tempMilcashPlayer = [["MilcashPlayer", 10000], _slot] call F90_fnc_loadData;
-	MILCASH_PLAYER = _tempMilcashPlayer;
-};
-
 if (!isNil "RANK_PLAYER") then 
 {
 	private _tempRankPlayer = [["RankPlayer", "PRIVATE"], _slot] call F90_fnc_loadData;

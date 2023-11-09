@@ -96,6 +96,7 @@ _unitData pushBack ["formationDir", formationDirection _unit];
 _unitData pushBack ["variables", [_unit] call _GenerateVariablesArray];
 _unitData pushBack ["orders", [_unit] call _GenerateOrdersArray];
 _unitData pushBack ["assignedTeam", assignedTeam _unit];
+_unitData pushBack ["milcash", _unit getVariable "Milcash"];
 
 //	If unit is on vehicle
 if (vehicle _unit != _unit) then

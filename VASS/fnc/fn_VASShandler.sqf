@@ -40,12 +40,14 @@ switch _mode do {
 	case "getMoney":{
 		_params params ["_unit"];
 		/* EXAMPLE */
-		private _money = MILCASH_PLAYER;
+		private _money = ["GETMONEY", _unit] call F90_fnc_economyHandler;
 		_money
 	};
 	case "setMoney":{
 		_params params ["_unit", "_change"];
 		/* EXAMPLE */
-		MILCASH_PLAYER = MILCASH_PLAYER + _change;
+		private _money = ["GETMONEY", _unit] call F90_fnc_economyHandler;
+		_money = _money + _change;
+		["SETMONEY", [_unit, _money]] call F90_fnc_economyHandler;
 	};
 };
