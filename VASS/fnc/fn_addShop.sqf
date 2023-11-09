@@ -20,14 +20,13 @@
 
 	Returns:
 		NUMBER - ID of the action, also saved as "TER_VASS_actionID" on the object
-
+*//*
 	Example(s):
 		[cursorObject] call TER_fnc_addShop; //-> 0
 		[cursorObject, "BLUFOR Weapon Shop", 999, "playerSide == west", 15] call TER_fnc_addShop; //-> 1
 */
 
 params [ "_object", "_title", "_priority", "_condition", "_radius"];
-["VASS addShop", format ["%1 added as shop", _object], true] call F90_fnc_debug;
 
 if (isNil {_title}) then { _title = "Shop"};
 if (isNil {_priority}) then { _priority = 1.5};

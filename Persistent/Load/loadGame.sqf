@@ -35,6 +35,14 @@ hint format ["Persistent load done from slot %1", _slot];
 ["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
 
 // Start the game 
+F90_MissionStarted = true;
+
+if (dialog) then 
+{
+	closeDialog 2;
+};
+[] spawn F90_fnc_showLoadingScreen;
+
 // ZAGS
 {
 	[_forEachIndex] call F90_fnc_clearZones;

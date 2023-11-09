@@ -41,6 +41,7 @@ class F90
 		class initPersistent		{file = "Init\initPersistent.sqf";};
 		class initRevive			{file = "Init\initRevive.sqf";};
 		class initShop 				{file = "Init\initShop.sqf";};
+		class initShopItems			{file = "Init\initShopItems.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
 	};
 
