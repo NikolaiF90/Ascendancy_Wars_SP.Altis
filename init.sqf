@@ -27,11 +27,11 @@ player addAction ["<t color='#2DC2DD'>Info Tab</t>", {params ["_target", "_calle
 
 while {!F90_MissionStarted} do 
 {
-	closeDialog 2;
-	[commanderX] call F90_fnc_openInfoTab;
-	hint "Use the scroll menu and select 'InfoTab' to start a new game or load saves";
-	sleep 8;
-	hint "";
+	if (!dialog) then 
+	{
+		[commanderX] call F90_fnc_openInfoTab;
+	};
+	sleep 5;
 };
 
 waitUntil {F90_MissionStarted};

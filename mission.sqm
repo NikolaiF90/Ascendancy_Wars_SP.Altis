@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	mods[]=
 	{
 		"3denEnhanced"
@@ -24,10 +24,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={23092.715,30.61462,18795.943};
-		dir[]={-0.74161792,-0.41473207,-0.52725893};
-		up[]={-0.33801278,0.90994298,-0.24031278};
-		aside[]={-0.57944089,2.5611371e-008,0.81501484};
+		pos[]={23087.207,316.1991,18382.396};
+		dir[]={0.09138906,-0.70515251,0.70314151};
+		up[]={0.090885982,0.70905566,0.6992709};
+		aside[]={0.9916591,0,-0.1288884};
 	};
 };
 binarizationWanted=0;
@@ -6660,11 +6660,11 @@ class Mission
 		class Item39
 		{
 			dataType="Marker";
-			position[]={23077.959,4.5619998,18685.469};
+			position[]={23005.594,4.5619998,18685.469};
 			name="respawn_guerrila";
 			markerType="RECTANGLE";
 			type="";
-			a=289.95453;
+			a=217.58832;
 			b=353.22629;
 			id=154;
 			atlOffset=1.3719997;

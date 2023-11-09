@@ -1,22 +1,20 @@
 /*
-	Code Description: 
-	A script that manages zones. It handles the spawning and despawning of groups within zones based on player presence, captures, and reinforcements. 
-	The script also includes functionality for creating triggers, setting variables, and generating zones. 
+	Author: PrinceF90 
+ 
+	Description: 
+		This code handles the processing of a zone in the script. It creates a trigger for the zone, sets its properties, and manages the attacker group and cached group information. It also calls the "zoneHandler" function with the zone data and group count. 
 	
-	Syntax: 
-	As this is a script rather than a function, it does not have a specific syntax for calling it.
-	Instead, the script needs to be executed within the game scenario or called from another script using the  execVM  command.
-	Just in case you still wanted to use it as a function, you should use spawn instead.
-	[parameters] spawn F90_fnc_createZone 
+	Parameter(s): 
+		0: ARRAY - The zone data containing information about the zone. 
+		1: BOOL - Indicates whether the zone is captured or not. 
+		2: GROUP (optional) - The attacker group. 
 	
-	Parameters: 
-	- _zoneData (Array): An array containing the zone data, including the zone index, marker, position, type, side and size. 
-	- _isCapturedZone (Boolean): A boolean value indicating if the zone is captured by a specific attacker group. 
-	- _attackerGroup (Group): The attacker group that has captured the zone. It could be an AI group or a player-controlled group. 
-	- _respawnGroup (Boolean): Optional. A boolean value determining whether the group associated with the zone should respawn(at start) or not.
+	Returns: 
+		None 
 	
-	Return: 
-	None  
+	Example(s): 
+		[[0,"zone_0",[150,150,0],"OUTPOST",west], false] call F90_fnc_createZone;
+		[[1,"zone_1",getMarkerPos "zone_1","FACTORY",east], false, _group1] call F90_fnc_createZone;
 */
 params ["_zoneData", "_isCapturedZone", "_attackerGroup"];
 

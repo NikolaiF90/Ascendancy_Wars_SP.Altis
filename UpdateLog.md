@@ -8,5 +8,8 @@ Developer does not provided any information.
 Developer does not provided any information.
 
 ## Bugfix and Optimization
+### Shop System
+Optimized shop system for faster loading.
+
 ### Debugger
 Optimized script debugger.
