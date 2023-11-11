@@ -7,13 +7,11 @@
 
 */
 diag_log "[F90 Init] Starting Ascendancy Wars SP";
-F90_Debug = true;
 F90_MissionStarted = false;
 #include "L_ambiCivs\init.sqf"
 
 [] call F90_fnc_initEconomy;
 [] spawn F90_fnc_initShopItems;
-[] spawn F90_fnc_initShop;
 initDialogVarsDone = false;
 [] call F90_fnc_initDialogVars;
 

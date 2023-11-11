@@ -2,10 +2,15 @@ configureShopDone = false;
 [] call F90_fnc_configureShop;
 waitUntil {configureShopDone};
 
+[Shop_Debug, "initShop", "Initializing Shop System", false] call F90_fnc_debug;
+
 private _fn_createIcon = 
 {
 	params ["_side", "_index", "_pos"];
-	private _marker = createMarker [(str _side) + "weaponshop_" + (str _index), _pos];
+	[Shop_Debug, "initShop", "Creating shop icon", false] call F90_fnc_debug;
+	
+	private _markerName = (str _side) + "weaponshop_" + (str _index);
+	private _marker = createMarker [_markerName, _pos];
 	_marker setMarkerType (switch (_side) do
 	{
 		case west: {AWSP_BLUFORWeaponIcon};
@@ -15,6 +20,8 @@ private _fn_createIcon =
 	});
 	_marker setMarkerAlpha 1;
 	_marker setMarkerSize [0.5,0.5];
+
+	[Shop_Debug, "initShop", format ["Created icon and marker %1 at %2", _markerName, _pos], false] call F90_fnc_debug;
 };
 
 private _shopArrays = 
@@ -54,3 +61,5 @@ private _universalCargo = AWSP_AllAmmoList + AWSP_AllItemList + AWSP_AllExplosiv
 		[_side, _index, _pos] call _fn_createIcon;
 	} forEach _shopList;
 } forEach _shopArrays;
+
+[Shop_Debug, "initShop", "Done initializing Shop System", false] call F90_fnc_debug;

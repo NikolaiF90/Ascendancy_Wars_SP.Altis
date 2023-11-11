@@ -4,7 +4,7 @@
 
 params ["_slot"];
 
-[format ["Loading data from slot %1", _slot]] call skhpersist_fnc_LogToRPT;
+[Persistent_Debug, "loadGame", format ["Loading data from slot %1", _slot], false] call F90_fnc_debug;
 
 PSave_LoadInProgress = true;
 PSave_NextVehicleId = 1;
@@ -32,7 +32,7 @@ PSave_NextVehicleId = 1;
 PSave_LoadInProgress = false;
 
 hint format ["Persistent load done from slot %1", _slot];
-["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
+[Persistent_Debug, "loadGame", format ["Persistent load done from slot %1", _slot], false] call F90_fnc_debug;
 
 // Start the game 
 F90_MissionStarted = true;
@@ -67,5 +67,3 @@ if (dialog) then
 		sleep (CDARS_ActivityIntervals * 60);
 	};
 };
-
-[] call F90_fnc_initShop;

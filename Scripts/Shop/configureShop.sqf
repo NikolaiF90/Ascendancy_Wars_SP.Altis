@@ -1,5 +1,6 @@
 
 // Weapon shops marker type 
+Shop_Debug = false;
 AWSP_BLUFORWeaponIcon = "b_Ordnance";
 AWSP_OPFORWeaponIcon = "o_Ordnance";
 AWSP_GUERWeaponIcon = "n_Ordnance";

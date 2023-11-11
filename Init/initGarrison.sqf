@@ -12,11 +12,11 @@
 	Return: 
 	None 
 */
-["initGarrison", "Initializing garrisons data.."] call F90_fnc_debug;
-
 configureGarrisonDone = false;
 [] call F90_fnc_configureGarrison;
 waitUntil {configureGarrisonDone};
+
+[Garrison_Debug, "initGarrison", "Initializing garrisons data..", true] call F90_fnc_debug;
 
 AWSP_Zones = [];
 AWSP_ZoneTrigger = [];
