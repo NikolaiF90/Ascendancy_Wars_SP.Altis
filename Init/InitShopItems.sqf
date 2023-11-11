@@ -1785,3 +1785,5 @@ AWSP_NATOBackpackList =
 	"B_AT_01_weapon_F", 600, true,	
 	"B_UAV_01_backpack_F", 200, true	
 ];
+
+[] spawn F90_fnc_initShop;
