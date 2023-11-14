@@ -10,11 +10,11 @@ private
 	"_hasCar"
 ];
 
-_spawnCheck = _house getVariable ["Ambient_SpawnCheck", false];
+_spawnCheck = _house getVariable "Ambient_SpawnCheck";
 
 if (!_spawnCheck) exitWith
 {
-	["parkingResetCheck", format["%1 has not been checked", _house]] call F90_fnc_debug;
+	[Ambient_Debug, "parkingResetCheck", format["%1 has not been checked", _house], true] call F90_fnc_debug;
 };
 
 if ((player distance _house) > Ambient_HouseScannerRadius) then 
@@ -26,8 +26,8 @@ if ((player distance _house) > Ambient_HouseScannerRadius) then
 	private _houseIndex = Ambient_CheckedHouses find _house;
 	Ambient_CheckedHouses deleteAt _houseIndex;
 
-	_spawnCheck = _house getVariable ["Ambient_SpawnCheck", false];
-	_hasParking = _house getVariable ["Ambient_HasParking", false];
-	_hasCar = _house getVariable ["Ambient_HasCar", false];
-	["parkingResetCheck", format["Resetting %1 : spawnCheck = %2, hasParking = %3, hasCar = %4", _house, _spawnCheck, _hasParking, _hasCar]] call F90_fnc_debug;
+	_spawnCheck = _house getVariable "Ambient_SpawnCheck";
+	_hasParking = _house getVariable "Ambient_HasParking";
+	_hasCar = _house getVariable "Ambient_HasCar";
+	[Ambient_Debug, "parkingResetCheck", format["Resetting %1 : spawnCheck = %2, hasParking = %3, hasCar = %4", _house, _spawnCheck, _hasParking, _hasCar], false] call F90_fnc_debug;
 };
