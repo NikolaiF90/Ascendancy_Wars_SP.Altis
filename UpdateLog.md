@@ -2,9 +2,13 @@
 Version 1.8.2a
 
 ## New Features
-Developer does not provided any information.
+### Respawn
+Now player can respawn.
 
 ## Adjustment
+### Revive System
+Now every unit can die instantly if the damage received is too fatal (e.g falling from high place or died in explosion).
+
 ### Allied Base
 Developer does not provided any information.
 
