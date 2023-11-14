@@ -13,7 +13,7 @@
 	Example(s): 
 	N/A
 */
-Ambient_Debug = true;
+Ambient_Debug = false;
 Ambient_CheckInterval = 5; // NUMBER - The time interval in seconds to run the ambient check. 
 Ambient_HouseScannerRadius = 300; // NUMBER - The radius in meters to scan for houses from the player.
 
