@@ -119,6 +119,7 @@ class F90
 	class Scripts
 	{
 		//	Base
+		class createUnit		{file = "Scripts\createUnit.sqf";};
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class getInventory		{file = "Scripts\getInventory.sqf";};
 		class showLoadingScreen {file = "Scripts\showLoadingScreen.sqf";};
@@ -152,7 +153,6 @@ class F90
 		//	SHOP
 		class configureShop 	{file = "Scripts\Shop\configureShop.sqf";};
 		class showRecruitMenu 	{file = "Scripts\Shop\showRecruitMenu.sqf";};
-		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
 	};
 };

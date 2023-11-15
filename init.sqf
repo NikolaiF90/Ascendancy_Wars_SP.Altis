@@ -6,7 +6,9 @@
 	["myScriptName", format ["%1 goes here", _text]] call F90_fnc_debug;
 
 */
-diag_log "[F90 Init] Starting Ascendancy Wars SP";
+AWSP_Debug = true;
+[AWSP_Debug, "init", "[F90 Init] Starting Ascendancy Wars SP", false] call F90_fnc_debug;
+
 F90_MissionStarted = false;
 #include "L_ambiCivs\init.sqf"
 
