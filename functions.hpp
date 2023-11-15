@@ -21,6 +21,7 @@ class F90
 
 	class Dialog 
 	{
+		//	BASE
 		class createSaveSlot 	{file = "Scripts\Dialog\createSaveSlot.sqf";};
 		class deleteSaveSlot 	{file = "Scripts\Dialog\deleteSaveSlot.sqf";};
 		class dialogLoad	 	{file = "Scripts\Dialog\dialogLoad.sqf";};
@@ -29,6 +30,10 @@ class F90
 		class openInfoTab 		{file = "Scripts\Dialog\openInfoTab.sqf";};
 		class updatePlayerInfo 	{file = "Scripts\Dialog\updatePlayerInfo.sqf";};
 		class updateSlotList	{file = "Scripts\Dialog\updateSlotList.sqf";};
+
+		//	DEADMENU
+		class deadMenuLoad		{file = "Scripts\Dialog\DeadMenu\deadMenuLoad.sqf";};
+		class showDeadMenu		{file = "Scripts\Dialog\DeadMenu\showDeadMenu.sqf";};
 	};
 
 	class Init
@@ -119,6 +124,7 @@ class F90
 	class Scripts
 	{
 		//	Base
+		class cloneUnit			{file = "Scripts\cloneUnit.sqf";};
 		class createUnit		{file = "Scripts\createUnit.sqf";};
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class getInventory		{file = "Scripts\getInventory.sqf";};
