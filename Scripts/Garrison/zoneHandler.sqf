@@ -1,34 +1,51 @@
 /*
-	Handler that handles zoning and garrison system (ZAGS)
+	Author: PrinceF90 
+ 
+	Description: 
+	This script is a handler for ZAGS. It continuously checks the status of a zone and performs actions based on player presence, zone attacks, and other conditions. 
+	
+	Parameters: 
+	0: ARRAY - _zoneData: An array containing data about the zone, including index, marker, position, type, and side. 
+	1: NUMBER - _groupCount: The number of groups to spawn in the zone. 
+	
+	Returns: 
+	None 
+	
+	Examples: 
+	// Example 1: Calling the script with zone data and group count 
+	[zoneData, groupCount] call F90_fnc_zoneHandler; 
 */
 params ["_zoneData", "_groupCount"];
 
-private ["_zoneTrigger", "_zoneIndex", "_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_zoneUnderAttack", "_playerInZone", "_spawned", "_shouldSpawn", "_cachedGroup", "_garrisons", "_inCaptureEvent", "_enemyDetector", "_enemyDetector2", "_captureChecker", "_captureTrigger", "_reinforcementSent", "_detectorConfigured"];
+private ["_cachedGroup", "_captureChecker", "_captureTrigger"];
 
-_zoneIndex = _zoneData # 0;
-_zoneMarker = _zoneData # 1;
-_zonePos = _zoneData # 2;
-_zoneType = _zoneData # 3;
-_zoneSide = _zoneData # 4;
+private _zoneIndex = _zoneData # 0;
+private _zoneMarker = _zoneData # 1;
+private _zonePos = _zoneData # 2;
+private _zoneType = _zoneData # 3;
+private _zoneSide = _zoneData # 4;
 
-_zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
-_zoneSize = getMarkerSize _zoneMarker;
-_zoneDirection = markerDir _zoneMarker;
+private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
+private _zoneSize = getMarkerSize _zoneMarker;
+private _zoneDirection = markerDir _zoneMarker;
 
-_spawned = false;
-_garrisons = [];
-_inCaptureEvent = false;
-_reinforcementSent = -1;
+private _playerInZone = false;
+private _spawned = false;
+private _shouldSpawn = false;
+private _spawnedGroupArray = [];
+private _inCaptureEvent = false;
+private _reinforcementSent = -1;
 
-_enemyDetector = createTrigger ["EmptyDetector", _zonePos];
-_enemyDetector2 = createTrigger ["EmptyDetector", _zonePos];
-_detectorConfigured = false;
+private _enemyDetector = createTrigger ["EmptyDetector", _zonePos];
+private _enemyDetector2 = createTrigger ["EmptyDetector", _zonePos];
+private _detectorConfigured = false;
 
 while {true} do 
 {
-	if (isNil "_zoneTrigger") exitWith {["createZone","Player in zone checking has been stopped from being executed as the zone doesn't exist anymore"] call F90_fnc_debug;};
+	if (isNil {_zoneTrigger}) exitWith {[Garrison_Debug, "zoneHandler","Zone checking has been stopped from being executed as the zone doesn't exist anymore", true] call F90_fnc_debug};
 
-	_zoneUnderAttack = _zoneTrigger getVariable ["Zone_UnderAttack", false];
+	private _zoneUnderAttack = _zoneTrigger getVariable ["Zone_UnderAttack", false]; // To check if someone is attacking the zone
+
 	if (triggerActivated _zoneTrigger) then
 	{
 		_playerInZone = true;
@@ -52,16 +69,17 @@ while {true} do
 		if (_groupCount > 0) then 
 		{
 			_cachedGroup = _zoneTrigger getVariable "Zone_CachedGroup";
+			private _cacheCount = count _cachedGroup;
 
-			if (count _cachedGroup > 0) then 
+			if (_cacheCount > 0) then 
 			{
-				for "_i" from 0 to (count _cachedGroup)-1 do 
+				for "_i" from 0 to (_cacheCount)-1 do 
 				{
 					private _unitCount = _cachedGroup # _i;
 
-					["createZone", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount]] call F90_fnc_debug;
+					[Garrison_Debug, "zoneHandler", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount], true] call F90_fnc_debug;
 					private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
-					_garrisons set [_i,_spawnedGroup];
+					_spawnedGroupArray pushBack _spawnedGroup;
 				};
 			}
 		};
@@ -71,7 +89,7 @@ while {true} do
 	{
 		// Despawn
 		_spawned = false;
-		if (count _garrisons > 0) then 
+		if (count _spawnedGroupArray > 0) then 
 		{
 			private _activeGroups = [];
 			private _inactiveGroups = [];
@@ -84,23 +102,24 @@ while {true} do
 					};
 				}forEach units _x;
 
-				if (count _activeUnits > 0) then 
+				private _activeUnitsCount = count _activeUnits;
+				if (_activeUnitsCount > 0) then 
 				{
-					_cachedGroup set [_forEachIndex,count _activeUnits];
+					_cachedGroup set [_forEachIndex,_activeUnitsCount];
 					_activeGroups pushBack _x;
 					{
 						deleteVehicle _x;
 					} forEach _activeUnits;
 					deleteGroup _x;
-					["createZone", format["%1 despawned %2 units from group no.%3",_zoneMarker,count _activeUnits, _forEachIndex]] call F90_fnc_debug;
+					[Garrison_Debug, "zoneHandler", format["%1 despawned %2 units from group no.%3",_zoneMarker,_activeUnitsCount,_forEachIndex], true] call F90_fnc_debug;
 				}else
 				{
 					_cachedGroup set [_forEachIndex,0];
 					_inactiveGroups pushBack _x;
 				};
-			} forEach _garrisons;
+			} forEach _spawnedGroupArray;
 			_cachedGroup = _cachedGroup - [0];
-			_garrisons = [];
+			_spawnedGroupArray = [];
 			_groupCount = count _activeGroups;
 			_zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
 			_zoneTrigger setVariable ["Zone_GroupCount", _groupCount];
@@ -126,8 +145,8 @@ while {true} do
 			{
 				_inactiveGroups pushBack _x;
 			};
-		} forEach _garrisons;
-		_garrisons - _inactiveGroups;
+		} forEach _spawnedGroupArray;
+		_spawnedGroupArray - _inactiveGroups;
 		_groupCount = count _activeGroups;
 	};
 
@@ -205,7 +224,7 @@ while {true} do
 			};
 		};
 		_captureChecker setTriggerTimeout [1, 1, 1, true];
-		_captureTrigger setTriggerStatements ["this", "", ""];
+		_captureChecker setTriggerStatements ["this", "", ""];
 
 		_captureTrigger = createTrigger ["EmptyDetector", _zonePos];
 		_captureTrigger setTriggerArea [_zoneSize # 0,_zoneSize # 1, _zoneDirection, true, 5];

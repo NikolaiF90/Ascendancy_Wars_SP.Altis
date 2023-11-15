@@ -25,6 +25,21 @@ params ["_slot"];
 [Persistent_Debug, "loadGame", format ["Loading data from slot %1", _slot], false] call F90_fnc_debug;
 
 PSave_LoadInProgress = true;
+
+for "_i" from 0 to (count AWSP_Zones) -1 do 
+{
+	[_i] call F90_fnc_clearZones;
+};
+
+{
+	deleteVehicle _x;
+} forEach allDead;
+/*
+{
+	deleteVehicle _x;
+} forEach allUnits - [commanderX];
+*/
+
 PSave_NextVehicleId = 1;
 
 {
@@ -50,18 +65,10 @@ PSave_NextVehicleId = 1;
 PSave_LoadInProgress = false;
 
 hint format ["Persistent load done from slot %1", _slot];
-[Persistent_Debug, "loadGame", format ["Persistent load done from slot %1", _slot], false] call F90_fnc_debug;
+[Persistent_Debug, "loadGame", format ["Persistent load done from slot %1", _slot], true] call F90_fnc_debug;
 
 // Start the game 
 F90_MissionStarted = true;
-
-{
-	deleteVehicle _x;
-} forEach allDead;
-
-{
-	deleteVehicle _x;
-} forEach allUnits - [commanderX];
 
 if (dialog) then 
 {
@@ -71,8 +78,7 @@ if (dialog) then
 
 // ZAGS
 {
-	[_forEachIndex] call F90_fnc_clearZones;
-	[_x, false] spawn F90_fnc_createZone;
+	[_x, false] call F90_fnc_createZone;
 } forEach AWSP_Zones;
 
 // CDARS
