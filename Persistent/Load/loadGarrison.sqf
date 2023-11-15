@@ -57,7 +57,7 @@ AWSP_ZoneMarkers =
 	"airport_2"
 ];
 
-["loadGarrison", format["Loading garrisons data from slot %1",_slot]] call F90_fnc_debug;
+[Persistent_Debug, "loadGarrison", format["Loading garrisons data from slot %1",_slot], false] call F90_fnc_debug;
 
 _tempZones = ["AWSPZones", _slot] call F90_fnc_loadData;
 AWSP_Zones = _tempZones;
@@ -73,4 +73,4 @@ for "_i" from 0 to (count _zoneTriggers)-1 do
 _tempZoneIcons = ["AWSPZoneIcons", _slot] call F90_fnc_loadData;
 AWSP_ZoneIcons = _tempZoneIcons;
 
-["loadGarrison", "Done loading garrison data from file."] call F90_fnc_debug;
+[Persistent_Debug, "loadGarrison", "Done loading garrison data from file.", false] call F90_fnc_debug;

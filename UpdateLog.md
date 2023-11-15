@@ -25,6 +25,9 @@ The developer does not provided any information.
 ### Shop System
 Optimized shop system for faster loading.
 
+### ZAGS
+Optimized garrison system and minor bugfix
+
 ### Ambient Parked Cars
 Bugfixed and code optimization.
 

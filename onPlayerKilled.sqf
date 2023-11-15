@@ -59,17 +59,16 @@ private _fnc_elevateCamera =
 private _respawnPos = markerPos "respawn_guerrila";
 private _oldGroup = group _oldUnit;
 
-private _newUnit = [_oldUnit, _respawnPos] call F90_fnc_cloneUnit;
+private _newUnit = [_oldUnit] call F90_fnc_cloneUnit;
 [_newUnit] joinSilent _oldGroup;
 
 selectPlayer _newUnit;
+_newUnit setName (name _oldUnit);
 _oldUnit switchcamera "EXTERNAL";
-3.5 fadeSound 0;
 sleep 2;
 
 [] call F90_fnc_showDeadMenu;
 
-3.5 fadeSound 1;
 switch (Killed_Choice) do 
 {
 	case 0: // Load Game
@@ -83,6 +82,7 @@ switch (Killed_Choice) do
 		private _oldPos = position _oldUnit;
 		[_oldPos] call _fnc_elevateCamera; 
 		_newUnit switchcamera "INTERNAL";
+		_newUnit setPos _respawnPos;
 		Killed_Choice = -1;
 	};
 	case 2: // End Game

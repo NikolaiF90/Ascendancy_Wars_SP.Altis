@@ -271,7 +271,6 @@ class deadMenu
 			y = 0.225 * safezoneH + safezoneY;
 			w = 0.170156 * safezoneW;
 			h = 0.033 * safezoneH;
-			sizeEx = 1.5 * GUI_GRID_H;
 		};
 		class Dead_List: RscListbox
 		{
