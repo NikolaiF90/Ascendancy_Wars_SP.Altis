@@ -2,34 +2,20 @@
 Version 1.8.2a
 
 ## New Features
-### Respawn
-Now player can respawn.
+- Respawn: Players can now respawn during gameplay.
 
-## Adjustment
-### Revive System
-Now every unit can die instantly if the damage received is too fatal (e.g falling from high place or died in explosion).
+## Adjustments
+- Revive System: Units can now instantly die if they receive fatal damage, such as falling from a high place or dying in an explosion.
+- Allied Base: No information provided by the developer.
+- Ambient Parked Cars: Decreased the rate of car spawning.
 
-### Allied Base
-Developer does not provided any information.
+## Functionality Enhancements
+- Create Unit: Added a new function, "createUnit," which is similar to the BI createUnit command. Units created with this command have the ability to be revived and possess their own money variable by default.
+- Clone Unit: No information provided by the developer.
 
-### Ambient Parked Cars
-Decreased car spawning rates.
-
-### Create unit
-Created a new function createUnit. Same as BI createUnit command but by default every unit created with this command can be revived and has its own money variable.
-
-### Clone unit
-The developer does not provided any information.
-
-## Bugfix and Optimization
-### Shop System
-Optimized shop system for faster loading.
-
-### ZAGS
-Optimized garrison system and minor bugfix
-
-### Ambient Parked Cars
-Bugfixed and code optimization.
-
-### Debugger
-Optimized script debugger.
+## Bug Fixes and Optimizations
+- Shop System: Optimized the shop system for faster loading.
+- ZAGS: Optimized the garrison system and resolved minor bugs.
+- Ambient Parked Cars: Fixed bugs and optimized the code.
+- Persistent Save System: Resolved the issue of backpacks inside vehicles not being saved.
+- Debugger: Optimized the script debugger.
