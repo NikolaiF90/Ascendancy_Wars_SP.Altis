@@ -1,5 +1,5 @@
 # Ascendancy Wars SP (Altis) 
-[![Static Badge](https://img.shields.io/badge/version-1.8.2a-teal?style=plastic&logo=github&labelColor=black)](https://github.com/NikolaiF90/AWSPDocs/blob/main/Changelog.md)  
+[![Static Badge](https://img.shields.io/badge/Version-1.8.2a-teal?style=plastic&logo=github&labelColor=black)](https://github.com/NikolaiF90/AWSPDocs/blob/main/Changelog.md)  
 
 > [!IMPORTANT]
 > This mission is still in alpha stages and in active development, the final result won't be the same as what you see currently. Main tree is the most stable one. If you wanted to help with the mission, consider take a look at Alpha tree. Ignore Development tree as it is being updated almost everyday. Development tree is only for anyone who is wondering what's being done to the mission everyday.
@@ -12,74 +12,74 @@
 
 > _"If you work in a profession where people die young, make sure you don't die young"_
 
-_"In the war-torn land of Altis, the citizens have long suffered under the oppressive rule of CSAT, a government that has failed to meet even their most basic needs. As the proud nation of Livonia, renowned for its strength and resilience, you have decided to take matters into your own hands.  
-Realizing that a direct assault against the might of CSAT's army would be futile, a daring plan emerges. You will infiltrate Altis, not as an enemy, but as one of its own citizens. Disguised and hidden amidst the turmoil, you will seize the opportunity to ignite a revolution from within.  
-The stakes are high, and the odds seem insurmountable. But armed with your wits, determination, and the support of fellow Livonian operatives, you embark on a treacherous journey. Every step taken brings you closer to the heart of Altis, where the fate of an entire nation hangs in the balance.  
-As you navigate the bustling streets and shadowy alleys, you must not only evade the watchful eyes of CSAT but also win the trust and loyalty of Altis' weary citizens. Show them a glimmer of hope, offer them a chance at a brighter future, and they may rise up alongside you, ready to make the ultimate sacrifice for their freedom.  
-The path to victory will be fraught with danger, requiring strategic thinking, precise execution, and a deep understanding of the human spirit. Your actions will shape the destiny of Altis and leave an indelible mark on its history.  
-Will you be the hero that Altis needs? Will you lead a nation towards liberation, defying the odds and inspiring others to join your cause? The stage is set, the mission awaits. Experience the intensity, the drama, and the thrill of this cinematic journey in Arma 3. Step into the shoes of a true warrior and become the catalyst for change in Altis._"
+_"Altis, a once prosperous and peaceful island, has fallen into the clutches of ruthless cartel groups, aided by the powerful CSAT forces. The people of Altis have suffered greatly under their oppressive rule, their lives torn apart by violence and fear._  
+ 
+_In this desperate time, the Altis Armed Forces (AAF) have joined forces with NATO, signing a historic agreement to liberate the island and restore peace. The AAF and NATO, recognizing the importance of player involvement, have selected a group of skilled operatives to lead the mission._  
+ 
+_Your team, codenamed Task Force Phoenix, is deployed deep within enemy territory. Your objective is to disrupt the cartel's operations, weaken their forces, and gather vital intelligence. The success of your mission will determine the fate of Altis._  
+ 
+_As you navigate through treacherous terrain and engage in intense firefights, the choices you make will have far-reaching consequences. Will you prioritize stealth and gather intel covertly, or unleash all-out assaults to cripple the cartel's defenses? Each decision you make will shape the course of the mission and impact the lives of the island's inhabitants._  
+ 
+_Along the way, you'll encounter civilians caught in the crossfire, resistance fighters eager to join your cause, and enemy informants willing to betray their comrades. How you interact with these individuals and handle delicate situations will influence the loyalty of local factions and shape the future of Altis._  
+ 
+_Be prepared for unexpected challenges and moral dilemmas as you delve deeper into the heart of the cartel's operations. Your actions will not only determine the fate of Altis but also the lives of your fellow soldiers and the trust placed in you by the AAF and NATO._ 
+ 
+_Remember, every choice matters. The outcome of this mission rests in your hands. Will you lead Altis towards a brighter future or succumb to the darkness that has plagued the island for far too long? The fate of Altis is yours to decide."_
 
 ## Getting Started
-* Welcome to an exciting and immersive Arma 3 mission! Prepare yourself for a dynamic and challenging experience that will test your tactical skills and decision-making abilities.
 
-* In this mission, you will engage in intense combat scenarios and strategic challenges. The objective is to capture and control key zones, utilizing your team's abilities to gain an advantage over the enemy forces.
-
-* Stay on high alert as the enemy will send reinforcements and may launch attacks on your controlled zones. Defend your territory and repel their assaults to maintain control and secure your position.
-
-* Experience the realism of the battlefield with features such as a revive system, allowing you to bring fallen comrades back into action. Work together with your team to provide medical assistance and ensure that no soldier is left behind.
-
-* Incapacitated bleedout adds a sense of urgency to your actions. Timely medical intervention is crucial to prevent casualties and keep your team at full strength.
-
-* Navigate the mission with the option to utilize a civilian disguise system. Assume civilian or enemy identities to infiltrate restricted areas, gather intelligence, and complete covert operations. Be cautious and avoid raising suspicions to maintain your cover and complete your objectives successfully.
-
-* Throughout the mission, you will have access to a variety of vehicles strategically placed in towns and bases. Utilize these vehicles to enhance your mobility and firepower on the battlefield.
-
-* Expand your capabilities by purchasing vehicles, allowing you to customize your loadout and optimize your effectiveness in combat. Additionally, visit the HQ to buy weapons and gear from a dedicated weapon dealer, ensuring you are equipped with the best tools for the mission.
-
-* Engage in side missions that offer additional challenges and rewards. These missions will test your versatility and provide opportunities for resource acquisition and strategic advantages.
-
-* Stay supplied and ready for action with air supply drops. Utilize these drops strategically to replenish your resources and gain a tactical advantage over the enemy.
-
-* Customize your loadout and adapt to different mission requirements with an arsenal at your disposal. Equip yourself with the best weapons, gear, and equipment to optimize your effectiveness in combat.
-
-* Manage your vehicles efficiently with the vehicle garage. Repair, refuel, and customize your vehicles to ensure they are in optimal condition for your missions.
-
-* Prepare yourself for an immersive and challenging mission that combines intense combat, strategic decision-making, and a range of features designed to enhance your gameplay experience. Are you ready to lead your team to victory and accomplish your mission objectives?
+See [Mission Guide](https://github.com/NikolaiF90/AWSPDocs/tree/main)
 
 ### Why Ascendancy Wars?
 
 Ascendancy Wars was created hugely inspired by popular mods like Antistasi, Overthow and Vindicta.
 I first create this project because I feel some of the mentioned mods lacks some features, like something in Antistasi doesn't exist in Vindicta or vice versa.
 I know they make their mision/mod different from others is to make them unique from others. But sometimes, the lack of some features make the mission feels incomplete.
-So I make Ascendancy Wars combining their features, but different too at the same time.
+So I make Ascendancy Wars combining their features, but different too at the same time.  
 
-What is the difference?
-* For others, it is guerrila simulator. But for Ascendancy Wars, it is war simulation.
-  Be a spy, launch attacks from inside based on intels, recruit citizens from Altis, or you can recruit soldiers from your army to fight by your side.
-  But in the end, its all about revolution.
-* more.. I will add in the future
+What is the difference? Let's take a look at features.
 
 ### Features
 [![Static Badge](https://img.shields.io/badge/Roadmap-teal?style=plastic)](https://github.com/NikolaiF90/AWSPDocs/blob/main/ROADMAP.md)
 
-* Choose whether to recruit local population, or recruit army from your HQ
+* Zoning And Garrisoning System (ZAGS) 
+  - Engage in strategic gameplay by capturing and controlling zones on the map. Gain control over important areas to weaken the enemy's hold and expand your influence.
+  - ZAGS is the core feature of Ascendancy Wars, creating dynamic zones across the map for players to capture and conquer.
+  - Prepare for a fierce counter-attack from the enemy commander upon capturing their zone, as they won't remain idle.
+  - Each zone will be garrisoned with varying numbers of troops, which depend on available resources rather than a uniform distribution. 
+  - To optimize game performance and memory usage, garrisoned troops will only spawn when players or opposing enemies approach the zone, ensuring a seamless and immersive experience.
 
-* Zoning And Garrisoning System (ZAGS)  
-  ZAGS is the core feature of Ascendancy Wars, creating dynamic zones across the map for players to capture and conquer.
-  By default, these zones are under the control of the enemy commander, adding an element of challenge and strategy. 
-  Prepare for a fierce counter-attack from the enemy commander upon capturing their zone, as they won't remain idle. 
-  Each zone will be garrisoned with varying numbers of troops, which depend on available resources rather than a uniform distribution. 
-  To optimize game performance and memory usage, garrisoned troops will only spawn when players or opposing enemies approach the zone, ensuring a seamless and immersive experience.
-  
-* Conflict Dynamics and Adversarial Response System  
-  CDARS is an innovative system that revolutionizes the way player actions impact the enemy's perception and behavior.  
-  This dynamic system tracks and manages player bounties, reflecting the level of animosity the enemy holds towards  
-  the player based on a wide range of actions such as attacking outposts, military bases, and airports, capturing prisoners,  
-  eliminating high-ranking officers, and even accounting for inaction. The system goes beyond mere numerical values,  
-  offering a comprehensive view of the enemy's reaction and actions over time. With CDARS, players can experience a truly  
-  immersive and responsive battlefield, where their choices and achievements shape the enemy's behavior and ultimately  
-  determine the outcome of the mission
+* Conflict Dynamics and Adversarial Response System (CDARS) 
+  - Experience a truly immersive and responsive battlefield, where their choices and achievements shape the enemy's behavior and ultimately determine the outcome of the mission. 
+  - CDARS is an innovative system that revolutionizes the way player actions impact the enemy's perception and behavior.  
+  - This dynamic system tracks and manages player bounties, reflecting the level of animosity the enemy holds towards the player based on a wide range of action such as attacking outposts, military bases, and airports, capturing prisoners, eliminating high-ranking officers, and even accounting for inaction. 
+  - The system goes beyond mere numerical values, offering a comprehensive view of the enemy's reaction and actions over time.
 
+* Blend in with the civilian population to gather intel, carry out covert operations, and avoid detection by enemy forces. Utilize disguises to move unnoticed through hostile territories. 
+
+* Keep the action going with a dynamic revive system that allows players to revive fallen teammates. Work together to ensure the survival of your squad and complete mission objectives.
+
+* Experience realistic combat situations with an incapacitated bleedout system. React quickly to stabilize wounded teammates and prevent them from bleeding out. 
+
+* Immerse yourself in realistic warfare as enemies may surrender when overwhelmed or outgunned. Decide whether to take them as prisoners or eliminate them. 
+
+* Interact with a weapon dealer to access a wide range of firearms, attachments, and equipment. Upgrade your arsenal and customize your loadout according to mission requirements. 
+
+* Utilize a vehicle garage to store and manage your acquired vehicles. Access your fleet easily and efficiently during missions. 
+
+* Access a variety of vehicles strategically placed throughout towns and bases. Utilize these vehicles to enhance mobility, firepower, and tactical options during missions. 
+
+* Unlock the ability to purchase vehicles, including armored vehicles and helicopters, to bolster your combat effectiveness and mobility. 
+
+* Progress through a comprehensive ranking system that tracks your performance and achievements. Unlock new abilities, equipment, and command options as you rise through the ranks. 
+
+* Engage in optional side missions to earn additional rewards, gather intelligence, and disrupt enemy operations. Explore the diverse challenges and opportunities Altis has to offer. 
+
+* Call in air supply drops to receive crucial resources, ammunition, and equipment during missions. Coordinate logistics and ensure your supplies are delivered safely. 
+
+* Access an extensive arsenal of weapons, attachments, and gear to tailor your loadout for each mission. Equip yourself with the tools necessary to overcome any obstacle. 
+
+* Establish and fortify your own base of operations. Construct defensive structures, command centers, and resource-generating facilities to support your mission objectives. 
 
 ### Dependencies
 
@@ -118,3 +118,4 @@ Nikolai (Prince F90)
 * [L_ambiCivs by LAxemann](https://github.com/LAxemann/L_ambiCivs)
 * [UPS by Kronzky](https://www.kronzky.info/ups)
 * [INC_undercover by Incontinentia](https://github.com/1ncontinentia/Incon-Undercover)
+* [VASS by 7erra](https://github.com/7erra/VASS-Virtual-Arsenal-Shop-System)

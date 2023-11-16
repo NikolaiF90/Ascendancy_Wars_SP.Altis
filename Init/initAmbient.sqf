@@ -10,16 +10,14 @@ waitUntil {configureAmbientDone};
 
 		if (Ambient_ParkingEnabled) then 
 		{
+			Ambient_HousesArray = Ambient_HousesArray - Ambient_CheckedHouses;
 			if (count Ambient_HousesArray > 0) then 
 			{
-				for "_i" from 0 to (count Ambient_HousesArray -1) do 
 				{
-					private _house = Ambient_HousesArray # _i;
+					private _house = _x;
 
-					["initAmbient", format ["Finding parking spot for house %1 : %2", _i, _house]] call F90_fnc_debug;
 					[_house] call F90_fnc_findParking;
-					Ambient_CheckedHouses pushBack _house;
-				};
+				} forEach Ambient_HousesArray;
 			};
 			
 			if (count Ambient_CheckedHouses > 0) then 

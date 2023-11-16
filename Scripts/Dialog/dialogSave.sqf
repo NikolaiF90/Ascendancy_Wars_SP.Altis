@@ -17,4 +17,4 @@ profileNameSpace setVariable ["F90_AWSP_Savelist", AWSP_SaveSlots];
 waitUntil {doneSaving};
 doneSaving = false;
 
-[] call F90_fnc_updateSlotList;
+[StartMenu_ListBox] call F90_fnc_updateSlotList;

@@ -1,26 +1,38 @@
 /*
-	Configuration for Ambient System
+	Author: PrinceF90 
+ 
+	Description: 
+	This code is a configuration for an ambient system. It sets various parameters related to spawning and managing ambient objects in the game world. 
+	
+	Parameter(s): 
+	N/A
+	
+	Returns: 
+	N/A
+	
+	Example(s): 
+	N/A
 */
-
-Ambient_CheckInterval = 5; // Time in seconds to run ambient check
-Ambient_HouseScannerRadius = 300; // The radius (in meters) to scan for houses from player
+Ambient_Debug = false;
+Ambient_CheckInterval = 5; // NUMBER - The time interval in seconds to run the ambient check. 
+Ambient_HouseScannerRadius = 300; // NUMBER - The radius in meters to scan for houses from the player.
 
 //	Ambient Parking Setting. Doesn't matter if feature is turned off
-Ambient_ParkingEnabled = true;	// Tun on and off ambient parking. True will spawn parked cars
-Ambient_EnableAlarm = true;	// For true, car alarm will goes off if stolen by player
-Ambient_ParkingSpawnChance = 50; // Percentage of chance house will spawn parked car
-Ambient_WreckSpawnChance = 5; // Percentage of chance spawned cars is wrecked
-Ambient_ParkingDespawnDistance = 400; // Range in meters for vehicle to despawn
+Ambient_ParkingEnabled = true;	// BOOLEAN - Enables or disables ambient parking. True will spawn parked cars. 
+Ambient_EnableAlarm = true;	// BOOLEAN - Enables or disables car alarms going off if stolen by the player.
+Ambient_ParkingSpawnChance = 30; // NUMBER - The percentage chance that a house will spawn a parked car. 
+Ambient_WreckSpawnChance = 2; // NUMBER - The percentage chance that spawned cars will be wrecked. 
+Ambient_ParkingDespawnDistance = 400; // NUMBER - The range in meters for a vehicle to despawn
 
-Ambient_Towns = [];
+Ambient_Towns = []; // ARRAY - An array of town names (not specified in the code). 
 
 //	Include DLC 
-Ambient_EnableTanoanCars = true; // True will spawn Tanoan cars 
-Ambient_EnableLivonianCars = false; // True will spawn Livonian cars
-Ambient_EnableIDAPCars = false; // True will spawn IDAP cars
+Ambient_EnableTanoanCars = true; // BOOLEAN - Enables or disables the spawning of Tanoan cars. 
+Ambient_EnableLivonianCars = false; // BOOLEAN - Enables or disables the spawning of Livonian cars. 
+Ambient_EnableIDAPCars = false; // TBOOLEAN - Enables or disables the spawning of IDAP cars.
 
-Ambient_CustomHouses = []; // Classnames of custom houses
-Ambient_CustomCivCars = []; // Classnames of custom civilian cars
+Ambient_CustomHouses = []; // ARRAY - An array of custom house classnames.
+Ambient_CustomCivCars = []; // ARRAY - An array of custom civilian car classnames. 
 
 //	Do not edit anything below here
 Ambient_NextSpawn = 0;
@@ -377,8 +389,6 @@ Ambient_HousesList =
 
 	// Western Sahara
 	"Land_House_L_9_EP1_lxWS",
-	"Land_Cargo_House_V3_F",
-	"Land_Cargo_Tower_V3_F",
 	"Land_House_L_1_EP1_lxWS",
 	"Land_House_L_3_EP1_lxWS",
 	"Land_House_L_7_EP1_lxWS",
@@ -421,16 +431,10 @@ Ambient_HousesList =
 	"Land_Shed_Small_F",
 	"Land_Addon_05_F",
 	"Land_Warehouse_03_F",
-	"Land_Cargo_Patrol_V1_F",
 	"Land_Communication_anchor_F",
 	"Land_Dome_Small_F",
-	"Land_Cargo_Patrol_V3_F",
-	"Land_Cargo_House_V1_F",
 	"Land_Shed_Big_F",
 	"Land_Research_house_V1_F",
-	"Land_Cargo_HQ_V1_F",
-	"Land_cargo_house_slum_F",
-	"Land_Cargo_House_V2_F",
 	"Land_Slum_House01_F",
 	"Land_Shed_01_F",
 	"Land_House_C_5_V2_EP1_off_lxWS",
@@ -441,14 +445,12 @@ Ambient_HousesList =
 	"Land_TentHangar_V1_F",
 	"Land_Airport_02_controlTower_F",
 	"Land_Airport_01_hangar_F",
-	"Land_Cargo_Tower_V1_F",
 	"Land_i_Garage_V2_F",
 	"Land_Slum_01_F",
 	"Land_CarService_F",
 	"Land_FuelStation_02_roof_lxWS",
 	"Land_House_Small_01_F",
-	"Land_FuelStation_Build_F",
-	"Land_Cargo_HQ_V3_F"
+	"Land_FuelStation_Build_F"
 ];
 Ambient_HousesList = Ambient_HousesList + Ambient_CustomHouses;
 
@@ -459,7 +461,7 @@ Ambient_CivilianCarList =
 	"C_Hatchback_01_sportF",
 	"C_Offroad_01_F",
 	"C_Offroad_01_repair_F",
-	"C_Offroad_01_sport_F",
+//	"C_Offroad_01_sport_F",
 	"C_Offroad_01_covered_F",
 	"C_SUV_01_F",
 	"C_SUV_01_sport_F",

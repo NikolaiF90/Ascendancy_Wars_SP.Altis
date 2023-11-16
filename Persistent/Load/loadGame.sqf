@@ -1,12 +1,45 @@
 /*
-	Loads the game state on given save _slot.
+	Author: PrinceF90 
+ 
+	Description: 
+	Function to load saved game data and initializing various aspects of the game. It loads data from a specified slot, calls functions to load vehicles, units, player information, map markers, garrison, CDARS data, and other custom data. It also handles the cleanup of dead units, shows a loading screen, and initializes certain game features. 
+	
+	Parameter(s): 
+		0: NUMBER - _slot: The slot number from which to load the game data. 
+	
+	Returns: 
+		None 
+	
+	Examples: 
+		// Example 1: Load game data from slot 1 
+		private _slot = 1; 
+		[_slot] call F90_fnc_loadGame; 
+	
+		// Example 2: Load game data from slot 2 
+		private _slot = 2; 
+		[_slot] call F90_fnc_loadGame;
 */
 
 params ["_slot"];
 
-[format ["Loading data from slot %1", _slot]] call skhpersist_fnc_LogToRPT;
+[Persistent_Debug, "loadGame", format ["Loading data from slot %1", _slot], false] call F90_fnc_debug;
 
 PSave_LoadInProgress = true;
+
+for "_i" from 0 to (count AWSP_Zones) -1 do 
+{
+	[_i] call F90_fnc_clearZones;
+};
+
+{
+	deleteVehicle _x;
+} forEach allDead;
+/*
+{
+	deleteVehicle _x;
+} forEach allUnits - [commanderX];
+*/
+
 PSave_NextVehicleId = 1;
 
 {
@@ -23,6 +56,7 @@ PSave_NextVehicleId = 1;
 [_slot] call skhpersist_fnc_LoadEnvironmentInfo;
 [_slot] call F90_fnc_loadMapMarkers;
 [_slot] call F90_fnc_loadGarrison;
+[_slot] call F90_fnc_loadCDARSData;
 
 {
 	[_x, [_slot]] call skhpersist_fnc_CallFunctionFromFileOrCode;
@@ -31,13 +65,37 @@ PSave_NextVehicleId = 1;
 PSave_LoadInProgress = false;
 
 hint format ["Persistent load done from slot %1", _slot];
-["loadGame", format ["Persistent load done from slot %1", _slot]] call F90_fnc_debug;
+[Persistent_Debug, "loadGame", format ["Persistent load done from slot %1", _slot], true] call F90_fnc_debug;
 
 // Start the game 
+F90_MissionStarted = true;
 
-[] call F90_fnc_initCDARS;
-
+if (dialog) then 
 {
-	[_forEachIndex] call F90_fnc_clearZones;
-	[_x, false] spawn F90_fnc_createZone;
+	closeDialog 2;
+};
+[] spawn F90_fnc_showLoadingScreen;
+
+// ZAGS
+{
+	[_x, false] call F90_fnc_createZone;
 } forEach AWSP_Zones;
+
+// CDARS
+[] spawn 
+{
+	while {true} do 
+	{	
+		// Activity Handler 
+		if (CDARS_GUERActivity > 0) then 
+		{
+			CDARS_GUERActivity = CDARS_GUERActivity - 5;
+			if (CDARS_GUERActivity < 0) then 
+			{
+				CDARS_GUERActivity = 0;
+			};
+		};
+		["DEFAULT"] spawn F90_fnc_eastCommanderHandler;
+		sleep (CDARS_ActivityIntervals * 60);
+	};
+};

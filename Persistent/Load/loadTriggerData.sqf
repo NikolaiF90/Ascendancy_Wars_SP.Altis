@@ -1,17 +1,18 @@
 /*
-	Function Description: 
-	The provided .sqf code is a function that creates a trigger based on the given "_triggerData" array. 
-	It retrieves various properties from the "_triggerData" array, such as position, area, activation, timeout, statements, group count, and cached group. 
-	It then uses these properties to configure the created trigger accordingly. 
-	
-	Syntax: 
-	[_triggerData] call F90_fnc_loadTriggerData
+	Author: PrinceF90 
+ 
+	Description: 
+	This script creates a trigger in Arma 3 based on the provided _triggerData parameter. It sets various properties and statements for the trigger, including position, area, activation, timeout, statements, group count, and cached group. 
 	
 	Parameters: 
-	- "_triggerData": An array containing the necessary data to configure the trigger, including position, area, activation, timeout, statements, group count, and cached group. 
+		0: ARRAY - _triggerData: A parameter containing the necessary data for trigger creation and configuration. 
 	
-	Return: 
-	_trigger: Created trigger object
+	Returns: 
+		None 
+	
+	Examples: 
+		// Example usage of the script 
+		[_triggerData] call F90_fnc_loadTriggerData; 
 */
 params ["_triggerData"];
 
@@ -49,7 +50,6 @@ private _deactivation = _statements # 2;
 _trigger setTriggerStatements [_condition, _activation, _deactivation];
 
 _trigger setVariable ["Zone_GroupCount", _groupCount];
-["DEBUG", format ["groupCount loaded = %1", _groupCount]] call F90_fnc_debug;
 _trigger setVariable ["Zone_CachedGroup", _cachedGroup];
 
 _trigger;

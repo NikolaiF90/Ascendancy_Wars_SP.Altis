@@ -31,19 +31,23 @@ private _groupSkill = 0;
 private _groupArray = [];
 private _unitList = [];
 private _leader = nil;
+private _money = nil;
 
 switch (_side) do {
 	case west: 
 	{
 		_unitList = AWSP_WestUnits;
+		_money = ECONOMY_DefaultBLUFORMoney;
 	};
 	case east: 
 	{
 		_unitList = AWSP_EastUnits;
+		_money = ECONOMY_DefaultOPFORMoney;
 	};
 	case independent: 
 	{
 		_unitList = AWSP_IndependentUnits;
+		_money = ECONOMY_DefaultGUERMoney;
 	};
 };
 
@@ -72,6 +76,7 @@ switch (_side) do
 		_x call F90_fnc_addRevive;
 	};
 	_x setSkill _groupSkill;
+	_x setVariable ["Milcash", _money];
 } forEach units _spawnedGroup;
 
 [_leader, _marker, "NOFOLLOW"] spawn F90_fnc_patrolArea;

@@ -21,6 +21,7 @@ class F90
 
 	class Dialog 
 	{
+		//	BASE
 		class createSaveSlot 	{file = "Scripts\Dialog\createSaveSlot.sqf";};
 		class deleteSaveSlot 	{file = "Scripts\Dialog\deleteSaveSlot.sqf";};
 		class dialogLoad	 	{file = "Scripts\Dialog\dialogLoad.sqf";};
@@ -29,6 +30,10 @@ class F90
 		class openInfoTab 		{file = "Scripts\Dialog\openInfoTab.sqf";};
 		class updatePlayerInfo 	{file = "Scripts\Dialog\updatePlayerInfo.sqf";};
 		class updateSlotList	{file = "Scripts\Dialog\updateSlotList.sqf";};
+
+		//	DEADMENU
+		class deadMenuLoad		{file = "Scripts\Dialog\DeadMenu\deadMenuLoad.sqf";};
+		class showDeadMenu		{file = "Scripts\Dialog\DeadMenu\showDeadMenu.sqf";};
 	};
 
 	class Init
@@ -36,9 +41,12 @@ class F90
 		class initAmbient			{file = "Init\initAmbient.sqf";};
 		class initDialogSaveSystem 	{file = "Init\initDialogSaveSystem.sqf";};
 		class initDialogVars		{file = "Init\initDialogVars.sqf";};
+		class initEconomy			{file = "Init\initEconomy.sqf";};
 		class initGarrison			{file = "Init\initGarrison.sqf";};
 		class initPersistent		{file = "Init\initPersistent.sqf";};
 		class initRevive			{file = "Init\initRevive.sqf";};
+		class initShop 				{file = "Init\initShop.sqf";};
+		class initShopItems			{file = "Init\initShopItems.sqf";};
 		class initVars 				{file = "Init\initVars.sqf";};
 	};
 
@@ -55,6 +63,7 @@ class F90
 		class startNewGame 			{file = "Persistent\Core\startNewGame.sqf";};
 
 		//	LOAD
+		class loadCDARSData			{file = "Persistent\Load\loadCDARSData.sqf";};
 		class loadVehicles			{file = "Persistent\Load\loadVehicles.sqf";};
 		class loadGame 				{file = "Persistent\Load\loadGame.sqf";};
 		class loadGarrison 			{file = "Persistent\Load\loadGarrison.sqf";};
@@ -68,6 +77,7 @@ class F90
 		class loadVarFromNamespace	{file = "Persistent\Load\loadVarFromNamespace.sqf";};
 
 		//	SAVE
+		class saveCDARSData			{file = "Persistent\Save\saveCDARSData.sqf";};
 		class saveCustomContainers	{file = "Persistent\Save\saveCustomContainers.sqf";};
 		class saveCustomUnits		{file = "Persistent\Save\saveCustomUnits.sqf";};
 		class saveCustomVariables	{file = "Persistent\Save\saveCustomVariables.sqf";};
@@ -114,8 +124,11 @@ class F90
 	class Scripts
 	{
 		//	Base
+		class cloneUnit			{file = "Scripts\cloneUnit.sqf";};
+		class createUnit		{file = "Scripts\createUnit.sqf";};
 		class generateRandomID	{file = "Scripts\generateRandomID.sqf";};
 		class getInventory		{file = "Scripts\getInventory.sqf";};
+		class showLoadingScreen {file = "Scripts\showLoadingScreen.sqf";};
 		class showNotification 	{file = "Scripts\showNotification.sqf";};
 		class patrolArea 		{file = "Scripts\UPS.sqf";};
 
@@ -128,6 +141,10 @@ class F90
 		class initCDARS				{file = "Scripts\CDARS\initCDARS.sqf";};
 		class sendReinforcement		{file = "Scripts\CDARS\sendReinforcement.sqf";};
 
+		//	Economy
+		class configureEconomy 		{file = "Scripts\Economy\configureEconomy.sqf";};
+		class economyHandler		{file = "Scripts\Economy\economyHandler.sqf";};
+
 		//	Garrison
 		class clearZones			{file = "Scripts\Garrison\clearZones.sqf";};
 		class configureGarrison		{file = "Scripts\Garrison\configureGarrison.sqf";};
@@ -137,9 +154,11 @@ class F90
 		class getPreference  		{file = "Scripts\Garrison\getPreference.sqf";};
 		class getZoneOwnerData 		{file = "Scripts\Garrison\getZoneOwnerData.sqf";};
 		class spawnGroup			{file = "Scripts\Garrison\spawnGroup.sqf";};
+		class zoneHandler			{file = "Scripts\Garrison\zoneHandler.sqf";};
 
 		//	SHOP
-		class purchaseSelected 	{file = "Scripts\Shop\Recruit\purchaseSelected.sqf";};
+		class configureShop 	{file = "Scripts\Shop\configureShop.sqf";};
+		class showRecruitMenu 	{file = "Scripts\Shop\showRecruitMenu.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
 	};
 };

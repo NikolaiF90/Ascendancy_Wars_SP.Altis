@@ -1,7 +1,29 @@
 /*
-Loads and applies given _unitData to _unit and assigns it to given _leader (if specified).
+    Author: PrinceF90 
+    
+    Description: 
+    Funtion to load and configure unit data. The functions handle tasks such as creating a unit if it doesn't already exist, removing other units from the same group, joining a unit to a leader if specified, loading units in a group, loading orders for individual units and group, loading variables, loading skills, applying damage and position/rotation, setting fatigue and stamina, assigning a team, adding a rating, adding a unit to a vehicle, and restoring unit name, face, speaker, and loadout. 
+    
+    Parameter(s): 
+        1: OBJECT - _unit: The unit object to be processed. 
+        2: ARRAY - _unitData: An array containing various data related to the unit. 
+        3: OBJECT - (optional) _leader: The leader unit object to which the unit will be joined. 
+    
+    Returns: 
+        OBJECT - The processed unit object. 
+    
+    Examples: 
+        // Example 1: Load unit data for a specific unit 
+        private _unit = player; 
+        private _unitData = ["class", "side", "group", "orders", "groupOrders", "generalDamage", "damages", "posRotation", "skills", "name", "face", "speaker", "pitch", "rating", "stamina", "fatigue", "formationDir", "variables", "vehicle", "assignedTeam", "milcash"]; 
+        _unit = [_unit, _unitData] call F90_fnc_loadUnitData; 
+    
+        // Example 2: Load unit data for a specific unit with a leader 
+        private _unit = player; 
+        private _unitData = ["class", "side", "group", "orders", "groupOrders", "generalDamage", "damages", "posRotation", "skills", "name", "face", "speaker", "pitch", "rating", "stamina", "fatigue", "formationDir", "variables", "vehicle", "assignedTeam", "milcash"]; 
+        private _leader = leaderGroup; 
+        _unit = [_unit, _unitData, _leader] call F90_fnc_loadUnitData;
 */
-
 params ["_unit", "_unitData", "_leader"];
 
 private _CreateUnitIfDoesntExist =
@@ -107,7 +129,7 @@ private _LoadSkills =
     } forEach _skillsArray;
 };
 
-["loadUnitData", format ["Loading unit data for unit %1.", _unit]] call F90_fnc_debug;
+[Persistent_Debug, "loadUnitData", format ["Loading unit data for unit %1.", _unit], false] call F90_fnc_debug;
 
 private _class = [_unitData, "class"] call F90_fnc_getByKey;
 private _side = [_unitData, "side"] call F90_fnc_getByKey;
@@ -129,6 +151,7 @@ private _formationDir = [_unitData, "formationDir"] call F90_fnc_getByKey;
 private _variables = [_unitData, "variables"] call F90_fnc_getByKey;
 private _vehicle = [_unitData, "vehicle"] call F90_fnc_getByKey;
 private _assignedTeam = [_unitData, "assignedTeam"] call F90_fnc_getByKey;
+private _milcash = [_unitData, "milcash"] call F90_fnc_getByKey;
         
 _unit = [_unit, _class, _side] call _CreateUnitIfDoesntExist;
 _unit setVariable ["BIS_enableRandomization", false];
@@ -149,6 +172,7 @@ _unit setFatigue _fatigue;
 _unit setFormDir _formationDir;
 _unit setStamina _stamina;
 _unit assignTeam _assignedTeam;
+_unit setVariable ["Milcash", _milcash];
 
 if (rating _unit > _rating) then
 {

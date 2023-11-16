@@ -1,5 +1,6 @@
 #include "Dialog\defines.hpp"
 #include "Dialog\dialog.hpp"
+#include "VASS\gui\cfgGUI.hpp"
 
 author = "Nikolai";
 onLoadName = "Ascendancy Wars SP";
@@ -12,6 +13,8 @@ class CfgFunctions
 {
 	#include "INC_undercover\cfgFunctions.hpp"
 	#include "functions.hpp"
+	#include "VASS\CfgFunctions.hpp"
+	
 	class skhpersist
 	{
 		class save_eh

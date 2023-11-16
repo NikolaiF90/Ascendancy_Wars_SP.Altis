@@ -15,6 +15,7 @@ private _cars = [];
 private _helos = [];
 private _reinforcementGroups = [];
 private _groupSkill = 0;
+private _money = ECONOMY_DefaultOPFORMoney;
 
 if (_distance <= 1000) then 
 {
@@ -51,6 +52,7 @@ for "_i" from 0 to (count _reinforcementData)-1 do
 	{
 		[_x] joinSilent _group;
 		_x setSkill _groupSkill;
+		_x setVariable ["Milcash", _money];
 		if (Revive_Enabled) then 
 		{
 			_x call F90_fnc_addRevive;
@@ -85,19 +87,19 @@ for "_i" from 0 to (count _reinforcementGroups)-1 do
 			_x moveInAny _spawnedVehicle;
 		} forEach units _selectedGroup;
 		
-		private _wpMove = _selectedGroup addWaypoint [_callerPos, 100, 1];
+		private _wpMove = _selectedGroup addWaypoint [_callerPos, 200, 1];
 		_wpMove setWaypointType "MOVE";
 
 		if (_transportation == 1) then 
 		{
-			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 100, 2];
+			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 200, 2];
 			_wpGetOut setWaypointType "GETOUT";
 		} else 
 		{
-			private _wpLand = _selectedGroup addWaypoint [_callerPos, 100, 2];
+			private _wpLand = _selectedGroup addWaypoint [_callerPos, 200, 2];
 			[_selectedGroup] setWaypointScript "A3\functions_f\waypoints\fn_wpLand.sqf";
 
-			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 100, 3];
+			private _wpGetOut = _selectedGroup addWaypoint [_callerPos, 200, 3];
 			_wpGetOut setWaypointType "GETOUT";
 		};
 		private _wpAttack = _selectedGroup addWaypoint [_callerPos, 10];

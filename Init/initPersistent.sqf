@@ -1,8 +1,8 @@
-["initPersistent", "Initiliazing AWSP Persistent Save System"] call F90_fnc_debug;
 
 configurePersistentDone = false;
 [] call F90_fnc_configurePersistent;
 waitUntil {configurePersistentDone};
+[Persistent_Debug, "initPersistent", "Initiliazing AWSP Persistent Save System", false] call F90_fnc_debug;
 
 
 //	DO NOT EDIT
@@ -61,7 +61,4 @@ PSave_LoadInProgress = false;
 PSave_SaveInProgress = false;
 PSave_NextVehicleId = 1; // used only when storing vehicles, which have saved units inside
 
-if(F90_Debug)then
-{
-	diag_log "[F90 initPersistent] Done intializing persistent save system";
-};
+[Persistent_Debug, "initPersistent", "Done intializing persistent save system", false] call F90_fnc_debug;
