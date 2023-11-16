@@ -27,8 +27,9 @@ _Be prepared for unexpected challenges and moral dilemmas as you delve deeper in
 _Remember, every choice matters. The outcome of this mission rests in your hands. Will you lead Altis towards a brighter future or succumb to the darkness that has plagued the island for far too long? The fate of Altis is yours to decide."_
 
 ## Getting Started
+  
+[![Static Badge](https://img.shields.io/badge/Mission_Guide-teal?style=plastic&logo=github&labelColor=black)](https://github.com/NikolaiF90/AWSPDocs/tree/main)
 
-See [Mission Guide](https://github.com/NikolaiF90/AWSPDocs/tree/main)
 
 ### Why Ascendancy Wars?
 
