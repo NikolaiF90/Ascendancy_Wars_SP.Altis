@@ -1,6 +1,11 @@
-[] spawn F90_fnc_showLoadingScreen;
 ["startNewGame", "Starting a new game..."] call F90_fnc_debug;
 F90_MissionStarted = true;
+
+if (dialog) then 
+{
+	closeDialog 2;
+};
+[] spawn F90_fnc_showLoadingScreen;
 
 initVarsDone = false;
 [] call F90_fnc_initVars;
@@ -44,7 +49,6 @@ if (!isNil "AWSP_Zones") then
 };
 [] call F90_fnc_initGarrison;
 [] call F90_fnc_initCDARS;
-[] spawn F90_fnc_initShop;
 
 commanderX setPos (getMarkerPos "respawn_guerrila");
 commanderX setDamage 0;

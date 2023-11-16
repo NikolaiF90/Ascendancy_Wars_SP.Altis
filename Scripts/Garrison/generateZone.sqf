@@ -1,21 +1,29 @@
 /*
-	Code Description: 
-	This function generates an empty zone at the provided marker's position. 
-	It determines the type of the zone based on specific keywords found in the marker name, such as "outpost", "resource", "factory", or "airport". 
-	The generated zone will have its marker alpha set to 0, making it invisible. 
-	
-	Syntax: 
-	[marker] call F90_fnc_generateZone 
+	Author: PrinceF90 
+ 
+	Description: 
+	Function to analyzes a specified marker and determines its type based on the presence of certain keywords in the marker name. It then sets the marker's alpha value to 0 and returns relevant data about the marker and its type. 
 	
 	Parameters: 
-	- _marker (Marker): The marker object representing the zone. 
+		0: OBJECT - The _marker parameter representing the marker to be analyzed. 
+		1: SIDE - The _side parameter representing the side associated with the marker. 
+		2: SCALAR - The _zoneIndex parameter representing the index of the zone. 
 	
-	Return: 
-	- _returnData (Array): An array containing the marker object, position, and zone type. 
+	Returns: 
+		ARRAY - An array containing the following data: 
+			- _zoneIndex: The index of the zone. 
+			- _marker: The analyzed marker. 
+			- _pos: The position of the marker. 
+			- _zoneType: The determined type of the marker. 
+			- _side: The side associated with the marker. 
+	
+	Examples: 
+		// Example usage of the script 
+		_zoneData = [_marker, _side, _zoneIndex] call F90_fnc_generateZone; 
 */
 params ["_marker", "_side", "_zoneIndex"];
 
-private ["_returnData", "_zoneOwner", "_pos", "_zoneType", "_isBase", "_isOutpost", "_isResource", "_isFactory", "_isAirport", "_trigger"];
+private ["_returnData", "_zoneOwner", "_pos", "_zoneType", "_isBase", "_isOutpost", "_isResource", "_isFactory", "_isAirport"];
 
 _pos = markerPos _marker;
 _isBase = ["respawn",_marker] call BIS_fnc_inString;
@@ -47,4 +55,6 @@ if (_isAirport) then
 
 _marker setMarkerAlpha 0;
 _returnData = [_zoneIndex, _marker, _pos, _zoneType, _side];
+
+[Garrison_Debug, "generateZone", format ["Done generating data for %1", _marker], true] call F90_fnc_debug;
 _returnData;

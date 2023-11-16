@@ -12,11 +12,11 @@
 	Return: 
 	None 
 */
-["initGarrison", "Initializing garrisons data.."] call F90_fnc_debug;
-
 configureGarrisonDone = false;
 [] call F90_fnc_configureGarrison;
 waitUntil {configureGarrisonDone};
+
+[Garrison_Debug, "initGarrison", "Initializing garrisons data..", true] call F90_fnc_debug;
 
 AWSP_Zones = [];
 AWSP_ZoneTrigger = [];
@@ -53,16 +53,25 @@ AWSP_ZoneMarkers =
 	"airport_2"
 ];
 
+for "_i" from 0 to (count AWSP_ZoneMarkers) -1 do 
 {
-	private _zone = [_x, east, _forEachIndex] call F90_fnc_generateZone;
-	AWSP_Zones set [_forEachIndex, _zone];
-} forEach AWSP_ZoneMarkers;
+	private _marker = AWSP_ZoneMarkers # _i;
+	private _side = east;
 
-private _ldfBase = ["respawn_guerrila", independent, 0] call F90_fnc_generateZone;
-AWSP_Zones set [0, _ldfBase];
+	private _zoneData = [];
+	if (_i == 0) then 
+	{
+		_zoneData = ["respawn_guerrila", independent, _i] call F90_fnc_generateZone;
+	}else 
+	{
+		_zoneData = [_marker, east, _i] call F90_fnc_generateZone;
+	};
+
+	AWSP_Zones set [_i, _zoneData];
+};
 
 {
-	[_forEachIndex] call F90_fnc_clearZones;
+	[_forEachIndex] call F90_fnc_clearZones; // Delete default zones
 	[_x, false] call F90_fnc_createZone;
 } forEach AWSP_Zones;
 

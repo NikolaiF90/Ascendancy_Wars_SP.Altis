@@ -10,10 +10,9 @@ PSave_SaveInProgress = true;
 	[_x, [_slot]] call F90_fnc_compileCode;
 } forEach PSave_BeforeSaveEH;
 
-["saveGame", format ["Saving data on slot %1", _slot]] call F90_fnc_debug;
+[Persistent_Debug, "saveGame", format ["Saving data on slot %1", _slot], true] call F90_fnc_debug;
 
 [_slot] call F90_fnc_clearSave;
-["saveGame", "Done clearing save"] call F90_fnc_debug;
 
 [_slot] call F90_fnc_saveMissionID;
 [_slot] call F90_fnc_saveMetadata;
@@ -37,4 +36,4 @@ saveProfileNamespace;
 PSave_SaveInProgress = false;
 doneSaving = true;
 hint format ["Persistent save done on slot %1.", _slot];
-["saveGame", format ["Done saving data into slot %1", _slot]] call F90_fnc_debug;
+[Persistent_Debug, "saveGame", format ["Done saving data into slot %1", _slot], true] call F90_fnc_debug;

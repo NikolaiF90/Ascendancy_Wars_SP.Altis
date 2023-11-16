@@ -234,3 +234,90 @@ class recruitMenu
 
 	};
 };
+
+class deadMenu
+{
+	idd = 1004;
+
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by Nikolai, v1.063, #Gygebi)
+		////////////////////////////////////////////////////////
+
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			x = 0.376249 * safezoneW + safezoneX;
+			y = 0.192 * safezoneH + safezoneY;
+			w = 0.2475 * safezoneW;
+			h = 0.561 * safezoneH;
+			colorBackground[] = {0.176,0.388,0.251,1};
+		};
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			x = 0.396876 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.20625 * safezoneW;
+			h = 0.451 * safezoneH;
+			colorBackground[] = {0.118,0.231,0.157,1};
+		};
+		class RscText_1002: RscText
+		{
+			idc = 1002;
+			text = "You Has Been Killed In Action"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.225 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class Dead_List: RscListbox
+		{
+			idc = 1500;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.313 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.242 * safezoneH;
+			colorBackground[] = {0.176,0.388,0.251,1};
+		};
+		class Dead_LoadButton: RscButton
+		{
+			idc = 1600;
+			text = "LOAD GAME"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.588 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.176,0.388,0.251,1};
+			action = "Killed_Choice = 0; Killed_ChoiceMade = true";
+		};
+		class Dead_RespawnButton: RscButton
+		{
+			idc = 1601;
+			text = "RESPAWN"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.632 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.176,0.388,0.251,1};
+			action = "Killed_Choice = 1; Killed_ChoiceMade = true";
+		};
+
+		class Dead_EndButton: RscButton
+		{
+			idc = 1601;
+			text = "END GAME"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.676 * safezoneH + safezoneY;
+			w = 0.165 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.176,0.388,0.251,1};
+			action = "Killed_Choice = 2; Killed_ChoiceMade = true";
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+
+	};
+};

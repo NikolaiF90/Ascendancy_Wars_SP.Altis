@@ -1,7 +1,4 @@
-if(F90_Debug)then
-{
-	diag_log "[F90 initDialogSaveSystem] Initializing dialog save system...";
-};
+[Persistent_Debug, "initDialogSaveSystem", "Initializing dialog save system", false] call F90_fnc_debug;
 
 // Number of loading slots (default = 9, ALPHA through INDIA).
 TriggerSaveSystem_SaveSlots = 9;
@@ -17,7 +14,4 @@ AWSP_SaveSlots = [];
 
 PSave_AfterSaveEH pushBack { params ["_slot"]; [StartMenuList_SelectedList] call F90_fnc_updateSlotList; };
 
-if(F90_Debug)then
-{
-	diag_log "[F90 initDialogSaveSystem] Done initializing dialog save system";
-};
+[Persistent_Debug, "initDialogSaveSystem", "Done initializing dialog save system", false] call F90_fnc_debug;

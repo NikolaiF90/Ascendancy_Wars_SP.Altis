@@ -15,7 +15,7 @@ if (isNil {_operation}) then
 
 if (_operation == "GETMONEY") then 
 {
-	if (isNil {_args}) exitWith {["economyHandler", "(ERROR) Handler 'GETMONEY' prevented from running because _args is not provided"] call F90_fnc_debug};
+	if (isNil {_args}) exitWith {[ECONOMY_Debug, "economyHandler", "(ERROR) Handler 'GETMONEY' prevented from running because _args is not provided", true] call F90_fnc_debug};
 
 	private _unit = _args;
 	private _money = _unit getVariable ["Milcash", ECONOMY_DefaultCIVMoney];
@@ -24,7 +24,7 @@ if (_operation == "GETMONEY") then
 
 if (_operation == "SETMONEY") then 
 {
-	if (isNil {_args}) exitWith {["economyHandler", "(ERROR) Handler 'SETMONEY' prevented from running because _args is not provided"] call F90_fnc_debug};
+	if (isNil {_args}) exitWith {[ECONOMY_Debug, "economyHandler", "(ERROR) Handler 'SETMONEY' prevented from running because _args is not provided", true] call F90_fnc_debug};
 
 	private _unit = _args # 0;
 	private _amount = _args # 1;
@@ -33,7 +33,7 @@ if (_operation == "SETMONEY") then
 
 if (_operation == "ADDMONEY") then 
 {
-	if (isNil {_args}) exitWith {["economyHandler", "(ERROR) Handler 'ADDMONEY' prevented from running because _args is not provided"] call F90_fnc_debug};
+	if (isNil {_args}) exitWith {[ECONOMY_Debug, "economyHandler", "(ERROR) Handler 'ADDMONEY' prevented from running because _args is not provided", true] call F90_fnc_debug};
 
 	private _unit = _args # 0;
 	private _amount = _args # 1;
@@ -46,7 +46,7 @@ if (_operation == "ADDMONEY") then
 
 if (_operation == "DEDUCTMONEY") then 
 {
-	if (isNil {_args}) exitWith {["economyHandler", "(ERROR) Handler 'DEDUCTMONEY' prevented from running because _args is not provided"] call F90_fnc_debug};
+	if (isNil {_args}) exitWith {[ECONOMY_Debug, "economyHandler", "(ERROR) Handler 'DEDUCTMONEY' prevented from running because _args is not provided", true] call F90_fnc_debug};
 
 	private _unit = _args # 0;
 	private _amount = _args # 1;

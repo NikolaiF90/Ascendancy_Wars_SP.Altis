@@ -1,7 +1,23 @@
 /*
-	Creates a cargo data for given _container.
-
-	Returns a generated cargo array.
+	Author: PrinceF90 
+ 
+    Description: 
+    Function to generate cargo data for a given container. It retrieves information about the items, magazines, weapons, containers, and backpacks inside the container. 
+    
+    Parameter(s): 
+    0: OBJECT - The container object for which cargo data is generated. 
+    
+    Returns: 
+    ARRAY - An array containing cargo data for the specified container. 
+    
+    Examples: 
+    // Example 1: 
+    private _containerData = [_myContainer] call F90_fnc_generateCargoData; 
+    // _myContainer is the container object for which cargo data is required. 
+    
+    // Example 2: 
+    private _containerData = [_anotherContainer] call F90_fnc_generateCargoData; 
+    // _anotherContainer is the container object for which cargo data is required.
 */
 
 params ["_container"];
@@ -36,7 +52,7 @@ private _GetBackpacksArray =
 
     {
         private _class = typeOf _x;
-        private _cargo = [_x] call F90_fnc_generateCargoArray;
+        private _cargo = [_x] call F90_fnc_generateCargoData;
 
         private _currentBackpackArray = [];
 
@@ -49,7 +65,7 @@ private _GetBackpacksArray =
     _backpacksArray;
 };
 
-["generateCargoData", format ["Generating cargo data for container %1.", _container]] call F90_fnc_debug;
+[Persistent_Debug,"generateCargoData", format ["Generating cargo data for container %1.", _container],false] call F90_fnc_debug;
 
 private _itemsArray = ["items", getItemCargo _container];
 private _magazinesArray = ["magazines", magazinesAmmoCargo _container];
@@ -65,5 +81,7 @@ private _cargo =
     _containersArray,
     _backpacksArray
 ];
+
+[Persistent_Debug,"generateCargoData", format ["Cargo data for container %1 successfully generated.", _container],false] call F90_fnc_debug;
 
 _cargo;

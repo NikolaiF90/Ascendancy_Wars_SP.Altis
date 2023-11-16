@@ -1,12 +1,26 @@
 /*
-	Creates an array of given unit's data.
-	If the unit _isLeader, then his group will also be added to a resulting array.
-
-	Returns a generated data array.
+	Author: PrinceF90 
+ 
+    Description: 
+    Function to generate data for a given unit and returns an array containing various information about the unit, such as its class, damage, position, loadout, skills, variables, orders, assigned team, and more. If the unit is on a vehicle, it also includes information about the vehicle and its crew. 
+    
+    Parameters: 
+    0: OBJECT - _unit: The unit for which data is generated. 
+    1: BOOL - _isLeader: A flag indicating whether the unit is a leader or not. 
+    
+    Returns: 
+    ARRAY - An array containing detailed information about the unit, its vehicle (if applicable), and its group (if the unit is a leader). 
+    
+    Examples: 
+    // Generate unit data for a player unit 
+    _unitData = [_playerUnit, true] call F90_fnc_generateUnitData; 
+    
+    // Generate unit data for an AI unit 
+    _unitData = [_aiUnit, false] call F90_fnc_generateUnitData;
 */
 params ["_unit", "_isLeader"];
 
-["generateUnitData", format["Generating data for %1 (isLeader = %2)", _unit, _isLeader]] call F90_fnc_debug;
+[Persistent_Debug, "generateUnitData", format["Generating data for %1 (isLeader = %2)", _unit, _isLeader], false] call F90_fnc_debug;
 
 private _GenerateOrdersArray =
 {
@@ -114,7 +128,7 @@ if (vehicle _unit != _unit) then
             private _turretPath = _x # 3;
             private _personTurret = _x # 4;
             _roleData = [_role, _cargoIndex, _turretPath, _personTurret];
-            ["generateUnitData", format ["Role data for %1 generated : %2", _unit, _roleData]] call F90_fnc_debug;
+            [Persistent_Debug, "generateUnitData", format ["Role data for %1 generated : %2", _unit, _roleData], false] call F90_fnc_debug;
         };
     } forEach _vehicleCrew;
     _vehicleData pushBack ["id", [_vehicle] call F90_fnc_addVehiclesToSave];
