@@ -40,13 +40,13 @@ if (Revive_Enabled) then
 };
 _unit setVariable ["Milcash", _money];
 
-private _groupSkill = switch (_side) do 
+private _unitSkill = switch (_side) do 
 {
 	case east: { AWSP_OPFORSkill };
 	case independent: { AWSP_GUERSkill };
 	case west : { AWSP_BLUFORSkill };
 };
-_unit setSkill _groupSkill;
+_unit setSkill _unitSkill;
 [AWSP_Debug, "createUnit", format ["Created unit %1 at %2", _unit, _position], false] call F90_fnc_debug;
 
 _unit;
