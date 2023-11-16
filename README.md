@@ -25,7 +25,7 @@ _Remember, every choice matters. The outcome of this mission rests in your hands
 
 ## Getting Started
 
-See [Mission Guide](https://github.com/NikolaiF90/AWSPDocs/tree/main)
+[![Static Badge](https://img.shields.io/badge/Mission_Guide-teal?style=plastic&logo=github&labelColor=black)](https://github.com/NikolaiF90/AWSPDocs/tree/main)
 
 ### Why Ascendancy Wars?
 
