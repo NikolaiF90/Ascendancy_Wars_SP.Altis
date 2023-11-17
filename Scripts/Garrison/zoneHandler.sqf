@@ -76,6 +76,7 @@ while {true} do
 				for "_i" from 0 to (_cacheCount)-1 do 
 				{
 					private _unitCount = _cachedGroup # _i;
+					if (_unitCount == 0) exitWith { [Garrison_Debug, "zoneHandler", format["%1 can't spawn group %2 as the group has no units in it.",_zoneMarker, _i], true] call F90_fnc_debug };
 
 					[Garrison_Debug, "zoneHandler", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount], true] call F90_fnc_debug;
 					private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
@@ -146,7 +147,7 @@ while {true} do
 				_inactiveGroups pushBack _x;
 			};
 		} forEach _spawnedGroupArray;
-		_spawnedGroupArray - _inactiveGroups;
+		_spawnedGroupArray = _spawnedGroupArray - _inactiveGroups;
 		_groupCount = count _activeGroups;
 	};
 

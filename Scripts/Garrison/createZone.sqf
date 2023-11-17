@@ -102,6 +102,7 @@ if (_isCapturedZone) then
 _zoneTrigger setVariable ["Zone_GroupCount", _garrisonGroupCount];
 _zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
 
-[Garrison_Debug, "createZone", format["Zone %1 created with %2 unit(s)",_zoneMarker, (count _cachedGroup)], false] call F90_fnc_debug;
+[Garrison_Debug, "createZone", format["Zone %1 created with %2 group(s)",_zoneMarker, (count _cachedGroup)], false] call F90_fnc_debug;
+[Garrison_Debug, "createZone", format["Zone %1 cached groups : %2 ",_zoneMarker, _cachedGroup], false] call F90_fnc_debug;
 
 [_zoneData, _garrisonGroupCount] spawn F90_fnc_zoneHandler;

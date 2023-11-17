@@ -1,32 +1,36 @@
-// =========================================================================================================
-//  Urban Patrol Script  
-//  Version: 2.2.0
-//  Author: Kronzky (www.kronzky.info / kronzky@gmail.com)
-// ---------------------------------------------------------------------------------------------------------
-//  Required parameters:
-//    unit          = Unit to patrol area (1st argument)
-//    markername    = Name of marker that covers the active area. (2nd argument)
-//    (e.g. nul=[this,"town"] execVM "ups.sqf")
-//
-//  Optional parameters: 
-//    random        = Place unit at random start position.
-//    randomdn      = Only use random positions on ground level.
-//    randomup      = Only use random positions at top building positions. 
-//    min:n/max:n   = Create a random number (between min and max) of 'clones'.
-//    init:string   = Cloned units' init string. (NOT in Arma3!)
-//    prefix:string = Cloned units' names will start with this prefix.
-//    nomove        = Unit will stay at start position until enemy is spotted.
-//    nofollow      = Unit will only follow an enemy within the marker area.
-//    delete:n      = Delete dead units after 'n' seconds.
-//    nowait        = Do not wait at patrol end points.
-//    noslow        = Keep default behaviour of unit (don't change to "safe" and "limited").
-//    noai          = Don't use enhanced AI for evasive and flanking maneuvers.
-//    showmarker    = Display the area marker.
-//    trigger       = Display a message when no more units are left in sector.
-//    empty:n       = Consider area empty, even if 'n' units are left.
-//    track         = Display a position and destination marker for each unit.
-//
-// =========================================================================================================
+/*
+	Author: Kronzky
+ 
+	Description: 
+	Script to make specified unit, along with its group to patrol specified area.
+	
+	Parameter(s): 
+	0: OBJECT - _unit:  Unit to patrol area.
+	1: STRING - _marker: Name of marker that covers the active area.
+	3: STRING - _special: Can be one of:
+		- "RANDOM": Place unit at random start position.
+		- "RANDOMDN": Only use random positions on ground level.
+		- "RANDOMUP": Only use random positions at top building positions.
+		- "MIN:n/MAX:n": Create a random number (between min and max) of 'clones'.
+		- "INIT:string": Cloned units' init string. (NOT in Arma3!).
+		- "PREFIX:string": Cloned units' names will start with this prefix.
+		- "NOMOVE": Unit will stay at start position until enemy is spotted.
+		- "NOFOLLOW": Unit will only follow an enemy within the marker area.
+		- "DELETE:n": Delete dead units after 'n' seconds.
+		- "NOWAIT": Do not wait at patrol end points.
+		- "NOSLOW": Keep default behaviour of unit (don't change to "safe" and "limited").
+		- "NOAI": Don't use enhanced AI for evasive and flanking maneuvers.
+		- "SHOWMARKER": Display the area marker.
+		- "TRIGGER": Display a message when no more units are left in sector.
+		- "EMPTY:n": Consider area empty, even if 'n' units are left.
+		- "TRACK": Display a position and destination marker for each unit.
+	
+	Returns: 
+	None 
+	
+	Examples: 
+	// NONE
+*/
 
 if (!isServer) exitWith {};
 	
