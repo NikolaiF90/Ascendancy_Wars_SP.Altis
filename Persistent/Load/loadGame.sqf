@@ -26,9 +26,12 @@ params ["_slot"];
 
 PSave_LoadInProgress = true;
 
-for "_i" from 0 to (count AWSP_Zones) -1 do 
+if !(isNil {AWSP_Zones}) then 
 {
-	[_i] call F90_fnc_clearZones;
+	for "_i" from 0 to (count AWSP_Zones) -1 do 
+	{
+		[_i] call F90_fnc_clearZones;
+	};
 };
 
 {

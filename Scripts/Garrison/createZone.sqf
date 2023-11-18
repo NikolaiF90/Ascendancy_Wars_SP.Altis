@@ -18,23 +18,23 @@
 */
 params ["_zoneData", "_isCapturedZone", "_attackerGroup"];
 
-private ["_zoneIndex", "_zoneMarker", "_zonePos", "_zoneType", "_zoneSide", "_zoneSize", "_zoneDirection", "_zoneTrigger", "_groupSize"];
+private ["_zoneTrigger", "_groupSize"];
 
-_zoneIndex = _zoneData # 0;
-_zoneMarker = _zoneData # 1;
-_zonePos = _zoneData # 2;
-_zoneType = _zoneData # 3;
-_zoneSide = _zoneData # 4;
+private _zoneIndex = _zoneData # 0;
+private _zoneMarker = _zoneData # 1;
+private _zonePos = _zoneData # 2;
+private _zoneType = _zoneData # 3;
+private _zoneSide = _zoneData # 4;
 
 if (isNil {_isCapturedZone}) then {_isCapturedZone = false} else {_isCapturedZone = _isCapturedZone};
 
-_zoneSize = getMarkerSize _zoneMarker;
-_zoneDirection = markerDir _zoneMarker;
+private _zoneSize = getMarkerSize _zoneMarker;
+private _zoneDirection = markerDir _zoneMarker;
 
 if (count AWSP_ZoneTrigger > _zoneIndex) then 
 {
 	_zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
-	if !(isNil {_zoneTrigger}) then {[Garrison_Debug, "createZone", format["Trigger %1 assigned to %2",_zoneTrigger,_zoneMarker], false] call F90_fnc_debug;};
+	if !(isNil {_zoneTrigger}) then {[Garrison_Debug, "createZone", format["Trigger %1 assigned to %2(%3)",_zoneTrigger,_zoneMarker,_zoneSide], false] call F90_fnc_debug;};
 };
 
 if (isNil {_zoneTrigger}) then 
@@ -45,7 +45,7 @@ if (isNil {_zoneTrigger}) then
 	_zoneTrigger setTriggerTimeout [1, 1, 1, true];
 	_zoneTrigger setTriggerStatements ["{vehicle _x in thisList && isPlayer _x} count allUnits > 0", "", ""];
 	AWSP_ZoneTrigger set [_zoneIndex, _zoneTrigger];
-	[Garrison_Debug, "createZone", format["Trigger %1 created for %2",_zoneTrigger,_zoneMarker], false] call F90_fnc_debug;
+	[Garrison_Debug, "createZone", format["Trigger %1 created for %2(%3)",_zoneTrigger,_zoneMarker,_zoneSide], false] call F90_fnc_debug;
 };
 
 private _zoneIcon = [_zoneMarker, _zoneType, _zoneSide] call F90_fnc_createIcon;
@@ -102,7 +102,7 @@ if (_isCapturedZone) then
 _zoneTrigger setVariable ["Zone_GroupCount", _garrisonGroupCount];
 _zoneTrigger setVariable ["Zone_CachedGroup", _cachedGroup];
 
-[Garrison_Debug, "createZone", format["Zone %1 created with %2 group(s)",_zoneMarker, (count _cachedGroup)], false] call F90_fnc_debug;
-[Garrison_Debug, "createZone", format["Zone %1 cached groups : %2 ",_zoneMarker, _cachedGroup], false] call F90_fnc_debug;
+[Garrison_Debug,"createZone",format["Zone %1(%2) created with %3 group(s)",_zoneMarker,_zoneSide,(count _cachedGroup)],false] call F90_fnc_debug;
+[Garrison_Debug,"createZone",format["Zone %1(%2) cached groups : %3 ",_zoneMarker,_zoneSide,_cachedGroup],false] call F90_fnc_debug;
 
 [_zoneData, _garrisonGroupCount] spawn F90_fnc_zoneHandler;
