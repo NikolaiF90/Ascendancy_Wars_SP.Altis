@@ -62,6 +62,14 @@ AWSP_ZoneMarkers =
 _tempZones = ["AWSPZones", _slot] call F90_fnc_loadData;
 AWSP_Zones = _tempZones;
 
+private ["_marker","_side"];
+["AWSPZones", AWSP_Zones, _slot] call F90_fnc_saveData;
+{
+	_marker = _x # 1;
+	_side = _x # 4;
+	[Persistent_Debug, "loadGarrison", format["Loaded data = %1(%2)",_marker,_side], false] call F90_fnc_debug;
+} forEach AWSP_Zones;
+
 _zoneTriggers = ["ZoneTriggers", _slot] call f90_fnc_loadData;
 for "_i" from 0 to (count _zoneTriggers)-1 do 
 {
@@ -69,8 +77,5 @@ for "_i" from 0 to (count _zoneTriggers)-1 do
 	private _trigger = [_data] call F90_fnc_loadTriggerData;
 	AWSP_ZoneTrigger set [_i, _trigger];
 };
-
-_tempZoneIcons = ["AWSPZoneIcons", _slot] call F90_fnc_loadData;
-AWSP_ZoneIcons = _tempZoneIcons;
 
 [Persistent_Debug, "loadGarrison", "Done loading garrison data from file.", false] call F90_fnc_debug;

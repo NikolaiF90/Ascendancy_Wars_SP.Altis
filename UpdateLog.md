@@ -12,3 +12,6 @@ Version 1.8.3a
 
 ## Bug Fixes and Optimizations
 - Information not provided by the developer.
+
+## Todo
+- Create new function to update zones

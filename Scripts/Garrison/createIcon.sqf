@@ -85,4 +85,5 @@ if (_zoneType != "BASE") then
 	};
 };
 
+[Garrison_Debug,"createIcon",format["Icon created for %1 : %2", _marker, _side],false] call F90_fnc_debug;
 _zoneIcon;

@@ -1,15 +1,30 @@
 /*
-	Stores map markers.
-	Data is saved to given save _slot.
+	Author: PrinceF90 
+ 
+    Description: 
+    This script saves map markers to a specified slot. It retrieves information about existing map markers, excluding specific zone icons, and stores them in an array. The array is then passed to a function that saves the data. 
+    
+    Parameter(s): 
+    0: SCALAR - _slot: The slot number where the map markers will be saved. 
+    
+    Returns: 
+    None 
+    
+    Examples: 
+    // Example 1: Saving map markers to slot 1 
+    [1] call F90_fnc_saveMapMarkers; 
+    
+    // Example 2: Saving map markers to slot 2 
+    [2] call F90_fnc_saveMapMarkers;
 */
 
 params ["_slot"];
 
-["saveMapMarkers",format ["Saving map markers to save slot %1.", _slot]] call F90_fnc_debug;
+[Persistent_Debug,"saveMapMarkers",format["Saving map markers to save slot %1.",_slot],false] call F90_fnc_debug;
 
 private _markersArray = [];
 private _userMarkersCounter = 1;
-private _allMarkers = allMapMarkers;
+private _allMarkers = allMapMarkers - AWSP_ZoneIcons;
 
 {
     private _marker = [];

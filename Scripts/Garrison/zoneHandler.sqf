@@ -76,9 +76,9 @@ while {true} do
 				for "_i" from 0 to (_cacheCount)-1 do 
 				{
 					private _unitCount = _cachedGroup # _i;
-					if (_unitCount == 0) exitWith { [Garrison_Debug, "zoneHandler", format["%1 can't spawn group %2 as the group has no units in it.",_zoneMarker, _i], true] call F90_fnc_debug };
+					if (_unitCount == 0) exitWith { [Garrison_Debug, "zoneHandler", format["%1(%2) can't spawn group %3 as the group has no units in it.",_zoneMarker, _zoneSide, _i], true] call F90_fnc_debug };
 
-					[Garrison_Debug, "zoneHandler", format["%1 spawned group %2 with %3 units",_zoneMarker, _i, _unitCount], true] call F90_fnc_debug;
+					[Garrison_Debug, "zoneHandler", format["%1(%2) spawned group %3 with %4 units",_zoneMarker, _zoneSide, _i, _unitCount], true] call F90_fnc_debug;
 					private _spawnedGroup = [_zoneMarker, _zoneSide, _unitCount] call F90_fnc_spawnGroup;
 					_spawnedGroupArray pushBack _spawnedGroup;
 				};
@@ -112,7 +112,7 @@ while {true} do
 						deleteVehicle _x;
 					} forEach _activeUnits;
 					deleteGroup _x;
-					[Garrison_Debug, "zoneHandler", format["%1 despawned %2 units from group no.%3",_zoneMarker,_activeUnitsCount,_forEachIndex], true] call F90_fnc_debug;
+					[Garrison_Debug, "zoneHandler", format["%1(%2) despawned %3 units from group no.%4",_zoneMarker,_zoneSide,_activeUnitsCount,_forEachIndex], true] call F90_fnc_debug;
 				}else
 				{
 					_cachedGroup set [_forEachIndex,0];
