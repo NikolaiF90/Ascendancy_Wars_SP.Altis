@@ -4,9 +4,10 @@
 
 params ["_slot"];
 
-["saveGarrison", format["Saving garrisons data to slot %1",_slot]] call F90_fnc_debug;
+[Persistent_Debug, "saveGarrison", format["Saving garrisons data to slot %1",_slot], false] call F90_fnc_debug;
 
-["AWSPZones", AWSP_Zones, _slot] call F90_fnc_saveData;
+private _AWSPZones = AWSP_Zones + [];
+["AWSPZones", _AWSPZones, _slot] call F90_fnc_saveData;
 
 // Convert zone triggers into saveable data
 private _zoneTriggers  = [];
@@ -19,4 +20,3 @@ for "_i" from 0 to (count AWSP_ZoneTrigger)-1 do
 };
 
 ["ZoneTriggers", _zoneTriggers, _slot] call F90_fnc_saveData;
-["AWSPZoneIcons", AWSP_ZoneIcons, _slot] call F90_fnc_saveData;

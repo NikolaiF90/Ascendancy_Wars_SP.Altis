@@ -26,19 +26,34 @@ params ["_slot"];
 
 PSave_LoadInProgress = true;
 
-for "_i" from 0 to (count AWSP_Zones) -1 do 
+if !(isNil {AWSP_Zones}) then 
 {
-	[_i] call F90_fnc_clearZones;
+	for "_i" from 0 to (count AWSP_Zones) -1 do 
+	{
+		[_i] call F90_fnc_clearZones;
+	};
 };
 
 {
 	deleteVehicle _x;
 } forEach allDead;
-/*
+
+//	Delete injured units (if any) on load game
+//	Delete non script spawned units (e.g zeus spawned)
 {
-	deleteVehicle _x;
+	private _unit = _x;
+	private _isScriptSpawned = _unit getVariable "IsScriptSpawned";
+
+	if (isNil {_isScriptSpawned}) then 
+	{
+		deleteVehicle _unit;
+	};
+	
+	if (captive _unit && (lifeState _unit == "INCAPACITATED")) then 
+	{
+		deleteVehicle _unit;
+	};
 } forEach allUnits - [commanderX];
-*/
 
 PSave_NextVehicleId = 1;
 

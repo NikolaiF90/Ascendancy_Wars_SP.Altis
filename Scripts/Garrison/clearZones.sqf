@@ -25,18 +25,20 @@ private _zoneName = _zoneData # 1;
 private _zoneTrigger = AWSP_ZoneTrigger # _zoneIndex;
 private _zoneIcon = AWSP_ZoneIcons # _zoneIndex;
 
-if ((isNil {_zoneTrigger})&&(isNil {_zoneIcon})) exitWith {[Garrison_Debug, "clearZones","No zones to clear", true] call F90_fnc_debug};
-[Garrison_Debug,"clearZones",format["Now clearing zone %1(%2)", _zoneIndex, _zoneName],true] call F90_fnc_debug;
+[Garrison_Debug,"clearZones",format["Now clearing zone %1(%2)",_zoneIndex,_zoneName],true] call F90_fnc_debug;
+if ((isNil {_zoneTrigger})&&(isNil {_zoneIcon})) exitWith {[Garrison_Debug,"clearZones",format["Nothing to clear in zone %1(%2)",_zoneIndex,_zoneName],true] call F90_fnc_debug};
 
 if !(isNil {_zoneTrigger}) then 
 {
 	deleteVehicle _zoneTrigger;
 	AWSP_ZoneTrigger set [_zoneIndex, nil];
+	[Garrison_Debug,"clearZones",format["Trigger for zone %1(%2) deleted.",_zoneIndex,_zoneName],true] call F90_fnc_debug;
 };
 if !(isNil {_zoneIcon}) then 
 {
 	deleteMarker _zoneIcon;
 	AWSP_ZoneIcons set [_zoneIndex, nil];
+	[Garrison_Debug,"clearZones",format["Icon for zone %1(%2) deleted.",_zoneIndex,_zoneName],true] call F90_fnc_debug;
 };
 
-[Garrison_Debug, "clearZones", format["Trigger and icon of zone %1(%2) deleted. Done clearing zone", _zoneIndex, _zoneName], true] call F90_fnc_debug;
+[Garrison_Debug,"clearZones",format["Done clearing zone %1(%2).",_zoneIndex,_zoneName],true] call F90_fnc_debug;
