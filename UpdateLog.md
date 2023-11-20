@@ -2,13 +2,14 @@
 Version 1.8.3a
 
 ## New Features
-- Revive: Player now can choose to suicide if there are no teammates to revive him or if he decided to give up.
+- Revive: Players now have the option to choose suicide if there are no teammates available to revive them or if they decide to give up. 
 
 ## Adjustments
-- Information not provided by the developer.
+- No information provided by the developer. 
 
 ## Functionality Enhancements
-- Information not provided by the developer.
+- No information provided by the developer. 
 
 ## Bug Fixes and Optimizations
-- Zone System: Fixed a bug where zones would persist even if the player did not save their progress.
+- Zone System: Resolved an issue where zones would persist even if the player did not save their progress. 
+- Non-script-spawned units will now be automatically deleted upon game start or when loading persistent saves.

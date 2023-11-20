@@ -25,6 +25,23 @@ if (count Persistent_VehiclesToSave > 0) then
 	Persistent_VehiclesToSave = [];
 };
 
+//	Delete injured units (if any) on load game
+//	Delete non script spawned units (e.g zeus spawned)
+{
+	private _unit = _x;
+	private _isScriptSpawned = _unit getVariable "IsScriptSpawned";
+
+	if (isNil {_isScriptSpawned}) then 
+	{
+		deleteVehicle _unit;
+	};
+	
+	if (captive _unit && (lifeState _unit == "INCAPACITATED")) then 
+	{
+		deleteVehicle _unit;
+	};
+} forEach allUnits - [commanderX];
+
 //	Delete all units under player command
 if (count units group player > 1) then 
 {
