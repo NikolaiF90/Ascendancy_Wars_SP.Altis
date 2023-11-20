@@ -13,9 +13,9 @@
 	Examples: 
 		[] call F90_fnc_deadMenuLoad;
 */
-[Persistent_Debug, "deadMenuLoad", "Loading previously saved game", true] call F90_fnc_debug;
 
 DeadMenuList_SelectedList = [DeadMenu_ListBox] call F90_fnc_getSelectedList;
 if(DeadMenuList_SelectedList == -1)then{DeadMenuList_SelectedList = 0}; 
+[Persistent_Debug, "deadMenuLoad", format ["Loading previously saved game from slot %1", DeadMenuList_SelectedList], true] call F90_fnc_debug;
 
 [DeadMenuList_SelectedList] call F90_fnc_loadGame;

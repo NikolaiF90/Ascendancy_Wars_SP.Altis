@@ -31,7 +31,6 @@ class CfgFunctions
 		    class ClearSave {};
 		    class LoadData {};
 			class SaveData {};
-			class LoadGame {};
 			class SaveGame {};
 		};
 		

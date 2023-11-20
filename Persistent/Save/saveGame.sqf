@@ -4,7 +4,7 @@
 
 params ["_slot"];
 
-PSave_SaveInProgress = true;
+//PSave_SaveInProgress = true;
 
 {
 	[_x, [_slot]] call F90_fnc_compileCode;
@@ -33,7 +33,7 @@ PSave_SaveInProgress = true;
 
 saveProfileNamespace;
 
-PSave_SaveInProgress = false;
+//PSave_SaveInProgress = false;
 doneSaving = true;
 hint format ["Persistent save done on slot %1.", _slot];
 [Persistent_Debug, "saveGame", format ["Done saving data into slot %1", _slot], true] call F90_fnc_debug;
