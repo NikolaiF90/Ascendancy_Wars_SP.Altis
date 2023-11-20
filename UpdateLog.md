@@ -11,7 +11,4 @@ Version 1.8.3a
 - Information not provided by the developer.
 
 ## Bug Fixes and Optimizations
-- Information not provided by the developer.
-
-## Todo
-- Create new function to update zones
+- Zone System: Fixed a bug where zones would persist even if the player did not save their progress.

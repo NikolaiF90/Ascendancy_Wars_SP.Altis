@@ -7,7 +7,6 @@ Garrison_SpawnDistance = 350; // Distance of player from the zone (in meters) fo
 Garrison_HeightLimit = false; // true, the zone will ignore spawning if player is in helicopter
 Garrison_CheckInterval = 3; // Time in seconds to check for player presence in each zone
 Garrison_ThreatRange = 5; // Distance other units from the zone until garrison detects them as a threat
-configureGarrisonDone = true;
 
 AWSP_WestUnits = 
 [
@@ -44,3 +43,36 @@ AWSP_IndependentUnits =
 	"I_Soldier_AR_F",
 	"I_Soldier_A_F"
 ];
+
+AWSP_ZoneMarkers = 
+[
+	"respawn_guerrila",
+
+	"outpost_0",
+	"outpost_1",
+	"outpost_2",
+	"outpost_3",
+	"outpost_4",
+	"outpost_5",
+	"outpost_6", 
+	"outpost_7",
+
+	"resource_0",
+	"resource_1",
+	"resource_2",
+	"resource_3",
+	"resource_4",
+	"resource_5",
+	"resource_6",
+	"resource_7",
+	"resource_8",
+
+	"factory_0",
+	"factory_1",
+
+	"airport_0",
+	"airport_1",
+	"airport_2"
+];
+
+configureGarrisonDone = true;
