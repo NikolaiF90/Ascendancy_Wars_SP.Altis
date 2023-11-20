@@ -58,7 +58,7 @@ PSave_AfterSaveEH = [];
 // DON'T CHANGE THESE VARIABLES VALUES MANUALLY IN THIS FILE!
 // ------------------------------------------------------------------------------------
 PSave_LoadInProgress = false;
-PSave_SaveInProgress = false;
+//PSave_SaveInProgress = false;
 PSave_NextVehicleId = 1; // used only when storing vehicles, which have saved units inside
 
 [Persistent_Debug, "initPersistent", "Done intializing persistent save system", false] call F90_fnc_debug;
