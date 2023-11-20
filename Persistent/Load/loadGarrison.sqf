@@ -26,49 +26,10 @@ AWSP_Zones = [];
 AWSP_ZoneTrigger = [];
 AWSP_ZoneIcons = [];
 
-AWSP_ZoneMarkers = 
-[
-	"respawn_guerrila",
-
-	"outpost_0",
-	"outpost_1",
-	"outpost_2",
-	"outpost_3",
-	"outpost_4",
-	"outpost_5",
-	"outpost_6", 
-	"outpost_7",
-
-	"resource_0",
-	"resource_1",
-	"resource_2",
-	"resource_3",
-	"resource_4",
-	"resource_5",
-	"resource_6",
-	"resource_7",
-	"resource_8",
-
-	"factory_0",
-	"factory_1",
-
-	"airport_0",
-	"airport_1",
-	"airport_2"
-];
-
 [Persistent_Debug, "loadGarrison", format["Loading garrisons data from slot %1",_slot], false] call F90_fnc_debug;
 
 _tempZones = ["AWSPZones", _slot] call F90_fnc_loadData;
-AWSP_Zones = _tempZones;
-
-private ["_marker","_side"];
-["AWSPZones", AWSP_Zones, _slot] call F90_fnc_saveData;
-{
-	_marker = _x # 1;
-	_side = _x # 4;
-	[Persistent_Debug, "loadGarrison", format["Loaded data = %1(%2)",_marker,_side], false] call F90_fnc_debug;
-} forEach AWSP_Zones;
+AWSP_Zones = _tempZones + [];
 
 _zoneTriggers = ["ZoneTriggers", _slot] call f90_fnc_loadData;
 for "_i" from 0 to (count _zoneTriggers)-1 do 

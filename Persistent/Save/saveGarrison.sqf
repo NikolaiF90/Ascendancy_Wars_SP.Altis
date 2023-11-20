@@ -6,13 +6,8 @@ params ["_slot"];
 
 [Persistent_Debug, "saveGarrison", format["Saving garrisons data to slot %1",_slot], false] call F90_fnc_debug;
 
-private ["_marker","_side"];
-["AWSPZones", AWSP_Zones, _slot] call F90_fnc_saveData;
-{
-	_marker = _x # 1;
-	_side = _x # 4;
-	[Persistent_Debug, "saveGarrison", format["Saved data = %1(%2)",_marker,_side], false] call F90_fnc_debug;
-} forEach AWSP_Zones;
+private _AWSPZones = AWSP_Zones + [];
+["AWSPZones", _AWSPZones, _slot] call F90_fnc_saveData;
 
 // Convert zone triggers into saveable data
 private _zoneTriggers  = [];
