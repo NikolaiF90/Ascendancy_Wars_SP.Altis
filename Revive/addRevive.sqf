@@ -1,16 +1,18 @@
 /*
-	Code Explanation: 
+	Author: PrinceF90 
  
-	This code is a function in Arma 3 that handles the revive system and damage handling for a unit. Here is a breakdown of the code: 
+	Description: 
+	Function to add functionality for reviving incapacitated units, capturing prisoners, adding a hold revive action for friendly units, and giving kill rewards to the source of damage. 
 	
-	SYNTAX: 
-	[unit] call F90_fnc_addRevive; 
+	Parameter(s): 
+		0: OBJECT - _unit: Unit to add revive functionality. 
 	
-	PARAMETERS: 
-	- _unit: Object - The unit for which the revive system and damage handling are performed. 
+	Returns: 
+		None 
 	
-	RETURN: 
-	None 
+	Examples: 
+		// Example usage: 
+		[_unit] call F90_fnc_addRevive; 
 */
 params ["_unit"];
 
@@ -60,9 +62,9 @@ _unit addEventHandler ["HandleDamage",
 			_unit call F90_fnc_addPlayerHoldRevive;
 		};
 
-		if (_unitSide != (side _source)) then 
+		if (!(isNil {_source}) && _unitSide != (side _source)) then 
 		{
-			[""] call F90_fnc_economyHandler;
+			["ADDMONEY", [_source, ECONOMY_KillReward]] call F90_fnc_economyHandler;
 		};
 		_newDmg;
 	}
@@ -76,5 +78,10 @@ _unit addEventHandler ["HandleDamage",
 	{
 		_unit setDamage 1;
 		_currentDamage;
+
+		if (!(isNil {_source}) && _unitSide != (side _source)) then 
+		{
+			["ADDMONEY", [_source, ECONOMY_KillReward]] call F90_fnc_economyHandler;
+		};
 	};
 }];
