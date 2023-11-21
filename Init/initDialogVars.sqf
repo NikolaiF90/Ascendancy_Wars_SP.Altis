@@ -1,3 +1,8 @@
+VehicleShop_ListBox = 5001;
+VehicleShop_Button = 5002;
+VehicleShop_PriceText = 5003;
+VehicleShop_MoneyText = 5004;
+
 DeadMenu_ListBox = 1500;
 
 StartMenu_Main = 1002;

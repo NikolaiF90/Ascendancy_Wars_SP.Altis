@@ -13,13 +13,18 @@
 	Examples: 
 		[] call F90_fnc_showDeadMenu;
 */
-createDialog "deadMenu";
+while {Killed_ChoiceMade == false} do
+{
+	if (!dialog) then 
+	{
+		createDialog "deadMenu";
 
-DeadMenuList_SelectedList = [DeadMenu_ListBox] call F90_fnc_getSelectedList;
-if(DeadMenuList_SelectedList == -1)then{DeadMenuList_SelectedList = 0};
-[DeadMenu_ListBox] call F90_fnc_updateSlotList;
-
-Killed_ChoiceMade = false;
+		DeadMenuList_SelectedList = [DeadMenu_ListBox] call F90_fnc_getSelectedList;
+		if(DeadMenuList_SelectedList == -1)then{DeadMenuList_SelectedList = 0};
+		[DeadMenu_ListBox] call F90_fnc_updateSlotList;
+	};
+	sleep 2;
+};
 waitUntil {Killed_ChoiceMade};
 
 if (dialog) then 

@@ -28,6 +28,7 @@ class F90
 		class dialogSave 		{file = "Scripts\Dialog\dialogSave.sqf";};
 		class getSelectedList 	{file = "Scripts\Dialog\getSelectedList.sqf";};
 		class openInfoTab 		{file = "Scripts\Dialog\openInfoTab.sqf";};
+		class updateListbox		{file = "Scripts\Dialog\updateListbox.sqf";};
 		class updatePlayerInfo 	{file = "Scripts\Dialog\updatePlayerInfo.sqf";};
 		class updateSlotList	{file = "Scripts\Dialog\updateSlotList.sqf";};
 
@@ -160,5 +161,11 @@ class F90
 		class configureShop 	{file = "Scripts\Shop\configureShop.sqf";};
 		class showRecruitMenu 	{file = "Scripts\Shop\showRecruitMenu.sqf";};
 		class spawnRecruit 		{file = "Scripts\Shop\Recruit\spawnRecruit.sqf";};	
+
+		// SHOP >> VehicleShop
+		class addVehicleShop		{file = "Scripts\Shop\VehicleShop\addVehicleShop.sqf";};
+		class purchaseVehicle		{file = "Scripts\Shop\VehicleShop\purchaseVehicle.sqf";};
+		class updateMoneyText		{file = "Scripts\Shop\VehicleShop\updateMoneyText.sqf";};
+		class updateVehiclePrice 	{file = "Scripts\Shop\VehicleShop\updateVehiclePrice.sqf";};
 	};
 };
