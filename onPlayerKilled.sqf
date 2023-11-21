@@ -19,6 +19,8 @@
 params ["_oldUnit", "_killer", "_respawn", "_respawnDelay"];
 
 Respawn_Debug = true;
+Killed_ChoiceMade = false;
+
 [Respawn_Debug, "onPlayerKilled", format ["%1 killed", _oldUnit], true] call F90_fnc_debug;
 
 private _fnc_elevateCamera = 

@@ -25,6 +25,9 @@ waitUntil {time > 0};
 
 [] spawn 
 {
+    private _suicideActionShown = false;
+    private _suicideAction = nil;
+    
     while {true} do 
     {
         {
@@ -53,8 +56,9 @@ waitUntil {time > 0};
             {
                 if ((lifeState _x == "INCAPACITATED")) then 
                 {
-                    if (isNil {_suicideAction}) then 
+                    if !(_suicideActionShown) then 
                     {
+                        _suicideActionShown = true;
                         _suicideAction = commanderX addAction ["Suicide", 
                         {
                             params ["_target", "_caller", "_actionId", "_arguments"];
@@ -64,10 +68,14 @@ waitUntil {time > 0};
                     };
                 } else 
                 {
-                    if !(isNil {_suicideAction}) then
+                    if (_suicideActionShown) then
                     {
-                        _x removeAction _suicideAction;
-                        _suicideAction = nil;
+                        if !(isNil {_suicideAction}) then 
+                        {
+                            _suicideActionShown = false;
+                            _x removeAction _suicideAction;
+                            _suicideAction = nil;
+                        };
                     };
                 };   
             };
