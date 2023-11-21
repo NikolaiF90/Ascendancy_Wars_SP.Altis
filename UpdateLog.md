@@ -12,3 +12,4 @@ Version 1.9.0a
 
 ## Bug Fixes and Optimizations
 - Revive: Fixed a bug where option to suicide appear many times.
+- Revive: Resolved an issue where dead menu won't shown again if player accidentally closed it.
