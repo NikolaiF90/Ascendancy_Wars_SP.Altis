@@ -8,7 +8,7 @@ Version 1.9.1a
 - No information provided by the developer. 
 
 ## Functionality Enhancements
-- No information provided by the developer. 
+- Killing enemy will now rewards player with milcash.
 
 ## Bug Fixes and Optimizations
 - No information provided by the developer.
