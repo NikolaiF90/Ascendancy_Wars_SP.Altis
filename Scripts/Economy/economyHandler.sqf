@@ -9,7 +9,7 @@
 		1: ANY - _args: The arguments for the specified operation. Can be OBJECT or ARRAY depending on the operation.
 	
 	Returns: 
-		The return value depends on the operation performed. It can be the current amount of money for a unit or None if no return value is applicable. 
+		ANY - The return value depends on the operation performed. It can be the current amount of money for a unit or None if no return value is applicable. 
 	
 	Examples: 
 		// Get the current amount of money for a unit 

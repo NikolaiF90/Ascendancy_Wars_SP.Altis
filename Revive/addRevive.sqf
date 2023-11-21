@@ -59,6 +59,11 @@ _unit addEventHandler ["HandleDamage",
 		{
 			_unit call F90_fnc_addPlayerHoldRevive;
 		};
+
+		if (_unitSide != (side _source)) then 
+		{
+			[""] call F90_fnc_economyHandler;
+		};
 		_newDmg;
 	}
 	else
