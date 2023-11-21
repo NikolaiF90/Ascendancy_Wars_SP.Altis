@@ -1,8 +1,8 @@
 # Ascendancy Wars SP Update
-Version 1.8.3a
+Version 1.9.0a
 
 ## New Features
-- Revive: Players now have the option to choose suicide if there are no teammates available to revive them or if they decide to give up. 
+- Vehicle Shop: Player now have the ability to buy boats, cars, van, truck, helicopters and even a fighter jet. 
 
 ## Adjustments
 - No information provided by the developer. 
@@ -11,5 +11,4 @@ Version 1.8.3a
 - No information provided by the developer. 
 
 ## Bug Fixes and Optimizations
-- Zone System: Resolved an issue where zones would persist even if the player did not save their progress. 
-- Non-script-spawned units will now be automatically deleted upon game start or when loading persistent saves.
+- Revive: Fixed a bug where option to suicide appear many times.
