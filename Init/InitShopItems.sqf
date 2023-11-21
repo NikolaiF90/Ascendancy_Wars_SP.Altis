@@ -2068,7 +2068,7 @@ Shop_GUERVehiclesOnShop =
 	["I_E_Van_02_transport_MP_F", "Van Transport (MP)", 4000],
 	["I_E_Van_02_medevac_F", "Van (Ambulance)", 4500],
 	["I_E_Truck_02_EMP_F", "Zamak Transport (Covered)", 5000],
-	["I_E_Truck_02_transport_EMP_F", "Zamak Transport", 4500]
+	["I_E_Truck_02_transport_EMP_F", "Zamak Transport", 4500],
 	["I_UAV_01_F", "AR-2 Darter", 2500],
 	["I_UAV_02_dynamicLoadout_F", "K40 Ababil-3", 6000],
 	["I_UGV_01_F", "UGV Stomper", 4000],
