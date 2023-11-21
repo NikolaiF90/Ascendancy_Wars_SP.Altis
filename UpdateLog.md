@@ -1,8 +1,8 @@
 # Ascendancy Wars SP Update
-Version 1.9.0a
+Version 1.9.1a
 
 ## New Features
-- Vehicle Shop: Player now have the ability to buy boats, cars, van, truck, helicopters and even a fighter jet. 
+- No information provided by the developer.
 
 ## Adjustments
 - No information provided by the developer. 
@@ -11,5 +11,4 @@ Version 1.9.0a
 - No information provided by the developer. 
 
 ## Bug Fixes and Optimizations
-- Revive: Fixed a bug where option to suicide appear many times.
-- Revive: Resolved an issue where dead menu won't shown again if player accidentally closed it.
+- No information provided by the developer.

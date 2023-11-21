@@ -1,3 +1,30 @@
+/*
+	Author: PrinceF90 
+ 
+	Description: 
+		This function is an economy handler that performs various operations related to money. It can get the current amount of money for a unit, set the amount of money for a unit, add money to the unit's current amount, or deduct money from the unit's current amount. 
+	
+	Parameter(s): 
+		0: STRING - _operation: The operation to be performed. Possible values are "GETMONEY", "SETMONEY", "ADDMONEY", or "DEDUCTMONEY". 
+		1: ANY - _args: The arguments for the specified operation. Can be OBJECT or ARRAY depending on the operation.
+	
+	Returns: 
+		The return value depends on the operation performed. It can be the current amount of money for a unit or None if no return value is applicable. 
+	
+	Examples: 
+		// Get the current amount of money for a unit 
+		["GETMONEY", [player]] call economyHandler; 
+	
+		// Set the amount of money for a unit 
+		["SETMONEY", [player, 5000]] call economyHandler; 
+	
+		// Add money to the unit's current amount 
+		["ADDMONEY", [player, 1000]] call economyHandler; 
+	
+		// Deduct money from the unit's current amount 
+		["DEDUCTMONEY", [player, 2000]] call economyHandler;
+*/
+
 params ["_operation", "_args"];
 
 private _returnValue = nil;
