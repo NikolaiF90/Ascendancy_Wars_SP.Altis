@@ -20,7 +20,7 @@ Ambient_HouseScannerRadius = 300; // NUMBER - The radius in meters to scan for h
 //	Ambient Parking Setting. Doesn't matter if feature is turned off
 Ambient_ParkingEnabled = true;	// BOOLEAN - Enables or disables ambient parking. True will spawn parked cars. 
 Ambient_EnableAlarm = true;	// BOOLEAN - Enables or disables car alarms going off if stolen by the player.
-Ambient_ParkingSpawnChance = 30; // NUMBER - The percentage chance that a house will spawn a parked car. 
+Ambient_ParkingSpawnChance = 20; // NUMBER - The percentage chance that a house will spawn a parked car. 
 Ambient_WreckSpawnChance = 2; // NUMBER - The percentage chance that spawned cars will be wrecked. 
 Ambient_ParkingDespawnDistance = 400; // NUMBER - The range in meters for a vehicle to despawn
 
